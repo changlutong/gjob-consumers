@@ -1,0 +1,47 @@
+$('form').bootstrapValidator({
+　　　　　　　　message: 'This value is not valid',
+            　feedbackIcons: {
+                　　　　　　　　valid: 'glyphicon glyphicon-ok',
+                　　　　　　　　invalid: 'glyphicon glyphicon-remove',
+                　　　　　　　　validating: 'glyphicon glyphicon-refresh'
+            　　　　　　　　   },
+            fields: {
+                username: {
+                    message: '用户名验证失败',
+                    validators: {
+                        notEmpty: {	//非空验证
+                            message: '用户名不能为空'
+                        },
+			stringLength: {	//字符串长度验证
+                            min: 6,
+                            max: 18,
+                            message: '用户名长度必须在6到18位之间'
+                        },
+                        regexp: {	//正则表达式验证
+                            regexp: /^[a-zA-Z0-9_]+$/,
+                            message: '用户名只能包含大写、小写、数字和下划线'
+                        },
+			emailAddress: {	//邮箱地址验证
+                            message: '邮箱地址格式有误'
+                        }
+                    }
+                },
+            }
+        });
+/*
+base64：64位编码验证；
+
+between：验证输入值必须在某一个范围值以内，比如大于10小于100；
+
+creditCard：身份证验证；
+
+date：日期验证；
+
+ip：IP地址验证；
+
+numeric：数值验证；
+
+phone：电话号码验证；
+
+uri：url验证；
+*/

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script type="text/javascript">
+		var user = {};  
+		user.name = $("#name").val();  
+		user.password = $("#password").val();  
+		var jsonStr = JSON.stringify(user);  //js对象转json对象
+		//var json2Object = JSON.parse(jsonStr,function(k,y){return});  //json字符串转js对象
+		$.ajax({ 
+			url : "jsonPost",  
+			type : "post",  
+			data : jsonStr,
+			//data:$("#form").serialize();
+			//contentType :"application/x-www-form-urlencoded; charset=UTF-8",//form表单提交解决乱码
+			//contentType:"application/json;charset=UTF-8",//json字符串提交解决乱码
+			async:false,			 
+			processData : false, //当设置为true的时候,jquery ajax 提交的时候不会序列化 data，而是直接使用data 
+			 dataType : "json", 	
+			success : function(msg) {  
+				//javascript已自动将返回的json数据转为对象了  
+				alert("success:"+msg.name+"---"+msg.password);  
+			},  
+			error : function() {  
+				alert("try again!");  
+			}  
+		});
+		
+		
+		
+  </script>
+ </body>
+</html>

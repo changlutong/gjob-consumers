@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <link href="F:\Document\jquery\bootstrap\css\bootstrap-theme.min.css" rel="stylesheet">
+    <link href="F:\Document\jquery\bootstrap\css\bootstrap.min.css" rel="stylesheet">
+    <link href="F:\Document\jquery\bootstrap-treeview\dist\bootstrap-treeview.min.css" rel="stylesheet">
+    <link href="F:\Document\jquery\bootStrap-addTabs\bootstrap.addtabs.css" rel="stylesheet">
+    <link href="F:\Document\jquery\bootstrap-table\dist\bootstrap-table.css" rel="stylesheet">
+    <link href="F:\Document\jquery\bootstrap-datetimepicker\css\bootstrap-datetimepicker.css" rel="stylesheet">
+    <link href="F:\Document\jquery\bootstrap-dialog\dist\css\bootstrap-dialog.css" rel="stylesheet">
+    <link href="F:\Document\jquery\bootstrap-fileinput\css\fileinput.css" rel="stylesheet">
+  
+    <script src="F:\Document\jquery\jquery.min.js"></script>
+    <script src="F:\Document\jquery\bootstrap\js\bootstrap.min.js"></script>
+    <script src="F:\Document\jquery\bootstrap-treeview\dist\bootstrap-treeview.min.js"></script>
+    <script src="F:\Document\jquery\bootStrap-addTabs\bootstrap.addtabs.js"></script>
+    <script src="F:\Document\jquery\bootstrap-table\dist\bootstrap-table.js"></script>
+    <script src="F:\Document\jquery\bootstrap-table\dist\locale\bootstrap-table-zh-CN.js"></script>
+    <script src="F:\Document\jquery\bootstrap-datetimepicker\js\bootstrap-datetimepicker.js"></script>
+    <script src="F:\Document\jquery\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="F:\Document\jquery\bootstrap-dialog\dist\js\bootstrap-dialog.js"></script>
+    <script src="F:\Document\jquery\bootstrap-fileinput\js/fileinput.js"></script>
+    <script src="F:\Document\jquery\bootstrap-fileinput\js\locales\zh.js"></script>
+
+<!-- bootstrap-select 下拉框-->    
+<link href="F:\Document\jquery\bootstrap-select-1.12.4\dist\css\bootstrap-select.min.css" rel="stylesheet">
+<script src="F:\Document\jquery\bootstrap-select-1.12.4\dist\js\bootstrap-select.min.js"></script>
+<script src="F:\Document\jquery\bootstrap-select-1.12.4\dist\js\i18n\defaults-zh_CN.min.js"></script>
+
+ </head>
+ <body>
+ <select id="slpk" class="selectpicker" data-live-search="true" multiple></select> <!--  设置multiple为多选，data-live-search="true"显示模糊搜索框  -->
+  <script type="text/javascript">
+  /*
+  //方法1:
+	$(window).on('load', function() {  
+        $('.selectpicker').selectpicker('refresh');  
+    }); 
+	
+	var select = $("#slpk");  
+	select.append("<option value='1'>香蕉</option>");  
+	select.append("<option value='2'>苹果</option>");  
+	select.append("<option value='3'>橘子</option>");  
+	select.append("<option value='4'>石榴</option>");  
+	select.append("<option value='5'>棒棒糖</option>");  
+	select.append("<option value='6'>桃子</option>");  
+	select.append("<option value='7'>陶子</option>"); 
+
+	 $(function() {  
+		$(".selectpicker").selectpicker({  
+			noneSelectedText : '请选择'//默认显示内容  
+		});
+	});
+	
+	$(".selectpicker").on('change', function() { 
+        var selectedValues = [];      
+		$("#slpk :selected").each(function(){  //获取下拉框的全部值
+			selectedValues.push($(this).val());   
+		});
+		console.info(selectedValues);
+    });
+	
+	$('.selectpicker').selectpicker('val', ‘1’);//单选
+	
+	var str = "1,2,3,4,5";//多选：
+	$('.selectpicker').selectpicker('val', str.split(','));//下拉框回显
+	*/
+
+	//方法2:
+	$(function() {  
+        $(".selectpicker").selectpicker({  
+            noneSelectedText : '请选择'  
+        });  
+  
+        $(window).on('load', function() {  
+            $('.selectpicker').selectpicker('val', '');  
+            $('.selectpicker').selectpicker('refresh');  
+        });  
+  
+        //下拉数据加载  
+        $.ajax({  
+            type : 'get',  
+            url : "${pageContext.request.contextPath}/" + "Controller/getData.do",  
+            dataType : 'json',  
+            success : function(datas) {//返回list数据并循环获取  
+                var select = $("#slpk");  
+                for (var i = 0; i < datas.length; i++) {  
+                    select.append("<option value='"+datas[i].ROAD_CODE+"'>"  
+                            + datas[i].ROAD_NAME + "</option>");  
+                }  
+                $('.selectpicker').selectpicker('val', '');  
+                $('.selectpicker').selectpicker('refresh');  
+            }  
+        });  
+    });
+
+  </script>
+ </body>
+</html>

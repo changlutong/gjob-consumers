@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+ <head>
+ <a href="http://www.bootcss.com/p/bootstrap-datetimepicker/">官网</a></br> 
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ <link href="F:\Document\jquery\bootstrap\css\bootstrap-theme.min.css" rel="stylesheet">
+<link href="F:\Document\jquery\bootstrap\css\bootstrap.min.css" rel="stylesheet">
+<script src="F:\Document\jquery\jquery.min.js"></script>
+<script src="F:\Document\jquery\bootstrap\js\bootstrap.min.js"></script>
+
+<!-- bootstrap.addtabs -->
+<link href="F:\Document\jquery\bootStrap-addTabs\bootstrap.addtabs.css" rel="stylesheet">
+<script src="F:\Document\jquery\bootStrap-addTabs\bootstrap.addtabs.js"></script>
+
+
+<!-- bootstrap-treeview -->  
+<link href="F:\Document\jquery\bootstrap-treeview\dist\bootstrap-treeview.min.css" rel="stylesheet">
+<script src="F:\Document\jquery\bootstrap-treeview\dist\bootstrap-treeview.min.js"></script>
+
+<!-- bootstrap-fileinput -->
+<link href="F:\Document\jquery\bootstrap-fileinput\css\fileinput.css" rel="stylesheet">
+<script src="F:\Document\jquery\bootstrap-fileinput\js/fileinput.js"></script>
+<script src="F:\Document\jquery\bootstrap-fileinput\js\locales\zh.js"></script>
+
+<!-- bootstrap-table -->
+<link href="F:\Document\jquery\bootstrap-table\dist\bootstrap-table.css" rel="stylesheet">
+<script src="F:\Document\jquery\bootstrap-table\dist\bootstrap-table.js"></script>
+<script src="F:\Document\jquery\bootstrap-table\dist\locale\bootstrap-table-zh-CN.js"></script>
+
+<!-- bootstrap-datetimepicker 
+<link href="F:\Document\jquery\bootstrap-datetimepicker\css\bootstrap-datetimepicker.css" rel="stylesheet">   
+<script src="F:\Document\jquery\bootstrap-datetimepicker-master\js\bootstrap-datetimepicker.js"></script>
+<script src="F:\Document\jquery\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.zh-CN.js"></script>
+ --> 
+<!-- new bootstrap-datetimepicker -->  
+<link href="F:\Document\jquery\bootstrap-datetimepicker-master\css\bootstrap-datetimepicker.css" rel="stylesheet">   
+<script src="F:\Document\jquery\bootstrap-datetimepicker\js\bootstrap-datetimepicker.js"></script>
+<script src="F:\Document\jquery\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.zh-CN.js"></script>
+
+<!-- bootstrap-dialog --> 
+<link href="F:\Document\jquery\bootstrap-dialog\dist\css\bootstrap-dialog.min.css" rel="stylesheet">
+<script src="F:\Document\jquery\bootstrap-dialog\dist\js\bootstrap-dialog.min.js"></script>
+   
+<!-- bootstrap-select 下拉框-->    
+<link href="F:\Document\jquery\bootstrap-select-1.12.4\dist\css\bootstrap-select.min.css" rel="stylesheet">
+<script src="F:\Document\jquery\bootstrap-select-1.12.4\dist\js\bootstrap-select.min.js"></script>
+<script src="F:\Document\jquery\bootstrap-select-1.12.4\dist\js\i18n\defaults-zh_CN.min.js"></script>
+
+<!-- easyui -->
+<link href="F:\Document\jquery\easyui\themes\icon.css" rel="stylesheet">
+<link href="F:\Document\jquery\easyui\themes\default\easyui.css" rel="stylesheet">
+<script src="F:\Document\jquery\easyui\jquery.easyui.min.js"></script>
+<script src="F:\Document\jquery\easyui\util-js.js"></script>
+ </head>
+ <body>
+  <input size="16" type="text" value="" class="form_datetime"><br>
+<!--
+<input size="16" type="text" id="datetimeStart" readonly class="form_datetime">
+--
+<input size="16" type="text" id="datetimeEnd" readonly class="form_datetime"><br>
+
+-->
+<label class="labe_l">发货日期:</label>
+<div class="clearfix tex_t reset_text">
+　　<div class="input-append date fl"  id="datetimeStart">
+        <input type="text" class="" readonly>
+        <span class="add-on"><i class="icon-th"></i></span> 
+    </div>
+    <span class="to_link">至</span>
+    <div class="input-append date fl"  id="datetimeEnd">
+         <input type="text" class="" readonly>
+         <span class="add-on"><i class="icon-th"></i></span> 
+    </div>
+</div>
+
+<script type="text/javascript">
+	$(".form_datetime").datetimepicker({
+		format: 'yyyy-mm-dd p',//显示格式
+		todayHighlight: 1,//今天高亮
+		minView: "month",//设置只显示到月份
+		startView:2,
+		forceParse: 0,
+		showMeridian: 1,
+		autoclose: 1//选择后自动关闭
+	});
+
+	//日期插件初始化      
+    $('#datetimeStart').datetimepicker({
+		 anguage:  'zh-CN', 
+        format:'yyyy-mm-dd', 
+		todayHighlight: 1,//今天高亮
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1, //选择后自动关闭
+        minView:2, 
+        pickerPosition: "bottom-left"
+    }).on("changeDate",function(ev){  //值改变事件
+        //选择的日期不能大于第二个日期控件的日期
+		console.info(ev.date.valueOf());
+        if(ev.date){
+            $("#datetimeEnd").datetimepicker('setStartDate', new Date(ev.date.valueOf()));
+			//$("#datetimeStart").datetimepicker("setEndDate",$("#datetimeEnd").val())
+        }else{
+            $("#datetimeEnd").datetimepicker('setStartDate',null);
+        }
+    });
+
+    $('#datetimeEnd').datetimepicker({
+        language:  'zh-CN', 
+        format:'yyyy-mm-dd', 
+        weekStart: 1, 
+        todayBtn:  1,
+        autoclose: 1, 
+        minView:2, 
+        pickerPosition: "bottom-left"
+    }).on("changeDate",function(ev){
+        //选择的日期不能小于第一个日期控件的日期
+        if(ev.date){
+            $("#datetimeStart").datetimepicker('setEndDate', new Date(ev.date.valueOf()));
+			//$("#datetimeEnd").datetimepicker("setStartDate",$("#datetimeStart").val())
+        }else{
+            $("#datetimeStart").datetimepicker('setEndDate',new Date());
+        }
+    });
+	/*
+	format:'yyyy-mm-dd', 
+		weekStart: 1, //0(周日)-6(周六),默认0
+		//startDate:,//开始时间
+		//endDate:,//结束时间
+		daysOfWeekDisabled:[0,6],//可选值0(Sunday)-6(Saturday),置灰
+		autoclose:1,//选日期后是否立即关闭选择器,默认值;false or  0
+		startView:2,//0 or 'hour'选择器打开显示hour视图
+							 //1 or 'day'	选择器打开显示day视图
+							 //2 or 'month' 选择器打开显示month视图;默认:month
+							 //3 or 'year' 选择器打开显示year视图
+							 //4 or 'decade'选择打开显示当年前后10year
+		minView:1,//可选择的视图精度,默认值:0 or 'hour'
+		maxView:4,//最高能展示的选择范围,默认值4 or 'hour'
+		todayBtn:false,//true or  非0数字 时,将在底部显示"today"按钮转到当天日期
+								  //'linked' 时,将会选择当天日期;默认值:false or 0
+		todayHighlight:false,//true时,高亮当前日期;默认值false
+		keyboardNavigation:true,//是否允许试用方向键改变日期
+		language:  'zh-CN',//默认值:'en'
+		forceParse:true,//输入不正确日期格式,选择器解析并重新输出
+		minuteStep:5,//此数值被当做步进值用于构建小时视图。对于每个 minuteStep 都会生成一组预设时间（分钟）用于选择,默认值: 5
+		pickerReferer : 'default',//'default' or  'input' , 默认值:default'
+		pickerPosition: 'bottom-right',//'bottom-left',选择器位置,默认值: 'bottom-right'
+		viewSelect: 'day',//'decade', 'year', 'month', 'day', 'hour'//选择日期视图//等同于 minView
+		showMeridian:false,//子午线视图
+		initialDate:new Date()//Date or String;日期初始化查看器//默认值:new Date()
+
+	*/
+</script>
+ </body>
+</html>

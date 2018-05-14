@@ -1,0 +1,26 @@
+<!-- 选项卡  tabs -->
+<ul id="myTab" class="nav nav-tabs">
+	<li><a href="#home" data-toggle="tab">首页</a></li>
+</ul>
+<!--想要打开tab页内容，需要把对应的ul和要打开的内容tab放在一个div里  -->
+<div class="tab-content"></div>
+
+<script>
+	$.ajax({
+    		url:"${pageContext.request.contextPath}/...do",
+    		type:"post",
+    		success:function(data){
+        		//添加选项卡
+       			$.addtabs.add({
+             		   	id:node.id,
+             		   	title:node.text,
+             	  		content:data,
+        		})    
+    		}
+	})
+</script>
+
+@Result(name="showfile" , location="/WEB-INF/view/showFile.jsp")
+public String toQueryFile(){
+        return "showfile";
+}

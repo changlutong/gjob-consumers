@@ -1,0 +1,133 @@
+<!-- 绝对路径引入 -->
+<link href="F:\Document\jquery\bootstrap\css\bootstrap-theme.min.css" rel="stylesheet">
+<link href="F:\Document\jquery\bootstrap\css\bootstrap.min.css" rel="stylesheet">
+<script src="F:\Document\jquery\jquery.min.js"></script>
+<script src="F:\Document\jquery\bootstrap\js\bootstrap.min.js"></script>
+
+<!-- bootstrap.addtabs -->
+<link href="F:\Document\jquery\bootStrap-addTabs\bootstrap.addtabs.css" rel="stylesheet">
+<script src="F:\Document\jquery\bootStrap-addTabs\bootstrap.addtabs.js"></script>
+
+
+<!-- bootstrap-treeview -->  
+<link href="F:\Document\jquery\bootstrap-treeview\dist\bootstrap-treeview.min.css" rel="stylesheet">
+<script src="F:\Document\jquery\bootstrap-treeview\dist\bootstrap-treeview.min.js"></script>
+
+<!-- bootstrap-fileinput 
+<link href="F:\Document\jquery\bootstrap-fileinput\css\fileinput.css" rel="stylesheet">
+<script src="F:\Document\jquery\bootstrap-fileinput\js/fileinput.js"></script>
+<script src="F:\Document\jquery\bootstrap-fileinput\js\locales\zh.js"></script>
+-->
+
+<!-- new bootstrap-fileinput -->
+<link href="F:\Document\jquery\bootstrap-fileinput-master\css\fileinput.css" rel="stylesheet">
+<script src="F:\Document\jquery\bootstrap-fileinput-master\js/fileinput.js"></script>
+<script src="F:\Document\jquery\bootstrap-fileinput-master\js\locales\zh.js"></script>
+
+<!-- bootstrap-table -->
+<link href="F:\Document\jquery\bootstrap-table\dist\bootstrap-table.css" rel="stylesheet">
+<script src="F:\Document\jquery\bootstrap-table\dist\bootstrap-table.js"></script>
+<script src="F:\Document\jquery\bootstrap-table\dist\locale\bootstrap-table-zh-CN.js"></script>
+
+<!-- bootstrap-datetimepicker 
+<link href="F:\Document\jquery\bootstrap-datetimepicker\css\bootstrap-datetimepicker.css" rel="stylesheet">   
+<script src="F:\Document\jquery\bootstrap-datetimepicker-master\js\bootstrap-datetimepicker.js"></script>
+<script src="F:\Document\jquery\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.zh-CN.js"></script>
+ --> 
+<!-- new bootstrap-datetimepicker -->  
+<link href="F:\Document\jquery\bootstrap-datetimepicker-master\css\bootstrap-datetimepicker.css" rel="stylesheet">   
+<script src="F:\Document\jquery\bootstrap-datetimepicker\js\bootstrap-datetimepicker.js"></script>
+<script src="F:\Document\jquery\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.zh-CN.js"></script>
+
+<!-- bootstrap-dialog --> 
+<link href="F:\Document\jquery\bootstrap-dialog\dist\css\bootstrap-dialog.min.css" rel="stylesheet">
+<script src="F:\Document\jquery\bootstrap-dialog\dist\js\bootstrap-dialog.min.js"></script>
+   
+<!-- bootstrap-select 下拉框-->    
+<link href="F:\Document\jquery\bootstrap-select-1.12.4\dist\css\bootstrap-select.min.css" rel="stylesheet">
+<script src="F:\Document\jquery\bootstrap-select-1.12.4\dist\js\bootstrap-select.min.js"></script>
+<script src="F:\Document\jquery\bootstrap-select-1.12.4\dist\js\i18n\defaults-zh_CN.min.js"></script>
+
+<!-- easyui -->
+<link href="F:\Document\jquery\easyui\themes\icon.css" rel="stylesheet">
+<link href="F:\Document\jquery\easyui\themes\default\easyui.css" rel="stylesheet">
+<script src="F:\Document\jquery\easyui\jquery.easyui.min.js"></script>
+<script src="F:\Document\jquery\easyui\util-js.js"></script>
+
+    <style type="text/css">
+      .navbar{
+         height: 60px;
+         background: black;
+      
+      }
+      .layout{
+        padding-top: 60px;
+        position: relative;
+        
+      }
+    
+    </style>
+
+<!-- 相对路径引入 -->
+<link href="${pageContext.request.contextPath}/jquery/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/jquery/bootstrap/css/bootstrap.min.css" rel="stylesheet">    
+<script src="${pageContext.request.contextPath}/jquery/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/jquery/bootstrap/js/bootstrap.min.js"></script>
+        
+<!-- bootstrap.addtabs -->
+<link href="${pageContext.request.contextPath}/jquery/bootStrap-addTabs/bootstrap.addtabs.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/jquery/bootStrap-addTabs/bootstrap.addtabs.js"></script> 
+    
+<!-- bootstrap-treeview -->   
+<link href="${pageContext.request.contextPath}/jquery/bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">    
+<script src="${pageContext.request.contextPath}/jquery/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>  
+
+<!-- bootstrap-fileinput
+<link href="${pageContext.request.contextPath}/jquery/bootstrap-fileinput/css/fileinput.css" rel="stylesheet"> 
+<script src="${pageContext.request.contextPath}/jquery/bootstrap-fileinput/js/fileinput.js"></script>
+<script src="${pageContext.request.contextPath}/jquery/bootstrap-fileinput/js/locales/zh.js"></script>
+ -->
+
+<!-- new bootstrap-fileinput -->
+<link href="${pageContext.request.contextPath}/jquery/bootstrap-fileinput-master/css/fileinput.css" rel="stylesheet"> 
+<script src="${pageContext.request.contextPath}/jquery/bootstrap-fileinput-master/js/fileinput.js"></script>
+<script src="${pageContext.request.contextPath}/jquery/bootstrap-fileinput-master/js/locales/zh.js"></script>
+ 
+<!-- bootstrap-table --> 
+<link href="${pageContext.request.contextPath}/jquery/bootstrap-table/dist/bootstrap-table.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/jquery/bootstrap-table/dist/bootstrap-table.js"></script>
+<script src="${pageContext.request.contextPath}/jquery/bootstrap-table/dist/locale/bootstrap-table-zh-CN.js"></script>
+
+<!-- bootstrap-datetimepicker 
+<link href="${pageContext.request.contextPath}/jquery/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/jquery/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script src="${pageContext.request.contextPath}/jquery/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+--> 
+
+<!-- new bootstrap-datetimepicker --> 
+<link href="${pageContext.request.contextPath}/jquery/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/jquery/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
+<script src="${pageContext.request.contextPath}/jquery/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+
+<!-- bootstrap-dialog --> 
+<link href="${pageContext.request.contextPath}/jquery/bootstrap-dialog/dist/css/bootstrap-dialog.min.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/jquery/bootstrap-dialog/dist/js/bootstrap-dialog.min.js"></script>
+
+<!-- bootstrap-select 下拉框-->    
+<link href="${pageContext.request.contextPath}/jquery/bootstrap-select-1.12.4/dist/css/bootstrap-select.min.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/jquery/bootstrap-select-1.12.4/dist/js/bootstrap-select.min.js"></script>
+<script src="${pageContext.request.contextPath}/jquery/bootstrap-select-1.12.4/dist/js/i18n/defaults-zh_CN.min.js"></script>
+
+    <style type="text/css">
+      .navbar{
+         height: 60px;
+         background: black;
+      
+      }
+      .layout{
+        padding-top: 60px;
+        position: relative;
+        
+      }
+    
+    </style>

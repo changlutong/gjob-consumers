@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <link href="F:\Document\jquery\bootstrap\css\bootstrap-theme.min.css" rel="stylesheet">
+    <link href="F:\Document\jquery\bootstrap\css\bootstrap.min.css" rel="stylesheet">
+    <link href="F:\Document\jquery\bootstrap-treeview\dist\bootstrap-treeview.min.css" rel="stylesheet">
+    <link href="F:\Document\jquery\bootStrap-addTabs\bootstrap.addtabs.css" rel="stylesheet">
+    <link href="F:\Document\jquery\bootstrap-table\dist\bootstrap-table.css" rel="stylesheet">
+    <link href="F:\Document\jquery\bootstrap-datetimepicker\css\bootstrap-datetimepicker.css" rel="stylesheet">
+    <link href="F:\Document\jquery\bootstrap-dialog\dist\css\bootstrap-dialog.css" rel="stylesheet">
+    <link href="F:\Document\jquery\bootstrap-fileinput\css\fileinput.css" rel="stylesheet">
+  
+    <script src="F:\Document\jquery\jquery.min.js"></script>
+    <script src="F:\Document\jquery\bootstrap\js\bootstrap.min.js"></script>
+    <script src="F:\Document\jquery\bootstrap-treeview\dist\bootstrap-treeview.min.js"></script>
+    <script src="F:\Document\jquery\bootStrap-addTabs\bootstrap.addtabs.js"></script>
+    <script src="F:\Document\jquery\bootstrap-table\dist\bootstrap-table.js"></script>
+    <script src="F:\Document\jquery\bootstrap-table\dist\locale\bootstrap-table-zh-CN.js"></script>
+    <script src="F:\Document\jquery\bootstrap-datetimepicker\js\bootstrap-datetimepicker.js"></script>
+    <script src="F:\Document\jquery\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="F:\Document\jquery\bootstrap-dialog\dist\js\bootstrap-dialog.js"></script>
+    <script src="F:\Document\jquery\bootstrap-fileinput\js/fileinput.js"></script>
+    <script src="F:\Document\jquery\bootstrap-fileinput\js\locales\zh.js"></script>
+ </head>
+ <body>
+<div class="panel panel-primary">
+    <div>
+    	<form class="form-inline">
+     		<div class="form-group">
+        		<label class="sr-only" >文章名称</label>
+       			<input type="text" class="form-control" id="fileName" placeholder="请输入名称" >
+      		</div>
+      		<div class="form-group">
+        		<label >选择列表</label>
+        		<select class="form-control" id="fileType">
+          			<option value="0">请选择</option>
+          			<option value="1">技术</option>
+          			<option value="2">小说</option>
+          			<option value="3">摘要</option>
+        		</select>
+      		</div>
+    	</form>
+    </div>
+    <button type="button" class="btn btn-primary" onclick="search()">搜索</button>
+</div>
+<table class="table" id="file-table" border="1"></table>
+
+<script type="text/javascript">
+	/*
+		后台返回页面参数:
+		total:总条数
+		rows :集合
+	*/
+	function search(){
+	    $("#file-table").bootstrapTable("refresh",{'pageNumber':1});
+	}
+
+	$(function(){
+		//1.初始化Table
+	    var oTable = new TableInit();
+	    oTable.Init();
+	
+	})   
+    var TableInit = function () {	//定义的变量是函数,并且返回的是需要实例化
+		var oTableInit = new Object();
+		oTableInit.Init = function () {
+	    	$("#file-table").bootstrapTable({
+	    		url:"${pageContext.request.contextPath}/LoginController/queryGoods.do",
+	    		method:'post',		//发送请求的方式
+	    		contentType:"application/x-www-form-urlencoded;charset=UTF-8",	//必须的否则条件查询时会乱码
+	    		toolbar: '#toolbar',       //工具按钮用哪个容器
+	            striped: true,			   //隔行变色
+	            cache: false,              //是否使用缓存，默认为true
+	            pagination: true,		   //开启分页
+	            sortable: true,            //是否启用排序
+	            sortOrder: "asc",          //排序方式
+	            queryParams: ob,		   //传递参数
+	            sidePagination: "server",  //分页方式:client客户端分页,server服务端分页
+	            pageNumber:1,              //初始化加载第几页,默认第1页
+	            pageSize: 3,               //每页几条数据,超过总条数右下角将没分页
+	            pageList: [2, 4, 6, 8],    //每页条数,设置为All将展示全部记录,超过总条数底部将不显示条数下拉框
+	            search: true,             //是否显示搜索框，此搜索是客户端搜索，不会进服务端
+	            searchOnEnterKey: true,	   //设置为 true时，按回车触发搜索方法，否则自动触发搜索方法
+	            strictSearch: false,	   //精确搜索???
+	            showColumns: true,		   //右上角按钮-下拉框,控制显示的"内容列"
+	            showRefresh: true,		   //右上角 刷新页面 按钮
+	            minimumCountColumns: 2,    //最少允许的列数
+	            clickToSelect: true,       //是否启用点击选中行
+	            height: 500,               //行高，表格默认自动根据记录条数决定表格高度
+	            uniqueId: "productid",     //每一行的唯一标识，一般为主键列
+	            showToggle: true,          //右上角按钮,控制 详细视图和列表视图 切换
+	            cardView: false,           //是否显示详细视图
+	            detailView: true,          //表格每行左侧按钮,伸展父子表
+	            showPaginationSwitch: true,//右上角按钮,控制底部 隐藏显示 分页    
+	            columns: [
+	            {
+	                 checkbox:true,
+	            },{
+	                field: 'productid',
+	                title: '产品编号',
+	                idField:true,
+	                width: 100
+	            },{
+	                field: 'productname',
+	                title: '产品名称',
+	                width: 100
+	            },{
+	                field: 'unitcost',
+	                title: '产品费用',
+	                width: 100
+	               
+	            },{
+	                field: 'status',
+	                title: '状态',
+	                width: 100,
+	    			  formatter:function(value,row,index){
+	             	return value == "P" ?'启用':'未启用';
+	                }  
+	            },{
+	                field: 'listprice',
+	                title: '会员价',
+	                width: 100
+	            },{
+	                field: 'attr1',
+	                title: '未定义',
+	                width: 100,
+	                
+	            },{
+	                field: 'itemid',
+	                title: '未定义',
+	                width: 100
+	            }],
+	        });
+		};
+		
+		var ob  = function (params) {
+			params.search;	//默认搜索框的值
+			params.sort;	//
+			params.order;	//排序方式
+			params.offset;	//当前页起始位置
+			paraer=  this.pageNumber;		//当前几页
+			params.pageSize=  this.pageSize;			//每页条数
+			params.departmentname= $("#fileName").val();//自定义额外参数
+			params.statu=  $("#fileType").val();		//自定义额外参数
+			
+	        console.info(params);
+	        return params;
+	    };   
+   		return oTableInit;
+	};   
+</script>
+ </body>
+</html>

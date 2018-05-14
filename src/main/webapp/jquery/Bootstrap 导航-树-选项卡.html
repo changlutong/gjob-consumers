@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <link href="F:\Document\jquery\bootstrap\css\bootstrap-theme.min.css" rel="stylesheet">
+    <link href="F:\Document\jquery\bootstrap\css\bootstrap.min.css" rel="stylesheet">
+    <link href="F:\Document\jquery\bootstrap-treeview\dist\bootstrap-treeview.min.css" rel="stylesheet">
+    <link href="F:\Document\jquery\bootStrap-addTabs\bootstrap.addtabs.css" rel="stylesheet">
+    <link href="F:\Document\jquery\bootstrap-table\dist\bootstrap-table.css" rel="stylesheet">
+    <link href="F:\Document\jquery\bootstrap-datetimepicker\css\bootstrap-datetimepicker.css" rel="stylesheet">
+    <link href="F:\Document\jquery\bootstrap-dialog\dist\css\bootstrap-dialog.css" rel="stylesheet">
+    <link href="F:\Document\jquery\bootstrap-fileinput\css\fileinput.css" rel="stylesheet">
+  
+    <script src="F:\Document\jquery\jquery.min.js"></script>
+    <script src="F:\Document\jquery\bootstrap\js\bootstrap.min.js"></script>
+    <script src="F:\Document\jquery\bootstrap-treeview\dist\bootstrap-treeview.min.js"></script>
+    <script src="F:\Document\jquery\bootStrap-addTabs\bootstrap.addtabs.js"></script>
+    <script src="F:\Document\jquery\bootstrap-table\dist\bootstrap-table.js"></script>
+    <script src="F:\Document\jquery\bootstrap-table\dist\locale\bootstrap-table-zh-CN.js"></script>
+    <script src="F:\Document\jquery\bootstrap-datetimepicker\js\bootstrap-datetimepicker.js"></script>
+    <script src="F:\Document\jquery\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="F:\Document\jquery\bootstrap-dialog\dist\js\bootstrap-dialog.js"></script>
+    <script src="F:\Document\jquery\bootstrap-fileinput\js/fileinput.js"></script>
+    <script src="F:\Document\jquery\bootstrap-fileinput\js\locales\zh.js"></script>
+ </head>
+ <body>
+<div class="container-fluid">	
+	<div class="row">
+		<div class="col-md-12 col-xs-12 column">
+			<!--  导航 start -->
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header"> <a class="navbar-brand" href="#">Brand</a></div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">Link</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li> <a href="#">Separated link</a></li>
+								<li class="divider"></li>
+								<li><a href="#">One more separated link</a></li>
+							</ul>
+						</li>
+					</ul>
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" />
+						</div> <button type="submit" class="btn btn-default">Submit</button>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">Link</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>			
+			</nav>
+			<!--  导航 end -->
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-3">
+			<div id="tree-div"></div>
+		</div>
+		<div class="col-xs-9">
+			<ul id="myTab" class="nav nav-tabs"></ul>
+            <div class="tab-content"></div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+  //获取数据
+    	function getTreeData(){
+                var tree_data = "";
+                $.ajax({
+                    url:"<%=request.getContextPath()%>/menu/queryTree.do",
+                    type:"post",
+                    dataType:"json",
+                    async:false,
+                    success:function(data){
+                        tree_data = data;
+                    }
+                });
+                return tree_data;
+            }
+    	$(function(){
+			$('#tree-div').treeview({
+                data:getTreeData(),
+                onNodeSelected:function(event,node){//event对象和节点
+				    if(node.url != null && node.url !=""){
+						addTabs(node.text,node.url);
+					}
+                }
+            })
+    	})
+    	function addTabs(titleStr,urlStr){//标题和路径
+    		$.ajax({
+    			url:urlStr,
+    			success:function(info){	//info返回的是整个页面
+    				$.addtabs.add({
+    	                id:titleStr,
+    	                title:titleStr,
+    	                content:info,
+    	        	})
+    			}		
+    		})		
+    	}
+    </script>
+ </body>
+</html>
