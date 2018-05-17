@@ -17,6 +17,8 @@
 package com.jk.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 〈一句话功能简述〉<br> 
@@ -28,15 +30,17 @@ import java.io.Serializable;
  */
 public class User implements Serializable{
     private static final long serialVersionUID = -4029868444840200552L;
-    private String id;
+    private Integer rid;
     private String name;
+    private  String  password;
+    private Set<String> resources = new HashSet<String>();
 
-    public String getId() {
-        return id;
+    public Integer getRid() {
+        return rid;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setRid(Integer rid) {
+        this.rid = rid;
     }
 
     public String getName() {
@@ -45,5 +49,34 @@ public class User implements Serializable{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
+
+    public Set<String> getResources() {
+        return resources;
+    }
+
+    public void setResources(Set<String> resources) {
+        this.resources = resources;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "rid=" + rid +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+
+                ", resources=" + resources +
+                '}';
     }
 }
