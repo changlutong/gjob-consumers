@@ -23,7 +23,9 @@
 <div data-options="region:'north',split:true" style="height:100px;">
 
     <h1>我的玩具</h1>
+<%--
     <input type="text" value="${rr}"/>
+--%>
 
 </div>
 <div data-options="region:'south',split:true" style="height:50px;text-align:center;">
