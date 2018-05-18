@@ -16,14 +16,19 @@
  */
 package com.jk.controller;
 
+import com.jk.model.Role;
 import com.jk.model.User;
 import com.jk.service.IUserService;
+import com.jk.util.PageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 〈一句话功能简述〉<br> 
@@ -34,7 +39,7 @@ import java.util.List;
  * @since 1.0.0
  */
 @Controller
-@RequestMapping("userControlller")
+@RequestMapping("userController")
 public class UserControlller {
     @Autowired
     private IUserService userService;
@@ -43,5 +48,72 @@ public class UserControlller {
     public List<User> getUserList(){
         List<User>list= userService.getUserList();
         return list;
+
+
+
+    }
+    @ResponseBody
+    @RequestMapping("/login")
+    public   String    login(User  ren,HttpSession  session){
+        User rr=null;
+        try {
+            rr=  	userService.login(ren);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        if (rr!=null) {
+            session.setAttribute("rr", rr);
+            return "ee";
+        }else {
+            return 	"userNo";
+        }
+    }
+    @ResponseBody
+    @RequestMapping("/addcharenlist")
+    public PageUtil addcharenlist(Integer   page, Integer   rows){
+        PageUtil    pageUtil=new  PageUtil();
+        pageUtil.setPage(page);
+        pageUtil.setPageSize(rows);
+        pageUtil=userService.addcharenlist(pageUtil);
+        return  pageUtil;
+    }
+
+    @ResponseBody
+    @RequestMapping("/addcharolelist")
+    public  List<Role>  addcharolelist(Integer  rid){
+        List<Role> list=  userService.addcharolelist(rid);
+        return list;
+    }
+    @ResponseBody
+    @RequestMapping("/charolelist")
+    public   List<Role>   charolelist(){
+        List<Role> list =null;
+        try {
+            list = userService.charolelist();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return list;
+    }
+    @ResponseBody
+    @RequestMapping("/updaterolelist")
+    public   String  updaterolelist(User  ren,String  roid){
+        userService.updaterolelist(ren,roid);
+        return "true";
+
+    }
+
+
+    @RequestMapping("getUserAll")
+    @ResponseBody
+    public Map<String,Object> querylist(Integer page,Integer rows ,User user){
+        Map<String,Object> map = new HashMap<String, Object>();
+        //总数据条数
+        map.put("total", userService.getuser(user).size());
+        //展示的数据
+        map.put("rows", userService.querylist(page,rows,user));
+        return map;
     }
 }
