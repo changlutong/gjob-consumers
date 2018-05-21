@@ -38,10 +38,11 @@
 	商品图片： <input type="file" id="file" name="image"/>
 	<input type="hidden" name="imageurl" id="imageurl"/>
 	<div id="show"></div><br/>
-	所属公司：<select id="company" name="pid" style="width:200px;"></select><br>
+	所属公司：<select id="company" name="companyid" style="width:200px;"></select><br>
 	广告位置：<input type="radio" name="pid" value="1">vip
 				<input type="radio" name="pid" value="2">vvip<br>
 	简介：<textarea name="info" /></textarea>
+	价格：<input type="text" name="price" >
 
 
 

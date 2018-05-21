@@ -11,6 +11,7 @@
 package com.jk.service;
 
 import com.jk.model.BankType;
+import com.jk.model.Tree;
 
 import java.util.List;
 
@@ -31,4 +32,10 @@ public interface BankTypeService {
     void addBankTypeList(BankType bankType);
 
     void addBankTypeList(int i);
+
+    /**
+     * 属性菜单查询
+     * @return
+     */
+    List<Tree> queryTreeList();
 }
