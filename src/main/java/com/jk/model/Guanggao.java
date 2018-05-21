@@ -31,6 +31,7 @@ public class Guanggao implements Serializable {
     private String companyid;//公司ID
     private String status;//状态
     private String biaoid;//表ID
+    private Double price;   //广告价格  排序用
 
     @Override
     public String toString() {
@@ -42,7 +43,16 @@ public class Guanggao implements Serializable {
                 ", companyid='" + companyid + '\'' +
                 ", status='" + status + '\'' +
                 ", biaoid='" + biaoid + '\'' +
+                ", price=" + price +
                 '}';
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public String getBiaoid() {
