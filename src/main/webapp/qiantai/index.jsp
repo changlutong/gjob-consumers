@@ -73,7 +73,7 @@
         <tbody><tr>
 
             <td width="60">
-                &nbsp;&nbsp;<a href="//www.zhaopin.com/" target="_blank">
+                &nbsp;&nbsp;<a href="http://localhost:8888/qiantai/shouye.jsp" target="_blank">
                 <font style="vertical-align: inherit;">
                     <font style="vertical-align: inherit;" size="2">首页</font>
                 </font>
@@ -146,177 +146,49 @@
                 <div class="l1" style="display: block;">
                     <div class="c1">
                         <div class="a1">
-                            <div class="p1 comm" style="background: url('img/kh.jpg')"></div><div class="p2 comm" ></div><div class="p3 comm"></div><div class="p4 comm"></div>
+                            <div class="p1 comm"><img src="img/zhaopin1.jpg" width="140px" height="60px" onclick=""></div>
+                            <div class="p2 comm"><img src="img/zhaopin2.jpg" width="145px" height="60px" onclick=""></div>
+                            <div class="p3 comm"><img src="img/zhaopin3.jpg" width="150px" height="60px" onclick=""></div>
+                            <div class="p4 comm"><img src="img/zhaopin4.jpg" width="140px" height="60px" onclick=""></div>
                         </div>
-                        <div class="a2">
-                            <div class="p1 comm"></div><div class="p2 comm"></div><div class="p3 comm"></div><div class="p4 comm"></div>
-                        </div>
-                    </div>
-                    <div class="c2">
-                        <table>
-                            <tbody><tr>
-                                <td style="width: 27%;">百度</td><td style="width: 30%;">资深研发工程师</td><td style="width: 20%; text-align: center;">30 - 70万</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            <tr class="line">
-                                <td style="width: 27%;">阿里巴巴</td><td style="width: 30%;">PHP高级研发工程师</td><td style="width: 20%; text-align: center;">15 - 25万</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            <tr class="line">
-                                <td style="width: 27%;">新浪</td><td style="width: 30%;">数据开发工程师</td><td style="width: 20%; text-align: center;">30 - 70万</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            <tr class="line">
-                                <td style="width: 27%;">聚美优品</td><td style="width: 30%;">网页设计</td><td style="width: 20%; text-align: center;">10 - 30万</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            <tr class="line">
-                                <td style="width: 27%;">美丽说</td><td style="width: 30%;">网络架构师</td><td style="width: 20%; text-align: center;">30 - 60万</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            </tbody></table>
-                    </div>
-                </div>
-                <div class="l2" style="display: none;">
-                    <div class="c1">
                         <div class="a1">
-                            <div class="p1 comm"></div><div class="p2 comm"></div><div class="p3 comm"></div><div class="p4 comm"></div>
+                            <div class="p1 comm"><img src="img/zhaopin5.jpg" width="140px" height="60px" onclick=""></div>
+                            <div class="p2 comm"><img src="img/zhaopin6.jpg" width="145px" height="60px" onclick=""></div>
+                            <div class="p3 comm"><img src="img/zhaopin7.jpg" width="150px" height="60px" onclick=""></div>
+                            <div class="p4 comm"><img src="img/zhaopin8.jpg" width="140px" height="60px" onclick=""></div>
                         </div>
-                        <div class="a2">
-                            <div class="p1 comm"></div><div class="p2 comm"></div><div class="p3 comm"></div><div class="p4 comm"></div>
-                        </div>
-                    </div>
-                    <div class="c2">
-                        <table>
-                            <tbody><tr>
-                                <td style="width: 27%;">中国民生银行</td><td style="width: 30%;">理财经理</td><td style="width: 20%; text-align: center;">12 - 25万</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            <tr class="line">
-                                <td style="width: 27%;">中国人保财险</td><td style="width: 30%;">产品设计</td><td style="width: 20%; text-align: center;">10 - 20万</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            <tr class="line">
-                                <td style="width: 27%;">长江证券</td><td style="width: 30%;">金融部业务总监</td><td style="width: 20%; text-align: center;">20 - 50万</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            <tr class="line">
-                                <td style="width: 27%;">宜信财富</td><td style="width: 30%;">营业部总监</td><td style="width: 20%; text-align: center;">25 - 50万</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            <tr class="line">
-                                <td style="width: 27%;">国信证券</td><td style="width: 30%;">H5页面工程师</td><td style="width: 20%; text-align: center;">15 - 35万</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            </tbody></table>
-                    </div>
-                </div>
-                <div class="l3" style="display: none;">
-                    <div class="c1">
                         <div class="a1">
-                            <div class="p1 comm"></div><div class="p2 comm"></div><div class="p3 comm"></div><div class="p4 comm"></div>
+                            <div class="p1 comm"><img src="img/zhaopin9.jpg" width="140px" height="60px" onclick=""></div>
+                            <div class="p2 comm"><img src="img/zhaopin10.jpg" width="145px" height="60px" onclick=""></div>
+                            <div class="p3 comm"><img src="img/zhaopin11.jpg" width="150px" height="60px" onclick=""></div>
+                            <div class="p4 comm"><img src="img/zhaopin12.gif" width="140px" height="60px" onclick=""></div>
                         </div>
-                        <div class="a2">
-                            <div class="p1 comm"></div><div class="p2 comm"></div><div class="p3 comm"></div><div class="p4 comm"></div>
-                        </div>
-                    </div>
-                    <div class="c2">
-                        <table>
-                            <tbody><tr>
-                                <td style="width: 27%;">奥美集团</td><td style="width: 30%;">Flash交互设计师</td><td style="width: 20%; text-align: center;">12 - 20万</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            <tr class="line">
-                                <td style="width: 27%;">中视金桥国际传媒</td><td style="width: 30%;">创意总监</td><td style="width: 20%; text-align: center;">25 - 35万</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            <tr class="line">
-                                <td style="width: 27%;">迪思传媒集团</td><td style="width: 30%;">3D设计师</td><td style="width: 20%; text-align: center;">10 - 18万</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            <tr class="line">
-                                <td style="width: 27%;">北京百仕成广告</td><td style="width: 30%;">美术指导</td><td style="width: 20%; text-align: center;">10 - 20万</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            <tr class="line">
-                                <td style="width: 27%;">昌荣传媒</td><td style="width: 30%;">H5页面工程师</td><td style="width: 20%; text-align: center;">15 - 35万</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            </tbody></table>
-                    </div>
-                </div>
-                <div class="l4" style="display: none;">
-                    <div class="c1">
+
                         <div class="a1">
-                            <div class="p1 comm"></div><div class="p2 comm"></div><div class="p3 comm"></div><div class="p4 comm"></div>
+                            <div class="p1 comm"><img src="img/zhaopin13.jpg" width="140px" height="60px" onclick=""></div>
+                            <div class="p2 comm"><img src="img/zhaopin14.jpg" width="145px" height="60px" onclick=""></div>
+                            <div class="p3 comm"><img src="img/zhaopin15.jpg" width="150px" height="60px" onclick=""></div>
+                            <div class="p4 comm"><img src="img/zhaopin16.jpg" width="140px" height="60px" onclick=""></div>
                         </div>
-                        <div class="a2">
-                            <div class="p1 comm"></div><div class="p2 comm"></div><div class="p3 comm"></div><div class="p4 comm"></div>
-                        </div>
-                    </div>
-                    <div class="c2">
-                        <table>
-                            <tbody><tr style="color: rgb(255, 255, 255);">
-                                <td style="width: 27%;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">北京丽兹行房地产</font></font></td><td style="width: 30%;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运营总监</font></font></td><td style="width: 20%; text-align: center;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">12 - 18万</font></font></td><td style="text-align: right; width: 23%;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">更多职位&gt;&gt;</font></font></td>
-                            </tr>
-                            <tr class="line" style="color: rgb(255, 255, 255);">
-                                <td style="width: 27%;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中国铁建房地产集团</font></font></td><td style="width: 30%;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">项目公司总经理</font></font></td><td style="width: 20%; text-align: center;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">15 - 25万</font></font></td><td style="text-align: right; width: 23%;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">更多职位&gt;&gt;</font></font></td>
-                            </tr>
-                            <tr class="line" style="color: rgb(255, 255, 255);">
-                                <td style="width: 27%;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">麦田房产</font></font></td><td style="width: 30%;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">高端销售顾问</font></font></td><td style="width: 20%; text-align: center;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">12 - 15万</font></font></td><td style="text-align: right; width: 23%;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">更多职位&gt;&gt;</font></font></td>
-                            </tr>
-                            <tr class="line" style="color: rgb(255, 255, 255);">
-                                <td style="width: 27%;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">远洋地产</font></font></td><td style="width: 30%;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">IOS开发工程师</font></font></td><td style="width: 20%; text-align: center;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">20 - 30万</font></font></td><td style="text-align: right; width: 23%;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">更多职位&gt;&gt;</font></font></td>
-                            </tr>
-                            <tr class="line" style="color: rgb(255, 255, 255);">
-                                <td style="width: 27%;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">好屋中国</font></font></td><td style="width: 30%;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">项目经理</font></font></td><td style="width: 20%; text-align: center;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">15 - 18万</font></font></td><td style="text-align: right; width: 23%;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">更多职位&gt;&gt;</font></font></td>
-                            </tr>
-                            </tbody></table>
-                    </div>
-                </div>
-                <div class="l5" style="display: none;">
-                    <div class="c1">
                         <div class="a1">
-                            <div class="p1 comm"></div><div class="p2 comm"></div><div class="p3 comm"></div><div class="p4 comm"></div>
+                            <div class="p1 comm"><img src="img/zhaopin17.jpg" width="140px" height="60px" onclick=""></div>
+                            <div class="p2 comm"><img src="img/zhaopin18.jpg" width="145px" height="60px" onclick=""></div>
+                            <div class="p3 comm"><img src="img/zhaopin19.jpg" width="150px" height="60px" onclick=""></div>
+                            <div class="p4 comm"><img src="img/zhaopin20.jpg" width="140px" height="60px" onclick=""></div>
                         </div>
-                        <div class="a2">
-                            <div class="p1 comm"></div><div class="p2 comm"></div><div class="p3 comm"></div><div class="p4 comm"></div>
-                        </div>
-                    </div>
-                    <div class="c2">
-                        <table>
-                            <tbody><tr>
-                                <td style="width: 27%;">无印良品</td><td style="width: 30%;">衣服MD/DB担当</td><td style="width: 20%; text-align: center;">10 - 15万</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            <tr class="line">
-                                <td style="width: 27%;">华为技术有限公司</td><td style="width: 30%;">海外营商客户经理</td><td style="width: 20%; text-align: center;">20 - 30万</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            <tr class="line">
-                                <td style="width: 27%;">四川泰丰集团</td><td style="width: 30%;">招商主管</td><td style="width: 20%; text-align: center;">10 - 12万</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            <tr class="line">
-                                <td style="width: 27%;">北京神州泰岳</td><td style="width: 30%;">产品经理</td><td style="width: 20%; text-align: center;">11 - 13万</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            <tr class="line">
-                                <td style="width: 27%;">郑州盛典大河酒业</td><td style="width: 30%;">营销总监</td><td style="width: 20%; text-align: center;">10 - 12万</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            </tbody></table>
-                    </div>
-                </div>
-                <div class="l6" style="display: none;">
-                    <div class="c1">
                         <div class="a1">
-                            <div class="p1 comm"></div><div class="p2 comm"></div><div class="p3 comm"></div><div class="p4 comm"></div>
-                        </div>
-                        <div class="a2">
-                            <div class="p1 comm"></div><div class="p2 comm"></div><div class="p3 comm"></div><div class="p4 comm"></div>
-                        </div>
+                            <div class="p1 comm"><img src="img/zhaopin21.jpg" width="140px" height="60px" onclick=""></div>
+                            <div class="p2 comm"><img src="img/zhaopin22.jpg" width="145px" height="60px" onclick=""></div>
+                            <div class="p3 comm"><img src="img/zhaopin23.jpg" width="150px" height="60px" onclick=""></div>
+                            <div class="p4 comm"><img src="img/zhaopin24.jpg" width="140px" height="60px" onclick=""></div>
+                         </div>
+
+
+
                     </div>
-                    <div class="c2">
-                        <table>
-                            <tbody><tr>
-                                <td style="width: 27%;">华晨宝马</td><td style="width: 30%;">战略管理经理</td><td style="width: 20%; text-align: center;">15 - 20万</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            <tr class="line">
-                                <td style="width: 27%;">华为技术有限公司</td><td style="width: 30%;">海外高级客户经理</td><td style="width: 20%; text-align: center;">50万起</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            <tr class="line">
-                                <td style="width: 27%;">北京汽车研究总院</td><td style="width: 30%;">质量改进工程师</td><td style="width: 20%; text-align: center;">20 - 25万</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            <tr class="line">
-                                <td style="width: 27%;">烟台渤海制药集团</td><td style="width: 30%;">OTC省区经理</td><td style="width: 20%; text-align: center;">25 - 35万</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            <tr class="line">
-                                <td style="width: 27%;">戴姆勒</td><td style="font-size: 14px; width: 30%;">Supplier Management</td><td style="width: 20%; text-align: center;">20 - 35万</td><td style="text-align: right; width: 23%;">更多职位&gt;&gt;</td>
-                            </tr>
-                            </tbody></table>
-                    </div>
+
                 </div>
+
             </div>
         </div>
         <!-- 中间 右边-->
@@ -545,6 +417,10 @@
         $("#denglu").attr("style","display:none");
         document.getElementById("zhuceanniu").setAttribute("style","background:yellow;");
         document.getElementById("dengluanniu").setAttribute("style","background:#ba9d37;");
+    }
+    function a(){
+    alert("11")
+
     }
 </script>
 

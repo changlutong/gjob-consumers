@@ -49,7 +49,6 @@
 
     <script src="//img07.zhaopin.cn/2014/head_foot/js/global.js"></script>
 
-
 </head>
 <body>
 <div id="top" style="height:300px;display:none;width:100%;overflow:hidden;"></div>
@@ -527,7 +526,7 @@
 </div>
 <!--人工服务-->
 <div style="top: 485px; position: fixed; right: 50%; margin-right: -560px;"  ;>
-    <a href="www.baidu.com">
+    <a href="https://www.v5kf.com/public/chat/chat?sid=156635&entry=5&ref=link">
         <img src="img/rdimpic.png" width="50px">
     </a>
 </div>
