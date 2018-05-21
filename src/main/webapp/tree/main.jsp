@@ -77,32 +77,6 @@
 
 
 
-	<style>
-		*{ margin:0px; padding: 0px;}
-		.all{ width: 195px;margin: 0px auto;  }
-		.text  {margin-top:0px; border: 0px solid black; height: 200px; overflow: hidden;}
-		.text li{ list-style:none; text-align: center; height:30px; line-height:30px; border-bottom: 1px dashed #CCCCCC; }
-
-		.alll{ width: 195px;margin: 0px auto;  }
-		.textt  {margin-top:0px; border: 0px solid black; height: 200px; overflow: hidden;}
-		.textt li{ list-style:none; text-align: center; height:30px; line-height:30px; border-bottom: 1px dashed #CCCCCC; }
-
-		.alll{ width: 195px;margin: 0px auto;  }
-		.texttt  {margin-top:0px; border: 0px solid black; height: 200px; overflow: hidden;}
-		.texttt li{ list-style:none; text-align: center; height:30px; line-height:30px; border-bottom: 1px dashed #CCCCCC; }
-
-		.alll{ width: 195px;margin: 0px auto;  }
-		.texttt4  {margin-top:0px; border: 0px solid black; height: 200px; overflow: hidden;}
-		.texttt4 li{ list-style:none; text-align: center; height:30px; line-height:30px; border-bottom: 1px dashed #CCCCCC; }
-		}
-		/* 	.login-dialog .modal-dialog {
-                        width: 1030px;
-                        height: 1100px;
-                         */
-	</style>
-
-
-
 
 </head>
 <!-- 这是jquery的核心包  -->
