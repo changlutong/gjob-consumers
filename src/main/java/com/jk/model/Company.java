@@ -37,9 +37,18 @@ public class Company implements Serializable{
     private Integer checkstatus;
 
     private String companytablename;
+    private String companyaddress;
 
     private Integer category;
     private Integer idcardpicture;
+
+    public String getCompanyaddress() {
+        return companyaddress;
+    }
+
+    public void setCompanyaddress(String companyaddress) {
+        this.companyaddress = companyaddress;
+    }
 
     public Integer getIdcardpicture() {
         return idcardpicture;
@@ -206,6 +215,7 @@ public class Company implements Serializable{
                 ", legalpersionidcardnum='" + legalpersionidcardnum + '\'' +
                 ", checkstatus=" + checkstatus +
                 ", companytablename='" + companytablename + '\'' +
+                ", companyaddress='" + companyaddress + '\'' +
                 ", category=" + category +
                 ", idcardpicture=" + idcardpicture +
                 '}';
