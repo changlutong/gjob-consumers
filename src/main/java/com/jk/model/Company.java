@@ -39,6 +39,15 @@ public class Company implements Serializable{
     private String companytablename;
 
     private Integer category;
+    private Integer idcardpicture;
+
+    public Integer getIdcardpicture() {
+        return idcardpicture;
+    }
+
+    public void setIdcardpicture(Integer idcardpicture) {
+        this.idcardpicture = idcardpicture;
+    }
 
     public String getId() {
         return id;
@@ -198,6 +207,7 @@ public class Company implements Serializable{
                 ", checkstatus=" + checkstatus +
                 ", companytablename='" + companytablename + '\'' +
                 ", category=" + category +
+                ", idcardpicture=" + idcardpicture +
                 '}';
     }
 }
