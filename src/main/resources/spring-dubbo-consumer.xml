@@ -28,8 +28,8 @@
 	 <dubbo:reference id="UserService" interface="com.jk.service.IUserService"  />
 	<dubbo:reference id="TreeService" interface="com.jk.service.ITreeService"  />
 	<dubbo:reference id="RoleService" interface="com.jk.service.RoleService"  />
+	<dubbo:reference id="NoticeService" interface="com.jk.service.NoticeService"  />
 
-	<dubbo:reference id="iUserdatum" interface="com.jk.service.IUserdatumService"  />
 
 
 </beans>  

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="gjob-consumers:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="gjob-consumers.war">
+      <element id="artifact" artifact-name="gjob-consumers:war exploded" />
+    </root>
+  </artifact>
+</component>
