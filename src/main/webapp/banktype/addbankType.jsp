@@ -34,15 +34,13 @@
 <link  rel="stylesheet"  href="<%=request.getContextPath()%>/js/uploadify/uploadify.css"/>
 
 
-<form id="addguanggao">
+<form id="addbankType">
 	商品图片： <input type="file" id="file" name="image"/>
 	<input type="hidden" name="imageurl" id="imageurl"/>
 	<div id="show"></div><br/>
-	所属公司：<select id="company" name="companyid" style="width:200px;"></select><br>
-	广告位置：<input type="radio" name="pid" value="1">vip
-				<input type="radio" name="pid" value="2">vvip<br>
-	简介：<textarea name="info" /></textarea>
-	价格：<input type="text" name="price" >
+	所属公司：<input class="easyui-textbox" name="bankname" style="width:300px"><br>
+
+
 
 
 
@@ -74,7 +72,7 @@
         //制定可以文件上传
         'fileExt': '*.jpg;*.jpeg;*.gif;*.png;*.doc;*.docx;*.xls;*.xlsx;*.pdf;*.txt',
         'onUploadSuccess' : function(file, data, response) {
-            //alert(data);
+            alert(data);
             var html = '<img src='+data+' width="100" height="100">';
             $("#show").append(html);
             $("[name='imageurl']").val(data);
@@ -84,28 +82,6 @@
 
     })
 
-
-	$(function(){
-        $.ajax({
-            url:"<%=request.getContextPath()%>/guanggaoController/querycompany.do",
-            type:"post",
-            //data:{"npid":1},
-            dataType:"json",
-            success:function(result){
-                alert(result);
-                var options="<option value=''>---请选择---</option>";
-                $.each(result,function(){
-                    options+="<option value='"+this.id+"'>"+this.companyname+"</option>";
-                })
-				alert(options)
-                $("#company").html(options);
-                //$("#cndjbm").html(options);
-            },
-            error:function(){
-                alert("查询部门失败，请联系管理员！");
-            }
-        })
-	})
 
 </script>
 </body>

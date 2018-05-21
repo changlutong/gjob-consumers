@@ -34,17 +34,15 @@
 <link  rel="stylesheet"  href="<%=request.getContextPath()%>/js/uploadify/uploadify.css"/>
 
 
-<form id="addguanggao">
+<form id="addActivity">
+	标题：<input class="easyui-textbox" name="title" style="width:200px">
 	商品图片： <input type="file" id="file" name="image"/>
 	<input type="hidden" name="imageurl" id="imageurl"/>
 	<div id="show"></div><br/>
-	所属公司：<select id="company" name="companyid" style="width:200px;"></select><br>
-	广告位置：<input type="radio" name="pid" value="1">vip
-				<input type="radio" name="pid" value="2">vvip<br>
-	简介：<textarea name="info" /></textarea>
-	价格：<input type="text" name="price" >
-
-
+	内容：<textarea name="content" /></textarea><br>
+	路径：<input class="easyui-textbox" name="url" style="width:200px"><br>
+	开始时间：<input  type="text" class="easyui-datebox" name="kaishitime" required="required"></input><br>
+	结束时间：<input type="text" class="easyui-datebox" name="jieshutime" required="required"></input><br>
 
 </form>
 
@@ -83,29 +81,6 @@
         }
 
     })
-
-
-	$(function(){
-        $.ajax({
-            url:"<%=request.getContextPath()%>/guanggaoController/querycompany.do",
-            type:"post",
-            //data:{"npid":1},
-            dataType:"json",
-            success:function(result){
-                alert(result);
-                var options="<option value=''>---请选择---</option>";
-                $.each(result,function(){
-                    options+="<option value='"+this.id+"'>"+this.companyname+"</option>";
-                })
-				alert(options)
-                $("#company").html(options);
-                //$("#cndjbm").html(options);
-            },
-            error:function(){
-                alert("查询部门失败，请联系管理员！");
-            }
-        })
-	})
 
 </script>
 </body>
