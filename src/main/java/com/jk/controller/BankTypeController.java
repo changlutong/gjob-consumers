@@ -12,12 +12,14 @@ package com.jk.controller;
 
 import com.jk.model.BankType;
 import com.jk.model.Guanggao;
+import com.jk.model.Tree;
 import com.jk.service.BankTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -70,6 +72,10 @@ public class BankTypeController {
         bankTypeService.addBankTypeList(bankType);
     }
 
+    /**
+     * 删除银行信息
+     * @param ids
+     */
     @RequestMapping(value="deleteBankType")
     @ResponseBody
     public void deleteBankType(String ids){
@@ -78,5 +84,19 @@ public class BankTypeController {
             bankTypeService.addBankTypeList(Integer.parseInt(idss[i]));
         }
     }
+
+    /**
+     * 树形菜单查询
+     * @return
+     */
+    @RequestMapping(value = "queryTreeList")
+    @ResponseBody
+    public List<Tree> queryTreeList(){
+        List<Tree> treeList = new ArrayList<Tree>();
+        treeList = bankTypeService.queryTreeList();
+        return treeList;
+    }
+
+
 
 }
