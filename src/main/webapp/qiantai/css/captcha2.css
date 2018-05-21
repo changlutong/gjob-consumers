@@ -1,0 +1,138 @@
+@charset "UTF-8";
+body {
+    margin:0;
+    padding:0
+}
+.btn {
+    width:122px;
+    height:30px;
+    line-height:30px;
+    text-align:center;
+    border-radius:3px;
+    display:inline-block;
+    cursor:pointer;
+    background:#f95700;
+    color:#fff;
+    text-decoration:none;
+    font-size:16px;
+    font-family:'Microsoft Yahei'
+}
+.btn-primary:hover {
+    background:#f95700
+}
+.btn-disabled {
+    background:#999!important;
+    cursor:default
+}
+.icons {
+    display:inline-block;
+    width:16px;
+    height:16px;
+    background:url(../img/chk/captcha-icons.png) 0 0 no-repeat
+}
+.icons-reload {
+    background-position:0 0
+}
+.captcha {
+    width: 300px;
+    height: 240px;
+    font-family:Helvtical,'microsoft yahei',sans-serif;
+    font-size:14px;
+    position:relative;
+    border:1px solid #d7d7d7;
+    background:#fff;
+    border-radius:0 0 4px 4px;
+    box-shadow:0 2px 2px 0 #cac9c9;
+    color:#666;
+    left:16px;
+    display:none;
+    border-top:none;
+}
+.captcha .captcha-container {
+    width:280px;
+    position:relative;
+    margin:0 auto;
+    padding-top:8px
+}
+.captcha .captcha-container .captcha-header {
+    line-height:18px;
+    height:40px;
+    font-size:12px;
+    overflow:hidden;
+    position:relative
+}
+.captcha .captcha-container .captcha-header .txt {
+    float:left
+}
+.captcha .captcha-container .captcha-header .captcha-sm-img {
+    float:right;
+    width:100px;
+    height:40px;
+    overflow:hidden
+}
+.captcha .captcha-container .captcha-header .captcha-sm-img .captcha-group {
+    position:relative;
+    top:-130px;
+    height:200px
+}
+.captcha .captcha-container .captcha-header .captcha-sm-img .captcha-group i {
+    position:absolute;
+    width:16px;
+    height: 130px;
+}
+.captcha .captcha-container .captcha-body {
+    margin-top:10px;
+    position:relative
+}
+.captcha .captcha-container .captcha-body .captcha-coordinate {
+    position:absolute;
+    width:20px;
+    height:24px;
+    line-height:20px;
+    background:url(../img/chk/coordinate.png) 0 0 no-repeat;
+    color:#fff;
+    font-weight:700;
+    text-align:center;
+    z-index:2;
+    cursor:pointer;
+    font-size: 18px;
+
+}
+.captcha .captcha-container .captcha-body .captcha-img-sprites {
+    position:relative;
+    width: 280px;
+    height: 130px;
+    overflow:hidden;
+    z-index:1
+}
+.captcha .captcha-container .captcha-body .captcha-img-sprites .captcha-group {
+    position:relative
+}
+.captcha .captcha-container .captcha-body .captcha-img-sprites .captcha-group i {
+    position:absolute;
+    width:16px;
+    height:85px;
+}
+.captcha .captcha-container .captcha-footer {
+    height:30px;
+    line-height:30px;
+    margin-top:10px;
+    color:#0072D4;
+    font-size:12px
+}
+.captcha .captcha-container .captcha-footer .captcha-reload {
+    float:left;
+    text-decoration:none
+}
+.captcha .captcha-container .captcha-footer .captcha-reload .icons-reload {
+    float:left;
+    margin: 7px 4px 0 0;
+}
+.captcha .captcha-container .captcha-footer .btn {
+    float:right
+}
+.captcha .captcha-error {
+    font-weight:400;
+    white-space:nowrap;
+    color:red
+}
