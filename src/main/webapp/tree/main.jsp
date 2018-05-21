@@ -268,7 +268,7 @@
 </div>
 <div data-options="region:'west',title:'操作',split:true" style="width:200px;" >
 	<div id="aa" data-options="fit:true" class="easyui-accordion" style="width:300px;height:200px;">
-		<div title="系统设定" data-options="selected:false" style="overflow: auto; padding: 10px;">
+		<div title="系统管理" data-options="selected:false" style="overflow: auto; padding: 10px;">
 			<div id="tt1" class="easyui-tree">
 			</div>
 		</div>
