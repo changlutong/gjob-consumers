@@ -31,7 +31,7 @@
 
 	<div href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" onclick="updatestatus()">审核</div>
 
-	<div><table id="companytwotables"></table></div><!-- 查询到的广告所有 -->
+	<div><table id="companytwotablestwo"></table></div><!-- 查询到的广告所有 -->
 	
 
 	<div id="dialog_addguanggao"></div><!-- 新增的div -->
@@ -42,7 +42,7 @@ $(function(){
 	pageUtil();
 });
 function pageUtil(){
-	$('#companytwotables').datagrid({
+	$('#companytwotablestwo').datagrid({
 	    url:'<%=request.getContextPath()%>/companyController/selectCompanyTwoList.do',
         fitColumns:true,
         striped:true,
@@ -115,7 +115,7 @@ function pageUtil(){
 
                                 alert("新增成功");
                                 $("#dialog_addguanggao").dialog("close");
-                                $("#companytwotables").datagrid("reload");
+                                $("#companytwotablestwo").datagrid("reload");
 
                             },error:function(){
                                 $.messager.alert('警告','报错');
@@ -137,7 +137,7 @@ function pageUtil(){
 	//批量删
 	
 	function romaveguanggao(){
-        var id=$("#companytwotables").datagrid("getSelections");
+        var id=$("#companytwotablestwo").datagrid("getSelections");
         var ids=[];
         if(id.length>0){
             $.messager.confirm('确认','您确认想要删除记录吗？',function(r){
@@ -168,7 +168,7 @@ function pageUtil(){
 
    //修改状态
    function updatestatus() {
-       var id=$("#companytwotables").datagrid("getSelections");
+       var id=$("#companytwotablestwo").datagrid("getSelections");
        var ids=[];
        if(id.length>0){
            $.messager.confirm('确认','您确认想要通过审核？',function(r){
@@ -183,7 +183,7 @@ function pageUtil(){
                        type:"post",
                        success:function(){
                            alert("修改成功")
-                           $("#companytwotables").datagrid("reload");
+                           $("#companytwotablestwo").datagrid("reload");
                        },error:function(){
                            $.messager.alert('警告','报错');
                        }
