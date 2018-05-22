@@ -37,24 +37,24 @@ public class Company implements Serializable{
     private Integer checkstatus;
 
     private String companytablename;
-    private String companyaddress;
+    private String idcardpicturefan;
 
     private Integer category;
-    private Integer idcardpicture;
+    private String idcardpicture;
 
-    public String getCompanyaddress() {
-        return companyaddress;
+    public String getIdcardpicturefan() {
+        return idcardpicturefan;
     }
 
-    public void setCompanyaddress(String companyaddress) {
-        this.companyaddress = companyaddress;
+    public void setIdcardpicturefan(String idcardpicturefan) {
+        this.idcardpicturefan = idcardpicturefan;
     }
 
-    public Integer getIdcardpicture() {
+    public String getIdcardpicture() {
         return idcardpicture;
     }
 
-    public void setIdcardpicture(Integer idcardpicture) {
+    public void setIdcardpicture(String idcardpicture) {
         this.idcardpicture = idcardpicture;
     }
 
@@ -215,9 +215,9 @@ public class Company implements Serializable{
                 ", legalpersionidcardnum='" + legalpersionidcardnum + '\'' +
                 ", checkstatus=" + checkstatus +
                 ", companytablename='" + companytablename + '\'' +
-                ", companyaddress='" + companyaddress + '\'' +
+                ", idcardpicturefan='" + idcardpicturefan + '\'' +
                 ", category=" + category +
-                ", idcardpicture=" + idcardpicture +
+                ", idcardpicture='" + idcardpicture + '\'' +
                 '}';
     }
 }
