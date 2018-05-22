@@ -296,7 +296,7 @@
         function zhuxiao(){
             if(confirm("确认要注销么?")){
 
-                location.href="<%=request.getContextPath()%>/userController/zhuxiaoUser.do"
+                location.href="<%=request.getContextPath()%>/tree/login.jsp"
             }
         }
 
