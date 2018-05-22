@@ -25,6 +25,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
@@ -115,5 +116,28 @@ public class UserControlller {
         //展示的数据
         map.put("rows", userService.querylist(page,rows,user));
         return map;
+    }
+
+
+    @RequestMapping("logininfo")
+    @ResponseBody
+    public String logininfo(User user,HttpServletRequest request){
+        String flag="";
+        try {
+            User login =userService.logininfo(user);
+            if(login!=null){
+                flag="success";
+                User resourcesRoleList = userService.getResourcesRoleList(login);
+                request.getSession().setAttribute("user", resourcesRoleList);
+            }else{
+                flag="error";
+            }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            flag="error";
+        }
+        return flag;
+
     }
 }

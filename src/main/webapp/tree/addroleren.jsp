@@ -23,7 +23,7 @@
      </form>
 
 <script type="text/javascript">
-var pp= $("#aa").datagrid("getSelected");
+var pp= $("#aabcs").datagrid("getSelected");
 $("[name='name']").val(pp.name);
 $("[name='rid']").val(pp.rid);
 var  ll="";

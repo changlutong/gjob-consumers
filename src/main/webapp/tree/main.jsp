@@ -265,7 +265,7 @@
 	<script type="text/javascript">
         $("#tt1").tree({
 
-            url:"<%=request.getContextPath()%>/bankTypeController/queryTreeList.do",
+            url:"<%=request.getContextPath()%>/menu/menulist.do",
             method:"post",
             // checkbox:true,
             parentField:'pid',//实体类定义的pid一致
