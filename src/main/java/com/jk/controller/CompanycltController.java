@@ -115,6 +115,16 @@ public class CompanycltController {
         List<Job>  list =   companycltService.selectalljob(job);
         return list;
     }
+    @RequestMapping("toudijianli")
+    @ResponseBody
+    public String toudijianli(String jobid,HttpServletRequest req){
+
+    String userid= (String) req.getSession().getAttribute("userid");
+
+        companycltService.toudijianli(jobid,userid);
+
+        return "1";
+    }
 
 
 }

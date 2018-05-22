@@ -34,6 +34,7 @@ public class UserDatumController {
         if(count == 1){
             List<Tpersonal> list =  userdatum.selectUserlogin(loginname,password);
             request.getSession().setAttribute("tpersonal", list);
+            request.getSession().setAttribute("userid", list.get(0).getUuids());
             System.out.println(list.toString());
             return "1";
         }else{

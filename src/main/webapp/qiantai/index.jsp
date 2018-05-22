@@ -496,12 +496,12 @@
           // dataType:'text',
             success:function (succen){
                 var succen =eval("("+succen+")")
-                alert(succen)
+               // alert(succen)
                 if(succen == "0"){
                     alert("账号或密码错误!!")
                 }if(succen == "1"){
                     alert("欢迎登录招聘_求职_找工作_龙盾招聘平台!!")
-                    location.href="<%=request.getContextPath()%>/UserIndex/index.jsp";
+                    location.href="<%=request.getContextPath()%>/qiantai/shouye.jsp";
                 }
             },
             error:function(){

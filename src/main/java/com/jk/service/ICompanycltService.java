@@ -25,4 +25,6 @@ public interface ICompanycltService {
 
     List<Job> selectalljob(Job job);
 
+    void toudijianli(String jobid, String userid);
 }
+

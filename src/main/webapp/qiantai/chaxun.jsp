@@ -103,15 +103,7 @@
             </ul>
         </div>
         <div id="neirongzhanshi">
-        <div class="bft_f_2">
-            <ul >
-                <li><span>龙盾科技</span></li>
-                <li>业务员</li>
-                <li>熟练操作电脑，熟悉网络</li>
-                <li>200元/天</li>
-                <li><img src="images/shenqing.jpg" /></li>
-            </ul>
-        </div>
+
         </div>
 
         <%--<div class="bft_f_3">--%>
@@ -194,7 +186,7 @@ $(function(){
                     "<li>"+zhaopin[i].workname+"</li>" +
                     "<li>"+zhaopin[i].workinfo+"</li>" +
                     "<li>"+zhaopin[i].salary+"</li>" +
-                    "<li><img src='images/shenqing.jpg'  onclick='toudijianli("+zhaopin[i].id+")'  /></li></ul></div>"
+                    "<li><img src='images/shenqing.jpg'  onclick='toudijianli(\""+zhaopin[i].id+"\")'  /></li></ul></div>"
 
             }
             $("#neirongzhanshi").html(str);
@@ -202,13 +194,27 @@ $(function(){
         erro:function () {
             alert("呦呵呵，招聘内容查询失败！！！");
         }
-
-
-
     })
-
-
 })
+    function toudijianli(jobid){
+        alert(jobid)
+        $.ajax({
+            url:"<%=request.getContextPath()%>/companycltController/toudijianli.do",
+            data:{"jobid":jobid},
+            type:"post",
+            dataType:"json",
+            success:function (zhaopin) {
+                alert("投递成功")
+            },
+            erro:function () {
+                alert("呦呵呵，投递简历查询失败！！！");
+            }
+        })
+
+    }
+
+
+
 
 
 </script>
