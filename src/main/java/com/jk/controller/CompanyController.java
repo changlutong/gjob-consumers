@@ -1,21 +1,19 @@
 package com.jk.controller;
 
 import com.jk.model.Company;
-import com.jk.model.Mail;
 import com.jk.service.ICompanyService;
-import com.jk.util.EmailUtil;
 import com.jk.util.HttpClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.mail.MessagingException;
 import javax.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.apache.poi.hslf.record.RecordTypes.List;
 
@@ -101,6 +99,52 @@ public void updateCompanyPassword(Company company){
     companyService.updateCompanyPassword(company);
 
 }
+
+    /**
+     * 后台公司审核查询      孙国锦
+     * @param page
+     * @param rows
+     * @return
+     */
+    @RequestMapping(value="queryCompanyList")
+    @ResponseBody
+    public Map<String,Object> queryCompanyList(Integer page,Integer rows){
+    //查询所有记录
+    java.util.List<Company> list = companyService.queryCompanyeList(page,rows);
+    //查询总条数
+    long total = companyService.querycompanycount();
+    Map<String ,Object> map = new HashMap<String, Object>();
+    map.put("total",total);
+    map.put("rows",list);
+    return  map;
+}
+
+    /**
+     * 修改状态
+     * @param ids
+     */
+    @RequestMapping(value="updateCompanyStatus")
+    @ResponseBody
+    public void updateCompanyStatus(String ids){
+        String[] idss = ids.split(",");
+        for (int i = 0; i < idss.length; i++) {
+            companyService.updateCompanyStatus(idss[i].toString());
+        }
+    }
+
+
+    @RequestMapping(value = "selectCompanyTwoList")
+    @ResponseBody
+    public Map<String,Object> selectCompanyTwoList(Integer page,Integer rows){
+        //查询所有记录
+        java.util.List<Company> list = companyService.selectCompanyeTwoList(page,rows);
+        //查询总条数
+        long total = companyService.selectcompanyTwocount();
+        Map<String ,Object> map = new HashMap<String, Object>();
+        map.put("total",total);
+        map.put("rows",list);
+        return  map;
+    }
 
 
 
