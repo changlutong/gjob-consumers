@@ -58,5 +58,9 @@ public interface IGuanggaoService {
      */
     List<Company> querycompany();
 
-
+    List<Guanggao> selectallguanggao();
+    List<Guanggao> selecterhaoguanggao();
+    List<Guanggao> selectsanhaoguanggao();
+    List<Guanggao> selectsihaoguanggao();
+    List<Guanggao> selectwuhaoguanggao();
 }

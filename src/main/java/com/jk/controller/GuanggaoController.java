@@ -143,11 +143,48 @@ public class GuanggaoController {
 
     }
 
+    /**
+     * 查询一号广告 段家豪
+     * @return
+     */
+    @RequestMapping(value="selectallguanggao")
+    @ResponseBody
+    public  List<Guanggao> selectallguanggao(){
 
+        List<Guanggao> list = guanggaoService.selectallguanggao();
+        return  list;
+    }
+    /**
+     * 查询二号广告 段家豪
+     * @return
+     */
+    @RequestMapping(value="selecterhaoguanggao")
+    @ResponseBody
+    public  List<Guanggao> selecterhaoguanggao(){
 
+        List<Guanggao> list = guanggaoService.selecterhaoguanggao();
+        return  list;
+    }
+    @RequestMapping(value="selectsanhaoguanggao")
+    @ResponseBody
+    public  List<Guanggao> selectsanhaoguanggao(){
 
+        List<Guanggao> list = guanggaoService.selectsanhaoguanggao();
+        return  list;
+    }
+    @RequestMapping(value="selectsihaoguanggao")
+    @ResponseBody
+    public  List<Guanggao> selectsihaoguanggao(){
 
+        List<Guanggao> list = guanggaoService.selectsihaoguanggao();
+        return  list;
+    }
+    @RequestMapping(value="selectwuhaoguanggao")
+    @ResponseBody
+    public  List<Guanggao> selectwuhaoguanggao(){
 
-
+        List<Guanggao> list = guanggaoService.selectwuhaoguanggao();
+        return  list;
+    }
 
 }

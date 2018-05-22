@@ -27,7 +27,7 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/easyui/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/util-js.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/easyui/locale/easyui-lang-zh_CN.js"></script>
-<body rlt="1" style="">
+<body rlt="1" >
 <svg aria-hidden="true" style="position: absolute; width: 0px; height: 0px; overflow: hidden;">
     <symbol id="icon-redo" viewBox="0 0 1024 1024">
         <path d="M0 576c0 152.928 67.04 290.176 173.344 384l84.672-96c-79.712-70.368-130.016-173.312-130.016-288 0-212.064 171.936-384 384-384 106.048 0 202.048 42.976 271.52 112.48l-143.52 143.52 384 0 0-384-149.984 149.984c-92.64-92.672-220.64-149.984-362.016-149.984-282.784 0-512 229.216-512 512z"></path>
@@ -144,7 +144,7 @@
             <div class="s2">
                 <!-- 每一个l代表一个分区 -->
                 <div class="l1" style="display: block;">
-                    <div class="c1">
+                    <div class="c1" id="guanggaowei">
                         <div class="a1">
                             <div class="p1 comm"><img src="img/zhaopin1.jpg" width="140px" height="60px" onclick=""></div>
                             <div class="p2 comm"><img src="img/zhaopin2.jpg" width="145px" height="60px" onclick=""></div>
@@ -418,10 +418,64 @@
         document.getElementById("zhuceanniu").setAttribute("style","background:yellow;");
         document.getElementById("dengluanniu").setAttribute("style","background:#ba9d37;");
     }
-    function a(){
-    alert("11")
 
-    }
+</script>
+<script>
+    <!--页面加载事件之加载广告-->
+    $(function(){
+        $.ajax({
+            url:"<%=request.getContextPath()%>/guanggaoController/selectallguanggao.do",
+            type:"post",
+            dataType:"json",
+            success:function (guanggao) {
+
+             var str="<div class='a1'>" +
+                 " <div class='p1 comm'><img src='"+guanggao[0].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[0].companyid+","+guanggao[0].id+")'></div>" +
+                 "<div class='p2 comm'><img src='"+guanggao[1].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[1].companyid+","+guanggao[1].id+")'></div>" +
+                 "<div class='p3 comm'><img src='"+guanggao[2].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[2].companyid+","+guanggao[2].id+")'></div>" +
+                 "<div class='p4 comm'><img src='"+guanggao[3].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[3].companyid+","+guanggao[3].id+")'></div>" +
+                 "</div>"+
+                 "<div class='a1'>" +
+                 " <div class='p1 comm'><img src='"+guanggao[4].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[4].companyid+","+guanggao[4].id+")'></div>" +
+                 "<div class='p2 comm'><img src='"+guanggao[5].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[5].companyid+","+guanggao[5].id+")'></div>" +
+                 "<div class='p3 comm'><img src='"+guanggao[6].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[6].companyid+","+guanggao[6].id+")'></div>" +
+                 "<div class='p4 comm'><img src='"+guanggao[7].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[7].companyid+","+guanggao[7].id+")'></div>" +
+                 "</div>"+
+                 "<div class='a1'>" +
+                 " <div class='p1 comm'><img src='"+guanggao[8].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[8].companyid+","+guanggao[8].id+")'></div>" +
+                 "<div class='p2 comm'><img src='"+guanggao[9].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[9].companyid+","+guanggao[9].id+")'></div>" +
+                 "<div class='p3 comm'><img src='"+guanggao[10].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[10].companyid+","+guanggao[10].id+")'></div>" +
+                 "<div class='p4 comm'><img src='"+guanggao[11].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[11].companyid+","+guanggao[11].id+")'></div>" +
+                 "</div>"+
+                 "<div class='a1'>" +
+                 " <div class='p1 comm'><img src='"+guanggao[12].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[12].companyid+","+guanggao[12].id+")'></div>" +
+                 "<div class='p2 comm'><img src='"+guanggao[13].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[13].companyid+","+guanggao[13].id+")'></div>" +
+                 "<div class='p3 comm'><img src='"+guanggao[14].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[14].companyid+","+guanggao[14].id+")'></div>" +
+                 "<div class='p4 comm'><img src='"+guanggao[15].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[15].companyid+","+guanggao[15].id+")'></div>" +
+                 "</div>"+
+                 "<div class='a1'>" +
+                 " <div class='p1 comm'><img src='"+guanggao[16].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[16].companyid+","+guanggao[16].id+")'></div>" +
+                 "<div class='p2 comm'><img src='"+guanggao[17].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[17].companyid+","+guanggao[17].id+")'></div>" +
+                 "<div class='p3 comm'><img src='"+guanggao[18].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[18].companyid+","+guanggao[18].id+")'></div>" +
+                 "<div class='p4 comm'><img src='"+guanggao[19].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[19].companyid+","+guanggao[19].id+")'></div>" +
+                 "</div>"+
+                 "<div class='a1'>";
+                var a=1;
+                for(i=20;i<guanggao.length;i++){
+
+                    str+= " <div class='p"+a+" comm'><img src='"+guanggao[i].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[i].companyid+","+guanggao[i].id+")'></div>" ;
+                    a++;
+                }
+                str += "</div>";
+
+             $("#guanggaowei").html(str);
+            },
+            erro:function () {
+                alert("呦呵呵，广告查询失败！！！");
+            }
+        })
+    })
+    
 </script>
 
 </body>
