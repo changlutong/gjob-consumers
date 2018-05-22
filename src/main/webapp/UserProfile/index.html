@@ -1,0 +1,799 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+<meta http-equiv=”X-UA-Compatible” content=”IE=edge,chrome=1″/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>简历管理-我的龙盾-龙盾招聘</title>
+		<!--css类引用-->
+<link rel="stylesheet" href="plugins/eleme-ui/index.css" />
+<link href="css/haodoxi.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+
+</head>
+
+
+<body>
+
+
+<!-- 代码 开始 -->
+<header>
+<script type="text/javascript">
+$(function(){
+    var tabNum=$(".important").find("li");
+    var contentNum=$(".contents").children();
+    var timer;
+    $(tabNum).each(function(index){
+        $(this).hover(function(){
+            var that=$(this)
+             timer=window.setTimeout(function(){
+                $(contentNum).eq(index).css({"display":"block"});
+                $(contentNum).eq(index).siblings().css({"display":"none"});
+                 that.find("a").css({"background":"#FFF","color":"#fff"});
+                 that.find("strong").show();
+                 that.siblings().find("strong").hide();
+                 that.siblings().find("a").css({"background":"#fff","color":"black"});
+            },100)
+        },function(){
+            window.clearTimeout(timer);
+        })
+    })
+})
+</script>
+
+<div class="w1200">
+  <div class="title">
+    <h1><span>用户信</span>息详情</h1>
+  </div>
+<ul class="important cl">
+	 <li class="rcsp_1">
+		<a><span></span></a>
+		<p>个人信息</p>
+		<strong><i></i></strong>
+	 </li>
+	 <li class="rcsp_2">
+		<a><span></span></a>
+		<p>自我评价</p>
+		<strong style="display:none"><i></i></strong>
+	 </li>
+	 <li class="rcsp_3">
+		<a><span></span></a>
+		<p>求职意向</p>
+		<strong style="display:none"><i></i></strong>
+	</li>
+	 <li class="rcsp_4">
+		<a><span></span></a>
+		<p>工作经验</p>
+		<strong style="display:none"><i></i></strong>
+	</li>
+	 <li class="rcsp_5">
+		<a><span></span></a>
+		<p>教育背景</p>
+		<strong style="display:none"><i></i></strong>
+	</li>
+	 <li class="rcsp_6">
+		<a><span></span></a>
+		<p>培训经历  </p>
+		<strong style="display:none"><i></i></strong>
+	</li>
+	 <li class="rcsp_7">
+		<a><span></span></a>
+		<p>语言能力</p>
+		<strong style="display:none"><i></i></strong>
+	</li>
+	 <li class="rcsp_8">
+		<a><span></span></a>
+		<p>照片附件</p>
+		<strong style="display:none"><i></i></strong>
+	</li>
+	 <li class="rcsp_9">
+		<a><span></span></a>
+		<p>其他信息</p>
+		<strong style="display:none"><i></i></strong>
+	</li>
+</ul>
+<div class="contents">
+		<div class="cl">
+			<div class="important_l">
+				<a><img src="images/071146464hka.jpg"></a>
+			</div>
+			<div class="important_r">
+			   <div class="title_1">
+				  <h3>wel<span></span> come </h3>
+				<span class="input">
+
+</span>
+				  <h2>用户基<span>本信息</span></h2>
+				  <p>确定身份，让商家和客户之间彼此了解和交流,有利于网络商城的开展，避免了一些不法分子在网络上欺骗消费者。</p>
+			   </div>
+			   <div class="icon_top cl"><i class="i_left"></i><i class="i_right"></i></div>
+	 <div class="study">
+				-------------------------------------------------------------------<br><br>
+
+							修改个人信息（	<font color="ff0000"> *</font>为必填项）<br>
+
+				<table>
+					<tr>
+						<td><font color="ff0000"> *</font>姓名  : </td>
+						<td> <input type="text" name="123"  value="小天才"  style="border:1px solid"></td>
+					</tr>
+
+					<tr>
+						<td><font color="ff0000"> *</font>性别 :   </td>
+						<td>	<input type="radio" name="nn" value="0"  >男 &nbsp;&nbsp;<input type="radio" name="nn" value="1">女</td>
+					</tr>
+					<tr>
+						<td>	<font color="ff0000"> *</font>出生日期 : </td>
+						<td>	这里引 日期插件 </td>
+					</tr>
+					<tr>
+						<td><font color="ff0000"> *</font>参加工作年份 : </td>
+						<td>
+									<select name="">
+													<option value="0"   selected="selected">1年工作经验</option>
+													<option value="1">2年工作经验</option>
+													<option value="2">3年工作经验</option><br>
+													<option value="3">4年到5工作经验</option>
+													<option value="4">6年工作经验已上</option>
+								</select>
+					</td>
+					</tr>
+					<tr>
+						<td><font color="ff0000"> *</font>联系方式 :</td>
+						<td>	<input type="text" name="" value="18734353605"  style="border:1px solid"></td>
+					</tr>
+					<tr>
+						<td>	<font color="ff0000"> *</font>电子邮箱 : </td>
+						<td><input type="text" name="" value="2623860023@QQ.com"  style="border:1px solid"></td>
+					</tr>
+					<tr>
+						<td>	婚姻状况 : </td>
+						<td>
+							<input type="radio" name="hy" value="0">已婚
+							<input type="radio" name="hy" value="2">未婚
+							<input type="radio" name="hy" value="1">离异
+
+						</td>
+					</tr>
+					<tr>
+						<td>国籍 : </td>
+						<td>
+							<select name="">
+
+								<option value="1"  selected="selected">中国</option>
+								<option value="4">北国</option>
+								<option value="2">南国</option><br>
+								<option value="3">东国</option>
+								<option value="4">西国</option>
+								<option value="5">美国</option>
+								<option value="6">姜国</option>
+								<option value="7">兰国</option>
+								<option value="8">加拿大</option>
+								<option value="9">加拿小</option>
+								<option value="10">东京</option>
+								<option value="11">京东</option>
+								<option value="12">俄罗斯</option>
+								<option value="13">鹅螺丝</option>
+								<option value="14">额螺蛳</option>
+							</select>
+						</td>
+					</tr>
+						<tr>
+						<td width="130px">海外工作/经历 :</td>
+						<td>
+								 <input type="radio" name="nn" value="0">有
+								<input type="radio" name="nn" value="0">无
+
+						</td>
+					</tr>
+						<tr>
+						<td>政治面貌 :   </td>
+						<td>
+								 <input type="radio" name="nn" value="0">中共党员
+								<input type="radio" name="nn" value="1"> 团员
+								<input type="radio" name="nn" value="2">群众民
+								<input type="radio" name="nn" value="3">主党派
+								<input type="radio" name="nn" value="4">无党派
+						</td>
+					</tr>
+					</table><br>
+
+				   </div>
+
+																<div id="myVue" style="margin-left:20px;">
+																			<el-form ref="button" :model="form" label-width="100px">
+																				<el-form-item  label="户口所在地:">
+																					<el-cascader
+																						:options="CityInfo"
+																						v-model="form.selectedOptions"
+																						:change-on-select="true"
+																						:clearable="true"
+																						:filterable="true"
+																						@change="handleChange">
+																					</el-cascader>
+																					<span>所选地区：{{form.city | myAddressCity}}{{form.erae | myAddressErae}}{{form.minerae | myAddressMinerae}}</span>
+																				</el-form-item>
+																			</el-form>
+																		</div>
+																			<!--js类引用-->
+																			<script type="text/javascript" src="plugins/vue/vue.min.js" ></script>
+																			<script type="text/javascript" src="plugins/eleme-ui/index.js" ></script>
+																			<script type="text/javascript" src="plugins/city-picker/city-data.js" ></script>
+																			<script type="text/javascript" src="js/CivilMilitaryIntegration/ShoppingCart.js" ></script>
+
+													<div class="study">
+																-----------------------------------------------------------------<br><br>
+														<div>
+																<center>
+																	<input type="button" value="提交"   style="border:1px solid">	&nbsp;&nbsp;&nbsp;&nbsp;
+																	<input type="button" value="返回"  style="border:1px solid">
+																</center>
+														</div>
+													</div>
+
+			   <div class="icon_top cl" style="padding-top:0px;"><i class="i_left1"></i><i class="i_right1"></i></div>
+			</div>
+    </div>
+
+
+	<div class="cl" style="display: none">
+		<div class="important_l"><a><img src="images/170854226k8c.png"></a></div>
+		<div class="important_r">
+			<div class="title_1">
+			  <h3><span>self</span> -assessment </h3>
+			  <h2>自我<span>评价</span></h2>
+			  <p>自我评价: 写出完美的自己!!!</p>
+		   </div>
+		   <div class="icon_top cl"><i class="i_left"></i><i class="i_right"></i></div>
+		   <div class="study">
+
+			  <span><p><span style="font-size: small;">long盾建议您对自己做一个简短评价，简明扼要地描述您的职业优势，让用人单位快速地了解您！
+							优秀的自我评价可以吸引招聘人员的眼球，为您的简历增色不少！（*为必填项）</span></p></span>
+							<br><br>
+							<table>
+							<tr>
+								<td>主题:</td>
+								<td>
+									<select name="">
+													<option value="0"  selected="selected">自我评价</option>
+													<option value="1">职业目标</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td>内容</td>
+								<td>
+										<textarea name="" rows="10" cols="50">范例一：填写文字在100个字以上评定等级，少于不计算，内容越详细，等级越高  范例二：（限500个字）
+										</textarea>
+								</td>
+							</tr>
+							</table>
+									<br><br>
+									<center>
+										<input type="button" value="提交"  style="border:1px solid">	&nbsp;&nbsp;&nbsp;&nbsp;
+										<input type="button" value="返回"  style="border:1px solid">
+									</center>
+
+
+		   </div>
+		   <div class="icon_top cl" style="padding-top:0px;"><i class="i_left1"></i><i class="i_right1"></i></div>
+<h1 >
+
+			<font color="ff0000" size="5">注:</font>自我评价撰写技巧
+							社会简历
+							详细罗列出您所拥有的特长、技能和经验，以及您在以前的工作中累积了的优势。您可以根据招聘方的招聘信息，有针对性地罗列，让人事经理更好地了解到您与所申请职位的符合程度。
+							用尽可能简要且平实的语句概括描述出您的特长、技能、经验及优势。语言不可过于口语化，内容须实事求是，不可夸张。
+							避免提到您的业余爱好、抱负、对公司的感想等；避免空泛、感性、老套的话。
+							学生简历
+							详细罗列出您所拥有的专长、技能和实践经验，以及您在校期间经过锻炼培养出来的能力。您可以根据招聘方的招聘信息，有针对性地罗列，让人事经理更好地了解到您与所申请职位的符合程度。
+							用尽可能简要且平实的语句概括描述出您的专长、技能、实践经验及能力。语言不可过于口语化，内容须事实求是，不可夸张。
+							避免提到您的业余爱好、抱负、对公司的感想等；避免空泛、感性、老套的话。
+		</div>
+  </div>
+
+                <div class="cl" style="display: none">
+    <div class="important_l"><a><img src="images/17085130oitn.jpg"></a></div>
+    <div class="important_r">
+       <div class="title_1">
+          <h3><span>inte</span> nsion </h3>
+          <h2>求职<span>意向</span></h2>
+          <p>根据个人的爱好和能力，对自己进行职业规划，明确自己所要从事的职业，从而有针对性的去寻找合适的工作。</p>
+       </div>
+       <div class="icon_top cl"><i class="i_left"></i><i class="i_right"></i></div>
+       <div class="study">
+	   <br>
+						<table>
+						<tr>
+							<td><font color="ff0000"> *</font>期望工作性质:	 </td>
+							<td>
+									<input type="radio" name="xz" value="0" checked="checked">全职  <input type="radio" name="xz"  value="1" >兼职 <input type="radio" name="xz" value="2">实习
+							</td>
+						</tr>
+						<tr>
+							<td width="500px"><font color="ff0000"> *</font> 期望求职地点 :</td>
+							<td>
+													 <select name="">
+																			<option value="null">主选城市</option>
+																			<option value="1"  selected="selected">北京</option>
+																			<option value="4">忻州</option>
+																			<option value="2">上海</option><br>
+																			<option value="3">广州</option>
+																			<option value="4">深圳</option>
+																			<option value="5">天津</option>
+																			<option value="6">武汉</option>
+																			<option value="7">西安</option>
+																			<option value="8">成都</option>
+																			<option value="9">大连</option>
+																			<option value="10">沈阳</option>
+																			<option value="11">济南</option>
+																			<option value="12">青岛</option>
+																			<option value="13">杭州</option>
+																			<option value="14">苏州</option>
+																			<option value="15">无锡宁波</option>
+																			<option value="16">重庆</option>
+																			<option value="17">郑州</option>
+																			<option value="18">长沙</option>
+																			<option value="19">福州</option>
+																			<option value="20">厦门</option>
+																			<option value="21">哈尔滨</option>
+																			<option value="22">石家庄</option>
+																			<option value="23">合肥</option>
+																			<option value="24">惠州</option>
+																			<option value="25">太原</option>
+																			<option value="26">昆明</option>
+																			<option value="27">烟台</option>
+																			<option value="28">佛山</option>
+																			<option value="29">南昌</option>
+																			<option value="30">贵阳</option>
+														</select>
+							</td>
+						</tr>
+						<tr>
+							<td><font color="ff0000"> *</font>期望从事职业:</td>
+							<td>
+														 <select name="">
+																			<option value="null">主选专业</option>
+																			<option value="1"  selected="selected">用户体验（UE/UX）设计</option>
+																			<option value="4">网页设计/制作/美工</option>
+																			<option value="2">	游戏设计/开发</option><br>
+																			<option value="3">	游戏策划	</option>
+																			<option value="4">游戏界面设计</option>
+																			<option value="5">系统集成工程师</option>
+																			<option value="6">算法工程师</option>
+																			<option value="7">仿真应用工程师</option>
+																			<option value="8">计算机辅助设计师</option>
+																			<option value="9">网站架构设计师</option>
+																			<option value="10">IOS开发工程师</option>
+																			<option value="11">Android开发工程师</option>
+																			<option value="12">Java开发工程师</option>
+																			<option value="13">PHP开发工程师</option>
+																			<option value="14">C语言开发工程师</option>
+																			<option value="15">脚本开发工程师</option>
+																			<option value="16">其他</option>
+														</select>
+							</td>
+						</tr>
+						<tr>
+							<td><font color="ff0000"> *</font>期望月薪(税前):</td>
+							<td>
+													<select name="">
+																			<option value="null">主选月薪</option>
+																			<option value="1">  &nbsp;&nbsp; 3000以下</option>
+																			<option value="1">  &nbsp;&nbsp;  3000-5000</option>
+																			<option value="4" selected="selected">  &nbsp;&nbsp;  6000-8000</option>
+																			<option value="2">  &nbsp;&nbsp;  9000-1200</option>
+																			<option value="3">&nbsp;13000-15000	</option>
+																			<option value="4">&nbsp;16000-18000</option>
+																			<option value="5">&nbsp;19000-21000</option>
+																			<option value="6">&nbsp;22000-30000</option>
+																			<option value="7">&nbsp;30000-50000</option>
+																			<option value="8">&nbsp;50000-70000</option>
+																			<option value="9">&nbsp;70000-90000</option>
+																			<option value="10">&nbsp;&nbsp;   90000以上</option>
+																			<option value="16">    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   其他    </option>
+														</select>
+							</td>
+						</tr>
+						<tr>
+							<td><font color="ff0000"> *</font>工作状态:	</td>
+							<td>
+													 <select name="" style="width:300px;">
+															<option value="1" selected="selected">我目前处于离职状态，可立即上岗</option>
+															<option value="2">我目前在职，正考虑换个新环境（如有合适的工作机会，到岗时间一个月左右）</option>
+															<option value="4">我对现有工作还算满意，如有更好的工作机会，我也可以考虑。（到岗时间另议）</option>
+															<option value="3">目前暂无跳槽打算</option>
+															<option value="5">应届毕业生</option>
+													  </select>
+							</td>
+						</tr>
+						</table>
+						<br>
+																<center>
+																	<input type="button" value="提交"   style="border:1px solid">	&nbsp;&nbsp;&nbsp;&nbsp;
+																	<input type="button" value="返回"  style="border:1px solid">
+																</center>
+
+						<br><br><br>
+          <span><p><span style="font-size: small;">选择合理地点,选择合理工作位置,选择合适薪资,展现完美的自己!!!</span></p></span>
+
+       </div>
+       <div class="icon_top cl" style="padding-top:0px;"><i class="i_left1"></i><i class="i_right1"></i></div>
+       <!--div class="study"><a class="know" href="">对知识管理不了解？>点击了解</a></div-->
+    </div>
+  </div>
+                <div class="cl" style="display: none">
+    <div class="important_l"><a><img src="images/17085153yh1h.jpg"></a></div>
+    <div class="important_r">
+       <div class="title_1">
+          <h3><span>expe</span> rience </h3>
+          <h2>工作<span>经验</span></h2>
+          <p>工作经历怎么写？工作经历是个人简历中的重中之重，是HR最看重的内容。通常来说，简历都要通过重重的筛选，过六关斩五将才能进入HR的眼球。因此龙盾提示:认为写好工作经历十分重要。</p>
+       </div>
+			<div class="icon_top cl"><i class="i_left"></i><i class="i_right"></i></div>
+	   <br><br>
+		<table>
+
+		<tr>
+			<td>企业名称:</td>
+			<td>  <input type="text" name=""  style="border:1px solid;width:400px"></td>
+		</tr>
+			<tr>
+			<td>专业类别:</td>
+			<td>
+														 <select name="" style="width:400px;">
+																			<option value="null">--专业类别--</option>
+																			<option value="1"  selected="selected">销售|客服|市场</option>
+																			<option value="4">财务|人力资源|行政</option>
+																			<option value="2">	项目|质量|高级管理</option><br>
+																			<option value="3">IT|互联网|通信</option>
+																			<option value="4">房产|建筑|物业管理</option>
+																			<option value="5">采购|贸易|交通|物流</option>
+																			<option value="6">生产|制造</option>
+																			<option value="7">传媒|印刷|艺术|设计</option>
+																			<option value="8">咨询|法律|教育|翻译</option>
+																			<option value="9">服务业</option>
+																			<option value="10">能源|环保|农业|科研</option>
+																			<option value="11">兼职|实习|社工|其他</option>
+																</select>
+			</td>
+		</tr>
+		<tr>
+			<td>工作时间:</td>
+			<td>
+						这里加一个my97
+			</td>
+		</tr>
+		<tr>
+			<td>职位月薪(税前):</td>
+			<td>
+				 <select name="salary_scope" style="width:400px;">
+                    <option value="">请选择</option>
+									<option value="1">1000元/月以下</option>
+									<option value="2">1000-2000元/月</option>
+									<option value="4">2001-4000元/月</option>
+									<option value="6">4001-6000元/月</option>
+									<option value="8">6001-8000元/月</option>
+									<option value="10">8001-10000元/月</option>
+									<option value="15">10001-15000元/月</option>
+									<option value="25">15000-25000元/月</option>
+									<option value="35">25000-35000元/月</option>
+									<option value="50">35000-50000元/月</option>
+									<option value="70">50000-70000元/月</option>
+									<option value="100">70000-100000元/月</option>
+									<option value="1000">100000元/月以上</option>
+                </select>
+			</td>
+		</tr>
+				<tr>
+								<td>内容:</td>
+								<td>
+										<textarea name="" rows="10" cols="50">填写文字在100个字以上评定等级，少于不计算，内容越详细，等级越高。(限3000字以内)
+										</textarea>
+								</td>
+							</tr>
+		</table>
+<br>
+																<center>
+																	<input type="button" value="提交"   style="border:1px solid">	&nbsp;&nbsp;&nbsp;&nbsp;
+																	<input type="button" value="返回"  style="border:1px solid">
+																</center>
+       <div class="icon_top cl" style="padding-top:0px;"><i class="i_left1"></i><i class="i_right1"></i></div>
+    </div>
+  </div>
+                <div class="cl" style="display: none">
+    <div class="important_l"><a><img src="images/170852357mmn.png"></a></div>
+    <div class="important_r">
+       <div class="title_1">
+          <h3><span>backg</span> round </h3>
+          <h2>教育<span>背景</span></h2>
+          <p>教育背景是对一个人学习环境和学习能力的概述.</p>
+       </div>
+       <div class="icon_top cl"><i class="i_left"></i><i class="i_right"></i></div>
+
+				<center>
+					<table border="1" style="border-collapse:collapse;">
+						<tr>
+							<td align="center" style="width:120px; height: 21px;" valign="middle">学校名称</td>
+							<td align="center" style="width:120px; height: 21px;" valign="middle">时间</td>
+							<td align="center" style="width:120px; height: 21px;" valign="middle">学历学位</td>
+							<td align="center" style="width:120px; height: 21px;" valign="middle">操作</td>
+						</tr>下面加等拼接 更具id
+
+					</table>
+
+		<br><br>
+					<table>
+					<tr>
+						<td width="200px">&nbsp;时间:</td>
+						<td>这里是M97</td>
+					</tr>
+					<tr>
+						<td>学校名称:</td>
+						<td> <input type="text" name=""   style="border:1px solid"></td>
+					</tr>
+					<tr>
+						<td>是否统招:</td>
+						<td><input type="radio" name="tz" value ="0" checked="checked">是<input type="radio" name="tz" value="1">否</td>
+					</tr>
+					<tr>
+						<td>&nbsp;&nbsp;学历 :</td>
+						<td>
+									<select name="degree">
+												 <option value="null" selected="selected">请选择</option>
+												<option value="5">大专</option>
+												<option value="4">本科</option>
+												<option value="3">硕士</option>
+												<option value="1">博士</option>
+												<option value="10">MBA</option>
+												<option value="11">EMBA</option>
+												<option value="12">中专</option>
+												<option value="13">中技</option>
+												<option value="7">高中</option>
+												<option value="9">初中</option>
+												<option value="8">其他</option>
+								  </select>
+
+						</td>
+					</tr>
+					</table>
+							<br>
+																	<input type="button" value="提交"   style="border:1px solid">	&nbsp;&nbsp;&nbsp;&nbsp;
+																	<input type="button" value="返回"  style="border:1px solid">
+
+			</center>
+
+       <div class="icon_top cl" style="padding-top:0px;"><i class="i_left1"></i><i class="i_right1"></i></div>
+       <!--div class="study"><a class="know" href="">对合同管理不了解？>点击了解</a></div-->
+    </div>
+  </div>
+                <div class="cl" style="display: none">
+    <div class="important_l"><a><img src="images/17085256xhlm.png"></a></div>
+    <div class="important_r">
+       <div class="title_1">
+          <h3><span>training </span> record </h3>
+          <h2>培训<span>经历</span></h2>
+          <p>培训经历其实可以算是教育经历的一部分,但如果您所受的培训与所应聘的职位有很大的相关性,有些企业十分看重培训经历,因为在社会上的培训对实际的工作都非常重要...</p>
+       </div>
+       <div class="icon_top cl"><i class="i_left"></i><i class="i_right"></i></div>
+      <center>
+					<table border="1" style="border-collapse:collapse;">
+						<tr>
+							<td align="center" style="width:120px; height: 21px;" valign="middle">培训机构</td>
+							<td align="center" style="width:120px; height: 21px;" valign="middle">时间</td>
+							<td align="center" style="width:120px; height: 21px;" valign="middle">培训课程</td>
+							<td align="center" style="width:120px; height: 21px;" valign="middle">操作</td>
+						</tr>下面加等拼接 更具id
+
+					</table>
+
+		<br><br>
+					<table>
+					<tr>
+						<td width="90px">&nbsp;时间:</td>
+						<td>这里是M97</td>
+					</tr>
+					<tr>
+						<td>培训机构:</td>
+						<td> <input type="text" name=""   style="border:1px solid;width:300px"></td>
+					</tr>
+						<tr>
+						<td>培训地点:</td>
+						<td> <input type="text" name=""   style="border:1px solid;width:300px"></td>
+					</tr>
+					<tr>
+						<td>是否统招:</td>
+						<td><input type="radio" name="tz" value ="0" checked="checked">是<input type="radio" name="tz" value="1">否</td>
+					</tr>
+					<tr>
+						<td>详情介绍 :</td>
+						<td>
+										<textarea name="" rows="9" cols="45">培训撰写技巧
+培训描述时应包含关键字，关键字将存入数据库以便查找。关键字须描述清楚，如：C++、UNIX、网络、工程等。
+列举与应聘职位相关的培训课程，避免涉及无关的课程。
+用简单的语句表明从该培训中得到的收获。
+										</textarea>
+						</td>
+					</tr>
+					</table>
+					<br>
+																	<input type="button" value="提交"   style="border:1px solid">	&nbsp;&nbsp;&nbsp;&nbsp;
+																	<input type="button" value="返回"  style="border:1px solid">
+			</center>
+       <div class="icon_top cl" style="padding-top:0px;"><i class="i_left1"></i><i class="i_right1"></i></div>
+       <!--div class="study"><a class="know" href="">对员工档案不了解？>点击了解</a></div-->
+    </div>
+  </div>
+                <div class="cl" style="display: none">
+    <div class="important_l"><a><img src="images/17091705h84f.png"></a></div>
+    <div class="important_r">
+       <div class="title_1">
+          <h3><span>compe</span> tence </h3>
+          <h2>语言<span>能力</span></h2>
+          <p>表达流畅 善于表达 交流能力强 如果需要等级说明就是普通话程度,一甲一乙神马的,得参加普通话考试 如果是英语,四级六级等等,分数高的可以把分数写上。 </p>
+       </div>
+       <div class="icon_top cl"><i class="i_left"></i><i class="i_right"></i></div>
+
+					  <center>
+					<table border="1" style="border-collapse:collapse;">
+						<tr>
+							<td align="center" style="width:120px; height: 21px;" valign="middle">培训机构</td>
+							<td align="center" style="width:120px; height: 21px;" valign="middle">时间</td>
+							<td align="center" style="width:120px; height: 21px;" valign="middle">培训课程</td>
+							<td align="center" style="width:120px; height: 21px;" valign="middle">操作</td>
+						</tr>下面加等拼接 更具id
+					</table>
+		<br><br>
+					<table>
+					<tr>
+						<td>培训机构:</td>
+						<td>
+							  <select name="">
+                            <option value="">无</option>
+                                <option value="英语">英语</option>
+                                <option value="日语">日语</option>
+                                <option value="法语">法语</option>
+                                <option value="德语">德语</option>
+                                <option value="俄语">俄语</option>
+                                <option value="韩语">韩语</option>
+                                <option value="西班牙语">西班牙语</option>
+                                <option value="葡萄牙语">葡萄牙语</option>
+                                <option value="阿拉伯语">阿拉伯语</option>
+                                <option value="意大利语">意大利语</option>
+                                <option value="其他">其他</option>
+                        </select>
+                            &nbsp;&nbsp;&nbsp;&nbsp;读写能力
+                            <select name="">
+                                    <option value="一般">一般</option>
+                                    <option value="良好">良好</option>
+                                    <option value="熟练">熟练</option>
+                                    <option value="精通">精通</option>
+                            </select>&nbsp;&nbsp;&nbsp;&nbsp;
+                            听说能力
+                            <select name="">
+                                    <option value="一般">一般</option>
+                                    <option value="良好">良好</option>
+                                    <option value="熟练">熟练</option>
+                                    <option value="精通">精通</option>
+                            </select>
+						</td>
+					</tr>
+					</table>
+					<br>
+																	<input type="button" value="提交"   style="border:1px solid">	&nbsp;&nbsp;&nbsp;&nbsp;
+																	<input type="button" value="返回"  style="border:1px solid">
+			</center>
+          <td>
+       <div class="icon_top cl" style="padding-top:0px;"><i class="i_left1"></i><i class="i_right1"></i></div>
+       <!--div class="study"><a class="know" href="">对招聘管理不了解？>点击了解</a></div-->
+    </div>
+  </div>
+                <div class="cl" style="display: none">
+    <div class="important_l"><a><img src="images/17091755q1f1.png"></a></div>
+    <div class="important_r">
+       <div class="title_1">
+          <h3><span>ID Photo Print</span> to Print </h3>
+          <h2>证件<span>照片</span></h2>
+          <p>证件照的要求是免冠(不戴帽子)正面照片,照片上正常应该看到人的两耳轮廓和相当于男士的喉结处的地方.</p>
+       </div>
+       <div class="icon_top cl"><i class="i_left"></i><i class="i_right"></i></div>
+						<center>
+							   <h2>您可以在此上传您的附件（设计成果，毕业证书，身份证等），将它们转成图形格式（目前只支持jpg格式），我们暂时不支持其他类型的附件，大小请不要超过500K。</h2>
+							   <br>
+								<form method="post" action="">
+
+										<table>
+										<tr>
+											<td>证件照片:</td>
+											<td><input type="file" name="" style="width:366px"></td>
+										</tr>
+										<tr>
+											<td>相关介绍：</td>
+											<td>
+													<textarea name="" rows="9" cols="45"></textarea>
+											</td>
+										</tr>
+										</table>
+										<br>
+																	<input type="submit" value="提交"   style="border:1px solid">	&nbsp;&nbsp;&nbsp;&nbsp;
+																	<input type="reset"  style="border:1px solid"  value="重置">
+								</form>
+
+
+						</center>
+
+       <div class="icon_top cl" style="padding-top:0px;"><i class="i_left1"></i><i class="i_right1"></i></div>
+
+    </div>
+  </div>
+                <div class="cl" style="display: none">
+    <div class="important_l"><a><img src="images/17091816zslw.png"></a></div>
+    <div class="important_r">
+       <div class="title_1">
+          <h3><span>other in</span> formation </h3>
+          <h2>其他<span>信息</span></h2>
+          <p>其他信息是指根据法律、法规的规定或惯例，在被审计单位年度报告、招股说明书等文件中包含的除已审计财务报表和审计报告以外的其他财务信息和非财务信息。</p>
+       </div>
+       <div class="icon_top cl"><i class="i_left"></i><i class="i_right"></i></div>
+
+                     <center>
+							<table>
+							<tr>
+								<td>标题:</td>
+								<td>
+										 <select name="title" style="width:366px">
+										<option value="兴趣爱好">兴趣爱好</option>
+
+										<option value="获得荣誉">获得荣誉</option>
+
+										<option value="专业组织">专业组织</option>
+
+										<option value="著作/论文">著作/论文</option>
+
+										<option value="专利">专利</option>
+
+										<option value="宗教信仰">宗教信仰</option>
+
+										<option value="特长职业目标">特长职业目标</option>
+
+										<option value="特殊技能">特殊技能</option>
+
+										<option value="社会活动">社会活动</option>
+
+										<option value="荣誉">荣誉</option>
+
+										<option value="推荐信">推荐信</option>
+
+										<option value="其他">其他</option>
+								</select>
+								</td>
+							</tr>
+							<tr>
+								<td>描述:</td>
+								<td>
+										<textarea name="" rows="9" cols="45"></textarea>
+								</td>
+							</tr>
+							</table>
+							<br>
+																	<input type="button" value="提交"   style="border:1px solid">	&nbsp;&nbsp;&nbsp;&nbsp;
+																	<input type="button" value="返回"  style="border:1px solid">
+                      </center>
+
+       <div class="icon_top cl" style="padding-top:0px;"><i class="i_left1"></i><i class="i_right1"></i></div>
+    </div>
+  </div>
+
+</div>
+</div>
+<!-- 代码 结束 -->
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>来源:long盾科技有限出牌\品</p>
+<p>未经longdun.com 同意，不得转载本网站之所有招聘信息及作品 龙盾招聘网版权所有© 2017-2018</p>
+
+		<p>京ICP备120259251号 京ICP证0102070号电信业务审批[2000]字第232号函 京公网安备11010502002136号 </p><p>  负责人电话：18734353605        客服电话:15600020297</p>
+</div>
+
+</body>
+</html>  
