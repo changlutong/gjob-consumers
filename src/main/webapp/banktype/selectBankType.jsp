@@ -29,7 +29,7 @@
 	
 	<div href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" onclick="romaveguanggao()">删除</div>
 
-	<table id="tables"></table><!-- 查询到的广告所有 -->
+	<table id="banktypetables"></table><!-- 查询到的广告所有 -->
 	
 	<div id="updateDiv"></div><!-- 修改的div -->
 	
@@ -41,7 +41,7 @@ $(function(){
 	pageUtil();
 });
 function pageUtil(){
-	$('#tables').datagrid({
+	$('#banktypetables').datagrid({
 	    url:'<%=request.getContextPath()%>/bankTypeController/queryBankTypeList.do',
 	    fitColumns:true,
 	    striped:true,
@@ -134,7 +134,7 @@ function backShow(id){
 
                                 alert("新增成功");
                                 $("#dialog_addbanktype").dialog("close");
-                                $("#tables").datagrid("reload");
+                                $("#banktypetables").datagrid("reload");
 
                             },error:function(){
                                 $.messager.alert('警告','报错');
@@ -156,7 +156,7 @@ function backShow(id){
 	//批量删
 	
 	function romaveguanggao(){
-        var id=$("#tables").datagrid("getSelections");
+        var id=$("#banktypetables").datagrid("getSelections");
         var ids=[];
         if(id.length>0){
             $.messager.confirm('确认','您确认想要删除记录吗？',function(r){
@@ -171,7 +171,7 @@ function backShow(id){
                         type:"post",
                         success:function(){
                             alert("删除成功")
-                            $("#tables").datagrid("reload");
+                            $("#banktypetables").datagrid("reload");
                         },error:function(){
                             $.messager.alert('警告','报错');
                         }
