@@ -77,32 +77,6 @@
 
 
 
-	<style>
-		*{ margin:0px; padding: 0px;}
-		.all{ width: 195px;margin: 0px auto;  }
-		.text  {margin-top:0px; border: 0px solid black; height: 200px; overflow: hidden;}
-		.text li{ list-style:none; text-align: center; height:30px; line-height:30px; border-bottom: 1px dashed #CCCCCC; }
-
-		.alll{ width: 195px;margin: 0px auto;  }
-		.textt  {margin-top:0px; border: 0px solid black; height: 200px; overflow: hidden;}
-		.textt li{ list-style:none; text-align: center; height:30px; line-height:30px; border-bottom: 1px dashed #CCCCCC; }
-
-		.alll{ width: 195px;margin: 0px auto;  }
-		.texttt  {margin-top:0px; border: 0px solid black; height: 200px; overflow: hidden;}
-		.texttt li{ list-style:none; text-align: center; height:30px; line-height:30px; border-bottom: 1px dashed #CCCCCC; }
-
-		.alll{ width: 195px;margin: 0px auto;  }
-		.texttt4  {margin-top:0px; border: 0px solid black; height: 200px; overflow: hidden;}
-		.texttt4 li{ list-style:none; text-align: center; height:30px; line-height:30px; border-bottom: 1px dashed #CCCCCC; }
-		}
-		/* 	.login-dialog .modal-dialog {
-                        width: 1030px;
-                        height: 1100px;
-                         */
-	</style>
-
-
-
 
 </head>
 <!-- 这是jquery的核心包  -->
@@ -251,7 +225,7 @@
 	<!-- 头部右侧 -->
 	<div style="height:100%; width:10%; float: left;">
 
-		<div  class="easyui-linkbutton" data-options="plain:true">欢迎你,${usernameht}!</div><br>
+		<div  class="easyui-linkbutton" data-options="plain:true">欢迎你,<font size="3" color="#ffa07a">${rr.name}!</font></div><br>
 		<div  class="easyui-linkbutton" onclick="zhuxiao()" data-options="iconCls:'icon-remove',plain:true">注销用户</div><br>
 
 	</div>
@@ -268,7 +242,7 @@
 </div>
 <div data-options="region:'west',title:'操作',split:true" style="width:200px;" >
 	<div id="aa" data-options="fit:true" class="easyui-accordion" style="width:300px;height:200px;">
-		<div title="系统设定" data-options="selected:false" style="overflow: auto; padding: 10px;">
+		<div title="系统管理" data-options="selected:false" style="overflow: auto; padding: 10px;">
 			<div id="tt1" class="easyui-tree">
 			</div>
 		</div>
@@ -291,7 +265,7 @@
 	<script type="text/javascript">
         $("#tt1").tree({
 
-            url:"<%=request.getContextPath()%>/bankTypeController/queryTreeList.do",
+            url:"<%=request.getContextPath()%>/menu/menulist.do",
             method:"post",
             // checkbox:true,
             parentField:'pid',//实体类定义的pid一致
@@ -322,7 +296,7 @@
         function zhuxiao(){
             if(confirm("确认要注销么?")){
 
-                location.href="<%=request.getContextPath()%>/LoginAndRegiter!zhuxiaoUser.action"
+                location.href="<%=request.getContextPath()%>/userController/zhuxiaoUser.do"
             }
         }
 

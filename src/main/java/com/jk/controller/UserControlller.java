@@ -25,6 +25,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
@@ -43,52 +44,55 @@ import java.util.Map;
 public class UserControlller {
     @Autowired
     private IUserService userService;
+
     @RequestMapping("getUserList")
     @ResponseBody
-    public List<User> getUserList(){
-        List<User>list= userService.getUserList();
+    public List<User> getUserList() {
+        List<User> list = userService.getUserList();
         return list;
 
 
-
     }
+
     @ResponseBody
     @RequestMapping("/login")
-    public   String    login(User  ren,HttpSession  session){
-        User rr=null;
+    public String login(User ren, HttpSession session) {
+        User rr = null;
         try {
-            rr=  	userService.login(ren);
+            rr = userService.login(ren);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        if (rr!=null) {
+        if (rr != null) {
             session.setAttribute("rr", rr);
             return "ee";
-        }else {
-            return 	"userNo";
+        } else {
+            return "userNo";
         }
     }
+
     @ResponseBody
     @RequestMapping("/addcharenlist")
-    public PageUtil addcharenlist(Integer   page, Integer   rows){
-        PageUtil    pageUtil=new  PageUtil();
+    public PageUtil addcharenlist(Integer page, Integer rows) {
+        PageUtil pageUtil = new PageUtil();
         pageUtil.setPage(page);
         pageUtil.setPageSize(rows);
-        pageUtil=userService.addcharenlist(pageUtil);
-        return  pageUtil;
+        pageUtil = userService.addcharenlist(pageUtil);
+        return pageUtil;
     }
 
     @ResponseBody
     @RequestMapping("/addcharolelist")
-    public  List<Role>  addcharolelist(Integer  rid){
-        List<Role> list=  userService.addcharolelist(rid);
+    public List<Role> addcharolelist(Integer rid) {
+        List<Role> list = userService.addcharolelist(rid);
         return list;
     }
+
     @ResponseBody
     @RequestMapping("/charolelist")
-    public   List<Role>   charolelist(){
-        List<Role> list =null;
+    public List<Role> charolelist() {
+        List<Role> list = null;
         try {
             list = userService.charolelist();
         } catch (Exception e) {
@@ -97,10 +101,11 @@ public class UserControlller {
         }
         return list;
     }
+
     @ResponseBody
     @RequestMapping("/updaterolelist")
-    public   String  updaterolelist(User  ren,String  roid){
-        userService.updaterolelist(ren,roid);
+    public String updaterolelist(User ren, String roid) {
+        userService.updaterolelist(ren, roid);
         return "true";
 
     }
@@ -108,12 +113,41 @@ public class UserControlller {
 
     @RequestMapping("getUserAll")
     @ResponseBody
-    public Map<String,Object> querylist(Integer page,Integer rows ,User user){
-        Map<String,Object> map = new HashMap<String, Object>();
+    public Map<String, Object> querylist(Integer page, Integer rows, User user) {
+        Map<String, Object> map = new HashMap<String, Object>();
         //总数据条数
         map.put("total", userService.getuser(user).size());
         //展示的数据
-        map.put("rows", userService.querylist(page,rows,user));
+        map.put("rows", userService.querylist(page, rows, user));
         return map;
     }
+
+
+    @RequestMapping("logininfo")
+    @ResponseBody
+    public String logininfo(User user, HttpServletRequest request) {
+        String flag = "";
+        try {
+            User login = userService.logininfo(user);
+            if (login != null) {
+                flag = "success";
+                User resourcesRoleList = userService.getResourcesRoleList(login);
+                request.getSession().setAttribute("user", resourcesRoleList);
+            } else {
+                flag = "error";
+            }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            flag = "error";
+        }
+        return flag;
+
+    }
+    @RequestMapping("zhuxiaoUser")
+    public String  zhuxiaoUser(HttpServletRequest request) {
+        request.getSession().invalidate();
+        return "tree/login";
+    }
+
 }
