@@ -16,15 +16,15 @@
 <body>
      <form id="wert">
       <input type="hidden" name="rid">
-               用户名:<input class="easyui-validatebox" type="text" name="rname"  readonly="readonly"/> 
+               用户名:<input class="easyui-validatebox" type="text" name="name"  readonly="readonly"/>
         <table> 
           <tr id="datastr" ></tr>
         </table>  
      </form>
 
 <script type="text/javascript">
-var pp= $("#aa").datagrid("getSelected");
-$("[name='rname']").val(pp.rname);
+var pp= $("#aabcs").datagrid("getSelected");
+$("[name='name']").val(pp.name);
 $("[name='rid']").val(pp.rid);
 var  ll="";
   $(function(){

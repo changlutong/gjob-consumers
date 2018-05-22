@@ -16,14 +16,14 @@
 <body>
    <form id="wert">
       <input type="hidden" name="roid">
-               用户角色:<input class="easyui-validatebox" type="text" name="roname"  readonly="readonly"/> 
+               用户角色:<input class="easyui-validatebox" type="text" name="roname" disabled="true"   />
         <table> 
           <tr id="roletree" ></tr>
         </table>  
      </form>
  
 <script type="text/javascript">
-var pp= $("#aa").datagrid("getSelected");
+var pp= $("#aajbdg").datagrid("getSelected");
 $("[name='roname']").val(pp.roname);
 $("[name='roid']").val(pp.roid);
 $(function(){

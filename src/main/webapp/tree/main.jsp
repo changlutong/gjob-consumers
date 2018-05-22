@@ -225,7 +225,7 @@
 	<!-- 头部右侧 -->
 	<div style="height:100%; width:10%; float: left;">
 
-		<div  class="easyui-linkbutton" data-options="plain:true">欢迎你,${usernameht}!</div><br>
+		<div  class="easyui-linkbutton" data-options="plain:true">欢迎你,<font size="3" color="#ffa07a">${rr.name}!</font></div><br>
 		<div  class="easyui-linkbutton" onclick="zhuxiao()" data-options="iconCls:'icon-remove',plain:true">注销用户</div><br>
 
 	</div>
@@ -265,7 +265,7 @@
 	<script type="text/javascript">
         $("#tt1").tree({
 
-            url:"<%=request.getContextPath()%>/bankTypeController/queryTreeList.do",
+            url:"<%=request.getContextPath()%>/menu/menulist.do",
             method:"post",
             // checkbox:true,
             parentField:'pid',//实体类定义的pid一致
@@ -296,7 +296,7 @@
         function zhuxiao(){
             if(confirm("确认要注销么?")){
 
-                location.href="<%=request.getContextPath()%>/LoginAndRegiter!zhuxiaoUser.action"
+                location.href="<%=request.getContextPath()%>/userController/zhuxiaoUser.do"
             }
         }
 

@@ -60,14 +60,14 @@ $(function(){
 						//没有子节点   打开选项卡
 						var tabsObj=  $("#tabs").tabs("getTab",node.text);
 						  if(tabsObj==null){
-						$('#tabs').tabs('add',{    
-						    title:node.text,    
+						$('#tabs').tabs('add',{
+						    title:node.text,
 						    content:"<iframe frameborder='0' scrolling='no'  width='100%'  height='100%'  src = '"+node.href+"' />",
-						    closable:true,    
-						    tools:[{    
-						        iconCls:'icon-mini-refresh',    
-						        handler:function(){    
-						            alert('refresh');    
+						    closable:true,
+						    tools:[{
+						        iconCls:'icon-mini-refresh',
+						        handler:function(){
+						            alert('refresh');
 						        }    
 						    }]    
 						});

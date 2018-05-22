@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashSet;
-import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -22,23 +22,33 @@ public class TreeController {
     @Autowired
     private ITreeService treeService;
 
-   /* @RequestMapping("/menulist")
+    @RequestMapping("/menulist")
     @ResponseBody
-    private Object menulist(){
-        List<Tree> menus = treeService.menulist();
-
-
+    private Object menulist(HttpSession  session){
+        //獲取登陸用戶ID
+        User rr = (User) session.getAttribute("rr");
+        Integer id = rr.getRid();
+        Set<Map<String,Object>> obj =new HashSet<Map<String,Object>>();
+        obj = treeService.menulist(id);
+       /* System.out.println(menus.toString());
+        System.out.println(menus);*/
+        return obj;
+    }
+   /* @RequestMapping("/queryMenu")
+    @ResponseBody
+    private List<Tree> queryMenu(HttpSession  session){
+        User rr = (User) session.getAttribute("rr");
+        List<Tree> menus = treeService.queryMenu();
+	*//*	System.out.println(menus);*//*
         return menus;
-
-
     }*/
-   @ResponseBody
+  /* @ResponseBody
    @RequestMapping("/menulist")
    public    List<Tree>  menulist(HttpSession  session){
        User rr = (User) session.getAttribute("rr");
        List<Tree>   listMenu  =	treeService.menulist(rr.getRid());
        return   listMenu;
-   }
+   }*/
 
     @RequestMapping("/savelist")
     @ResponseBody
@@ -69,5 +79,7 @@ public class TreeController {
         treeService.updatelist(menu);
         return "true";
     }
+
+
 
 }

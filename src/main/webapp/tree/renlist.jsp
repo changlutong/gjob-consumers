@@ -5,15 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-    <script  src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
-    <script  src="<%=request.getContextPath()%>/js/util-js.js"></script>
-    <script  src="<%=request.getContextPath()%>/js/easyui/jquery.easyui.min.js"></script>
-    <script  src="<%=request.getContextPath()%>/js/easyui/locale/easyui-lang-zh_CN.js"></script>
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/js/easyui/themes/default/easyui.css">
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/js/easyui/themes/icon.css">
+
 </head>
 <body>
-<table  border=1   class="easyui-datagrid"   id="aa">  
+<table  border=1   class="easyui-datagrid"   id="aabcs">
     <thead>   
         <tr>   
           <th data-options="field:'   ww ',checkbox:true"  align="center"    width="100"  height="100"></th> 
@@ -27,19 +22,19 @@
     </tbody>   
 </table> 
 <!-- 新增 -->
-<div   id="dd">
+<div   id="addbcs">
 </div>
 
 <!-- 修改 -->
-<div  id="qwwe">
+<div  id="qwwebcs">
 </div>
 
 <!--  分配角色-->
-<div  id="hjhj">
+<div  id="hjhjbcs">
 </div>
 
 <script type="text/javascript">
-$("#aa").datagrid({ 
+$("#aabcs").datagrid({
     url:'<%=request.getContextPath()%>/userController/getUserAll.do',
     pagination:true,
     ctrlSelect:true,
@@ -71,7 +66,7 @@ $("#aa").datagrid({
 	return   "<button  onclick='dell()'>分配角色</button>";
 } 
   function  dell   (){
-	  $('#hjhj').dialog({    
+	  $('#hjhjbcs').dialog({
 		    title: '分配角色',    
 		    width: 400,    
 		    height: 200,    
@@ -105,7 +100,7 @@ $("#aa").datagrid({
   
     
 function addGoods(){
-	  $('#dd').dialog({    
+	  $('#addbcs').dialog({
 		    title: '增加系列',    
 		    width: 400,    
 		    height: 200,    
@@ -136,8 +131,8 @@ function addGoods(){
 		}); 
 }
 function   gai(regionid){
-	 var pp= $("#aa").datagrid("getSelected");
-	$('#qwwe').dialog({    
+	 var pp= $("#aabcs").datagrid("getSelected");
+	$('#qwwebcs').dialog({
 	    title: '修改系列',    
 	    width: 400,    
 	    height: 200,    
@@ -169,7 +164,7 @@ function   gai(regionid){
 	}); 
 }
 function   addshan(){
-	var sss= $("#aa").datagrid("getSelections");
+	var sss= $("#aabcs").datagrid("getSelections");
 	var aaa= "";
 		for (var i = 0; i < sss.length; i++) {
 			aaa += ","+sss[i].hid
@@ -182,7 +177,7 @@ function   addshan(){
 		     type:'post',
 		     success:function(result){
 		    	 if (result) {
-		 			$("#aa").datagrid("reload");
+		 			$("#aabcs").datagrid("reload");
 		 			alert("删除成功！！！！")
 		 		 }
 		     }
@@ -190,12 +185,12 @@ function   addshan(){
 	}
 	
 function  cha(){
-	 $('#aa').datagrid({
+	 $('#aabcs').datagrid({
 			queryParams: {
 				hno: $('[name="hno"]').val(),
 			}
 	 });
-	 $('#aa').datagrid("load");
+	 $('#aabcs').datagrid("load");
 }  
 </script>
 </body>

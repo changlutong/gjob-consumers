@@ -28,4 +28,8 @@ public interface IUserService {
     List<User> getuser(User user);
 
     List<User> querylist(Integer page, Integer rows, User user);
+
+    User logininfo(User user);
+
+    User getResourcesRoleList(User login);
 }
