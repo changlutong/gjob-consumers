@@ -19,7 +19,7 @@
 
 </head>
 <body>
-<input type="hidden" id="qitaid"  name="qitaid" value="569f8a7858d511e8b3acb025aa243dd5"/>
+<input type="hidden" id="qitaid"  name="qitaid" value="${tpersonal[0].uuids}"/>
 <div class="demos-buttons">
     <h3>
         风格</h3>
@@ -52,8 +52,8 @@
                 <font size="4" color="blue">工作经验:</font><span id="spanvintage"></span>
             </div>
             </div>
-        <div style="Float:right;width:200px;height:150px;" >
-            <img src="<%=request.getContextPath()%>/UserIndex/imgs/123.jpg" alt="图片逃跑了">
+        <div style="Float:right;width:300px;height:150px;" id="divphoto">
+
         </div>
         <hr><br>
 
@@ -74,6 +74,69 @@
     </div>
 </section>
 <script type="text/javascript">
+
+    /**
+     *查询图片
+     * */
+    $(function(){
+        var userid = $("#qitaid").val()
+
+        $.ajax({
+            url:"<%=request.getContextPath()%>/userdatumController/queryuseryhzp.do",
+            type:"post",
+            data:{"userid":userid},
+            dataType:"json",
+            success:function (succen){
+
+                var count = succen.length
+                if (count > 0){
+                    var divphoto = " <center><img src='"+succen[0].zpfjurl+"' style='width:200px;heighe:190px'/><br></center><br><div><center><img src='<%=request.getContextPath()%>/UserIndex/imgs/sx.jpg' onclick='sx()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/xg.jpg' onclick='xiugai()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/jltd.jpg' onclick='jltds()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/wdtd.jpg' onclick='wdtds()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/hdsy.jpg'onclick='hdzy()'/></center></div>"
+                    $("#divphoto").html(divphoto);
+                }else{
+                    var divphoto = " <center><img src='<%=request.getContextPath()%>/UserIndex/imgs/123.jpg'/><br></center><br><div><center><img src='<%=request.getContextPath()%>/UserIndex/imgs/sx.jpg'  onclick='sx()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/xg.jpg'  onclick='xiugai()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/jltd.jpg' onclick='jltds()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/wdtd.jpg'onclick='wdtds()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/hdsy.jpg'onclick='hdzy()'/></center></div>"
+                    $("#divphoto").html(divphoto);
+                }
+            },
+            error:function(){
+                alert("出错！！！")
+            }
+        })
+    })
+    /**
+     * 刷新页面
+     * */
+    function sx(){
+        location.reload();
+
+    }
+    /**
+     * 跳页面 修改
+     * */
+    function xiugai(){
+        location.href="<%=request.getContextPath()%>/UserProfile/User.jsp";
+    }
+
+    /**
+     * 跳页面简历投递
+     * */
+    function jltds(){
+
+        location.href="<%=request.getContextPath()%>/qiantai/chaxun.jsp";
+    }
+    /**
+     * 我的投递
+     * */
+    function wdtds(){
+        location.href="../qiantai/Delivery.jsp";
+    }
+
+    /**
+     * 回到主页http://localhost:8888/qiantai/shouye.jsp
+     * */
+    function hdzy(){
+        location.href="<%=request.getContextPath()%>/qiantai/shouye.jsp";
+    }
+
     $(function(){
 
         var userid = $("#qitaid").val()

@@ -113,8 +113,19 @@ $.ajax({
      if(result == "2"){
          alert("登陆成功!")
 
-         location.href="<%=request.getContextPath()%>/qiantai/shouye.jsp";
+         location.href="<%=request.getContextPath()%>/company-view/companyindex.jsp";
      }
+     if(result == "3"){
+         alert("登陆成功!")
+
+         location.href="<%=request.getContextPath()%>/company-view/companyindexcopy.jsp";
+     }
+     if(result == "4"){
+         alert("sql注入了,请检查状态!")
+
+     }
+
+
  },
  error:function(){
      alert("报错");

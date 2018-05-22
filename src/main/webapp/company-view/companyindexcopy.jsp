@@ -33,11 +33,11 @@
 <div style="float: left">
 <ul class="layui-nav layui-nav-tree layui-inline layui-bg-cyan" lay-filter="demo" style="margin-right: 10px;">
 
-    <li class="layui-nav-item"><a href="<%=request.getContextPath()%>/company-view/shoudaojsp.jsp" target="myFrame">收到的简历</a></li>
-    <li class="layui-nav-item"><a href="<%=request.getContextPath()%>/company-view/addzhiwei.jsp" target="myFrame">新增职位</a></li>
-    <li class="layui-nav-item"><a href="<%=request.getContextPath()%>/company-view/zhiweilist.jsp" target="myFrame">职位列表</a></li>
-    <li class="layui-nav-item"><a href="<%=request.getContextPath()%>/company-view/outzhiwei.jsp" target="myFrame">已发布职位</a></li>
-    <li class="layui-nav-item"><a href="<%=request.getContextPath()%>/company-view/showjoblist.jsp" target="myFrame">寻找简历</a></li>
+    <li class="layui-nav-item"><a href="<%=request.getContextPath()%>/company-view/putong.jsp" target="myFrame"  >收到的简历</a></li>
+    <li class="layui-nav-item"><a href="<%=request.getContextPath()%>/company-view/putong.jsp" target="myFrame">新增职位</a></li>
+    <li class="layui-nav-item"><a href="<%=request.getContextPath()%>/company-view/putong.jsp" target="myFrame">职位列表</a></li>
+    <li class="layui-nav-item"><a href="<%=request.getContextPath()%>/company-view/putong.jsp" target="myFrame">已发布职位</a></li>
+    <li class="layui-nav-item"><a href="<%=request.getContextPath()%>/company-view/putong.jsp" target="myFrame">寻找简历</a></li>
     <li class="layui-nav-item">&nbsp;</li>
     <li class="layui-nav-item">&nbsp;</li>
     <li class="layui-nav-item">&nbsp;</li>
@@ -66,7 +66,6 @@
         });
     });
 </script>
-
 
 </body>
 </html>

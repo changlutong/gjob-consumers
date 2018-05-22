@@ -293,4 +293,17 @@ public class UserDatumController {
     public void deleteuseryynl(String userid,Integer id){
         userdatum.deleteuseryynl(userid,id);
     }
+
+
+    /**
+     *  查询 当前用户收投递的 职业
+     */
+
+    @RequestMapping("selectalljobto")
+    @ResponseBody
+    public List<Map<String,Object>>selectalljobto(String userid){
+        List<Map<String,Object>> list = userdatum.selectalljobto(userid);
+        System.out.println(list.toString());
+        return list;
+    }
 }

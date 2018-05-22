@@ -130,7 +130,7 @@
 
                         <form id="grxx">
 
-                        <input type="hidden" id="datumid"  name="datumid" value="569f8a7858d511e8b3acb025aa243dd5"/>
+                        <input type="hidden" id="datumid"  name="datumid" value="${tpersonal[0].uuids}"/>
                         修改个人信息（	<font color="ff0000"> *</font>为必填项）<br>
                         <table>
                             <tr>
@@ -328,7 +328,7 @@
                         <br>
                         <form id="qzyxform">
 
-                            <input type="hidden" id="userqzyxid"  name="userqzyxid" value="569f8a7858d511e8b3acb025aa243dd5"/>
+                            <input type="hidden" id="userqzyxid"  name="userqzyxid" value="${tpersonal[0].uuids}"/>
                         <table>
                             <tr>
                                 <td><font color="ff0000"> *</font>期望工作性质:	 </td>
@@ -456,7 +456,7 @@
                     <br><br>
 
                     <form id="usergzjy">
-                        <input type="hidden" id="gzjyid"  name="gzjyid" value="569f8a7858d511e8b3acb025aa243dd5"/>
+                        <input type="hidden" id="gzjyid"  name="gzjyid" value="${tpersonal[0].uuids}"/>
                     <table>
                         <!-- my97 -->
                         <script  type="text/javascript"src="<%=request.getContextPath()%>/UserProfile/My97DatePicker/WdatePicker.js"></script>
@@ -553,7 +553,7 @@
                         <script  type="text/javascript"src="<%=request.getContextPath()%>/UserProfile/My97DatePicker/WdatePicker.js"></script>
 
                         <form id="jybjfrom">
-                            <input type="hidden" id="jybjid"  name="jybjid" value="569f8a7858d511e8b3acb025aa243dd5"/>
+                            <input type="hidden" id="jybjid"  name="jybjid" value="${tpersonal[0].uuids}"/>
                         <table>
                             <tr>
                                 <td width="20px">&nbsp;时间:</td>
@@ -625,7 +625,7 @@
                         <script  type="text/javascript"src="<%=request.getContextPath()%>/UserProfile/My97DatePicker/WdatePicker.js"></script>
 
                         <form id="pxjlfrom">
-                                 <input type="hidden" id="pxjlid"  name="pxjlid" value="569f8a7858d511e8b3acb025aa243dd5"/>
+                                 <input type="hidden" id="pxjlid"  name="pxjlid" value="${tpersonal[0].uuids}"/>
                         <table>
                             <tr>
                                 <td width="50px">&nbsp;时间:</td>
@@ -685,7 +685,7 @@
                         <br><br>
                         <form id="yynlform">
 
-                            <input type="hidden" id="yynlid"  name="yynlid" value="569f8a7858d511e8b3acb025aa243dd5"/>
+                            <input type="hidden" id="yynlid"  name="yynlid" value="${tpersonal[0].uuids}"/>
 
                             <table>
                             <tr>
@@ -746,7 +746,7 @@
                         <br>
 
 
-                        <input type="hidden" id="fileid"  name="fileid" value="569f8a7858d511e8b3acb025aa243dd5"/>
+                        <input type="hidden" id="fileid"  name="fileid" value="${tpersonal[0].uuids}"/>
                             <table>
                                 <tr>
                                     <td>证件照片:</td>
@@ -784,7 +784,7 @@
 
                     <center>
                         <form id="qtxxform">
-                            <input type="hidden" id="qitaid"  name="qitaid" value="569f8a7858d511e8b3acb025aa243dd5"/>
+                            <input type="hidden" id="qitaid"  name="qitaid" value="${tpersonal[0].uuids}"/>
                         <table>
                             <tr>
                                 <td>标题:</td>

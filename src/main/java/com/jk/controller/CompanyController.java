@@ -75,17 +75,16 @@ public class CompanyController {
 
 
 
-
-
-
     @RequestMapping("querycompanylogin")
 @ResponseBody
-public String querycompanylogin(Company company){
-
-
+public String querycompanylogin(Company company,HttpSession session){
+      /*  String phone= company.getId();
+        session.setAttribute("id",phone);*/
     String companylist= companyService.querycompanylogin(company);
+        String[] split = companylist.split(",");
+       session.setAttribute("id",split[1]);
 
-    return companylist;
+        return  split[0];
 
 }
 
@@ -151,6 +150,53 @@ public void updateCompanyPassword(Company company){
 
 
         return null;
+    }
+
+
+    /**
+     * 后台公司审核查询      孙国锦
+     * @param page
+     * @param rows
+     * @return
+     */
+    @RequestMapping(value="queryCompanyList")
+    @ResponseBody
+    public Map<String,Object> queryCompanyList(Integer page,Integer rows){
+        //查询所有记录
+        java.util.List<Company> list = companyService.queryCompanyeList(page,rows);
+        //查询总条数
+        long total = companyService.querycompanycount();
+        Map<String ,Object> map = new HashMap<String, Object>();
+        map.put("total",total);
+        map.put("rows",list);
+        return  map;
+    }
+
+    /**
+     * 修改状态
+     * @param ids
+     */
+    @RequestMapping(value="updateCompanyStatus")
+    @ResponseBody
+    public void updateCompanyStatus(String ids){
+        String[] idss = ids.split(",");
+        for (int i = 0; i < idss.length; i++) {
+            companyService.updateCompanyStatus(idss[i].toString());
+        }
+    }
+
+
+    @RequestMapping(value = "selectCompanyTwoList")
+    @ResponseBody
+    public Map<String,Object> selectCompanyTwoList(Integer page,Integer rows){
+        //查询所有记录
+        java.util.List<Company> list = companyService.selectCompanyeTwoList(page,rows);
+        //查询总条数
+        long total = companyService.selectcompanyTwocount();
+        Map<String ,Object> map = new HashMap<String, Object>();
+        map.put("total",total);
+        map.put("rows",list);
+        return  map;
     }
 
 

@@ -19,7 +19,7 @@
     <script src="js/jquery.ffform.js" type="text/javascript"></script>
 </head>
 <body class="bounceIn animated">
-<input type="hidden" id="qitaid"  name="qitaid" value="569f8a7858d511e8b3acb025aa243dd5"/>
+<input type="hidden" id="qitaid"  name="qitaid" value="${tpersonal[0].uuids}"/>
 <div class="demos-buttons">
     <h3>
         风格</h3>
@@ -53,8 +53,8 @@
             </div>
 
         </div>
-        <div style="Float:right;width:200px;height:150px;" >
-            <img src="<%=request.getContextPath()%>/UserIndex/imgs/123.jpg" alt="图片逃跑了">
+        <div style="Float:right;width:300px;height:150px;" id="divphoto">
+
         </div>
         <hr><br>
 
@@ -75,6 +75,68 @@
     </div>
 </section>
 <script type="text/javascript">
+    /**
+     *查询图片
+     * */
+    $(function(){
+        var userid = $("#qitaid").val()
+
+        $.ajax({
+            url:"<%=request.getContextPath()%>/userdatumController/queryuseryhzp.do",
+            type:"post",
+            data:{"userid":userid},
+            dataType:"json",
+            success:function (succen){
+
+                var count = succen.length
+                if (count > 0){
+                    var divphoto = " <center><img src='"+succen[0].zpfjurl+"' style='width:200px;heighe:190px'/><br></center><br><div><center><img src='<%=request.getContextPath()%>/UserIndex/imgs/sx.jpg' onclick='sx()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/xg.jpg' onclick='xiugai()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/jltd.jpg' onclick='jltds()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/wdtd.jpg' onclick='wdtds()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/hdsy.jpg'onclick='hdzy()'/></center></div>"
+                    $("#divphoto").html(divphoto);
+                }else{
+                    var divphoto = " <center><img src='<%=request.getContextPath()%>/UserIndex/imgs/123.jpg'/><br></center><br><div><center><img src='<%=request.getContextPath()%>/UserIndex/imgs/sx.jpg'  onclick='sx()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/xg.jpg'  onclick='xiugai()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/jltd.jpg' onclick='jltds()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/wdtd.jpg'onclick='wdtds()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/hdsy.jpg'onclick='hdzy()'/></center></div>"
+                    $("#divphoto").html(divphoto);
+                }
+            },
+            error:function(){
+                alert("出错！！！")
+            }
+        })
+    })
+    /**
+     * 刷新页面
+     * */
+    function sx(){
+        location.reload();
+
+    }
+    /**
+     * 跳页面 修改
+     * */
+    function xiugai(){
+        location.href="<%=request.getContextPath()%>/UserProfile/User.jsp";
+    }
+
+    /**
+     * 跳页面简历投递
+     * */
+    function jltds(){
+
+        location.href="<%=request.getContextPath()%>/qiantai/chaxun.jsp";
+    }
+    /**
+     * 我的投递
+     * */
+    function wdtds(){
+        location.href="../qiantai/Delivery.jsp";
+    }
+
+    /**
+     * 回到主页http://localhost:8888/qiantai/shouye.jsp
+     * */
+    function hdzy(){
+        location.href="<%=request.getContextPath()%>/qiantai/shouye.jsp";
+    }
+
     $(function(){
 
         var userid = $("#qitaid").val()
@@ -157,11 +219,11 @@
                         }
                         qzyx += "<font size='4' color='#dc143c'>" + (i + 1) + "</font><font size='3'>*期望工作性质:<span >" + xinz + "</span></font><br> <font size='3'>* 期望求职地点 :<span >" + succen[i].site + "</span></font><br> <font size='3'>*期望从事职业:<span >" + succen[i].occupation + "</span></font><br> <font size='3'>*期望月薪(税前):<span >" + succen[i].salary + "</span></font><br><font size='3'>*工作状态:<span>" + gzzt + "</span></font><br><br>"
                     }
+
                     $("#USerqzyx").html(qzyx);
                 }else{
                     $("#USerqzyx").html(" ");
                 }
-
             },
             error: function () {
                 alert("出错！！！")
@@ -190,7 +252,7 @@
                     }
                     $("#USergzjy").html(usergzjy);
                 }else{
-                    $("#USergzjy").html(" ");
+                    $("#USergzjy").html("  ");
                 }
             },
             error: function () {
@@ -211,6 +273,7 @@
             dataType: "json",
             success: function (succen){
 
+
                 var count = succen.length
                 if (count > 0) {
 
@@ -224,7 +287,7 @@
                     }
                     $("#userjybj").html(tb);
                 }else{
-                    $("#userjybj").html(" ");
+                    $("#userjybj").html("");
                 }
             },
             error: function () {
@@ -243,8 +306,10 @@
             data: {"userid": userid},
             dataType: "json",
             success: function (succen){
+
                 var count = succen.length
                 if (count > 0) {
+
                     var tb = "<div style='width:150px;height:20px;background:#dcdcdc'>培训经历</div><br>"
                     for (var i = 0; i < succen.length; i++) {
                         var usertz = "是";
@@ -254,8 +319,8 @@
                         tb += "<font size='4' color='#dc143c'>" + (i + 1) + "</font><font size='4'>*培训机构:<span >" + succen[i].psjlpxjg + "</span></font><br> <font size='4'>*培训地点:<span >" + succen[i].pxjldd + "</span></font><br> <font size='4'>*时间:<span>" + succen[i].pxjlkssj + "---->" + succen[i].pxjljssj + "</span></font><br>  <font size='4'>*是否统招:<span >" + usertz + "</span></font><br> <font size='4'>*详情介绍 :<span >" + succen[i].pxjljs + "</span></font><br><br>"
                     }
                     $("#userpxjl").html(tb);
-                }else {
-                    $("#userpxjl").html(" ");
+                }else{
+                    $("#userpxjl").html("  ");
                 }
             },
             error: function () {
@@ -279,6 +344,7 @@
 
                 var count = succen.length
                 if (count > 0) {
+
                     var tb = "<div style='width:150px;height:20px;background:#dcdcdc'>语言能力</div><br>";
                     for (var i = 0; i < succen.length; i++) {
                         tb += " <font size='4' color='#dc143c'>" + (i + 1) + "</font><font size='4'>*教育语言:<span >" + succen[i].yynlpxjg + "</span></font><br><font size='4'>*读写能力:<span >" + succen[i].yynldxnl + "</span></font><br><font size='4'>* 听说能力:<span >" + succen[i].yynltsnl + "</span></font><br><br>";
@@ -297,6 +363,7 @@
 
     $(function() {
         var userid = $("#qitaid").val()
+
 
         $.ajax({
             url: "<%=request.getContextPath()%>/userdatumController/queryuserzwpj.do",
@@ -321,6 +388,7 @@
                 }else{
                     $("#userzwpj").html(" ");
                 }
+
             },
             error: function () {
                 alert("出错！！！")
@@ -359,9 +427,6 @@
             }
         })
     })
-
-
-
 </script>
 
 

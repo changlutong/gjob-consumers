@@ -143,6 +143,29 @@ public class GuanggaoController {
 
     }
 
+
+
+    @RequestMapping(value = "queryguanggaotwo")
+    @ResponseBody
+    public Map<String ,Object> queryguanggaotwo(Integer page, Integer rows){
+        //查询所有记录
+        List<Guanggao> list = guanggaoService.queryguanggaotwo(page,rows);
+        //查询总条数
+        long total = guanggaoService.querycounttwo();
+        Map<String ,Object> map = new HashMap<String, Object>();
+        /*JSONObject  json=new JSONObject();
+        json.put("total", total);
+        json.put("rows", list);*/
+        map.put("total",total);
+        map.put("rows",list);
+        return  map;
+    }
+
+
+
+
+
+
     /**
      * 查询一号广告 段家豪
      * @return
