@@ -208,7 +208,7 @@
                         <tr>
                             <td>
                                 <label>
-                                    <input id="loginname1" name="loginname" class="inputtxt_1" type="text" placeholder="手机号" style="background:yellow">
+                                    <input id="loginname1"class="inputtxt_1" type="text" placeholder="手机号" style="background:yellow">
                                 </label>
                                 <span id="email_info" class="yzi_td"></span>
 
@@ -217,7 +217,7 @@
                         <tr>
                             <td>
                                 <label>
-                                    <input id="password1" name="password" class="inputtxt_1" value="" type="password" placeholder="密码" style="background:yellow">
+                                    <input id="password1" class="inputtxt_1" value="" type="password" placeholder="密码" style="background:yellow">
                                 </label>
                                 <span id="password1_info" class="yzi_td"></span>
                             </td>
@@ -477,6 +477,40 @@
     })
     
 </script>
+<script type="text/javascript">
 
+
+    /***
+     * 登录
+     */
+
+    function denglu(){
+        //  alert("自我评价")//zwpjzt,
+        var loginname =  $("#loginname").val()
+        var password =  $("#password").val()
+
+        $.ajax({
+            url:"<%=request.getContextPath()%>/userdatumController/selectUserlogin.do",
+            type:"post",
+            data:{"loginname":loginname,"password":password},
+          // dataType:'text',
+            success:function (succen){
+                var succen =eval("("+succen+")")
+                alert(succen)
+                if(succen == "0"){
+                    alert("账号或密码错误!!")
+                }if(succen == "1"){
+                    alert("欢迎登录招聘_求职_找工作_龙盾招聘平台!!")
+                    location.href="<%=request.getContextPath()%>/UserIndex/index.jsp";
+                }
+            },
+            error:function(){
+                alert("出错！！！")
+            }
+        })
+    }
+
+
+</script>
 </body>
 </html>

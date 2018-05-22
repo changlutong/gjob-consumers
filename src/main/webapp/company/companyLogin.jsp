@@ -62,9 +62,12 @@
             </div> <div class="user-btn-link">
                 <a href="resetPassword.jsp">找回密码？</a>
             </div>
-            <button onclick="denglua()">登录</button>
-        </div>
-    </form>
+            <button onclick="denglua()" type="button">登录</button>
+<%--  <input type="button" onclick="denglua()">--%>
+</div>
+
+</form>
+
 </div>
 
 
@@ -73,8 +76,8 @@
 <script>
 $(function () {
 
-    var code = $("#code").val("jsaidaisd656");
-    codeFn= new moveCode(code);
+var code = $("#code").val("jsaidaisd656");
+codeFn= new moveCode(code);
 
 })
 
@@ -87,39 +90,41 @@ $(function () {
 
 function denglua(){
 
-    var phone = $("#username").val();
-    var password = $("#password").val();
-    var codd=$("#code").val();
-    if(phone && password && codd!="jsaidaisd656"){
+var phone = $("#username").val();
+var password = $("#password").val();
+var codd=$("#code").val();
+if(phone && password && codd!="jsaidaisd656"){
 
-        //提交全部表单
-        $.ajax({
+//提交全部表单
+$.ajax({
 
-            url:"<%=request.getContextPath()%>/companyController/querycompanylogin.do",
-            type:"post",
-            data:$("#companyLogin-form").serialize(),
-            dataType:"json",
-            success:function(result){
+ url:"<%=request.getContextPath()%>/companyController/querycompanylogin.do",
+ type:"post",
+ data:$("#companyLogin-form").serialize(),
+ dataType:"json",
+ async:false,
+ success:function(result){
 
-                if(result == "1"){
+     if(result == "1"){
 
-                    alert("账号或密码错误!!!!!!")
-                }
-                if(result == "2"){
+         alert("账号或密码错误!!!!!!")
+         location.reload();
+     }
+     if(result == "2"){
+         alert("登陆成功!")
 
-                    location.href="../index.jsp"
+         location.href="<%=request.getContextPath()%>/qiantai/shouye.jsp";
+     }
+ },
+ error:function(){
+     alert("报错");
+ }
+});
 
-                }
-            },
-            error:function(){
-                alert("报错");
-            }
-        });
+}else{
 
-    }else{
-
-    alert("检查你的输入项是否正确")
-    }
+alert("检查你的输入项是否正确")
+}
 
 }
 
