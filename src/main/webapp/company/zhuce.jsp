@@ -231,16 +231,11 @@
 									<input type="text" name="legalpersionidcardnum" placeholder="身份证号..." class="legalpersionidcardnum form-control" >
 								</div>
 								<div class="form-group">
-									<label for="tradinglicense">上传营业执照</label>
+									<label for="tradinglicense">上传营业执照和身份证正反面</label>
 									<!--  设置multiple为多选，data-live-search="true"显示模糊搜索框  -->
 									<input id="file-0a" class="file" name="file" type="file" multiple data-min-file-count="1">
 
-							     <input type="hidden" name="tradinglicense" id="image1" /><div id="show1"></div>
-								</div>
-								 <div class="form-group">
-									<label for="idcardpicture">上传身份证照片</label>
-									<input type="file" id="file2" name="image2" >
-							  <input type="hidden" name="idcardpicture" id="image2" /><div id="show2"></div>
+							     <input type="hidden" name="tradinglicense" id="tradinglicense" /><div id="show1"></div>
 								</div>
 
 
@@ -311,44 +306,6 @@
     $('#file-0a').on('fileerror', function(event, data) {
         alert("失败");
     })
-
-
-
-/*	$("#file2").uploadify({
-        //插件自带  不可忽略的参数
-        'swf': '${pageContext.request.contextPath}/js/uploadify/uploadify.swf',
-        //前台请求后台上传文件的url  不可忽略的参数
-        'uploader': '${pageContext.request.contextPath}/companyController/uploadfile2.do',
-        //给div的进度条加背景  参数为<div>id属性值  不可忽略
-        'queueID': 'fileQueue',
-        //上传文件文件名   和file文件域的name属性一致   和后台接受的属性名对应
-        'fileObjName' : 'image2',
-        //给上传按钮设置文字
-        'buttonText': '上传',
-        //如果为true 为自动上传  在选择文件后, 为false 那么它就要我们自己手动点上传按钮
-        'auto': true,
-        //可以同时选择多个文件 默认为true  不可忽略
-        'multi': false,
-        //上传后队列是否消失
-        'removeCompleted': true,
-        //队列消失时间
-        'removeTimeout' : 1,
-        //最大上传文件数量
-        'uploadLimit':  10,
-        //制定可以文件上传
-        'fileExt': '*.jpg;*.jpeg;*.gif;*.png;*.doc;*.docx;*.xls;*.xlsx;*.pdf;*.txt',
-        'onUploadSuccess' : function(file, data, response) {
-            //alert(data);
-            var html = '<img src='+data+' width="100" height="100">';
-            $("#show2").append(html);
-            $("[name='idcardpicture']").val(data);
-
-
-        }
-
-    })*/
-
-
 
 
     $(function () {
@@ -514,24 +471,7 @@
                     }
                 },
 
-               /* tradinglicense: {
-                    validators: {
 
-                        notEmpty: {
-                            message: '营业执照不能为空'
-                        },
-
-                    }
-                } ,
-                idcardpicture: {
-                    validators: {
-
-                        notEmpty: {
-                            message: '身份证照片不能为空'
-                        },
-
-                    }
-                } ,*/
                 contacts: {
                     validators: {
 
@@ -634,8 +574,11 @@
             })
         }}
     function tijiao(){
+        if(aa==null && aa == ""){
+          alert("必须上传相关证件")
+		}else{
 
-        var id=$("#cphone").val();
+        $("#tradinglicense").val(aa);
 
         if (!$('#companyform').data('bootstrapValidator').isValid()) {//判断校检是否通过
             alert("验证不通过");
@@ -674,7 +617,7 @@
             })
 
         }
-
+        }
     }
 
 </script>
