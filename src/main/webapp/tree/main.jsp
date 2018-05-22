@@ -225,7 +225,7 @@
 	<!-- 头部右侧 -->
 	<div style="height:100%; width:10%; float: left;">
 
-		<div  class="easyui-linkbutton" data-options="plain:true">欢迎你,${usernameht}!</div><br>
+		<div  class="easyui-linkbutton" data-options="plain:true">欢迎你,${rr.name}!</div><br>
 		<div  class="easyui-linkbutton" onclick="zhuxiao()" data-options="iconCls:'icon-remove',plain:true">注销用户</div><br>
 
 	</div>
@@ -296,7 +296,7 @@
         function zhuxiao(){
             if(confirm("确认要注销么?")){
 
-                location.href="<%=request.getContextPath()%>/LoginAndRegiter!zhuxiaoUser.action"
+                location.href="<%=request.getContextPath()%>/userController/zhuxiaoUser.do"
             }
         }
 
