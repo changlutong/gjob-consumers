@@ -75,14 +75,14 @@
         <ul>
             <li class="nav-first"></li>
             <li class="minwidth mycurrent"><a href="http://localhost:8888/qiantai/shouye.jsp">首页</a></li>
-            <li><a href="//my.zhaopin.com/" onclick="dyweTrackEvent('resumecenter','homepage001')">简历中心</a></li>
-            <li><a href="//sou.zhaopin.com/" onclick="dyweTrackEvent('searchpost','homepage001')">职位搜索</a></li>
-            <li><a href="//sou.zhaopin.com/" onclick="dyweTrackEvent('searchpost','homepage001')">职位搜索</a></li>
-            <li><a href="//sou.zhaopin.com/" onclick="dyweTrackEvent('searchpost','homepage001')">职位搜索</a></li>
-            <li><a href="//sou.zhaopin.com/" onclick="dyweTrackEvent('searchpost','homepage001')">职位搜索</a></li>
-            <li><a href="//sou.zhaopin.com/" onclick="dyweTrackEvent('searchpost','homepage001')">职位搜索</a></li>
-            <li><a href="//sou.zhaopin.com/" onclick="dyweTrackEvent('searchpost','homepage001')">职位搜索</a></li>
-            <li><a href="//sou.zhaopin.com/" onclick="dyweTrackEvent('searchpost','homepage001')">职位搜索</a></li>
+            <li><a href="http://localhost:8888/UserIndex/index.jsp" >简历中心</a></li>
+            <li><a href="http://localhost:8888/qiantai/chaxun.jsp" >职位搜索</a></li>
+            <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
+            <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
+            <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
+            <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
+            <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
+            <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
         </ul>
          </div>
     </div>

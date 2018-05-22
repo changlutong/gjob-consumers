@@ -83,31 +83,31 @@
                 &nbsp;|&nbsp;
             </font></font></td>
             <td width="60">
-                <a href="//i.zhaopin.com/Login/LoginManager/Login?BkUrl=http%3A%2F%2Fmy%2Ezhaopin%2Ecom%2Fmyzhaopin%2Fresume_index%2Easp%3F" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;" size="2">简历中心</font></font></a>
+                <a href="#" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;" size="2">简历中心</font></font></a>
             </td>
             <td width="10"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                 &nbsp;|&nbsp;
             </font></font></td>
             <td width="60">
-                <a href="//sou.zhaopin.com/" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"size="2">职位搜索</font></font></a>
+                <a href="http://localhost:8888/qiantai/chaxun.jsp" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"size="2">职位搜索</font></font></a>
             </td>
             <td width="10"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                 &nbsp;|&nbsp;
             </font></font></td>
             <td width="60">
-                <a href="//article.zhaopin.com/" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;" size="2">求职指导</font></font></a>
+                <a href="#" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;" size="2">求职指导</font></font></a>
             </td>
             <td width="10"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                 &nbsp;|&nbsp;
             </font></font></td>
             <td width="60">
-                <a href="//xiaoyuan.zhaopin.com/" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;" size="2">校园招聘</font></font></a>
+                <a href="#" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;" size="2">校园招聘</font></font></a>
             </td>
             <td>&nbsp;
 
             </td>
             <td width="70">
-                <a href="//rd2.zhaopin.com/portal/myrd/reg.asp?za=2" target="_blank">
+                <a href="http://localhost:8888/company/zhuce.jsp" target="_blank">
                     <img src="img/regin.jpg" width="70" height="28">
                 </a>
             </td>
@@ -115,7 +115,7 @@
                 <img src="img/regin_login.jpg" width="10" height="28">
             </td>
             <td width="70">
-                <a href="//hr.zhaopin.com/hrclub/index.html" target="_blank">
+                <a href="http://localhost:8888/company/companyLogin.jsp" target="_blank">
                     <img src="img/login.jpg" width="70" height="28">
                 </a>
             </td>

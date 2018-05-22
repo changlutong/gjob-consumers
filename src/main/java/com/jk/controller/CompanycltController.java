@@ -108,6 +108,13 @@ public class CompanycltController {
         return obj;
 
     }
+    @RequestMapping("selectalljob")
+    @ResponseBody
+    public List<Job> selectalljob(Job job){
+
+        List<Job>  list =   companycltService.selectalljob(job);
+        return list;
+    }
 
 
 }

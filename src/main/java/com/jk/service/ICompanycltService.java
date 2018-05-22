@@ -22,4 +22,7 @@ public interface ICompanycltService {
     List<Map<String,Object>> getzhiweilistfor2(String companyid);
 
     List<Map<String,Object>> selectjiobclt2(String companyid, Job job);
+
+    List<Job> selectalljob(Job job);
+
 }
