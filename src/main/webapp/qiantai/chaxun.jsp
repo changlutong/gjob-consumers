@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>帮帮网 — 精选事务</title>
+    <title>龙盾科技为您提供最好的工作岗位</title>
     <link href="css/select2.css" rel="stylesheet"/>
     <link rel="stylesheet" href="css/style1.css" />
     <script type="text/javascript" src="js/suiyuan.js"></script>
@@ -71,10 +71,10 @@
             <div class="top_bga_1"></div>
             <div class="top_bga_2">
                 <ul>
-                    <a href="bz.html"><li>登录界面</li></a>
-                    <a href="bz.html"><li>我要招聘</li></a>
-                    <a href="bj.html"><li>简历中心</li></a>
-                    <a href="bz.html"><li>首页</li></a>
+                    <a href="http://localhost:8888/qiantai/index.jsp"><li>登录界面</li></a>
+                    <a href="http://localhost:8888/company/companyLogin.jsp"><li>我要招聘</li></a>
+                    <a href="http://localhost:8888/UserIndex/index.jsp"><li>简历中心</li></a>
+                    <a href="http://localhost:8888/qiantai/shouye.jsp"><li>首页</li></a>
 
                 </ul>
             </div>
@@ -95,37 +95,37 @@
     <div class="bft_f">
         <div class="bft_f_1">
             <ul>
-                <li>公司名称</li>
+                <li>公司电话</li>
                 <li>职位</li>
                 <li>技能要求</li>
                 <li>薪资</li>
                 <li></li>
             </ul>
         </div>
+        <div id="neirongzhanshi">
         <div class="bft_f_2">
-            <ul>
+            <ul >
                 <li><span>龙盾科技</span></li>
                 <li>业务员</li>
                 <li>熟练操作电脑，熟悉网络</li>
                 <li>200元/天</li>
-                <li><a href="zzy.html"><img src="images/shenqing.jpg" /></a></li>
+                <li><img src="images/shenqing.jpg" /></li>
             </ul>
+        </div>
         </div>
 
-        <div class="bft_f_3">
-            <ul>
-                <li>第<span>3</span>页</li>
-                <li><a href="#">首页</a></li>
-                <li><a href="#">上一页</a> </li>
-                <li><a href="#">下一页</a> </li>
-                <li><a href="#">尾页</a></li>
-                <li><a href="#">共5页</a></li>
-            </ul>
-        </div>
+        <%--<div class="bft_f_3">--%>
+            <%--<ul>--%>
+                <%--<li>第<span>3</span>页</li>--%>
+                <%--<li><a href="#">首页</a></li>--%>
+                <%--<li><a href="#">上一页</a> </li>--%>
+                <%--<li><a href="#">下一页</a> </li>--%>
+                <%--<li><a href="#">尾页</a></li>--%>
+                <%--<li><a href="#">共5页</a></li>--%>
+            <%--</ul>--%>
+        <%--</div>--%>
     </div>
     <!--   -->
-
-
     <!-- 友情链接开始 -->
     <div class="blank"></div>
     <div class="link">
@@ -159,11 +159,6 @@
 
 </div>
 <!-- 帮众结束 -->
-
-
-
-
-
 </div>
 <!-- 内容结束 -->
 
@@ -178,6 +173,45 @@
 </div><!-- maskLayer end -->
 </div>
 <!-- alpha div end -->
+<script>
+$(function(){
+
+    $.ajax({
+        url:"<%=request.getContextPath()%>/companycltController/selectalljob.do",
+        type:"post",
+        dataType:"json",
+        success:function (zhaopin) {
+//            <li><span>龙盾科技</span></li>
+//            <li>业务员</li>
+//            <li>熟练操作电脑，熟悉网络</li>
+//            <li>200元/天</li>
+//            <li><img src="images/shenqing.jpg" /></li>
+
+            var str="";
+            for(i=0;i<zhaopin.length;i++){
+
+                str +="<div class='bft_f_2'> <ul ><li><span>"+zhaopin[i].companyphone+"</span></li>" +
+                    "<li>"+zhaopin[i].workname+"</li>" +
+                    "<li>"+zhaopin[i].workinfo+"</li>" +
+                    "<li>"+zhaopin[i].salary+"</li>" +
+                    "<li><img src='images/shenqing.jpg'  onclick='toudijianli("+zhaopin[i].id+")'  /></li></ul></div>"
+
+            }
+            $("#neirongzhanshi").html(str);
+        },
+        erro:function () {
+            alert("呦呵呵，招聘内容查询失败！！！");
+        }
+
+
+
+    })
+
+
+})
+
+
+</script>
 
 </body>
 </html>
