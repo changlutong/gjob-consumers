@@ -29,11 +29,11 @@
 	
 	<div href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" onclick="romaveguanggao()">删除</div>
 
-	<table id="tables"></table><!-- 查询到的广告所有 -->
+	<div><table id="guanggaotables"></table></div><!-- 查询到的广告所有 -->
 	
 	<div id="updateDiv"></div><!-- 修改的div -->
 	
-	<div id="dialog_add"></div><!-- 新增的div -->
+	<div id="dialog_addguanggao"></div><!-- 新增的div -->
 	
 <script type="text/javascript">
 
@@ -41,15 +41,17 @@ $(function(){
 	pageUtil();
 });
 function pageUtil(){
-	$('#tables').datagrid({
+	$('#guanggaotables').datagrid({
 	    url:'<%=request.getContextPath()%>/guanggaoController/selectguanggao.do',
-	    fitColumns:true,
-	    striped:true,
-	    ctrlSelect:true,
-	    pagination:true,
-		pageNumber:1,
-	    pageSize:3,
-	    pageList:[3,6,9],
+        fitColumns:true,
+        striped:true,
+        ctrlSelect:true,
+        pagination:true,
+        resizable:true,//是否能拖动表格宽度
+        nowrap: false,
+        pageNumber:1,
+	    pageSize:6,
+	    pageList:[6,10,15],
 
 	    columns:[[
 	        {field:'id',title:'编号',width:100},
@@ -102,7 +104,7 @@ function backShow(id){
 							    success:function(data){
 							        alert(123)
 							    	   $('#updateDiv').dialog("close");
-										$("#Trole").datagrid("reload");
+										$("#guanggaotables").datagrid("reload");
 							    }
 							});
 						}
@@ -122,7 +124,7 @@ function backShow(id){
 	
 	//add
 	function addguanggao(){
-		 $("#dialog_add").dialog({
+		 $("#dialog_addguanggao").dialog({
 	   		    title: '新增广告',
 	   		    width: 600,
 	   		    height: 600,
@@ -142,8 +144,8 @@ function backShow(id){
                             success:function(){
 
                                 alert("新增成功");
-                                $("#dialog_add").dialog("close");
-                                $("#tables").datagrid("reload");
+                                $("#dialog_addguanggao").dialog("close");
+                                $("#guanggaotables").datagrid("reload");
 
                             },error:function(){
                                 $.messager.alert('警告','报错');
@@ -155,7 +157,7 @@ function backShow(id){
 	   				text:'取消',
 	   				iconCls:'icon-cancel',
 	   				handler:function(){
-						$("#dialog_add").dialog("close");
+						$("#dialog_addguanggao").dialog("close");
 	   				}
 	   			}]
 	   	 })
@@ -165,7 +167,7 @@ function backShow(id){
 	//批量删
 	
 	function romaveguanggao(){
-        var id=$("#tables").datagrid("getSelections");
+        var id=$("#guanggaotables").datagrid("getSelections");
         var ids=[];
         if(id.length>0){
             $.messager.confirm('确认','您确认想要删除记录吗？',function(r){
@@ -180,7 +182,7 @@ function backShow(id){
                         type:"post",
                         success:function(){
                             alert("删除成功")
-                            $("#tables").datagrid("reload");
+                            $("#guanggaotables").datagrid("reload");
                         },error:function(){
                             $.messager.alert('警告','报错');
                         }
