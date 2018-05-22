@@ -58,6 +58,8 @@ public interface IUserdatumService {
 
         int selectUsercount(String loginname, String password);
 
+        List<Map<String,Object>> selectalljobto(String userid);
+
         /**
          * oss
          */
