@@ -63,4 +63,8 @@ public interface IGuanggaoService {
     List<Guanggao> selectsanhaoguanggao();
     List<Guanggao> selectsihaoguanggao();
     List<Guanggao> selectwuhaoguanggao();
+
+    List<Guanggao> queryguanggaotwo(Integer page, Integer rows);
+
+    long querycounttwo();
 }
