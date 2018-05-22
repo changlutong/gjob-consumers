@@ -71,10 +71,10 @@
             <div class="top_bga_1"></div>
             <div class="top_bga_2">
                 <ul>
-                    <a href="bz.html"><li>登录界面</li></a>
-                    <a href="bz.html"><li>我要招聘</li></a>
-                    <a href="bj.html"><li>简历中心</li></a>
-                    <a href="bz.html"><li>首页</li></a>
+                    <a href="http://localhost:8888/qiantai/index.jsp"><li>登录界面</li></a>
+                    <a href="http://localhost:8888/company/companyLogin.jsp"><li>我要招聘</li></a>
+                    <a href="http://localhost:8888/UserIndex/index.jsp"><li>简历中心</li></a>
+                    <a href="http://localhost:8888/qiantai/shouye.jsp"><li>首页</li></a>
 
                 </ul>
             </div>
