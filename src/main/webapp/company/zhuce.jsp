@@ -238,7 +238,7 @@
 							     <input type="hidden" name="tradinglicense" id="tradinglicense" /><div id="show1"></div>
 								</div>
 
-
+								<input type="hidden" name="checkstatus" value="1" />
 								<button type="button" class="btn btn-previous">上一步</button>
 								 <button type="button" class="btn btn-next">下一步</button>
 
@@ -298,9 +298,7 @@
         uploadUrl: '<%=request.getContextPath()%>/companyController/upfile.do',
         allowedPreviewTypes : ['image', 'html', 'text', 'video', 'audio', 'flash'],
         dropZoneTitle: "上传清晰正确的照片能提高审核通过率",
-        previewSettings: {
-            image: {width: "100px", height: "10px"},
-        }
+
     });
 
     $('#file-0a').on('fileuploaded', function(event, data, previewId, index) {

@@ -251,7 +251,7 @@
 <div  data-options="region:'center',title:'浏览页面'" style="padding:5px" ><!-- "src/main/webapp/timg.jpg" -->
 
 	<div id="tabs" class="easyui-tabs" fit="true">
-		<div title="首页" data-options="iconCls:'icon-filter'" ><%--style="padding:20px;background:url('<%=request.getContextPath() %>/timg.jpg') no-repeat ;background-size:1250px;"--%>
+		<div title="首页" data-options="iconCls:'icon-filter'" style="padding:20px;background:url('<%=request.getContextPath() %>/tree/112000.jpg') no-repeat ;background-size:1450px 545px"><%--style="padding:20px;background:url('<%=request.getContextPath() %>/timg.jpg') no-repeat ;background-size:1250px;"--%>
 			<div style="height:25%;width:100%;">
 
 

@@ -3,6 +3,7 @@ package com.jk.service;
 import com.jk.model.Company;
 import com.jk.model.Mail;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
