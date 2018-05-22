@@ -5,40 +5,35 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-    <script  src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
-    <script  src="<%=request.getContextPath()%>/js/util-js.js"></script>
-    <script  src="<%=request.getContextPath()%>/js/easyui/jquery.easyui.min.js"></script>
-    <script  src="<%=request.getContextPath()%>/js/easyui/locale/easyui-lang-zh_CN.js"></script>
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/js/easyui/themes/default/easyui.css">
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/js/easyui/themes/icon.css">
+
 </head>
 <body>
-<table  border=1   class="easyui-datagrid"   id="aa">  
+<table  border=1   class="easyui-datagrid"   id="aajbdg" fit="true">
     <thead>   
         <tr>   
           <th data-options="field:'   ww ',checkbox:true"  align="center"    width="100"  height="100"></th> 
               <th data-options="field:'roid'"   align="center"    width="100"  height="100">角色ID</th>   
               <th data-options="field:'roname'"    align="center"  width="100"  height="100">角色名</th>   
-              <th data-options="field:'',formatter:ffbb"    align="center"  width="100" height="100">操作</th>   
+              <th data-options="field:'',formatter:ffbbs"    align="center"  width="100" height="100">操作</th>
         </tr>   
     </thead>   
     <tbody>   
     </tbody>   
 </table> 
 <!-- 新增 -->
-<div   id="dd">
+<div   id="ddjbdg">
 </div>
 
 <!-- 修改 -->
-<div  id="qwwe">
+<div  id="qwwejdbg">
 </div>
 
 <!--  分配权限-->
-<div  id="hjhj">
+<div  id="hjhjjbdg">
 </div>
 
 <script type="text/javascript">
-$("#aa").datagrid({ 
+$("#aajbdg").datagrid({
     url:'<%=request.getContextPath()%>/role/addcharolelist.do',
     pagination:true,
     pageNumber:0,
@@ -65,11 +60,11 @@ $("#aa").datagrid({
 		}); 
 	}
 });
- function  ffbb(val,row){
+ function  ffbbs(val,row){
 	return   "<button  onclick='dell("+row.roid+")'>分配权限</button>";
 } 
   function  dell   (roid){
-	  $('#hjhj').dialog({    
+	  $('#hjhjjbdg').dialog({
 		    title: '分配权限',    
 		    width: 400,    
 		    height: 200,    

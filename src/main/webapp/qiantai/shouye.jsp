@@ -108,18 +108,7 @@
                     <input type="hidden" name="SearchModel" value="0" />
                     <input type="hidden" name="ref" value="jobsearch" />
                     <input type="hidden" name="f_kw" value="" />
-                    <div class="industry">
-                        <i class="headSquearIcon"></i>
-                        <input type="button" id="buttonSelJobType" name="buttonSelJobType" value="选择职位" title="选择职位" onclick="dyweTrackEvent('choosepost','postsearchsetting001')"/>
-                    </div>
-                    <div class="job">
-                        <i class="headSquearIcon"></i>
-                        <input type="button" id="buttonSelIndustry" name="buttonSelIndustry" value="选择行业" title="选择行业" onclick="dyweTrackEvent('chooseindustry','postsearchsetting001')"/>
-                    </div>
-                    <div class="city">
-                        <input type="text" class="cityInput" id="JobLocation" name="JobLocation" maxlength="100" onFocus="zlzp.clearDefTxt(this,zlzp.searchjob.c_tips);" onBlur="zlzp.setDefTxt(this,zlzp.searchjob.c_tips);" sjmodule="AutoComplete" xhrasp="//sou.zhaopin.com/jobs/ajax/ajax_city.aspx" xhrstyle="c" submitform="0" sugwidth="230" value="输入/选择城市" />
-                        <input type="button" class="headSquearIcon" id="buttonSelCity" name="buttonSelCity" title="选择城市" class="cityButton" onclick="dyweTrackEvent('choosecity','postsearchsetting001')"/>
-                    </div>
+
                     <div class="keyword">
                         <input type="text" name="KeyWord" id="KeyWord_kw2" onFocus="zlzp.clearDefTxt(this,zlzp.searchjob.k_tips);this.placeholder=''" onBlur="zlzp.setDefTxt(this,zlzp.searchjob.k_tips);this.style.color='black'" maxlength="100" sjmodule="AutoComplete" xhrasp="//smart.zhaopin.com/hotword/jsonp" xhrstyle="k" iskeyword="1" placeholder="输入公司名称或职位名称" />
                     </div>
@@ -127,26 +116,29 @@
                         <button class="doSearch" onClick="dyweTrackEvent('searchjob','postsearchsetting001');zlzp.searchjob.gotoSearch_t()"><i class="headSearchIcon"></i>搜工作</button>
                         <div id="advSearch" style="text-align:center;"><a rel="nofollow" href="//sou.zhaopin.com/index.ashx?isadv=1" onClick="dyweTrackEvent('advancedsearch','postsearchsetting001')">高级搜索</a></div>
                     </div>
+                    <div class="industry">
+                        <center><font size="4">龙盾公告</font></center>
+                    </div>
+                    <div class="job">
+                        <center><font size="4">热点资讯</font></center>
+                    </div>
+                    <div class="city">
+                        <center><font size="4">热门招聘</font></center>
+                    </div>
                 </form>
             </div>
         </div>
+
         <!--公告等-->
         <div id="funcInfo">
             <dl>
-                <dt class="iTitle1" >最新公告</dt>
+
                 <dd >
                     <ul id="scroll1" >
 
-                        <li><a href='http://www.51code.com/htm/android10b/zhaopingdwz.htm' onmousedown="return AdsClick(913,6969)"  rel='nofollow'  target='_blank' class="linkss">1博为峰 名企高薪诚招大专本科生</a>
+                        <li><a href='#'  class="linkss">1博为峰 名企高薪诚招大专本科生</a>
                         </li>
-                        <li><a href='http://www.51code.com/htm/android10b/zhaopingdwz.htm' onmousedown="return AdsClick(913,6969)"  rel='nofollow'  target='_blank' class="linkss">2博为峰 名企高薪诚招大专本科生</a>
-                        </li>
-                        <li><a href='http://www.51code.com/htm/android10b/zhaopingdwz.htm' onmousedown="return AdsClick(913,6969)"  rel='nofollow'  target='_blank' class="linkss">3博为峰 名企高薪诚招大专本科生</a>
-                        </li>
-                        <li><a href='http://www.51code.com/htm/android10b/zhaopingdwz.htm' onmousedown="return AdsClick(913,6969)"  rel='nofollow'  target='_blank' class="linkss">4博为峰 名企高薪诚招大专本科生</a>
-                        </li>
-                        <li><a href='http://www.51code.com/htm/android10b/zhaopingdwz.htm' onmousedown="return AdsClick(913,6969)"  rel='nofollow'  target='_blank' class="linkss">5博为峰 名企高薪诚招大专本科生</a>
-                        </li>
+
 
                         <!--ZHAOPININDEX_HOTZHAOPIN Success end-->
 
@@ -155,7 +147,6 @@
                 </dd>
             </dl>
             <dl >
-                <dt class="iTitle2"  >热点资讯</dt>
                 <dd>
                     <ul id="scroll2" >
 
@@ -203,7 +194,6 @@
                 </dd>
             </dl>
             <dl>
-                <dt class="iTitle3" >热点招聘</dt>
                 <dd>
                     <ul  id="scroll3" >
 
@@ -228,41 +218,20 @@
     </div>
 </div>
 <div id="wrapper">
-
+    <!--轮播-->
     <div class="adsBox sliderBox">
-        <div id="slider1">
+        <div id="slider1"  name="yihaowei">
 
-            <div class="sliderItem"><a ref="nofollow" href='http://special.zhaopin.com/2018/shz/zlzp050803/' onmousedown="return AdsClick(7738,85465)"  target="_blank"><img class="bm" border="0" src="//img00.zhaopin.cn/img_button/201805/16/fhda_121156439301.jpg" width="322" height="173"  alt="Zhaopin.com招聘信息"></a></div>
-            <div class="sliderItem"><a ref="nofollow" href='http://wx.zhaopin.com/' onmousedown="return AdsClick(7738,104355)"  target="_blank"><img class="bm" border="0" src="//img00.zhaopin.cn/img_button/201805/16/1_092802945838.jpg" width="322" height="173"  alt="Zhaopin.com招聘信息"></a></div>
-            <div class="sliderItem"><a ref="nofollow" href='http://cnt.zhaopin.com/Market/whole_counter.jsp?sid=121129862&site=zclunbo&url=http://zphr.zhaopin.com/' onmousedown="return AdsClick(7738,97429)"  target="_blank"><img class="bm" border="0" src="//img00.zhaopin.cn/img_button/201804/27/322_111820576185.jpg" width="322" height="173"  alt="Zhaopin.com招聘信息"></a></div>
-            <div class="sliderItem"><a ref="nofollow" href='http://suo.im/2DhalD' onmousedown="return AdsClick(7738,85461)"  rel='nofollow'  target="_blank"><img class="bm" border="0" src="//img00.zhaopin.cn/img_button/201804/23/lunbo_180002898541.jpg" width="322" height="173"  alt="Zhaopin.com招聘信息"></a></div>
-            <div class="sliderItem"><a ref="nofollow" href='https://xiaoyuan.zhaopin.com/zhuanti/first2018/index.html?sid=121126879&site=18lb' onmousedown="return AdsClick(7738,85460)"  target="_blank"><img class="bm" border="0" src="//img00.zhaopin.cn/logos/20180319/shouyelunbo.jpg" width="322" height="173"  alt="Zhaopin.com招聘信息"></a></div>
-            <div class="sliderItem"><a ref="nofollow" href='https://xiaoyuan.zhaopin.com/zhuanti/first2018/index.html?sid=121126879&site=18lb' onmousedown="return AdsClick(7738,85460)"  target="_blank"><img class="bm" border="0" src="//img00.zhaopin.cn/logos/20180319/shouyelunbo.jpg" width="322" height="173"  alt="Zhaopin.com招聘信息"></a></div>
+                <div class="sliderItem"><img  onclick="selectxq('bb7693a64d7f43f59cf4a4ac6ded344b','13610641107')"  border="0" src="http://djh535212936.oss-cn-qingdao.aliyuncs.com/img/9742c708-3df3-4991-8491-4b8244c18855.jpg?Expires=1527663886&OSSAccessKeyId=LTAIIovLWtlvaZb1&Signature=EmgA6qi8mEALmvHbfUyXcuip%2Bi4%3D" width="322" height="173"  ></div>
+                <div class="sliderItem"><img  onclick="selectxq('d05ece2177474839a8a7a5043b9fd38d','1560002029')" border="0" src="http://djh535212936.oss-cn-qingdao.aliyuncs.com/img/4c8ffd3f-5adc-43c7-b089-2708af7ae424.jpg?Expires=1527664955&OSSAccessKeyId=LTAIIovLWtlvaZb1&Signature=0IzizGjOO76zet28bWDTiupZPAI%3D" width="322" height="173"  ></div>
+                <div class="sliderItem"><img  onclick="selectxq('b919f5d409e547aab0e49f9e47707978','13610641107')" border="0" src="http://djh535212936.oss-cn-qingdao.aliyuncs.com/img/3f390798-e926-4b2a-9532-e368c0300217.jpg?Expires=1527665139&OSSAccessKeyId=LTAIIovLWtlvaZb1&Signature=3Q0kQblqMggNmi8WmUlkotb5XJY%3D" width="322" height="173"  ></div>
 
-        </div>
-
-
-
-
-
-
-
-
-
+      </div>
     </div>
-
+    <!--三大赌-->
     <div class="adsBox  ad16in1 ">
 
-        <ul>
-
-
-            <li><a href='http://special.zhaopin.com/campus/2018/zz/zdxq050917/' onmousedown="return AdsClick(9458,122767)"  target="_blank"><img class="am bm " cid="46946101" bid="9458" lid="122767" border="0" src="//img00.zhaopin.cn/img_button/201805/14/33_111324935111.gif" width="655" height="53" alt="郑州市郑东新区管理委员会招聘信息" /></a></li>
-            <li><a href='http://special.zhaopin.com/2018/sh/zfjr042061/' onmousedown="return AdsClick(9458,433748)"  target="_blank"><img class="am bm " cid="55935682" bid="9458" lid="433748" border="0" src="//img02.zhaopin.cn/img_button/201805/14/5593568216b16180514_110041698486.gif" width="655" height="53" alt="智富金融信息服务(上海)有限公司招聘信息" /></a></li>
-            <li><a href='http://special.zhaopin.com/campus/2017/bf/zgny103129/' onmousedown="return AdsClick(9458,341092)"  target="_blank"><img class="am bm " cid="14226067" bid="9458" lid="341092" border="0" src="//img02.zhaopin.cn/img_button/201805/04/nongyina_211900272906.gif" width="655" height="53" alt="中国农业发展银行招聘信息" /></a></li>
-
-            <!--ZHAOPININDEX_AQU8in1 Success end-->
-
-
+        <ul id="sanhaowei">
         </ul>
     </div>
 
@@ -271,45 +240,17 @@
     <div id="hot8in1" class="clearfix">
         <div class="hidden"> A区下半八合一</div>
         <div class="adsBox ad8in1 ad8in1No">
-            <ul>
-                <li><a href='http://special.zhaopin.com/2018/jn/11243/sdyt042546/index.html' onmousedown="return AdsClick(7697,85275)"  target="_blank"><img class="am bm " cid="30232053" bid="7697" lid="85275" border="0" src="//img02.zhaopin.cn/img_button/201805/02/frdfh_153748183524.gif" width="322" height="53"  alt="山东易通发展集团有限公司招聘信息"></a></li>
-                <li><a href='http://special.zhaopin.com/2016/shz/jxjr012721/hjcenter.html' onmousedown="return AdsClick(7697,85281)"  target="_blank"><img class="am bm ct300900" cid="26423811" bid="7697" lid="85281" border="0" src="//img01.zhaopin.cn/img_button/201804/26/jiexinaqudaanniu_153602780525.gif" width="322" height="53"  alt="捷信消费金融有限公司招聘信息"></a></li>
-                <li><a href='http://xmair.zhaopin.com/' onmousedown="return AdsClick(7697,85431)"  target="_blank"><img class="am bm " cid="58903702" bid="7697" lid="85431" border="0" src="//img02.zhaopin.cn/img_button/201803/01/b_152613801682.gif" width="322" height="53"  alt="厦门航空有限公司1招聘信息"></a></li>
-                <li><a href='http://zhaopin.epicc.com.cn/zhaopin/' onmousedown="return AdsClick(7697,85430)"  rel='nofollow'  target="_blank"><img class="am bm ct180000 ct180100" cid="12038424" bid="7697" lid="85430" border="0" src="//img02.zhaopin.cn/img_button/201410/08/12038424j3.gif" width="322" height="53"  alt="中国人民财产保险股份有限公司招聘信息"></a></li>
-                <li><a href='http://www.51testing.net/htm/zpwoing/zhaopinaq.htm' onmousedown="return AdsClick(7697,357783)"  rel='nofollow'  target="_blank"><img class=" bm ct160400 ct201100" cid="14536272" bid="7697" lid="357783" border="0" src="//img00.zhaopin.cn/img_button/201804/18/b_171017143908.gif" width="322" height="53"  alt="博为峰(北京)信息技术有限公司招聘信息"></a></li>
-                <li><a href='http://career.cmbc.com.cn:8080/index.jsp#/app/notice/a789351b-d949-428d-85c8-91524eca3607' onmousedown="return AdsClick(7697,113428)"  rel='nofollow'  target="_blank"><img class="am bm ct200300 ct300500" cid="6755" bid="7697" lid="113428" border="0" src="//img02.zhaopin.cn/img_button/201804/28/a_165456392062.gif" width="322" height="53"  alt="中国民生银行股份有限公司招聘信息"></a></li>
-                <li><a href='http://swhysc.zhiye.com/a/zpdt' onmousedown="return AdsClick(7697,93379)"  rel='nofollow'  target="_blank"><img class=" bm ct180000 ct990000" cid="34022" bid="7697" lid="93379" border="0" src="//img02.zhaopin.cn/img_button/201805/11/3_161058140499.gif" width="322" height="53"  alt="申万宏源证券有限公司招聘信息"></a></li>
-                <li><a href='https://campus.icbc.com.cn' onmousedown="return AdsClick(7697,97588)"  rel='nofollow'  target="_blank"><img class="am bm ct180000" cid="13208044" bid="7697" lid="97588" border="0" src="//img02.zhaopin.cn/img_button/201805/11/13208044_172347857450.jpg" width="322" height="53"  alt="中国工商银行股份有限公司招聘信息"></a></li>
-                <li><a href='http://cifi.tupu360.com/campus/main/projectCampus?projectId=42' onmousedown="return AdsClick(7697,85418)"  rel='nofollow'  target="_blank"><img class="am bm " cid="12083418" bid="7697" lid="85418" border="0" src="//img00.zhaopin.cn/img_button/201804/19/33_175504993234.gif" width="322" height="53"  alt="旭辉集团股份有限公司招聘信息"></a></li>
-                <li><a href='http://xiamenair.zhaopin.com/' onmousedown="return AdsClick(7697,190809)"  target="_blank"><img class="am bm ct150000 ct990000" cid="12001396" bid="7697" lid="190809" border="0" src="//img02.zhaopin.cn/img_button/201804/12/009_180217746324.gif" width="322" height="53"  alt="厦门航空有限公司招聘信息"></a></li>
-                <li><a href='http://wx.zhaopin.com/' onmousedown="return AdsClick(7697,85278)"  target="_blank"><img class="bm" border="0" src="//img00.zhaopin.cn/img_button/201805/16/daanniu_112617749460.jpg" width="322" height="53"  alt="Zhaopin.com招聘信息"></a></li>
-                <li><a href='https://xiaoyuan.zhaopin.com/qiuzhiganhuo' onmousedown="return AdsClick(7697,357781)"  target="_blank"><img class="bm" border="0" src="//img00.zhaopin.cn/img_button/201802/23/a_143845128261.jpg" width="322" height="53"  alt="Zhaopin.com招聘信息"></a></li>
-
-
-
+            <ul id="sihaowei">
             </ul>
         </div>
     </div>
-
-
-
-
-
-
-
-        <!-- 紧急招聘 -->
-        <div id="jjzp" class="clearfix">
+ <!-- 紧急招聘 -->
+    <div id="jjzp" class="clearfix">
             <div class="blockT blockTL">
                 <div class="ti">紧急招聘</div>
             </div>
             <div class="adsBox ad2in1">
-                <ul>
-                    <li>
-                        <a href=''>
-                            <img src="//img00.zhaopin.cn/img_button/201801/18/1111_154001264522.jpg"  width="109" height="45" >
-                        </a><br />
-                        <a href='#'>博为峰51code</a>
-                    </li>
+                <ul id="wuhaowei">
 
 
 
@@ -507,30 +448,91 @@
     </a>
 
 </div>
-<script type="text/javascript" src="js/jq.min.js"></script>
-<script type="text/javascript" src="//img01.zhaopin.cn/2012/js/basedata.js"></script>
-<script type="text/javascript" src="//img01.zhaopin.cn/2012/js/index/index.min-new-L.js?version=20150714"></script>
-
-<script type="text/javascript" src="//www.zhaopin.com/static/analytics.js"></script>
-<script type="text/javascript" src="//img09.zhaopin.cn/2012/js/bms/js/poppup.js"></script>
-<script type="text/javascript" src="//img05.zhaopin.cn/2014/common/js/za/ga.js"></script>
-
-<link href="//img00.zhaopin.cn/2012/css/jquery.autocomplete.css" type="text/css" rel="stylesheet" />
-<script type="text/javascript" src="//img01.zhaopin.cn/2012/js/jquery.ui.autocomplete.js"></script>
-<script type="text/javascript" src="//img01.zhaopin.cn/2012/js/zpautocomplete.js"></script>
-
-
-<!--左侧浮动-->
-<div style="top: 115px; position: fixed; _position:absolute;_top:expression(eval(document.documentElement.scrollTop)+115+'px'); left: 50%; margin-left: -568px; width: auto; height: auto; display: block;"><a ref="nofollow" style="display:block;" href='https://xiaoyuan.zhaopin.com/' onmousedown="return AdsClick(9718,163622)"  target="_blank"><img style="border:1px solid #8c8481;" src="//img00.zhaopin.cn/img_button/201803/16/00_103646697519.gif" width="65" height="185"  alt="Zhaopin.com(beijing)招聘信息"></a>
-    <a ref="nofollow" style="display:block;margin-top:3px;" href='http://www.jinkeit.cn/index/lists/catid/17.html' onmousedown="return AdsClick(9718,163620)"  target="_blank"><img style="border:1px solid #8c8481;" src="//img00.zhaopin.cn/img_button/201803/03/pc_174440318124.jpg" width="65" height="185"  alt="金科教育，万薪就业"></a>
-</div>
 <!--人工服务-->
 <div style="top: 485px; position: fixed; right: 50%; margin-right: -560px;"  ;>
     <a href="https://www.v5kf.com/public/chat/chat?sid=156635&entry=5&ref=link">
         <img src="img/rdimpic.png" width="50px">
     </a>
 </div>
+<!--左侧浮动-->
+<div style="top: 115px; position: fixed; _position:absolute;_top:expression(eval(document.documentElement.scrollTop)+115+'px'); left: 50%; margin-left: -568px; width: auto; height: auto; display: block;"><a ref="nofollow" style="display:block;" href='https://xiaoyuan.zhaopin.com/' onmousedown="return AdsClick(9718,163622)"  target="_blank"><img style="border:1px solid #8c8481;" src="//img00.zhaopin.cn/img_button/201803/16/00_103646697519.gif" width="65" height="185"  alt="Zhaopin.com(beijing)招聘信息"></a>
+    <a ref="nofollow" style="display:block;margin-top:3px;" href='http://www.jinkeit.cn/index/lists/catid/17.html' onmousedown="return AdsClick(9718,163620)"  target="_blank"><img style="border:1px solid #8c8481;" src="//img00.zhaopin.cn/img_button/201803/03/pc_174440318124.jpg" width="65" height="185"  alt="金科教育，万薪就业"></a>
+</div>
 
+
+
+
+<script type="text/javascript" src="js/jq.min.js"></script>
+<!-- 页面加载脚本-->
+<script>
+
+    $(function(){
+
+
+        $.ajax({
+            url:"<%=request.getContextPath()%>/guanggaoController/selectsanhaoguanggao.do",
+            type:"post",
+            dataType:"json",
+            success:function (guanggao) {
+
+                var str="";
+                for(i=0;i<guanggao.length;i++){
+
+                    str +="<li><img class='am bm' border='0' onclick='selectxq("+guanggao[i].companyid+","+guanggao[i].id+")' src='"+guanggao[i].imageurl+"' width='655' height='53'/></li>"
+
+                }
+                $("#sanhaowei").html(str);
+            },
+            erro:function () {
+                alert("呦呵呵，广告查询失败！！！");
+            }
+        })
+        $.ajax({
+            url:"<%=request.getContextPath()%>/guanggaoController/selectsihaoguanggao.do",
+            type:"post",
+            dataType:"json",
+            success:function (guanggao) {
+
+                var str="";
+                for(i=0;i<guanggao.length;i++){
+
+                    str +="<li><img class='bm' border='0' src='"+guanggao[i].imageurl+"' width='322' height='53' onclick='selectxq("+guanggao[i].companyid+","+guanggao[i].id+")'  ></li>"
+
+                }
+                $("#sihaowei").html(str);
+            },
+            erro:function () {
+                alert("呦呵呵，广告查询失败！！！");
+            }
+        })
+        $.ajax({
+            url:"<%=request.getContextPath()%>/guanggaoController/selectwuhaoguanggao.do",
+            type:"post",
+            dataType:"json",
+            success:function (guanggao) {
+
+                var str="";
+                for(i=0;i<guanggao.length;i++){
+
+                    str +="<li><img src='"+guanggao[i].imageurl+"'  width='109' height='45'  onclick='selectxq("+guanggao[i].companyid+","+guanggao[i].id+")' ><br /><a  onclick='selectxq("+guanggao[i].companyid+","+guanggao[i].id+")' >"+guanggao[i].companyid+"</a></li>"
+
+                }
+                $("#wuhaowei").html(str);
+            },
+            erro:function () {
+                alert("呦呵呵，广告查询失败！！！");
+            }
+        })
+    })
+
+
+
+
+</script>
+
+
+
+<script type="text/javascript" src="js/index.min-new-L.js"></script>
 
 
 

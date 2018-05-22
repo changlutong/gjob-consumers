@@ -79,7 +79,7 @@
 						alert("证号密码错误！")
 						}else{
 							alert("登录成功!");
-							location.href = "toTree.jsp";
+							location.href = "main.jsp";
 						}
 	  			},
 	  			error:function(){

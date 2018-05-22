@@ -5,28 +5,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<!-- 引入 JQuery -->
-<script type="text/javascript" src="<%=request.getContextPath() %>/jquery/jquery.min.js"></script>
-<!-- 引入 EasyUI -->
-<script type="text/javascript" src="<%=request.getContextPath() %>/easyui/jquery.easyui.min.js"></script>
-<!-- 引入 EasyUI 的中文国际化 js，让 EasyUI 支持中文 -->
-<script type="text/javascript" src="<%=request.getContextPath() %>/easyui/locale/easyui-lang-zh_CN.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/easyui/util-js.js"></script>
-<!-- 引入 EasyUI 的风格样式文件-->
-<link rel="stylesheet" href="<%=request.getContextPath() %>/easyui/themes/black/easyui.css" type="text/css"/>
-<!-- 引入 EasyUI 的图标样式文件-->
-<link rel="stylesheet" href="<%=request.getContextPath() %>/easyui/themes/icon.css" type="text/css"/>
+
 </head>
 <body>
 <!-- 增加 -->
-<div  id="dd"></div>
+<div  id="ddq"></div>
     <div id="treelist">
        
     </div> 
-  <div id="mm" class="easyui-menu" style="width:120px;">
-	<div onclick="append()" data-options="iconCls:'icon-add'">追加</div>
-	<div onclick="remove()" data-options="iconCls:'icon-remove'">移除</div>
-	<div onclick="edit()" data-options="iconCls:'icon-edit'">修改</div>
+  <div id="mmasd" class="easyui-menu" style="width:120px;">
+	<div onclick="appendqwe()" data-options="iconCls:'icon-add'">追加</div>
+	<div onclick="removeasd()" data-options="iconCls:'icon-remove'">移除</div>
+	<div onclick="editzxc()" data-options="iconCls:'icon-edit'">修改</div>
 </div>
 <script type="text/javascript">
 //加载Tree的数据
@@ -44,7 +34,7 @@ $(function(){
 				 		// 查找节点
 				 		$('#powe_tree').tree('select', node.target);
 				 		// 显示快捷菜单
-				 		$('#mm').menu('show', {
+				 		$('#mmasd').menu('show', {
 				 			left: e.pageX,
 				 			top: e.pageY
 				 		});
@@ -54,7 +44,7 @@ $(function(){
 	})
 })  
 
-function   remove(){
+function   removeasd(){
 	var pp= $("#treelist").tree("getSelected");
 	$.ajax({
   		 url:"<%=request.getContextPath() %>/menu/deletelist.do",
@@ -67,8 +57,8 @@ function   remove(){
   		 }
 	}) 
 }
-function append(){
-	  $('#dd').dialog({    
+function appendqwe(){
+	  $('#ddq').dialog({
 		    title: '增加节点',    
 		    width: 400,    
 		    height: 200,    
@@ -98,8 +88,8 @@ function append(){
 			}]
 		}); 
 }
-function edit(){
-	  $('#dd').dialog({    
+function editzxc(){
+	  $('#ddq').dialog({
 		    title: '修改节点',    
 		    width: 400,    
 		    height: 200,    
