@@ -58,7 +58,7 @@
 
         <div class="login-btn">
             <div class="user-btn-link">
-                <a href="companyRegester.jsp">注册企业版</a>
+                <a href="zhuce.jsp">注册企业版</a>
             </div> <div class="user-btn-link">
                 <a href="resetPassword.jsp">找回密码？</a>
             </div>
