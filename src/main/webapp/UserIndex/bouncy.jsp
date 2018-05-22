@@ -114,7 +114,7 @@
 
     }
     /**
-     * 跳页面
+     * 跳页面 修改
      * */
     function xiugai(){
         location.href="<%=request.getContextPath()%>/UserProfile/User.jsp";
@@ -124,26 +124,22 @@
      * 跳页面简历投递
      * */
     function jltds(){
-        alert("待开发")
-        //location.href="<%=request.getContextPath()%>/";
+
+        location.href="<%=request.getContextPath()%>/qiantai/chaxun.jsp";
     }
     /**
      * 我的投递
      * */
     function wdtds(){
-        alert("待开发")
-        // location.href="<%=request.getContextPath()%>/UserProfile/User.jsp";
+        location.href="../qiantai/Delivery.jsp";
     }
 
     /**
-     * 回到主页
+     * 回到主页http://localhost:8888/qiantai/shouye.jsp
      * */
     function hdzy(){
         location.href="<%=request.getContextPath()%>/qiantai/shouye.jsp";
     }
-
-
-
     $(function(){
 
         var userid = $("#qitaid").val()

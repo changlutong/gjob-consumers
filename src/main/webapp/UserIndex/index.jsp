@@ -106,40 +106,41 @@
                 }
             })
         })
-            /**
-             * 刷新页面
-             * */
-            function sx(){
-                location.reload();
+/**
+ * 刷新页面
+ * */
+function sx(){
+    location.reload();
 
-            }
-                /**
-                 * 跳页面 修改
-                 * */
-            function xiugai(){
-                location.href="<%=request.getContextPath()%>/UserProfile/User.jsp";
-            }
+}
+/**
+ * 跳页面 修改
+ * */
+function xiugai(){
+    location.href="<%=request.getContextPath()%>/UserProfile/User.jsp";
+}
 
-            /**
-            * 跳页面简历投递
-           * */
-            function jltds(){
+/**
+ * 跳页面简历投递
+ * */
+function jltds(){
 
-                location.href="<%=request.getContextPath()%>/qiantai/chaxun.jsp";
-            }
-            /**
-             * 我的投递
-             * */
-            function wdtds(){
-              location.href="<%=request.getContextPath()%>/UserIndex/Delivery.jsp";
-            }
+    location.href="<%=request.getContextPath()%>/qiantai/chaxun.jsp";
+}
+/**
+ * 我的投递
+ * */
+function wdtds(){
+    location.href="../qiantai/Delivery.jsp";
+}
 
-            /**
-            * 回到主页
-           * */
-            function hdzy(){
-                location.href="<%=request.getContextPath()%>/qiantai/shouye.jsp";
-            }
+/**
+ * 回到主页http://localhost:8888/qiantai/shouye.jsp
+ * */
+function hdzy(){
+    location.href="<%=request.getContextPath()%>/qiantai/shouye.jsp";
+}
+
 
 $(function(){
 

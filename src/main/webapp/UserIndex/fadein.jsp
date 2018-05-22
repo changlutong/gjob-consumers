@@ -104,6 +104,8 @@
             }
         })
     })
+
+
     /**
      * 刷新页面
      * */
@@ -129,7 +131,7 @@
      * 我的投递
      * */
     function wdtds(){
-        location.href="<%=request.getContextPath()%>/UserIndex/Delivery.jsp";
+        location.href="../qiantai/Delivery.jsp";
     }
 
     /**
@@ -138,6 +140,8 @@
     function hdzy(){
         location.href="<%=request.getContextPath()%>/qiantai/shouye.jsp";
     }
+
+
 
     $(function(){
 
