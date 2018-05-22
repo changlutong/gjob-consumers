@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -43,7 +44,8 @@ public class CompanycltController {
     private ICompanycltService companycltService;
     @RequestMapping("getjlinfo")
     @ResponseBody
-    public JSONObject getjlinfo(String companyid){
+    public JSONObject getjlinfo(String companyid, HttpSession session){
+        companyid= (String) session.getAttribute("id");
         List<Map<String,Object>> list=  companycltService.getjlinfo(companyid);
         JSONObject obj=new JSONObject();
         obj.put("data",list);
@@ -61,7 +63,8 @@ public class CompanycltController {
     }
     @RequestMapping("getzhiweilist")
     @ResponseBody
-    public JSONObject getzhiweilist(String  companyid){
+    public JSONObject getzhiweilist(String  companyid,HttpSession session){
+        companyid= (String) session.getAttribute("id");
         List<Map<String,Object>> list=  companycltService.getzhiweilist(companyid);
         JSONObject obj=new JSONObject();
         obj.put("data",list);
@@ -84,7 +87,8 @@ public class CompanycltController {
     }
     @RequestMapping("getzhiweilistfor2")
     @ResponseBody
-    public JSONObject getzhiweilistfor2(String  companyid){
+    public JSONObject getzhiweilistfor2(String  companyid,HttpSession session){
+        companyid= (String) session.getAttribute("id");
         List<Map<String,Object>> list=  companycltService.getzhiweilistfor2(companyid);
         JSONObject obj=new JSONObject();
         obj.put("data",list);
@@ -97,7 +101,8 @@ public class CompanycltController {
     }
     @RequestMapping("selectjiobclt2")
     @ResponseBody
-    public JSONObject selectjiobclt2(String companyid,Job job){
+    public JSONObject selectjiobclt2(String companyid,Job job,HttpSession session){
+        companyid= (String) session.getAttribute("id");
         List<Map<String,Object>> list=companycltService.selectjiobclt2(companyid,job);
         JSONObject obj=new JSONObject();
         obj.put("data",list);

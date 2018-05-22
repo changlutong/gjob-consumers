@@ -75,17 +75,16 @@ public class CompanyController {
 
 
 
-
-
-
     @RequestMapping("querycompanylogin")
 @ResponseBody
-public String querycompanylogin(Company company){
-
-
+public String querycompanylogin(Company company,HttpSession session){
+      /*  String phone= company.getId();
+        session.setAttribute("id",phone);*/
     String companylist= companyService.querycompanylogin(company);
+        String[] split = companylist.split(",");
+       session.setAttribute("id",split[1]);
 
-    return companylist;
+        return  split[0];
 
 }
 
