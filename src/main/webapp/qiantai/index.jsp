@@ -73,7 +73,7 @@
         <tbody><tr>
 
             <td width="60">
-                &nbsp;&nbsp;<a href="http://localhost:8888/qiantai/shouye.jsp" target="_blank">
+                &nbsp;&nbsp;<a href="http://192.168.31.222:8888/qiantai/shouye.jsp" target="_blank">
                 <font style="vertical-align: inherit;">
                     <font style="vertical-align: inherit;" size="2">首页</font>
                 </font>
@@ -89,7 +89,7 @@
                 &nbsp;|&nbsp;
             </font></font></td>
             <td width="60">
-                <a href="http://localhost:8888/qiantai/chaxun.jsp" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"size="2">职位搜索</font></font></a>
+                <a href="http://192.168.31.222:8888/qiantai/chaxun.jsp" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"size="2">职位搜索</font></font></a>
             </td>
             <td width="10"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                 &nbsp;|&nbsp;
@@ -107,7 +107,7 @@
 
             </td>
             <td width="70">
-                <a href="http://localhost:8888/company/zhuce.jsp" target="_blank">
+                <a href="http://192.168.31.222:8888/company/zhuce.jsp" target="_blank">
                     <img src="img/regin.jpg" width="70" height="28">
                 </a>
             </td>
@@ -115,7 +115,7 @@
                 <img src="img/regin_login.jpg" width="10" height="28">
             </td>
             <td width="70">
-                <a href="http://localhost:8888/company/companyLogin.jsp" target="_blank">
+                <a href="http://192.168.31.222:8888/company/companyLogin.jsp" target="_blank">
                     <img src="img/login.jpg" width="70" height="28">
                 </a>
             </td>

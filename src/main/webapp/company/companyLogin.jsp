@@ -11,6 +11,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../js/css/user.css" type="text/css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/ico" href="//img00.zhaopin.cn/new2011/images/ie9.ico" />
     <script src="../js/login.js"></script>
     <script  src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 
