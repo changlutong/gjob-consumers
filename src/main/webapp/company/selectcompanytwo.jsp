@@ -25,8 +25,6 @@
 	
 	<div id="role_quanxian"></div><!--要展示的 权限页面  -->
 	
-	<div href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" onclick="addguanggao()">新增</div>
-	
 	<div href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" onclick="romaveguanggao()">删除</div>
 
 	<div href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" onclick="updatestatus()">审核</div>
