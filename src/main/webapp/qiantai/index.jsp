@@ -203,12 +203,14 @@
                 <h4><img src="img/a.jpg" height="35" width="204" alt=""></h4>
                 <form action="#" id="regform"  method="post" onsubmit="zhuceyanzheng()">
 
+
                     <table border="0" cellpadding="0" cellspacing="0" width="222">
                         <tbody>
                         <tr>
                             <td>
                                 <label>
-                                    <input id="loginname1"class="inputtxt_1" type="text" placeholder="手机号" style="background:yellow">
+                                    <input type="text" class="inputtxt_1"id="phone" name="phone" placeholder="请输入手机号" style="background:yellow">
+
                                 </label>
                                 <span id="email_info" class="yzi_td"></span>
 
@@ -226,9 +228,13 @@
                             <td>
                                 <div >
                                     <label >
-                                        <input id="verifyCode" name="verifyCode" class="inputtxt_1 inputw_1 fl" value="" type="text" placeholder="手机验证码" style="background:yellow">
+                                        <input type="text" class="inputtxt_1"  name="yzm" id="yzm"  placeholder="请输入收到的验证码" style="background:yellow">
+                                        <span id="spantt5"></span>
                                     </label>
-                                    <i class="sendBtn fr">发送验证码</i>
+
+                                                <button  type="button" class="sendBtn fr" style="width:112px;height:34px" onclick="fasongyz()">发送验证码</button>
+                                                <button  type="button"class="sendBtn fr" id="anniu" style="width:110px;height:34px">(<strong class="a">60</strong>秒 )</button>
+
                                 </div>
                                 <span id="verifyCode_info" class="yzi_td"></span>
                             </td>
@@ -237,7 +243,11 @@
 
 
                             <p>
-                                <label><input name="accept" id="yueduxiexi" type="checkbox" class="chk"></label> <span class="vm">我接受智联招聘的<a href="#" target="_blank" style="text-decoration:underline">用户协议</a>和<a href="#" target="_blank" style="text-decoration:underline">隐私政策</a></span>
+                                <label><input name="accept" id="yueduxiexi" type="checkbox" class="chk"></label> <span class="vm">我接受龙盾的<a href="#" target="_blank" style="text-decoration:underline">用户协议</a>和<a href="#" target="_blank" style="text-decoration:underline">隐私政策</a></span>
+
+                                <label>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<img src="img/zhuce.jpg" height="40px" onclick="zhuche()">
+                                </label>
                             </p>
                             <div id="accept_info" class="yzi_td"></div>
 
@@ -245,13 +255,12 @@
                         <tr>
                             <td class="reword">
 
-                                <label>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<img src="img/zhuce.jpg" height="40px" onclick="zhuce()">
-                                </label>
+
                             </td>
                         </tr>
                         </tbody>
                     </table>
+
                 </form>
 
             </div>
@@ -509,6 +518,88 @@
             }
         })
     }
+
+
+    function fasongyz(){
+        //短信
+        var phone=$("#phone").val();
+        if(phone==null||phone==""||phone.length != 11){
+            alert("请输入合法号码")
+        }else{
+            $("#anniu").prop("disabled",true);
+            $("#anniu").html("再次发送")
+            $(document).ready(function() {
+                var times = 60 * 100; // 60秒
+                countTime = setInterval(function() {
+                    times = --times < 0 ? 0 : times;
+                    var ms = Math.floor(times / 100).toString();
+
+                    if(ms.length <= 1) {
+                        ms = "0" + ms;
+                    }
+                    var hm = Math.floor(times % 100).toString();
+                    if(hm.length <= 1) {
+                        hm = "0" + hm;
+                    }
+                    if(times == 0) {
+                        $("#anniu").removeAttr("disabled");
+                        clearInterval(countTime);
+                    }
+                    // 获取分钟、毫秒数
+                    $(".a").html(ms);
+                    $(".b").html(hm);
+                }, 10);
+            });
+            $.ajax({
+                url:"<%=request.getContextPath()%>/userdatumController/queryphone.do",
+                type:"post",
+                data:{"phone":phone},
+                dataType:"json",
+                async:false,
+                success:function(returns){
+                },
+                error:function(){
+                    alert("请联系管理员！！！")
+                }
+            })
+        }
+    }
+
+
+    function zhuche(){
+        var phone = $("#phone").val()
+        var password1 = $("#password1").val()
+        var yzm = $("#yzm").val()
+        //注册页
+        $.ajax({
+            url:"<%=request.getContextPath()%>/userdatumController/saveuserinfo.do",
+            type:"post",
+            data:{"phone":phone,"password1":password1,"yzm":yzm},
+            dataType:"json",
+            async:false,
+            success:function (result){
+                alert(result)
+                var result = eval("("+result+")")
+                if(result == "1"){
+                    alert("验证码超时!")
+                }
+                if(result == "7"){
+                    alert("用户已存在!")
+                }
+                if(result == "4"){
+                    alert("对不起错误!")
+                }
+                if(result == "8"){
+                    alert("注册成功!请您登录!!")
+                    location.reload();
+                }
+            },
+            error:function(){
+                alert("注册出错误代码 4 ！！！")
+            }
+        })
+    }
+
 
 
 </script>
