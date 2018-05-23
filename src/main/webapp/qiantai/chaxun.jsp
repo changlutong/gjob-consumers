@@ -71,10 +71,10 @@
             <div class="top_bga_1"></div>
             <div class="top_bga_2">
                 <ul>
-                    <a href="http://192.168.31.222:8888/qiantai/index.jsp"><li>登录界面</li></a>
-                    <a href="http://192.168.31.222:8888/company/companyLogin.jsp"><li>我要招聘</li></a>
-                    <a href="http://192.168.31.222:8888/UserIndex/index.jsp"><li>简历中心</li></a>
-                    <a href="http://192.168.31.222:8888/qiantai/shouye.jsp"><li>首页</li></a>
+                    <a href="<%=request.getContextPath()%>/qiantai/index.jsp"><li>登录界面</li></a>
+                    <a href="<%=request.getContextPath()%>/company/companyLogin.jsp"><li>我要招聘</li></a>
+                    <a href="<%=request.getContextPath()%>/UserIndex/index.jsp"><li>简历中心</li></a>
+                    <a href="<%=request.getContextPath()%>/qiantai/shouye.jsp"><li>首页</li></a>
 
                 </ul>
             </div>
@@ -85,10 +85,11 @@
 
 <div class="center_blank"></div>
 <div id="search_box" style="margin-left: 45%" >
-    <form id="search_form" method="post" action="#">
-        <input type="text" id="s" value="Search" class="swap_value" />
-        <input type="image" src="images/btn_search_box.gif" width="25" height="25" id="go" alt="Search" title="Search" />
-    </form>
+    <form id="search_form" method="post" >
+        <input type="text" name="workname" value="" class="swap_value" />
+    </form> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="image"  onclick="zhiweisousuo()" src="images/btn_search_box.gif" width="40" height="40" id="go" alt="Search" title="Search" />
+
 </div>
 <!-- 内容开始 -->
 <div class="nr">
@@ -196,8 +197,41 @@ $(function(){
         }
     })
 })
+    function  zhiweisousuo(){
+    $.ajax({
+    url:"<%=request.getContextPath()%>/companycltController/selectalljob.do",
+        data:$("#search_form").serialize(),
+        type:"post",
+        dataType:"json",
+        success:function (zhaopin) {
+//            <li><span>龙盾科技</span></li>
+//            <li>业务员</li>
+//            <li>熟练操作电脑，熟悉网络</li>
+//            <li>200元/天</li>
+//            <li><img src="images/shenqing.jpg" /></li>
+
+        var str="";
+        for(i=0;i<zhaopin.length;i++){
+
+            str +="<div class='bft_f_2'> <ul ><li><span>"+zhaopin[i].companyphone+"</span></li>" +
+                "<li>"+zhaopin[i].workname+"</li>" +
+                "<li>"+zhaopin[i].workinfo+"</li>" +
+                "<li>"+zhaopin[i].salary+"</li>" +
+                "<li><img src='images/shenqing.jpg'  onclick='toudijianli(\""+zhaopin[i].id+"\")'  /></li></ul></div>"
+
+        }
+
+        $("#neirongzhanshi").html(str);
+    },
+    erro:function () {
+        alert("呦呵呵，招聘内容查询失败！！！");
+    }
+
+    })
+
+}
     function toudijianli(jobid){
-        alert(jobid)
+
         $.ajax({
             url:"<%=request.getContextPath()%>/companycltController/toudijianli.do",
             data:{"jobid":jobid},
