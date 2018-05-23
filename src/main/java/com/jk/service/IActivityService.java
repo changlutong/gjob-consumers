@@ -11,7 +11,6 @@
 package com.jk.service;
 
 import com.jk.model.Activity;
-import com.jk.model.BankType;
 
 import java.util.List;
 
@@ -25,7 +24,7 @@ import java.util.List;
  */
 public interface IActivityService {
 
-    List<BankType> queryActivityList(Integer page, Integer rows);
+    List<Activity> queryActivityList(Integer page, Integer rows);
 
     long queryActivitycount();
 
