@@ -11,6 +11,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>用户简历</title>
     <link href="css/demo.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" type="image/ico" href="//img00.zhaopin.cn/new2011/images/ie9.ico" />
     <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <!--Framework-->
     <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>

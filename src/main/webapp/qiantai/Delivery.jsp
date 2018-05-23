@@ -10,6 +10,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>龙盾科技为您提供最好的工作岗位</title>
     <link href="css/select2.css" rel="stylesheet"/>
+    <link rel="shortcut icon" type="image/ico" href="//img00.zhaopin.cn/new2011/images/ie9.ico" />
     <link rel="stylesheet" href="css/style1.css" />
     <script type="text/javascript" src="js/suiyuan.js"></script>
 

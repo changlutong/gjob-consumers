@@ -14,6 +14,7 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.8.3.min.js"></script>
 
 <link rel="stylesheet" href="<%=request.getContextPath()%>/layui/css/layui.css"  media="all">
+<link rel="shortcut icon" type="image/ico" href="//img00.zhaopin.cn/new2011/images/ie9.ico" />
 <script type="text/javascript" src="<%=request.getContextPath()%>/layui/layui.js"></script>
 <%--<blockquote class="layui-elem-quote layui-text">
     鉴于小伙伴的普遍反馈，先温馨提醒两个常见“问题”：1. <a href="/doc/base/faq.html#form" target="_blank">为什么select/checkbox/radio没显示？</a> 2. <a href="/doc/modules/form.html#render" target="_blank">动态添加的表单元素如何更新？</a>
