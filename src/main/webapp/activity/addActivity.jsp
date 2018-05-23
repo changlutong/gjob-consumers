@@ -35,7 +35,7 @@
 
 
 <form id="addActivity">
-	标题：<input class="easyui-textbox" name="title" style="width:200px">
+	标题：<input class="easyui-textbox" name="title" ><br>
 	商品图片： <input type="file" id="file" name="image"/>
 	<input type="hidden" name="imageurl" id="imageurl"/>
 	<div id="show"></div><br/>

@@ -51,7 +51,7 @@ public class ActivityController {
     @ResponseBody
     public Map<String,Object> queryActivityList(Integer page,Integer rows){
         //查询所有记录
-        List<BankType> list = activityService.queryActivityList(page,rows);
+        List<Activity> list = activityService.queryActivityList(page,rows);
         //查询总条数
         long total = activityService.queryActivitycount();
         Map<String ,Object> map = new HashMap<String, Object>();
