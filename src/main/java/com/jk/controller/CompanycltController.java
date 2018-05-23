@@ -57,9 +57,16 @@ public class CompanycltController {
     }
     @RequestMapping("addzhiwei")
     @ResponseBody
-    public void addzhiwei(Job job){
+    public void addzhiwei(Job job,HttpSession session){
+        Object string=  session.getAttribute("id");
+        if(string==null){
+            throw new RuntimeException();
+        }else{
+            job.setWorkname((String)session.getAttribute("companyname"));
+            companycltService.addzhiwei(job);
+        }
 
-        companycltService.addzhiwei(job);
+
     }
     @RequestMapping("getzhiweilist")
     @ResponseBody
