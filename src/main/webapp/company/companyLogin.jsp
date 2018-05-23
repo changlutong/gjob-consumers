@@ -136,6 +136,7 @@ $.ajax({
 }else{
 
 alert("检查你的输入项是否正确")
+    location.reload();
 }
 
 }
