@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="assets/css/form-elements.css">
 <link rel="stylesheet" href="assets/css/style.css">
-
+	<link rel="shortcut icon" type="image/ico" href="//img00.zhaopin.cn/new2011/images/ie9.ico" />
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -22,7 +22,7 @@
 <![endif]-->
 
 <!-- Favicon and touch icons -->
-<link rel="shortcut icon" href="assets/ico/favicon.png">
+
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">

@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>公司主页</title>
+    <link rel="shortcut icon" type="image/ico" href="//img00.zhaopin.cn/new2011/images/ie9.ico" />
 </head>
 <body>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/layui/css/layui.css"  media="all">

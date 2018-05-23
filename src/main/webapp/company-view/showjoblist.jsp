@@ -10,6 +10,7 @@
 <head>
     <title>Title</title>
 </head>
+<link rel="shortcut icon" type="image/ico" href="//img00.zhaopin.cn/new2011/images/ie9.ico" />
 <body>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/layui/css/layui.css"  media="all">
 <script type="text/javascript" src="<%=request.getContextPath()%>/layui/layui.js"></script>

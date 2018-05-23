@@ -10,6 +10,7 @@
 <head>
     <title>Title</title>
 </head>
+<link rel="shortcut icon" type="image/ico" href="//img00.zhaopin.cn/new2011/images/ie9.ico" />
 <body>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.8.3.min.js"></script>
 
