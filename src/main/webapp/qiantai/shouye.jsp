@@ -197,18 +197,8 @@
                 <dd>
                     <ul  id="scroll3" >
 
-                        <li><a href='http://www.51code.com/htm/android10b/zhaopingdwz.htm' onmousedown="return AdsClick(913,6969)"  rel='nofollow'  target='_blank' class="linkss">1博为峰 名企高薪诚招大专本科生</a>
-                        </li>
-                        <li><a href='http://www.51code.com/htm/android10b/zhaopingdwz.htm' onmousedown="return AdsClick(913,6969)"  rel='nofollow'  target='_blank' class="linkss">2博为峰 名企高薪诚招大专本科生</a>
-                        </li>
-                        <li><a href='http://www.51code.com/htm/android10b/zhaopingdwz.htm' onmousedown="return AdsClick(913,6969)"  rel='nofollow'  target='_blank' class="linkss">3博为峰 名企高薪诚招大专本科生</a>
-                        </li>
-                        <li><a href='http://www.51code.com/htm/android10b/zhaopingdwz.htm' onmousedown="return AdsClick(913,6969)"  rel='nofollow'  target='_blank' class="linkss">4博为峰 名企高薪诚招大专本科生</a>
-                        </li>
-                        <li><a href='http://www.51code.com/htm/android10b/zhaopingdwz.htm' onmousedown="return AdsClick(913,6969)"  rel='nofollow'  target='_blank' class="linkss">5博为峰 名企高薪诚招大专本科生</a>
-                        </li>
 
-                        <!--ZHAOPININDEX_HOTZHAOPIN Success end-->
+
 
 
                     </ul>
@@ -523,7 +513,36 @@
                 alert("呦呵呵，广告查询失败！！！");
             }
         })
+        $.ajax({
+            url:"<%=request.getContextPath()%>/companycltController/selectalljob.do",
+            type:"post",
+            dataType:"json",
+            success:function (job) {
+
+//            <li><span>龙盾科技</span></li>
+//            <li>业务员</li>
+//            <li>熟练操作电脑，熟悉网络</li>
+//            <li>200元/天</li>
+//            <li><img src="images/shenqing.jpg" /></li>
+
+                var str="";
+                for(i=0;i<job.length;i++){
+
+                    str +="  <li><a class='linkss'>招聘岗位："+job[i].workname+"&nbsp;&nbsp;&nbsp;应聘要求："+job[i].workinfo+"</a></li>"
+
+                }
+
+                $("#scroll3").html(str);
+            },
+            erro:function () {
+                alert("呦呵呵，招聘内容查询失败！！！");
+            }
+        })
+
+
     })
+
+
 
     function sousuozhiwei() {
 
