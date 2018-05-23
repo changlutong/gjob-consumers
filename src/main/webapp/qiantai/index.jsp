@@ -578,7 +578,7 @@
             dataType:"json",
             async:false,
             success:function (result){
-                alert(result)
+                //alert(result)
                 var result = eval("("+result+")")
                 if(result == "1"){
                     alert("验证码超时!")
