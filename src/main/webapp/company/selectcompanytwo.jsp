@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/js/easyui/themes/default/easyui.css">
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/js/easyui/themes/icon.css">
-
+<link rel="shortcut icon" type="image/ico" href="//img00.zhaopin.cn/new2011/images/ie9.ico" />
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
@@ -24,8 +24,6 @@
 
 	
 	<div id="role_quanxian"></div><!--要展示的 权限页面  -->
-	
-	<div href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" onclick="addguanggao()">新增</div>
 	
 	<div href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" onclick="romaveguanggao()">删除</div>
 
@@ -147,7 +145,7 @@ function pageUtil(){
                     }
                     alert(ids)
                     $.ajax({
-                        url:"<%=request.getContextPath()%>/guanggaoController/deleteguanggao.do",
+                        url:"<%=request.getContextPath()%>/companyController/deletecompany.do",
                         data:{"ids":ids},
                         type:"post",
                         success:function(){

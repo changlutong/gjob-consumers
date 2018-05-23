@@ -15,7 +15,7 @@
     <title>简历管理-我的龙盾-龙盾招聘</title>
     <!--css类引用-->
     <link rel="stylesheet" href="plugins/eleme-ui/index.css" />
-
+    <link rel="shortcut icon" type="image/ico" href="//img00.zhaopin.cn/new2011/images/ie9.ico" />
     <link href="css/haodoxi.css" rel="stylesheet" type="text/css" />
 
     <!-- 这是jquery的核心包  -->

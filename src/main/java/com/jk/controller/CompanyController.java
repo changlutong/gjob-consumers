@@ -212,4 +212,16 @@ public void updateCompanyPassword(Company company){
 
 
 
+    @RequestMapping(value="deletecompany")
+    @ResponseBody
+    public  void deletecompany(String ids){
+        String[] idss = ids.split(",");
+        for (int i = 0; i < idss.length; i++) {
+            companyService.deletecompany(idss[i]);
+        }
+
+    }
+
+
+
 }

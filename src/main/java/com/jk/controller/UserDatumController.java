@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
+import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -306,4 +309,52 @@ public class UserDatumController {
         System.out.println(list.toString());
         return list;
     }
+
+    /**
+     *   发验证码
+     */
+    @RequestMapping("queryphone")
+    @ResponseBody
+    public String getyanzhengma(String phone, HttpSession session) throws IOException {
+        String ccode = com.jk.util.HttpClient.togetString(phone);
+        // 将得到的验证码放入session然后 去判断
+        session.setAttribute("ccode", ccode);
+        session.setAttribute("fasongtime", new Date().getTime());
+        return "1";
+    }
+
+
+    /**
+     * saveuserinfo
+     */
+
+    // 验证码验证
+    @RequestMapping("saveuserinfo")
+    @ResponseBody
+    public String saveuserinfo(String phone,String password1,String yzm, HttpSession session) {
+        //判断超时
+        Long fasongtime = (Long) session.getAttribute("fasongtime");
+        Long shijiancha = (new Date().getTime() - fasongtime) / 1000;
+        //判断超时
+        if (shijiancha > 60) {
+            return "1";
+        } else {
+        //else 走后台对应方法
+        //获取 session 中的值
+            String code = (String) session.getAttribute("ccode");
+            //判断验证码是否为空
+            if (code != null && !"".equals(code)) {
+                //判断是否正确
+                if (code.equals(yzm)){
+                    System.out.println("进行后台注册!!");
+                    String ttb = userdatum.saveuserinfo(phone,password1);
+                    System.out.println(ttb);
+                    return ttb;
+                }
+            }
+        }
+        return "4";
+    }
+
+
 }

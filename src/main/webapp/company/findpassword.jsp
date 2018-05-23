@@ -8,6 +8,7 @@
     <link
             href="${pageContext.request.contextPath}/jquery/bootstrap/css/bootstrap-theme.min.css"
             rel="stylesheet">
+    <link rel="shortcut icon" type="image/ico" href="//img00.zhaopin.cn/new2011/images/ie9.ico" />
     <link
             href="${pageContext.request.contextPath}/jquery/bootstrap/css/bootstrap.min.css"
             rel="stylesheet">

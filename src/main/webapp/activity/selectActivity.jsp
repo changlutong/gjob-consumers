@@ -56,7 +56,7 @@ function pageUtil(){
 	        {field:'title',title:'标题',width:100},
 	        {field:'content',title:'内容',width:100},
 	        {field:'status',title:'状态',width:100},
-            {field:'imageurl',title:'图片',width:100,
+            {field:'',title:'图片',width:100,
                 formatter: function(value,row,index){
                 //alert(row.imageurl)
                     return "<img  src='"+row.imageurl+"' class='img-rounded' width='105px' height='74px'>";

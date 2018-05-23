@@ -17,7 +17,6 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/js/easyui/themes/icon.css">
 
 <head>
-	<link rel="shortcut icon" type="image/ico" href="//img00.zhaopin.cn/new2011/images/ie9.ico" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
@@ -26,15 +25,15 @@
 	
 	<div id="role_quanxian"></div><!--要展示的 权限页面  -->
 	
+	<div href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" onclick="addguanggao()">新增</div>
+	
 	<div href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" onclick="romaveguanggao()">删除</div>
 
-	<div href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" onclick="updatestatus()">审核</div>
-
-	<div><table id="companytables"></table></div><!-- 查询到的广告所有 -->
+	<div><table id="guanggaotwotables"></table></div><!-- 查询到的广告所有 -->
 	
 	<div id="updateDiv"></div><!-- 修改的div -->
 	
-	<div id="dialog_addguanggao"></div><!-- 新增的div -->
+	<div id="dialog_addguanggaotow"></div><!-- 新增的div -->
 	
 <script type="text/javascript">
 
@@ -42,12 +41,13 @@ $(function(){
 	pageUtil();
 });
 function pageUtil(){
-	$('#companytables').datagrid({
-	    url:'<%=request.getContextPath()%>/companyController/queryCompanyList.do',
+	$('#guanggaotwotables').datagrid({
+	    url:'<%=request.getContextPath()%>/guanggaoController/queryguanggaotwo.do',
         fitColumns:true,
         striped:true,
         ctrlSelect:true,
         pagination:true,
+        resizable:true,//是否能拖动表格宽度
         nowrap: false,
         pageNumber:1,
 	    pageSize:6,
@@ -55,46 +55,76 @@ function pageUtil(){
 
 	    columns:[[
 	        {field:'id',title:'编号',width:100},
-            {field:'companyname',title:'公司名称',width:100},
-            {field:'companyprovince',title:'所在省份',width:100},
-            {field:'companycity',title:'所在城市',width:100},
-            {field:'contacts',title:'联系人',width:100},
-            {field:'companyfixedphone',title:'固定电话',width:100},
-            {field:'email',title:'邮箱',width:100},
-            {field:'',title:'营业执照',width:100,
+	        {field:'',title:'图片',width:100,
                 formatter: function(value,row,index){
-                    //alert(row.imageurl)
-                    return "<img  src='"+row.tradinglicense+"' class='img-rounded' width='105px' height='74px'>";
+                    return "<img  src='"+row.imageurl+"' class='img-rounded' width='105px' height='74px'>";
                 }
 			},
-            {field:'legalpersonname',title:'法人姓名',width:100},
-            {field:'legalpersionidcardnum',title:'法人身份证号',width:100},
-            {field:'checkstatus',title:'状态',width:100,
-                formatter:function (value,row,index) {
-                    if (row.checkstatus==1){
-                        return "未审核"
-                    }
+            {field:'info',title:'简介',width:100},
+            {field:'companyid',title:'公司',width:100},
+            {field:'status',title:'状态',width:100,
+				formatter:function (value,row,index) {
+					if (row.status==1){
+					    return "未审核"
+					}
                     return "已审核"
                 }
-			},
-            {field:'companyaddress',title:'地址',width:100},
-            {field:'category',title:'公司类型',width:100},
-            {field:'',title:'身份证照片',width:100,
-                formatter: function(value,row,index){
-                    //alert(row.imageurl)
-                    return "<img  src='"+row.idcardpicture+"' class='img-rounded' width='105px' height='74px'>";
-                }
-			},
-	    ]]
+			}
+	    ]]    
 	});  
 
 }
 
 
+
+//修改
+function backShow(id){
+		$.ajax({
+			url:"<%=request.getContextPath()%>/roleController/selectRoleUpdate.do",
+			type:"post",
+			data:{"id":id},
+			datatype:"json",
+			success:function(results){
+				//修改
+				$('#updateDiv').dialog({
+				    title: '修改',
+				    width: 250,
+				    height: 150, 
+				    closed: false,
+				    modal: true,
+				    href:"<%=request.getContextPath()%>/roleController/updateRole.do",
+				    buttons:[{
+						text:'保存',
+						handler:function(){
+							$('#updateRole').form('submit', {
+							    url:"<%=request.getContextPath()%>/roleController/RoleUpdate.do",    
+							    onSubmit: function(){    
+							    	return $('#updateRole').form('validate');
+							    },
+							    success:function(data){
+							        alert(123)
+							    	   $('#updateDiv').dialog("close");
+										$("#guanggaotables").datagrid("reload");
+							    }
+							});
+						}
+					},{
+						text:'关闭',
+						handler:function(){
+							$('#updateDiv').dialog("close");
+						},
+					}]
+				});  
+			},
+			error:function(){
+				alert("回显出错!");
+			}
+		});
+	}
 	
 	//add
 	function addguanggao(){
-		 $("#dialog_addguanggao").dialog({
+		 $("#dialog_addguanggaotow").dialog({
 	   		    title: '新增广告',
 	   		    width: 600,
 	   		    height: 600,
@@ -114,8 +144,8 @@ function pageUtil(){
                             success:function(){
 
                                 alert("新增成功");
-                                $("#dialog_addguanggao").dialog("close");
-                                $("#companytables").datagrid("reload");
+                                $("#dialog_addguanggaotow").dialog("close");
+                                $("#guanggaotwotables").datagrid("reload");
 
                             },error:function(){
                                 $.messager.alert('警告','报错');
@@ -127,7 +157,7 @@ function pageUtil(){
 	   				text:'取消',
 	   				iconCls:'icon-cancel',
 	   				handler:function(){
-						$("#dialog_addguanggao").dialog("close");
+						$("#dialog_addguanggaotow").dialog("close");
 	   				}
 	   			}]
 	   	 })
@@ -137,7 +167,7 @@ function pageUtil(){
 	//批量删
 	
 	function romaveguanggao(){
-        var id=$("#companytables").datagrid("getSelections");
+        var id=$("#guanggaotwotables").datagrid("getSelections");
         var ids=[];
         if(id.length>0){
             $.messager.confirm('确认','您确认想要删除记录吗？',function(r){
@@ -147,12 +177,12 @@ function pageUtil(){
                     }
                     alert(ids)
                     $.ajax({
-                        url:"<%=request.getContextPath()%>/companyController/deletecompany.do",
+                        url:"<%=request.getContextPath()%>/guanggaoController/deleteguanggao.do",
                         data:{"ids":ids},
                         type:"post",
                         success:function(){
                             alert("删除成功")
-                            $("#companytables").datagrid("reload");
+                            $("#guanggaotwotables").datagrid("reload");
                         },error:function(){
                             $.messager.alert('警告','报错');
                         }
@@ -164,37 +194,6 @@ function pageUtil(){
         }else{
             $.messager.alert('警告','请选择要删除的项');
         }
-   }
-
-   //修改状态
-   function updatestatus() {
-       var id=$("#companytables").datagrid("getSelections");
-       var ids=[];
-       if(id.length>0){
-           $.messager.confirm('确认','您确认想要通过审核？',function(r){
-               if (r){
-                   for (var i = 0; i < id.length; i++) {
-                       ids+=id[i].id+",";
-                   }
-                   alert(ids)
-                   $.ajax({
-                       url:"<%=request.getContextPath()%>/companyController/updateCompanyStatus.do",
-                       data:{"ids":ids},
-                       type:"post",
-                       success:function(){
-                           alert("修改成功")
-                           $("#companytables").datagrid("reload");
-                       },error:function(){
-                           $.messager.alert('警告','报错');
-                       }
-
-
-                   })
-               }
-           });
-       }else{
-           $.messager.alert('警告','请选择要删除的项');
-       }
    }
 	
 	

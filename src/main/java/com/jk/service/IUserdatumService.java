@@ -60,6 +60,8 @@ public interface IUserdatumService {
 
         List<Map<String,Object>> selectalljobto(String userid);
 
+        String saveuserinfo(String phone, String password1);
+
         /**
          * oss
          */

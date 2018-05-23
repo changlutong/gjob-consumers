@@ -54,7 +54,7 @@
 <div id="top" style="height:300px;display:none;width:100%;overflow:hidden;"></div>
 <div id="zljsc"></div>
 <div id="tipSlider">
-    <div> <a class="closeme" href="#"></a> <a class="goreg" href="http://localhost:8888/qiantai/index.jsp"></a> </div>
+    <div> <a class="closeme" href="#"></a> <a class="goreg" href="http://192.168.31.222:8888/qiantai/index.jsp"></a> </div>
 </div>
 <!--最头部广告-->
 <div style="margin:0 auto;width:990px;">
@@ -67,16 +67,16 @@
 <link href="//img00.zhaopin.cn/2012/css/headfoot/head_www-L.css?version=20151016" rel="stylesheet" type="text/css" />
 <div id="globalHeader">
     <div class="hd-wrapper">
-        <a href="http://localhost:8888/qiantai/shouye.jsp"class="site-logo"title="龙盾招聘首页"><img src="img/ld2.jpg" height="50px"width="150px"  alt="龙盾招聘首页"></a>
+        <a href="http://192.168.31.222:8888/qiantai/shouye.jsp"class="site-logo"title="龙盾招聘首页"><img src="img/ld2.jpg" height="50px"width="150px"  alt="龙盾招聘首页"></a>
         <div class="topBan">
             <span class="hotline"><i class="headPhoneIcon"></i><b>888-888-8888</b></span>
         </div>
         <div class="nav-bar">
         <ul>
             <li class="nav-first"></li>
-            <li class="minwidth mycurrent"><a href="http://localhost:8888/qiantai/shouye.jsp">首页</a></li>
-            <li><a href="http://localhost:8888/UserIndex/index.jsp" >简历中心</a></li>
-            <li><a href="http://localhost:8888/qiantai/chaxun.jsp" >职位搜索</a></li>
+            <li class="minwidth mycurrent"><a href="http://192.168.31.222:8888/qiantai/shouye.jsp">首页</a></li>
+            <li><a href="http://192.168.31.222:8888/UserIndex/index.jsp" >简历中心</a></li>
+            <li><a href="http://192.168.31.222:8888/qiantai/chaxun.jsp" >职位搜索</a></li>
             <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
             <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
             <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
@@ -527,7 +527,7 @@
 
     function sousuozhiwei() {
 
-        window.location.href="http://localhost:8888/qiantai/chaxun.jsp";
+        window.location.href="http://192.168.31.222:8888/qiantai/chaxun.jsp";
         
     }
 
