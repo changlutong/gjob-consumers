@@ -99,7 +99,7 @@ public class CompanycltController {
         List<Map<String,Object>> list=  companycltService.getzhiweilistfor2(companyid);
         JSONObject obj=new JSONObject();
         obj.put("data",list);
-        System.out.println(list.get(0).toString());
+
         obj.put("count",list.size());
         obj.put("code", 0);
         obj.put("msg", "");
@@ -118,7 +118,6 @@ public class CompanycltController {
         obj.put("msg", "");
         System.out.println(obj.toString());
         return obj;
-
     }
     @RequestMapping("selectalljob")
     @ResponseBody
@@ -130,13 +129,8 @@ public class CompanycltController {
     @RequestMapping("toudijianli")
     @ResponseBody
     public String toudijianli(String jobid,HttpServletRequest req){
-
     String userid= (String) req.getSession().getAttribute("userid");
-
         companycltService.toudijianli(jobid,userid);
-
         return "1";
     }
-
-
 }
