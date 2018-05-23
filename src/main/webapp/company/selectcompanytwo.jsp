@@ -147,7 +147,7 @@ function pageUtil(){
                     }
                     alert(ids)
                     $.ajax({
-                        url:"<%=request.getContextPath()%>/guanggaoController/deleteguanggao.do",
+                        url:"<%=request.getContextPath()%>/companyController/deletecompany.do",
                         data:{"ids":ids},
                         type:"post",
                         success:function(){

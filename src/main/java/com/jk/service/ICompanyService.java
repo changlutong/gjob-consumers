@@ -29,6 +29,8 @@ public interface ICompanyService {
 
     long selectcompanyTwocount();
 
+    void deletecompany(String idss);
+
 
     // String sentEmailInfo(Company company);
 
