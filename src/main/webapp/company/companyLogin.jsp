@@ -11,6 +11,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../js/css/user.css" type="text/css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/ico" href="//img00.zhaopin.cn/new2011/images/ie9.ico" />
     <script src="../js/login.js"></script>
     <script  src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 
@@ -58,13 +59,16 @@
 
         <div class="login-btn">
             <div class="user-btn-link">
-                <a href="companyRegester.jsp">注册企业版</a>
+                <a href="zhuce.jsp">注册企业版</a>
             </div> <div class="user-btn-link">
                 <a href="resetPassword.jsp">找回密码？</a>
             </div>
-            <button onclick="denglua()">登录</button>
-        </div>
-    </form>
+            <button onclick="denglua()" type="button">登录</button>
+<%--  <input type="button" onclick="denglua()">--%>
+</div>
+
+</form>
+
 </div>
 
 
@@ -73,8 +77,8 @@
 <script>
 $(function () {
 
-    var code = $("#code").val("jsaidaisd656");
-    codeFn= new moveCode(code);
+var code = $("#code").val("jsaidaisd656");
+codeFn= new moveCode(code);
 
 })
 
@@ -87,39 +91,52 @@ $(function () {
 
 function denglua(){
 
-    var phone = $("#username").val();
-    var password = $("#password").val();
-    var codd=$("#code").val();
-    if(phone && password && codd!="jsaidaisd656"){
+var phone = $("#username").val();
+var password = $("#password").val();
+var codd=$("#code").val();
+if(phone && password && codd!="jsaidaisd656"){
 
-        //提交全部表单
-        $.ajax({
+//提交全部表单
+$.ajax({
 
-            url:"<%=request.getContextPath()%>/companyController/querycompanylogin.do",
-            type:"post",
-            data:$("#companyLogin-form").serialize(),
-            dataType:"json",
-            success:function(result){
+ url:"<%=request.getContextPath()%>/companyController/querycompanylogin.do",
+ type:"post",
+ data:$("#companyLogin-form").serialize(),
+ dataType:"json",
+ async:false,
+ success:function(result){
 
-                if(result == "1"){
+     if(result == "1"){
 
-                    alert("账号或密码错误!!!!!!")
-                }
-                if(result == "2"){
+         alert("账号或密码错误!!!!!!")
+         location.reload();
+     }
+     if(result == "2"){
+         alert("登陆成功!")
 
-                    location.href="../index.jsp"
+         location.href="<%=request.getContextPath()%>/company-view/companyindex.jsp";
+     }
+     if(result == "3"){
+         alert("登陆成功!")
 
-                }
-            },
-            error:function(){
-                alert("报错");
-            }
-        });
+         location.href="<%=request.getContextPath()%>/company-view/companyindexcopy.jsp";
+     }
+     if(result == "4"){
+         alert("sql注入了,请检查状态!")
 
-    }else{
+     }
 
-    alert("检查你的输入项是否正确")
-    }
+
+ },
+ error:function(){
+     alert("报错");
+ }
+});
+
+}else{
+
+alert("检查你的输入项是否正确")
+}
 
 }
 

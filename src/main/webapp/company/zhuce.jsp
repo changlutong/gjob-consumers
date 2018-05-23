@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="assets/css/form-elements.css">
 <link rel="stylesheet" href="assets/css/style.css">
-
+	<link rel="shortcut icon" type="image/ico" href="//img00.zhaopin.cn/new2011/images/ie9.ico" />
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -22,7 +22,7 @@
 <![endif]-->
 
 <!-- Favicon and touch icons -->
-<link rel="shortcut icon" href="assets/ico/favicon.png">
+
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
@@ -113,7 +113,7 @@
 
 </head>
 
-<body>
+<body >
 
 		
 <!-- Top content -->
@@ -162,7 +162,7 @@
 								<div class="form-group">
 									<label  for="email">电子邮箱</label>
 
-								   <input type="email" name="email" placeholder="电子邮箱..." class="email form-control" >
+								   <input type="text" name="email" placeholder="电子邮箱..."  class="form-last-name form-control" >
 								</div>
 								<button type="button" class="btn btn-next">下一步</button>
 							</div>
@@ -238,7 +238,7 @@
 							     <input type="hidden" name="tradinglicense" id="tradinglicense" /><div id="show1"></div>
 								</div>
 
-
+								<input type="hidden" name="checkstatus" value="1" />
 								<button type="button" class="btn btn-previous">上一步</button>
 								 <button type="button" class="btn btn-next">下一步</button>
 
@@ -266,7 +266,7 @@
 								</div>
 
 								<button type="button" class="btn btn-previous">上一步</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<button class="btn btn-lg" onblur="tijiao()" type="submit">点&nbsp;击&nbsp;注&nbsp;册</button>
+								<button class="btn btn-lg" onblur="tijiao()" type="button">点&nbsp;击&nbsp;注&nbsp;册</button>
 							</div>
 						</fieldset>
 
@@ -296,7 +296,9 @@
         language: 'zh',
         //uploadAsync:false,
         uploadUrl: '<%=request.getContextPath()%>/companyController/upfile.do',
-        allowedPreviewTypes : ['image', 'html', 'text', 'video', 'audio', 'flash']
+        allowedPreviewTypes : ['image', 'html', 'text', 'video', 'audio', 'flash'],
+        dropZoneTitle: "上传清晰正确的照片能提高审核通过率",
+
     });
 
     $('#file-0a').on('fileuploaded', function(event, data, previewId, index) {
@@ -596,17 +598,17 @@
                     if(result=="1"){
                         alert("恭喜您,注册成功")
 
-                        location.href="companyInfoBuquan.jsp?id="+id;
+                        location.href="companyLogin.jsp";
                     }
-                    if(result==3){
+                    if(result=="3"){
                         alert("手机号不符合规则")
                     }
-                    if(result==4){
+                    if(result=="4"){
                         alert("手机号已存在")
                     }
-                    if(result==5){
+                    if(result=="5"){
                         alert("验证码超时或输错了")
-                    } if(result==6){
+                    } if(result=="6"){
                         alert("用户名已存在")
                     }
                 },

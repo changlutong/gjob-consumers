@@ -54,7 +54,7 @@
 <div id="top" style="height:300px;display:none;width:100%;overflow:hidden;"></div>
 <div id="zljsc"></div>
 <div id="tipSlider">
-    <div> <a class="closeme" href="#"></a> <a class="goreg" href="http://localhost:8888/qiantai/index.jsp"></a> </div>
+    <div> <a class="closeme" href="#"></a> <a class="goreg" href="http://192.168.31.222:8888/qiantai/index.jsp"></a> </div>
 </div>
 <!--最头部广告-->
 <div style="margin:0 auto;width:990px;">
@@ -67,22 +67,22 @@
 <link href="//img00.zhaopin.cn/2012/css/headfoot/head_www-L.css?version=20151016" rel="stylesheet" type="text/css" />
 <div id="globalHeader">
     <div class="hd-wrapper">
-        <a href="http://localhost:8888/qiantai/shouye.jsp"class="site-logo"title="龙盾招聘首页"><img src="img/ld2.jpg" height="50px"width="150px"  alt="龙盾招聘首页"></a>
+        <a href="http://192.168.31.222:8888/qiantai/shouye.jsp"class="site-logo"title="龙盾招聘首页"><img src="img/ld2.jpg" height="50px"width="150px"  alt="龙盾招聘首页"></a>
         <div class="topBan">
             <span class="hotline"><i class="headPhoneIcon"></i><b>888-888-8888</b></span>
         </div>
         <div class="nav-bar">
         <ul>
             <li class="nav-first"></li>
-            <li class="minwidth mycurrent"><a href="http://localhost:8888/qiantai/shouye.jsp">首页</a></li>
-            <li><a href="//my.zhaopin.com/" onclick="dyweTrackEvent('resumecenter','homepage001')">简历中心</a></li>
-            <li><a href="//sou.zhaopin.com/" onclick="dyweTrackEvent('searchpost','homepage001')">职位搜索</a></li>
-            <li><a href="//sou.zhaopin.com/" onclick="dyweTrackEvent('searchpost','homepage001')">职位搜索</a></li>
-            <li><a href="//sou.zhaopin.com/" onclick="dyweTrackEvent('searchpost','homepage001')">职位搜索</a></li>
-            <li><a href="//sou.zhaopin.com/" onclick="dyweTrackEvent('searchpost','homepage001')">职位搜索</a></li>
-            <li><a href="//sou.zhaopin.com/" onclick="dyweTrackEvent('searchpost','homepage001')">职位搜索</a></li>
-            <li><a href="//sou.zhaopin.com/" onclick="dyweTrackEvent('searchpost','homepage001')">职位搜索</a></li>
-            <li><a href="//sou.zhaopin.com/" onclick="dyweTrackEvent('searchpost','homepage001')">职位搜索</a></li>
+            <li class="minwidth mycurrent"><a href="http://192.168.31.222:8888/qiantai/shouye.jsp">首页</a></li>
+            <li><a href="http://192.168.31.222:8888/UserIndex/index.jsp" >简历中心</a></li>
+            <li><a href="http://192.168.31.222:8888/qiantai/chaxun.jsp" >职位搜索</a></li>
+            <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
+            <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
+            <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
+            <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
+            <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
+            <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
         </ul>
          </div>
     </div>
@@ -113,8 +113,8 @@
                         <input type="text" name="KeyWord" id="KeyWord_kw2" onFocus="zlzp.clearDefTxt(this,zlzp.searchjob.k_tips);this.placeholder=''" onBlur="zlzp.setDefTxt(this,zlzp.searchjob.k_tips);this.style.color='black'" maxlength="100" sjmodule="AutoComplete" xhrasp="//smart.zhaopin.com/hotword/jsonp" xhrstyle="k" iskeyword="1" placeholder="输入公司名称或职位名称" />
                     </div>
                     <div class="btn">
-                        <button class="doSearch" onClick="dyweTrackEvent('searchjob','postsearchsetting001');zlzp.searchjob.gotoSearch_t()"><i class="headSearchIcon"></i>搜工作</button>
-                        <div id="advSearch" style="text-align:center;"><a rel="nofollow" href="//sou.zhaopin.com/index.ashx?isadv=1" onClick="dyweTrackEvent('advancedsearch','postsearchsetting001')">高级搜索</a></div>
+                       <button class="doSearch"  type="button" onclick="sousuozhiwei()" ><i class="headSearchIcon"></i>搜工作</button>
+
                     </div>
                     <div class="industry">
                         <center><font size="4">龙盾公告</font></center>
@@ -525,6 +525,11 @@
         })
     })
 
+    function sousuozhiwei() {
+
+        window.location.href="http://192.168.31.222:8888/qiantai/chaxun.jsp";
+        
+    }
 
 
 

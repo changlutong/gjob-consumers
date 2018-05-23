@@ -1,19 +1,31 @@
 package com.jk.controller;
 
+import com.aliyun.oss.OSSClient;
 import com.jk.model.Company;
+import com.jk.model.Mail;
 import com.jk.service.ICompanyService;
+import com.jk.util.EmailUtil;
 import com.jk.util.HttpClient;
+import org.apache.commons.fileupload.disk.DiskFileItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import java.io.IOException;
+import java.io.*;
+import java.net.URL;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 import static org.apache.poi.hslf.record.RecordTypes.List;
 
@@ -61,14 +73,18 @@ public class CompanyController {
         }
     }
 
-@RequestMapping("querycompanylogin")
+
+
+    @RequestMapping("querycompanylogin")
 @ResponseBody
-public String querycompanylogin(Company company){
-
-
+public String querycompanylogin(Company company,HttpSession session){
+      /*  String phone= company.getId();
+        session.setAttribute("id",phone);*/
     String companylist= companyService.querycompanylogin(company);
+        String[] split = companylist.split(",");
+       session.setAttribute("id",split[1]);
 
-    return companylist;
+        return  split[0];
 
 }
 
@@ -100,6 +116,43 @@ public void updateCompanyPassword(Company company){
 
 }
 
+    @RequestMapping("/upfile")
+    @ResponseBody
+    public Object upfile(@RequestParam("file") MultipartFile[] files) throws IOException{
+        if(files!=null&&files.length>0){
+            Map<String,String> map=new HashMap<String,String>();
+            MultipartFile file=files[0];
+            String newFileName = UUID.randomUUID().toString()
+                    + file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
+            CommonsMultipartFile cf= (CommonsMultipartFile)file;
+            DiskFileItem fi = (DiskFileItem)cf.getFileItem();
+            File f = fi.getStoreLocation();
+            // endpoint以杭州为例，其它region请按实际情况填写
+            String endpoint = "http://oss-cn-qingdao.aliyuncs.com";
+            // 云账号AccessKey有所有API访问权限，建议遵循阿里云安全最佳实践，创建并使用RAM子账号进行API访问或日常运维，请登录
+            // https://ram.console.aliyun.com 创建
+            String accessKeyId = "LTAIIovLWtlvaZb1";
+            String accessKeySecret = "9a75CNmDE3W705XEREa9RCpXNdx91D";
+            // 创建OSSClient实例
+            // OSSClient是OSS服务的Java客户端，它为调用者提供了一系列的方法，用于和OSS服务进行交互。
+            OSSClient ossClient = new OSSClient(endpoint, accessKeyId, accessKeySecret);
+            FileInputStream fis = new FileInputStream(f);
+            ossClient.putObject("djh535212936", "img/" + newFileName, fis);
+            Date expiration = new Date(System.currentTimeMillis() + 3600 * 1000 * 24 * 9);
+            URL url = ossClient.generatePresignedUrl("djh535212936", "img/" + newFileName, expiration);
+            String fileUrl = url.toString();
+            System.out.println("成功");
+            System.out.println(fileUrl);
+            map.put("url",fileUrl);
+            return map;
+        }
+
+
+
+        return null;
+    }
+
+
     /**
      * 后台公司审核查询      孙国锦
      * @param page
@@ -109,15 +162,15 @@ public void updateCompanyPassword(Company company){
     @RequestMapping(value="queryCompanyList")
     @ResponseBody
     public Map<String,Object> queryCompanyList(Integer page,Integer rows){
-    //查询所有记录
-    java.util.List<Company> list = companyService.queryCompanyeList(page,rows);
-    //查询总条数
-    long total = companyService.querycompanycount();
-    Map<String ,Object> map = new HashMap<String, Object>();
-    map.put("total",total);
-    map.put("rows",list);
-    return  map;
-}
+        //查询所有记录
+        java.util.List<Company> list = companyService.queryCompanyeList(page,rows);
+        //查询总条数
+        long total = companyService.querycompanycount();
+        Map<String ,Object> map = new HashMap<String, Object>();
+        map.put("total",total);
+        map.put("rows",list);
+        return  map;
+    }
 
     /**
      * 修改状态
@@ -145,8 +198,6 @@ public void updateCompanyPassword(Company company){
         map.put("rows",list);
         return  map;
     }
-
-
 
 
 

@@ -8,6 +8,7 @@
     <link
             href="${pageContext.request.contextPath}/jquery/bootstrap/css/bootstrap-theme.min.css"
             rel="stylesheet">
+    <link rel="shortcut icon" type="image/ico" href="//img00.zhaopin.cn/new2011/images/ie9.ico" />
     <link
             href="${pageContext.request.contextPath}/jquery/bootstrap/css/bootstrap.min.css"
             rel="stylesheet">
@@ -73,14 +74,16 @@
 
 </head>
 
-<body>
+<body style="padding:20px;background:url('images/11.jpg') no-repeat ;background-size:1540px;">
+
+
 <script type="text/javascript" src="../js/jquery.min.js"></script>
 <script type="text/javascript" src="../js/verify.js" ></script>
 
 
 <form id="add_form_position" class="form-horizontal">
-
-    <div class="modal-body">
+<br><br><br>
+    <div class="modal-body" style="position: absolute;margin-left: 40%">
         <div class="form-group">
              输入手机号:
             <input type="text" name="id" id="idddd" class="form-control"  placeholder="输入手机号" readonly="readonly" style="width: 300px">
@@ -88,23 +91,23 @@
         </div>
         <div class="form-group">
             输入密码:
-            <input name="password" id="password" class="form-control"   placeholder="输入密码..." style="width: 300px" onblur="mimaaayk()">
+            <input name="password" type="password" id="password" class="form-control"   placeholder="输入密码..." style="width: 300px" onblur="mimaaayk()">
             <div><span id="spantt3"></span></div>
         </div>
        <div class="form-group">
            确认密码:
-            <input id="password2" class="form-control"   placeholder="输入密码..." style="width: 300px"  onblur="mimaquer()">
+            <input id="password2" type="password"  class="form-control"   placeholder="输入密码..." style="width: 300px"  onblur="mimaquer()">
            <span id="spantt4"></span>
         </div>
 
         <div id="mpanel2" >
 
         </div>
+        <button class="btn btn-large btn-primary" id="check-btn" type="button">确认修改</button>&nbsp;&nbsp;
+        <button class="btn btn-large" onclick="clostpositionyk()" type="button"> 取消修改 </button>
 
     </div>
 
-    <button class="btn btn-large btn-primary" id="check-btn"  type="button">确认修改</button>&nbsp;&nbsp;
-    <button class="btn btn-large" onclick="clostpositionyk()" type="button"> 取消修改 </button>
 </form>
 
 <script type="text/javascript">
@@ -169,6 +172,11 @@
 
 
          var id = $("#idddd").val();
+         if(id==null && id ==""){
+
+             alert("密码修改与手机号不匹配");
+
+         }
           var password = $("#password").val();
 
           $.ajax({
