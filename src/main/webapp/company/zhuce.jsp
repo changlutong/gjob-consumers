@@ -266,7 +266,7 @@
 								</div>
 
 								<button type="button" class="btn btn-previous">上一步</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<button class="btn btn-lg" onblur="tijiao()" type="button">点&nbsp;击&nbsp;注&nbsp;册</button>
+								<button class="btn btn-lg" onclick="tijiao()" type="button">点&nbsp;击&nbsp;注&nbsp;册</button>
 							</div>
 						</fieldset>
 
@@ -281,8 +281,8 @@
 
 
 <!-- Javascript -->
-<%--<script src="assets/js/jquery-1.11.1.min.js"></script>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>--%>
+<%--<script src="assets/js/jquery-1.11.1.min.js"></script>--%>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/js/jquery.backstretch.min.js"></script>
 <script src="assets/js/retina-1.1.0.min.js"></script>
 <script src="assets/js/scripts.js"></script>
@@ -576,7 +576,8 @@
             })
         }}
     function tijiao(){
-        if(aa==null && aa == ""){
+
+        if( aa==""){
           alert("必须上传相关证件")
 		}else{
 
