@@ -54,7 +54,7 @@
 <div id="top" style="height:300px;display:none;width:100%;overflow:hidden;"></div>
 <div id="zljsc"></div>
 <div id="tipSlider">
-    <div> <a class="closeme" href="#"></a> <a class="goreg" href="http://192.168.31.222:8888/qiantai/index.jsp"></a> </div>
+    <div> <a class="closeme" href="#"></a> <a class="goreg" href="<%=request.getContextPath()%>/qiantai/index.jsp"></a> </div>
 </div>
 <!--最头部广告-->
 <div style="margin:0 auto;width:990px;">
@@ -67,16 +67,16 @@
 <link href="//img00.zhaopin.cn/2012/css/headfoot/head_www-L.css?version=20151016" rel="stylesheet" type="text/css" />
 <div id="globalHeader">
     <div class="hd-wrapper">
-        <a href="http://192.168.31.222:8888/qiantai/shouye.jsp"class="site-logo"title="龙盾招聘首页"><img src="img/ld2.jpg" height="50px"width="150px"  alt="龙盾招聘首页"></a>
+        <a href="<%=request.getContextPath()%>/qiantai/shouye.jsp"class="site-logo"title="龙盾招聘首页"><img src="img/ld2.jpg" height="50px"width="150px"  alt="龙盾招聘首页"></a>
         <div class="topBan">
             <span class="hotline"><i class="headPhoneIcon"></i><b>888-888-8888</b></span>
         </div>
         <div class="nav-bar">
         <ul>
             <li class="nav-first"></li>
-            <li class="minwidth mycurrent"><a href="http://192.168.31.222:8888/qiantai/shouye.jsp">首页</a></li>
-            <li><a href="http://192.168.31.222:8888/UserIndex/index.jsp" >简历中心</a></li>
-            <li><a href="http://192.168.31.222:8888/qiantai/chaxun.jsp" >职位搜索</a></li>
+            <li class="minwidth mycurrent"><a href="<%=request.getContextPath()%>/qiantai/shouye.jsp">首页</a></li>
+            <li><a href="<%=request.getContextPath()%>/UserIndex/index.jsp" >简历中心</a></li>
+            <li><a href="<%=request.getContextPath()%>/qiantai/chaxun.jsp" >职位搜索</a></li>
             <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
             <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
             <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
@@ -197,18 +197,8 @@
                 <dd>
                     <ul  id="scroll3" >
 
-                        <li><a href='http://www.51code.com/htm/android10b/zhaopingdwz.htm' onmousedown="return AdsClick(913,6969)"  rel='nofollow'  target='_blank' class="linkss">1博为峰 名企高薪诚招大专本科生</a>
-                        </li>
-                        <li><a href='http://www.51code.com/htm/android10b/zhaopingdwz.htm' onmousedown="return AdsClick(913,6969)"  rel='nofollow'  target='_blank' class="linkss">2博为峰 名企高薪诚招大专本科生</a>
-                        </li>
-                        <li><a href='http://www.51code.com/htm/android10b/zhaopingdwz.htm' onmousedown="return AdsClick(913,6969)"  rel='nofollow'  target='_blank' class="linkss">3博为峰 名企高薪诚招大专本科生</a>
-                        </li>
-                        <li><a href='http://www.51code.com/htm/android10b/zhaopingdwz.htm' onmousedown="return AdsClick(913,6969)"  rel='nofollow'  target='_blank' class="linkss">4博为峰 名企高薪诚招大专本科生</a>
-                        </li>
-                        <li><a href='http://www.51code.com/htm/android10b/zhaopingdwz.htm' onmousedown="return AdsClick(913,6969)"  rel='nofollow'  target='_blank' class="linkss">5博为峰 名企高薪诚招大专本科生</a>
-                        </li>
 
-                        <!--ZHAOPININDEX_HOTZHAOPIN Success end-->
+
 
 
                     </ul>
@@ -444,7 +434,7 @@
 <!-- 这里包含广告筛选器include adfilter.html -->
 <div id="adFilter">
     <a href='http://39.105.68.118:8080/ssh-ebuy/qiantai/index.jsp'>
-        <img src="img/logo.png" width="59" height="379" >
+        <img src="img/youbian.jpg" width="59" height="379" >
     </a>
 
 </div>
@@ -523,11 +513,40 @@
                 alert("呦呵呵，广告查询失败！！！");
             }
         })
+        $.ajax({
+            url:"<%=request.getContextPath()%>/companycltController/selectalljob.do",
+            type:"post",
+            dataType:"json",
+            success:function (job) {
+
+//            <li><span>龙盾科技</span></li>
+//            <li>业务员</li>
+//            <li>熟练操作电脑，熟悉网络</li>
+//            <li>200元/天</li>
+//            <li><img src="images/shenqing.jpg" /></li>
+
+                var str="";
+                for(i=0;i<job.length;i++){
+
+                    str +="  <li><a class='linkss'>招聘岗位："+job[i].workname+"&nbsp;&nbsp;&nbsp;应聘要求："+job[i].workinfo+"</a></li>"
+
+                }
+
+                $("#scroll3").html(str);
+            },
+            erro:function () {
+                alert("呦呵呵，招聘内容查询失败！！！");
+            }
+        })
+
+
     })
+
+
 
     function sousuozhiwei() {
 
-        window.location.href="http://192.168.31.222:8888/qiantai/chaxun.jsp";
+        window.location.href="<%=request.getContextPath()%>/qiantai/chaxun.jsp";
         
     }
 
