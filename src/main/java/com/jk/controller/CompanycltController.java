@@ -17,6 +17,7 @@
 package com.jk.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.jk.model.Company;
 import com.jk.model.Job;
 import com.jk.service.ICompanycltService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -126,6 +127,21 @@ public class CompanycltController {
 
         List<Job>  list =   companycltService.selectalljob(job);
         return list;
+    }
+    @RequestMapping("selectalljobbyid")
+    public String selectalljobbyid(String zpid,HttpServletRequest request){
+
+
+        Job job=companycltService.selectalljobbyid(zpid);
+
+        String gongsiid =job.getCompanyphone();
+
+        Company company =companycltService.selectcompanybyid(gongsiid);
+
+        request.getSession().setAttribute("company",company);
+        request.getSession().setAttribute("job",job);
+
+    return "qiantai/jobxiangqing";
     }
     @RequestMapping("toudijianli")
     @ResponseBody
