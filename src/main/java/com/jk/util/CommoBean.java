@@ -23,7 +23,7 @@ public class CommoBean {
     //发送方账号
     public static final String USERNAME = "yuankang0927@163.com";
     //发送方密码
-    public static final String PASSWORD = "yuan7464";
+    public static final String PASSWORD = "yuankang1992";
 
     public static final String EMAILFORM = "yuankang0927@163.com";
 
