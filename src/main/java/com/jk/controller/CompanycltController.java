@@ -62,6 +62,7 @@ public class CompanycltController {
         if(string==null){
             throw new RuntimeException();
         }else{
+            job.setCompanyphone((String) string);
             job.setWorkname((String)session.getAttribute("companyname"));
             companycltService.addzhiwei(job);
         }
@@ -99,7 +100,6 @@ public class CompanycltController {
         List<Map<String,Object>> list=  companycltService.getzhiweilistfor2(companyid);
         JSONObject obj=new JSONObject();
         obj.put("data",list);
-
         obj.put("count",list.size());
         obj.put("code", 0);
         obj.put("msg", "");
