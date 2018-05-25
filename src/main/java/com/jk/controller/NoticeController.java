@@ -85,10 +85,9 @@ public class NoticeController {
     @RequestMapping("/noticesids")
     @ResponseBody
     public List<Notice> noticesids(Integer noticeid){
-
          List<Notice> list=noticeService.noticesids(noticeid);
         System.out.println(list);
-         return list;
+        return list;
 
     }
     //=================================================================================

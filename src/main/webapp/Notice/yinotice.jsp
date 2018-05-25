@@ -101,7 +101,7 @@ function   del(){
         aaa += ","+sss[i].noticeid
     }
     var str1=aaa.substring(1);
-    alert(str1)
+   /* alert(str1)*/
     $.ajax({
         url:'<%=request.getContextPath()%>/notice/deletenotice.do',
         data:{'ids':str1},

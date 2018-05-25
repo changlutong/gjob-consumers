@@ -69,7 +69,7 @@ function appendqwe(){
 		    buttons:[{
 				text:'增加',
 				handler:function(){
-					alert($("#list").serialize())
+				/*	alert($("#list").serialize())*/
 					$.ajax({
 				   		 url:"<%=request.getContextPath() %>/menu/savelist.do",
 				   			type:"post",
