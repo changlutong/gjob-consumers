@@ -12,6 +12,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -75,7 +76,21 @@ public class NoticeController {
         int n = noticeService.updateNotice(notice);
         return n;
     }
+    @RequestMapping("/querynotices")
+    @ResponseBody
+    public List<Notice> querynotices(Notice notice){
+        List<Notice> list=noticeService.querynotices(notice);
+        return  list;
+    }
+    @RequestMapping("/noticesids")
+    @ResponseBody
+    public List<Notice> noticesids(Integer noticeid){
 
+         List<Notice> list=noticeService.noticesids(noticeid);
+        System.out.println(list);
+         return list;
+
+    }
     //=================================================================================
     public Date getDate() {
         return date;

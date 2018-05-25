@@ -48,6 +48,25 @@
     <link rel="stylesheet" href="//img01.zhaopin.cn/2012/other/lmadjust/css/adbox_s.css" />
 
     <script src="//img07.zhaopin.cn/2014/head_foot/js/global.js"></script>
+    <script src="${pageContext.request.contextPath}/jquery/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/jquery/bootstrap/js/bootstrap.min.js"></script>
+    <!-- bootstrap-dialog -->
+    <link href="${pageContext.request.contextPath}/jquery/bootstrap-dialog/dist/css/bootstrap-dialog.min.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/jquery/bootstrap-dialog/dist/js/bootstrap-dialog.min.js"></script>
+    <style>
+        .col1 {width: 233px; height: 233px}
+        .col1 img {width: 233px; height: 233px}
+        .col2 {width: 478px; height: 478px}
+        .col2 img{width: 478px; height: 478px; margin-left: 0px;}
+        .col3 {width: 478px; height: 233px}
+        .col3 img {width: 478px; height: 233px}
+        .col4 {width: 233px; height: 478px}
+        .col4 img {width: 233px; height: 478px}
+        .login-dialog .modal-dialog {
+            width: 1000px;
+            height: 1000px;
+
+    </style>
 
 </head>
 <body>
@@ -75,9 +94,9 @@
         <ul>
             <li class="nav-first"></li>
             <li class="minwidth mycurrent"><a href="<%=request.getContextPath()%>/qiantai/shouye.jsp">首页</a></li>
-            <li><a href="<%=request.getContextPath()%>/UserIndex/index.jsp" >简历中心</a></li>
+            <li><a href="<%=request.getContextPath()%>/UserIndex/index.jsp" >个人中心</a></li>
+            <li><a href="<%=request.getContextPath()%>/company/index.jsp" >公司中心</a></li>
             <li><a href="<%=request.getContextPath()%>/qiantai/chaxun.jsp" >职位搜索</a></li>
-            <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
             <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
             <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
             <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
@@ -136,8 +155,6 @@
                 <dd >
                     <ul id="scroll1" >
 
-                        <li><a href='#'  class="linkss">1博为峰 名企高薪诚招大专本科生</a>
-                        </li>
 
 
                         <!--ZHAOPININDEX_HOTZHAOPIN Success end-->
@@ -448,10 +465,6 @@
 <div style="top: 115px; position: fixed; _position:absolute;_top:expression(eval(document.documentElement.scrollTop)+115+'px'); left: 50%; margin-left: -568px; width: auto; height: auto; display: block;"><a ref="nofollow" style="display:block;" href='https://xiaoyuan.zhaopin.com/' onmousedown="return AdsClick(9718,163622)"  target="_blank"><img style="border:1px solid #8c8481;" src="//img00.zhaopin.cn/img_button/201803/16/00_103646697519.gif" width="65" height="185"  alt="Zhaopin.com(beijing)招聘信息"></a>
     <a ref="nofollow" style="display:block;margin-top:3px;" href='http://www.jinkeit.cn/index/lists/catid/17.html' onmousedown="return AdsClick(9718,163620)"  target="_blank"><img style="border:1px solid #8c8481;" src="//img00.zhaopin.cn/img_button/201803/03/pc_174440318124.jpg" width="65" height="185"  alt="金科教育，万薪就业"></a>
 </div>
-
-
-
-
 <script type="text/javascript" src="js/jq.min.js"></script>
 <!-- 页面加载脚本-->
 <script>
@@ -528,7 +541,7 @@
                 var str="";
                 for(i=0;i<job.length;i++){
 
-                    str +="  <li><a class='linkss'>招聘岗位："+job[i].workname+"&nbsp;&nbsp;&nbsp;应聘要求："+job[i].workinfo+"</a></li>"
+                    str +="  <li><a class='linkss'  target='true'   href='<%=request.getContextPath()%>/companycltController/selectalljobbyid.do?zpid="+job[i].id+"'>岗位："+job[i].workname+"&nbsp;&nbsp;&nbsp;应聘要求："+job[i].workinfo+"</a></li>"
 
                 }
 
@@ -538,7 +551,28 @@
                 alert("呦呵呵，招聘内容查询失败！！！");
             }
         })
+        $.ajax({
+            url:"<%=request.getContextPath()%>/companycltController/selectallgonggao.do",
+            type:"post",
+            dataType:"json",
+            success:function (job) {
 
+//                <li><a href='#'  class="linkss">1博为峰 名企高薪诚招大专本科生</a>
+//                </li>
+
+                var str="";
+                for(i=0;i<job.length;i++){
+
+                    str +="<li><a href='#'  class='linkss'>"+job[i].noticename+"</a></li>"
+
+                }
+
+               // $("#scroll1").html(str);
+            },
+            erro:function () {
+                alert("呦呵呵，公告内容查询失败！！！");
+            }
+        })
 
     })
 
@@ -549,6 +583,7 @@
         window.location.href="<%=request.getContextPath()%>/qiantai/chaxun.jsp";
         
     }
+
 
 
 
