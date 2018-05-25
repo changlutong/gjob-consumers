@@ -8,14 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>龙盾科技-公司详情</title>
     <!-- 这是jquery的核心包  -->
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
     <!-- 这是easyui的核心包  -->
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/easyui/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/util-js.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/easyui/locale/easyui-lang-zh_CN.js"></script>
-
+    <link rel="shortcut icon" type="image/ico" href="//img00.zhaopin.cn/new2011/images/ie9.ico" />
 </head>
 <body bgcolor="#faebd7">
 

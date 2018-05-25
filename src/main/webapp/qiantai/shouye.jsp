@@ -229,9 +229,9 @@
     <div class="adsBox sliderBox">
         <div id="slider1"  name="yihaowei">
 
-                <div class="sliderItem"><img  onclick="selectxq('bb7693a64d7f43f59cf4a4ac6ded344b','13610641107')"  border="0" src="http://djh535212936.oss-cn-qingdao.aliyuncs.com/img/9742c708-3df3-4991-8491-4b8244c18855.jpg?Expires=1527663886&OSSAccessKeyId=LTAIIovLWtlvaZb1&Signature=EmgA6qi8mEALmvHbfUyXcuip%2Bi4%3D" width="322" height="173"  ></div>
-                <div class="sliderItem"><img  onclick="selectxq('d05ece2177474839a8a7a5043b9fd38d','1560002029')" border="0" src="http://djh535212936.oss-cn-qingdao.aliyuncs.com/img/4c8ffd3f-5adc-43c7-b089-2708af7ae424.jpg?Expires=1527664955&OSSAccessKeyId=LTAIIovLWtlvaZb1&Signature=0IzizGjOO76zet28bWDTiupZPAI%3D" width="322" height="173"  ></div>
-                <div class="sliderItem"><img  onclick="selectxq('b919f5d409e547aab0e49f9e47707978','13610641107')" border="0" src="http://djh535212936.oss-cn-qingdao.aliyuncs.com/img/3f390798-e926-4b2a-9532-e368c0300217.jpg?Expires=1527665139&OSSAccessKeyId=LTAIIovLWtlvaZb1&Signature=3Q0kQblqMggNmi8WmUlkotb5XJY%3D" width="322" height="173"  ></div>
+                <div class="sliderItem"><img  onclick="selectxq('13610641107')"  border="0" src="http://djh535212936.oss-cn-qingdao.aliyuncs.com/img/9742c708-3df3-4991-8491-4b8244c18855.jpg?Expires=1527663886&OSSAccessKeyId=LTAIIovLWtlvaZb1&Signature=EmgA6qi8mEALmvHbfUyXcuip%2Bi4%3D" width="322" height="173"  ></div>
+                <div class="sliderItem"><img  onclick="selectxq('1560002029')" border="0" src="http://djh535212936.oss-cn-qingdao.aliyuncs.com/img/4c8ffd3f-5adc-43c7-b089-2708af7ae424.jpg?Expires=1527664955&OSSAccessKeyId=LTAIIovLWtlvaZb1&Signature=0IzizGjOO76zet28bWDTiupZPAI%3D" width="322" height="173"  ></div>
+                <div class="sliderItem"><img  onclick="selectxq('13610641107')" border="0" src="http://djh535212936.oss-cn-qingdao.aliyuncs.com/img/3f390798-e926-4b2a-9532-e368c0300217.jpg?Expires=1527665139&OSSAccessKeyId=LTAIIovLWtlvaZb1&Signature=3Q0kQblqMggNmi8WmUlkotb5XJY%3D" width="322" height="173"  ></div>
 
       </div>
     </div>
@@ -481,7 +481,7 @@
                 var str="";
                 for(i=0;i<guanggao.length;i++){
 
-                    str +="<li><img class='am bm' border='0' onclick='selectxq("+guanggao[i].companyid+","+guanggao[i].id+")' src='"+guanggao[i].imageurl+"' width='655' height='53'/></li>"
+                    str +="<li><img class='am bm' border='0' onclick='selectxq(\""+guanggao[i].companyid+"\")' src='"+guanggao[i].imageurl+"' width='655' height='53'/></li>"
 
                 }
                 $("#sanhaowei").html(str);
@@ -499,7 +499,7 @@
                 var str="";
                 for(i=0;i<guanggao.length;i++){
 
-                    str +="<li><img class='bm' border='0' src='"+guanggao[i].imageurl+"' width='322' height='53' onclick='selectxq("+guanggao[i].companyid+","+guanggao[i].id+")'  ></li>"
+                    str +="<li><img class='bm' border='0' src='"+guanggao[i].imageurl+"' width='322' height='53' onclick='selectxq(\""+guanggao[i].companyid+"\")' ></li>"
 
                 }
                 $("#sihaowei").html(str);
@@ -517,7 +517,7 @@
                 var str="";
                 for(i=0;i<guanggao.length;i++){
 
-                    str +="<li><img src='"+guanggao[i].imageurl+"'  width='109' height='45'  onclick='selectxq("+guanggao[i].companyid+","+guanggao[i].id+")' ><br /><a  onclick='selectxq("+guanggao[i].companyid+","+guanggao[i].id+")' >"+guanggao[i].companyid+"</a></li>"
+                    str +="<li><img src='"+guanggao[i].imageurl+"'  width='109' height='45'  onclick='selectxq(\""+guanggao[i].companyid+"\")' ><br /><a  onclick='selectxq(\""+guanggao[i].companyid+"\")' >"+guanggao[i].companyid+"</a></li>"
 
                 }
                 $("#wuhaowei").html(str);
@@ -552,7 +552,7 @@
             }
         })
         $.ajax({
-            url:"<%=request.getContextPath()%>/companycltController/selectallgonggao.do",
+            url:"<%=request.getContextPath()%>/notice/querynotices.do",
             type:"post",
             dataType:"json",
             success:function (job) {
@@ -563,11 +563,11 @@
                 var str="";
                 for(i=0;i<job.length;i++){
 
-                    str +="<li><a href='#'  class='linkss'>"+job[i].noticename+"</a></li>"
+                    str +="<li><a target='true' href='<%=request.getContextPath()%>/notice/noticesids.do?noticeid="+job[i].noticeid+"' class='linkss'>"+job[i].noticename+"</a></li>"
 
                 }
 
-               // $("#scroll1").html(str);
+               $("#scroll1").html(str);
             },
             erro:function () {
                 alert("呦呵呵，公告内容查询失败！！！");
@@ -584,7 +584,12 @@
         
     }
 
+    function selectxq(id) {
 
+        location.href="<%=request.getContextPath()%>/companycltController/selectgongsiandjob.do?id="+id
+
+
+    }
 
 
 </script>
