@@ -11,27 +11,8 @@
     <title>Title</title>
 </head>
 <link rel="shortcut icon" type="image/ico" href="//img00.zhaopin.cn/new2011/images/ie9.ico" />
-<body background="<%=request.getContextPath()%>/company-view/timg.jpg">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/layui/css/layui.css"  media="all">
-<script type="text/javascript" src="<%=request.getContextPath()%>/layui/layui.js"></script>
-<div class="layui-fluid">
-    <fieldset class="layui-elem-field layui-field-title">
+<body>
+<div style="width:100%;height:100%;background:url('<%=request.getContextPath()%>/company-view/timg.jpg') no-repeat ;background-size:100%;"></div>
 
-    </fieldset>
-    <div class="layui-row">
-        <div class="layui-col-sm3">
-            <div class="grid-demo grid-demo-bg1"></div>
-        </div>
-        <div class="layui-col-sm3">
-            <div class="grid-demo"></div>
-        </div>
-        <div class="layui-col-sm3">
-            <div class="grid-demo grid-demo-bg1"></div>
-        </div>
-        <div class="layui-col-sm3">
-            <div class="grid-demo"></div>
-        </div>
-    </div>
-</div>
 </body>
 </html>
