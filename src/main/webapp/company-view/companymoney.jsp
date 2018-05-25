@@ -146,6 +146,7 @@
                 })
 				if(count%3==0){
                     options+="<br>"
+					radios+="<br>"
 				}
 				$("#bankcardradio").html(radios)
                 $("#gsidsgj").val(result[0].comid);
