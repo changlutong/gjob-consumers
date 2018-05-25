@@ -142,11 +142,26 @@ public class CompanycltController {
 
     return "qiantai/jobxiangqing";
     }
+    @RequestMapping("selectgongsiandjob")
+    public String selectgongsiandjob(String id,HttpServletRequest request){
+        Company companys =companycltService.selectcompanybyid(id);
+        List<Job> joblist=companycltService.selectjobbygongsiid(id);
+        request.getSession().setAttribute("companys",companys);
+        request.getSession().setAttribute("joblist",joblist);
+        return "qiantai/guanggaoxiangqing";
+    }
     @RequestMapping("toudijianli")
     @ResponseBody
     public String toudijianli(String jobid,HttpServletRequest req){
     String userid= (String) req.getSession().getAttribute("userid");
+    String a=null;
+    if(userid==null){
+        return "2";
+    }else{
         companycltService.toudijianli(jobid,userid);
-        return "1";
+       return "1";
     }
+
+}
+
 }

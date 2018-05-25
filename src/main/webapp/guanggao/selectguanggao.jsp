@@ -175,7 +175,7 @@ function backShow(id){
                     for (var i = 0; i < id.length; i++) {
                         ids+=id[i].id+",";
                     }
-                    alert(ids)
+                    //alert(ids)
                     $.ajax({
                         url:"<%=request.getContextPath()%>/guanggaoController/deleteguanggao.do",
                         data:{"ids":ids},

@@ -11,6 +11,8 @@
 package com.jk.service;
 
 import com.jk.model.BankType;
+import com.jk.model.CompanyCard;
+import com.jk.model.Score;
 import com.jk.model.Tree;
 
 import java.util.List;
@@ -38,4 +40,20 @@ public interface BankTypeService {
      * @return
      */
     List<Tree> queryTreeList();
+
+    List<BankType> selectBankTypeList();
+
+    void savebankcard(CompanyCard companyCard);
+
+    List<CompanyCard> querybankcard();
+
+    CompanyCard queryBankCardById(Integer cid);
+
+    void deleteBankCardById(Integer cid);
+
+    Score queryComScore(String comid);
+
+    String addcompanychongzhi(String comid, String money);
+
+    void updatebankcard(Long aLong, String valll);
 }

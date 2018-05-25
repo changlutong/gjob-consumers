@@ -144,7 +144,12 @@ public class GuanggaoController {
     }
 
 
-
+    /**
+     * 查询未审核广告
+     * @param page
+     * @param rows
+     * @return
+     */
     @RequestMapping(value = "queryguanggaotwo")
     @ResponseBody
     public Map<String ,Object> queryguanggaotwo(Integer page, Integer rows){
@@ -159,6 +164,20 @@ public class GuanggaoController {
         map.put("total",total);
         map.put("rows",list);
         return  map;
+    }
+
+
+    /**
+     * 审核广告
+     * @param ids
+     */
+    @RequestMapping(value="updateguanggaoStatus")
+    @ResponseBody
+    public void updateguanggaoStatus(String ids){
+        String[] idss = ids.split(",");
+        for (int i = 0; i < idss.length; i++) {
+            guanggaoService.updateguanggaoStatus(idss[i].toString());
+        }
     }
 
 
