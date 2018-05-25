@@ -8,48 +8,80 @@
 </head>
 
 
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.8.3.min.js"></script>
 
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
-<!-- 这是easyui的核心包  -->
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/easyui/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/util-js.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/easyui/locale/easyui-lang-zh_CN.js"></script>
-
-
-<!-- jqeuy默认的css样式 -->
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/js/easyui/themes/default/easyui.css">
-
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/js/easyui/themes/icon.css">
-<!-- 上传图片 -->
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/uploadify/jquery.uploadify.min.js"></script>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/js/uploadify/uploadify.css"/>
-
+<link rel="stylesheet" href="/layui/css/layui.css">
+<script type="text/javascript" src="/layui/layui.js"></script>
 
 
 
 <body>
+
+
+
+
+
+
+
+
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/uploadify/jquery.uploadify.min.js"></script>
 <link  rel="stylesheet"  href="<%=request.getContextPath()%>/js/uploadify/uploadify.css"/>
 
 
-<form id="addguanggao">
-	商品图片： <input type="file" id="file" name="image"/>
+<form id="addguanggao" class="layui-form layui-form-pane">
+
+
+	广告图片： <input type="file" id="file" name="image"/>
 	<input type="hidden" name="imageurl" id="imageurl"/>
 	<div id="show"></div><br/>
-	所属公司：<select id="company" name="companyid" style="width:200px;"></select><br>
-	广告位置：<input type="radio" name="pid" value="1">一号位
-				<input type="radio" name="pid" value="2">二号位
-				<input type="radio" name="pid" value="3">三号位
-				<input type="radio" name="pid" value="4">四号位
-				<input type="radio" name="pid" value="5">五号位<br>
-	简介：<textarea name="info" /></textarea>
-	价格：<input type="text" name="price" >
+
+
+
+	<div class="layui-form-item" style="width:45%">
+		<label class="layui-form-label">选择框</label>
+		<div class="layui-input-block">
+			<select id="company" name="companyid" lay-verify="required">
+
+			</select>
+		</div>
+	</div>
+
+	<div class="layui-form-item" pane="" style="width:45%">
+		<label class="layui-form-label">广告位置：</label>
+		<div class="layui-input-block">
+			<input type="radio" name="pid" value="1" title="一号位">
+			<input type="radio" name="pid" value="2" title="二号位">
+			<input type="radio" name="pid" value="3" title="三号位"><br>
+			<input type="radio" name="pid" value="4" title="四号位">
+			<input type="radio" name="pid" value="5" title="五号位">
+		</div>
+	</div>
+
+
+	<div class="layui-form-item" style="width:45%">
+		<label class="layui-form-label">价格</label>
+		<div class="layui-input-block">
+			<input type="text" name="title" required  lay-verify="required" placeholder="请输入内容" autocomplete="off" class="layui-input">
+		</div>
+	</div>
+
+
+
+	<div class="layui-form-item layui-form-text" style="width:45%">
+		<label class="layui-form-label">简介：</label>
+		<div class="layui-input-block">
+			<textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+		</div>
+	</div>
 
 
 
 </form>
+
+<input type="button" class="layui-btn" value="立即提交" onclick="addguanggao()">
+<input type="button" class="layui-btn layui-btn-primary" value="重置" onclick="resetfrom()">
 
 
 <script type="text/javascript">
@@ -96,7 +128,7 @@
             dataType:"json",
             success:function(result){
                 //alert(result);
-                var options="<option value=''>---请选择---</option>";
+                var options="<option value=''>请选择</option>";
                 $.each(result,function(){
                     options+="<option value='"+this.id+"'>"+this.companyname+"</option>";
                 })
@@ -110,6 +142,44 @@
         })
 	})
 
+
+	function addguanggao(){
+       // alert(66)
+		//alert($("#addguanggao").serialize())
+        $.ajax({
+            url:"<%=request.getContextPath()%>/guanggaoController/saveguanggao.do",
+            data:$("#addguanggao").serialize(),
+            type:"post",
+            success:function(){
+
+                alert("新增成功");
+                $("#dialog_addguanggao").dialog("close");
+                $("#guanggaotables").datagrid("reload");
+
+            },error:function(){
+                $.messager.alert('警告','报错');
+            }
+        })
+
+	}
+	
+	function resetfrom() {
+        $("#addguanggao")[0].reset();
+    }
+
 </script>
+
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+    layui.use(['form', 'layedit', 'laydate'], function(){
+        var form = layui.form
+            ,layer = layui.layer
+            ,layedit = layui.layedit
+            ,laydate = layui.laydate;
+
+
+    });
+</script>
+
 </body>
 </html>
