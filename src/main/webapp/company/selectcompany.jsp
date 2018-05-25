@@ -28,6 +28,7 @@
 	
 	<div href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" onclick="romaveguanggao()">删除</div>
 
+
 	<div href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" onclick="updatestatus()">审核</div>
 
 	<div><table id="companytables"></table></div><!-- 查询到的广告所有 -->
@@ -145,7 +146,7 @@ function pageUtil(){
                     for (var i = 0; i < id.length; i++) {
                         ids+=id[i].id+",";
                     }
-                    alert(ids)
+                    //alert(ids)
                     $.ajax({
                         url:"<%=request.getContextPath()%>/companyController/deletecompany.do",
                         data:{"ids":ids},
@@ -176,7 +177,7 @@ function pageUtil(){
                    for (var i = 0; i < id.length; i++) {
                        ids+=id[i].id+",";
                    }
-                   alert(ids)
+                  // alert(ids)
                    $.ajax({
                        url:"<%=request.getContextPath()%>/companyController/updateCompanyStatus.do",
                        data:{"ids":ids},
@@ -196,9 +197,42 @@ function pageUtil(){
            $.messager.alert('警告','请选择要删除的项');
        }
    }
-	
-	
-	</script>
+
+
+//修改状态
+function updatestatus() {
+    var id=$("#companytables").datagrid("getSelections");
+    var ids=[];
+    if(id.length>0){
+        $.messager.confirm('确认','您确认想要通过审核？',function(r){
+            if (r){
+                for (var i = 0; i < id.length; i++) {
+                    ids+=id[i].id+",";
+                }
+                // alert(ids)
+                $.ajax({
+                    url:"<%=request.getContextPath()%>/companyController/updateCompanyStatus.do",
+                    data:{"ids":ids},
+                    type:"post",
+                    success:function(){
+                        alert("修改成功")
+                        $("#companytables").datagrid("reload");
+                    },error:function(){
+                        $.messager.alert('警告','报错');
+                    }
+
+
+                })
+            }
+        });
+    }else{
+        $.messager.alert('警告','请选择要删除的项');
+    }
+}
+
+
+
+</script>
 
 
 

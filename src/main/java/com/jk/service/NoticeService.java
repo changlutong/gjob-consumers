@@ -24,5 +24,5 @@ public interface NoticeService {
 
     List<Notice> querynotices(Notice notice);
 
-    List<Notice> noticesids(Integer noticeid);
+    Notice noticesids(Integer noticeid);
 }
