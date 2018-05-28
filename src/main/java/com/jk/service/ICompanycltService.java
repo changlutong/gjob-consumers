@@ -36,6 +36,6 @@ public interface ICompanycltService {
 
     Map<String,String> shoudaojianlixiqngqing(String str);
 
-    void deletejobbyid(String id);
+    void deletejobbyid(String  id);
 }
 
