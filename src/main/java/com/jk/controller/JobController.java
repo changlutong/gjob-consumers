@@ -35,7 +35,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/jobController")
 public class JobController {
-    @Autowired
+   @Autowired
     private IJobService jobService;
     @RequestMapping("getjobname")
     @ResponseBody
