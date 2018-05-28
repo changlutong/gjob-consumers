@@ -1,41 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
-	xmlns:context="http://www.springframework.org/schema/context" 
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-	xsi:schemaLocation="
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xsi:schemaLocation="
 		http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context-4.0.xsd
 		http://www.springframework.org/schema/tx
 		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
-		http://code.alibabatech.com/schema/dubbo 
-		http://code.alibabatech.com/schema/dubbo/dubbo.xsd 
+		http://code.alibabatech.com/schema/dubbo
+		http://code.alibabatech.com/schema/dubbo/dubbo.xsd
 		http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop-4.0.xsd"  default-autowire="byName">
-    
-     <!-- 消费方应用名称信息，这个相当于起一个名字，我们dubbo管理页面比较清晰是哪个应用调用的,保持唯一性 -->  
-     <dubbo:application name="dubbo_consumer"  />   
-       
-     <!-- 使用zookeeper注册中心发现暴露的服务地址 -->    
-     <dubbo:registry address="zookeeper://127.0.0.1:2181" />     
-       
 
-     <!-- 生成远程服务代理，可以和本地bean一样使用demoService，该interface需要与服务端暴露的服务interface保持一致，该id已注入Spring -->
-	<dubbo:reference id="UserService" interface="com.jk.service.IUserService"  />
-	<dubbo:reference id="TreeService" interface="com.jk.service.ITreeService"  />
-	<dubbo:reference id="RoleService" interface="com.jk.service.RoleService"  />
-	<dubbo:reference id="NoticeService" interface="com.jk.service.NoticeService"  />
-	<dubbo:reference id="CompanyService" interface="com.jk.service.ICompanyService"  />
+	<!-- 消费方应用名称信息，这个相当于起一个名字，我们dubbo管理页面比较清晰是哪个应用调用的,保持唯一性 -->
+	<dubbo:application name="dubbo_consumer"  />
+
+	<!-- 使用zookeeper注册中心发现暴露的服务地址 -->
+	<dubbo:registry address="zookeeper://127.0.0.1:2181" />
+
+
+	<!-- 生成远程服务代理，可以和本地bean一样使用demoService，该interface需要与服务端暴露的服务interface保持一致，该id已注入Spring -->
+	<dubbo:reference id="userService" interface="com.jk.service.IUserService"  />
+	<dubbo:reference id="treeService" interface="com.jk.service.ITreeService"  />
+	<dubbo:reference id="roleService" interface="com.jk.service.RoleService"  />
+	<dubbo:reference id="noticeService" interface="com.jk.service.NoticeService"  />
+	<dubbo:reference id="companyService" interface="com.jk.service.ICompanyService"  />
 	<dubbo:reference  id="guanggaoService" interface="com.jk.service.IGuanggaoService" />
 	<dubbo:reference  id="companycltService" interface="com.jk.service.ICompanycltService" />
+	<dubbo:reference  id="iUserdatum" interface="com.jk.service.IUserdatumService" />
 	<dubbo:reference id="bankTypeService" interface="com.jk.service.BankTypeService"  />
 	<dubbo:reference id="activityService" interface="com.jk.service.IActivityService"  />
-	<dubbo:reference id="iUserdatum" interface="com.jk.service.IUserdatumService"  />
+	<dubbo:reference id="logService" interface="com.jk.service.LogService"  />
+
 
 
 </beans>
+
