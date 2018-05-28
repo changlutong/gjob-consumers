@@ -56,12 +56,12 @@ function searchs(){
 			iconCls: 'icon-add',
 			handler: function(){
 				$('#brand-dialog').dialog({    
-				    title: '添加品牌',    
+				    title: '添加公告',
 				    width: 400,    
 				    height: 200,    
 				    closed: false,    
 				    cache: false,    
-				    href: 'toAddnotice.jsp',
+				    href: '../Notice/toAddnotice.jsp',
 				    modal: true,
 				    buttons:[{
 						text:'保存',
@@ -128,7 +128,7 @@ function whereSelect(){
 
 function up(id){
 	$('#brand-dialog').dialog({    
-	    title: '修改品牌',    
+	    title: '修改公告',
 	    width: 400,    
 	    height: 200,    
 	    closed: false,    
