@@ -64,7 +64,7 @@ public class CompanycltController {
             throw new RuntimeException();
         }else{
             job.setCompanyphone((String) string);
-            job.setWorkname((String)session.getAttribute("companyname"));
+            job.setCompanyname((String)session.getAttribute("companyname"));
             companycltService.addzhiwei(job);
         }
 
@@ -153,15 +153,28 @@ public class CompanycltController {
     @RequestMapping("toudijianli")
     @ResponseBody
     public String toudijianli(String jobid,HttpServletRequest req){
-    String userid= (String) req.getSession().getAttribute("userid");
-    String a=null;
-    if(userid==null){
-        return "2";
-    }else{
-        companycltService.toudijianli(jobid,userid);
-       return "1";
-    }
+        String userid= (String) req.getSession().getAttribute("userid");
+        String a=null;
+        if(userid==null){
+            return "2";
+        }else{
+            companycltService.toudijianli(jobid,userid);
+            return "1";
+        }
 
-}
+    }
+    @RequestMapping("shoudaojianlixiqngqing")
+    public String shoudaojianlixiqngqing(String str,HttpServletRequest req){
+        Map<String,String> map= companycltService.shoudaojianlixiqngqing(str);
+        req.setAttribute("map",map);
+        System.out.println("===================="+map.toString());
+        return "company-view/shoudaojianlixiqngqing";
+    }
+    @RequestMapping("deletejobbyid")
+    @ResponseBody
+    public String deletejobbyid(String id){
+        companycltService.deletejobbyid(id);
+        return "1";
+    }
 
 }
