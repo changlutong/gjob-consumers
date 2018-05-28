@@ -35,4 +35,5 @@ public class Finance implements Serializable {
     public void setFinancetotal(Integer financetotal) {
         this.financetotal = financetotal;
     }
+    //======
 }
