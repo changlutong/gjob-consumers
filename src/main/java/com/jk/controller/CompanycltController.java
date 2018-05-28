@@ -17,6 +17,8 @@
 package com.jk.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.jk.model.Company;
+import com.jk.model.Companyresume;
 import com.jk.model.Job;
 import com.jk.service.ICompanycltService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,9 +59,17 @@ public class CompanycltController {
     }
     @RequestMapping("addzhiwei")
     @ResponseBody
-    public void addzhiwei(Job job){
+    public void addzhiwei(Job job,HttpSession session){
+        Object string=  session.getAttribute("id");
+        if(string==null){
+            throw new RuntimeException();
+        }else{
+            job.setCompanyphone((String) string);
+            job.setCompanyname((String)session.getAttribute("companyname"));
+            companycltService.addzhiwei(job);
+        }
 
-        companycltService.addzhiwei(job);
+
     }
     @RequestMapping("getzhiweilist")
     @ResponseBody
@@ -77,7 +87,7 @@ public class CompanycltController {
     public String showjoblist(String  str, HttpServletRequest request){
         Map<String,Object> map= companycltService.selectjobbyid(str);
         request.setAttribute("map",map);
-        return "company-view/showaddzhiwei";
+        return "UserIndex/personalInfo";
     }
     @RequestMapping("updatejobstatus")
     @ResponseBody
@@ -92,7 +102,6 @@ public class CompanycltController {
         List<Map<String,Object>> list=  companycltService.getzhiweilistfor2(companyid);
         JSONObject obj=new JSONObject();
         obj.put("data",list);
-        System.out.println(list.get(0).toString());
         obj.put("count",list.size());
         obj.put("code", 0);
         obj.put("msg", "");
@@ -111,7 +120,6 @@ public class CompanycltController {
         obj.put("msg", "");
         System.out.println(obj.toString());
         return obj;
-
     }
     @RequestMapping("selectalljob")
     @ResponseBody
@@ -120,16 +128,68 @@ public class CompanycltController {
         List<Job>  list =   companycltService.selectalljob(job);
         return list;
     }
+    @RequestMapping("selectalljobbyid")
+    public String selectalljobbyid(String zpid,HttpServletRequest request){
+
+
+        Job job=companycltService.selectalljobbyid(zpid);
+
+        String gongsiid =job.getCompanyphone();
+
+        Company company =companycltService.selectcompanybyid(gongsiid);
+
+        request.getSession().setAttribute("company",company);
+        request.getSession().setAttribute("job",job);
+
+    return "qiantai/jobxiangqing";
+    }
+    @RequestMapping("selectgongsiandjob")
+    public String selectgongsiandjob(String id,HttpServletRequest request){
+        Company companys =companycltService.selectcompanybyid(id);
+        List<Job> joblist=companycltService.selectjobbygongsiid(id);
+        request.getSession().setAttribute("companys",companys);
+        request.getSession().setAttribute("joblist",joblist);
+        return "qiantai/guanggaoxiangqing";
+    }
     @RequestMapping("toudijianli")
     @ResponseBody
     public String toudijianli(String jobid,HttpServletRequest req){
+        String userid= (String) req.getSession().getAttribute("userid");
+        String a=null;
+        if(userid==null){
+            return "2";
+        }else{
+            companycltService.toudijianli(jobid,userid);
+            return "1";
+        }
 
-    String userid= (String) req.getSession().getAttribute("userid");
-
-        companycltService.toudijianli(jobid,userid);
-
+    }
+    @RequestMapping("shoudaojianlixiqngqing")
+    public String shoudaojianlixiqngqing(String str,HttpServletRequest req){
+        Map<String,String> map= companycltService.shoudaojianlixiqngqing(str);
+        req.setAttribute("map",map);
+        System.out.println("===================="+map.toString());
+        return "company-view/shoudaojianlixiqngqing";
+    }
+    @RequestMapping("deletejobbyid")
+    @ResponseBody
+    public String deletejobbyid(String id){
+        companycltService.deletejobbyid(id);
         return "1";
     }
+
+@ResponseBody
+@RequestMapping("addcompanyresume")
+   public  void  addcompanyresume(Companyresume companyresume){
+
+    companycltService.addcompanyresume(companyresume);
+
+   }
+
+
+
+
+
 
 
 }

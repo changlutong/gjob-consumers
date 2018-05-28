@@ -73,7 +73,7 @@
         <tbody><tr>
 
             <td width="60">
-                &nbsp;&nbsp;<a href="http://192.168.31.222:8888/qiantai/shouye.jsp" target="_blank">
+                &nbsp;&nbsp;<a href="<%=request.getContextPath()%>/qiantai/shouye.jsp" target="_blank">
                 <font style="vertical-align: inherit;">
                     <font style="vertical-align: inherit;" size="2">首页</font>
                 </font>
@@ -89,7 +89,7 @@
                 &nbsp;|&nbsp;
             </font></font></td>
             <td width="60">
-                <a href="http://192.168.31.222:8888/qiantai/chaxun.jsp" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"size="2">职位搜索</font></font></a>
+                <a href="<%=request.getContextPath()%>/qiantai/chaxun.jsp" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"size="2">职位搜索</font></font></a>
             </td>
             <td width="10"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                 &nbsp;|&nbsp;
@@ -107,7 +107,7 @@
 
             </td>
             <td width="70">
-                <a href="http://192.168.31.222:8888/company/zhuce.jsp" target="_blank">
+                <a href="<%=request.getContextPath()%>/company/zhuce.jsp" target="_blank">
                     <img src="img/regin.jpg" width="70" height="28">
                 </a>
             </td>
@@ -115,7 +115,7 @@
                 <img src="img/regin_login.jpg" width="10" height="28">
             </td>
             <td width="70">
-                <a href="http://192.168.31.222:8888/company/companyLogin.jsp" target="_blank">
+                <a href="<%=request.getContextPath()%>/company/companyLogin.jsp" target="_blank">
                     <img src="img/login.jpg" width="70" height="28">
                 </a>
             </td>
@@ -439,40 +439,40 @@
             success:function (guanggao) {
 
              var str="<div class='a1'>" +
-                 " <div class='p1 comm'><img src='"+guanggao[0].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[0].companyid+","+guanggao[0].id+")'></div>" +
-                 "<div class='p2 comm'><img src='"+guanggao[1].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[1].companyid+","+guanggao[1].id+")'></div>" +
-                 "<div class='p3 comm'><img src='"+guanggao[2].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[2].companyid+","+guanggao[2].id+")'></div>" +
-                 "<div class='p4 comm'><img src='"+guanggao[3].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[3].companyid+","+guanggao[3].id+")'></div>" +
+                 " <div class='p1 comm'><img src='"+guanggao[0].imageurl+"' width='145px' height='60px' onclick='selectxq(\""+guanggao[0].companyid+"\")'></div>" +
+                 "<div class='p2 comm'><img src='"+guanggao[1].imageurl+"' width='145px' height='60px' onclick='selectxq(\""+guanggao[1].companyid+"\")'></div>" +
+                 "<div class='p3 comm'><img src='"+guanggao[2].imageurl+"' width='145px' height='60px' onclick='selectxq(\""+guanggao[4].companyid+"\")'></div>" +
+                 "<div class='p4 comm'><img src='"+guanggao[3].imageurl+"' width='145px' height='60px' onclick='selectxq(\""+guanggao[3].companyid+"\")'></div>" +
                  "</div>"+
                  "<div class='a1'>" +
-                 " <div class='p1 comm'><img src='"+guanggao[4].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[4].companyid+","+guanggao[4].id+")'></div>" +
-                 "<div class='p2 comm'><img src='"+guanggao[5].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[5].companyid+","+guanggao[5].id+")'></div>" +
-                 "<div class='p3 comm'><img src='"+guanggao[6].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[6].companyid+","+guanggao[6].id+")'></div>" +
-                 "<div class='p4 comm'><img src='"+guanggao[7].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[7].companyid+","+guanggao[7].id+")'></div>" +
+                 " <div class='p1 comm'><img src='"+guanggao[4].imageurl+"' width='145px' height='60px' onclick='selectxq(\""+guanggao[4].companyid+"\")'></div>" +
+                 "<div class='p2 comm'><img src='"+guanggao[5].imageurl+"' width='145px' height='60px' onclick='selectxq(\""+guanggao[5].companyid+"\")'></div>" +
+                 "<div class='p3 comm'><img src='"+guanggao[6].imageurl+"' width='145px' height='60px' onclick='selectxq(\""+guanggao[6].companyid+"\")'></div>" +
+                 "<div class='p4 comm'><img src='"+guanggao[7].imageurl+"' width='145px' height='60px' onclick='selectxq(\""+guanggao[7].companyid+"\")'></div>" +
                  "</div>"+
                  "<div class='a1'>" +
-                 " <div class='p1 comm'><img src='"+guanggao[8].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[8].companyid+","+guanggao[8].id+")'></div>" +
-                 "<div class='p2 comm'><img src='"+guanggao[9].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[9].companyid+","+guanggao[9].id+")'></div>" +
-                 "<div class='p3 comm'><img src='"+guanggao[10].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[10].companyid+","+guanggao[10].id+")'></div>" +
-                 "<div class='p4 comm'><img src='"+guanggao[11].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[11].companyid+","+guanggao[11].id+")'></div>" +
+                 " <div class='p1 comm'><img src='"+guanggao[8].imageurl+"' width='145px' height='60px' onclick='selectxq(\""+guanggao[8].companyid+"\")'></div>" +
+                 "<div class='p2 comm'><img src='"+guanggao[9].imageurl+"' width='145px' height='60px' onclick='selectxq(\""+guanggao[9].companyid+"\")'></div>" +
+                 "<div class='p3 comm'><img src='"+guanggao[10].imageurl+"' width='145px' height='60px' onclick='selectxq(\""+guanggao[10].companyid+"\")'></div>" +
+                 "<div class='p4 comm'><img src='"+guanggao[11].imageurl+"' width='145px' height='60px' onclick='selectxq(\""+guanggao[11].companyid+"\")'></div>" +
                  "</div>"+
                  "<div class='a1'>" +
-                 " <div class='p1 comm'><img src='"+guanggao[12].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[12].companyid+","+guanggao[12].id+")'></div>" +
-                 "<div class='p2 comm'><img src='"+guanggao[13].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[13].companyid+","+guanggao[13].id+")'></div>" +
-                 "<div class='p3 comm'><img src='"+guanggao[14].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[14].companyid+","+guanggao[14].id+")'></div>" +
-                 "<div class='p4 comm'><img src='"+guanggao[15].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[15].companyid+","+guanggao[15].id+")'></div>" +
+                 " <div class='p1 comm'><img src='"+guanggao[12].imageurl+"' width='145px' height='60px' onclick='selectxq(\""+guanggao[12].companyid+"\")'></div>" +
+                 "<div class='p2 comm'><img src='"+guanggao[13].imageurl+"' width='145px' height='60px' onclick='selectxq(\""+guanggao[13].companyid+"\")'></div>" +
+                 "<div class='p3 comm'><img src='"+guanggao[14].imageurl+"' width='145px' height='60px' onclick='selectxq(\""+guanggao[14].companyid+"\")'></div>" +
+                 "<div class='p4 comm'><img src='"+guanggao[15].imageurl+"' width='145px' height='60px' onclick='selectxq(\""+guanggao[15].companyid+"\")'></div>" +
                  "</div>"+
                  "<div class='a1'>" +
-                 " <div class='p1 comm'><img src='"+guanggao[16].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[16].companyid+","+guanggao[16].id+")'></div>" +
-                 "<div class='p2 comm'><img src='"+guanggao[17].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[17].companyid+","+guanggao[17].id+")'></div>" +
-                 "<div class='p3 comm'><img src='"+guanggao[18].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[18].companyid+","+guanggao[18].id+")'></div>" +
-                 "<div class='p4 comm'><img src='"+guanggao[19].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[19].companyid+","+guanggao[19].id+")'></div>" +
+                 " <div class='p1 comm'><img src='"+guanggao[16].imageurl+"' width='145px' height='60px' onclick='selectxq(\""+guanggao[16].companyid+"\")'></div>" +
+                 "<div class='p2 comm'><img src='"+guanggao[17].imageurl+"' width='145px' height='60px' onclick='selectxq(\""+guanggao[17].companyid+"\")'></div>" +
+                 "<div class='p3 comm'><img src='"+guanggao[18].imageurl+"' width='145px' height='60px' onclick='selectxq(\""+guanggao[18].companyid+"\")'></div>" +
+                 "<div class='p4 comm'><img src='"+guanggao[19].imageurl+"' width='145px' height='60px' onclick='selectxq(\""+guanggao[19].companyid+"\")'></div>" +
                  "</div>"+
                  "<div class='a1'>";
                 var a=1;
                 for(i=20;i<guanggao.length;i++){
 
-                    str+= " <div class='p"+a+" comm'><img src='"+guanggao[i].imageurl+"' width='145px' height='60px' onclick='selectxq("+guanggao[i].companyid+","+guanggao[i].id+")'></div>" ;
+                    str+= " <div class='p"+a+" comm'><img src='"+guanggao[i].imageurl+"' width='145px' height='60px' onclick='selectxq(\""+guanggao[i].companyid+"\")'></div>" ;
                     a++;
                 }
                 str += "</div>";
@@ -564,7 +564,12 @@
             })
         }
     }
+    function selectxq(id) {
 
+        location.href="<%=request.getContextPath()%>/companycltController/selectgongsiandjob.do?id="+id
+
+
+    }
 
     function zhuche(){
         var phone = $("#phone").val()

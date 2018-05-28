@@ -21,4 +21,8 @@ public interface NoticeService {
     Notice upNotice(Integer noticeid);
 
     int updateNotice(Notice notice);
+
+    List<Notice> querynotices(Notice notice);
+
+    Notice noticesids(Integer noticeid);
 }

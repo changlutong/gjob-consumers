@@ -1,5 +1,7 @@
 package com.jk.service;
 
+import com.jk.model.Company;
+import com.jk.model.Companyresume;
 import com.jk.model.Job;
 
 import java.util.List;
@@ -26,5 +28,21 @@ public interface ICompanycltService {
     List<Job> selectalljob(Job job);
 
     void toudijianli(String jobid, String userid);
+
+    Job selectalljobbyid(String zpid);
+
+    Company selectcompanybyid(String gongsiid);
+
+    List<Job> selectjobbygongsiid(String id);
+
+
+
+
+    void addcompanyresume(Companyresume companyresume);
+
+    Map<String,String> shoudaojianlixiqngqing(String str);
+
+    void deletejobbyid(String  id);
+
 }
 

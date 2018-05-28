@@ -48,13 +48,32 @@
     <link rel="stylesheet" href="//img01.zhaopin.cn/2012/other/lmadjust/css/adbox_s.css" />
 
     <script src="//img07.zhaopin.cn/2014/head_foot/js/global.js"></script>
+    <script src="${pageContext.request.contextPath}/jquery/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/jquery/bootstrap/js/bootstrap.min.js"></script>
+    <!-- bootstrap-dialog -->
+    <link href="${pageContext.request.contextPath}/jquery/bootstrap-dialog/dist/css/bootstrap-dialog.min.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/jquery/bootstrap-dialog/dist/js/bootstrap-dialog.min.js"></script>
+    <style>
+        .col1 {width: 233px; height: 233px}
+        .col1 img {width: 233px; height: 233px}
+        .col2 {width: 478px; height: 478px}
+        .col2 img{width: 478px; height: 478px; margin-left: 0px;}
+        .col3 {width: 478px; height: 233px}
+        .col3 img {width: 478px; height: 233px}
+        .col4 {width: 233px; height: 478px}
+        .col4 img {width: 233px; height: 478px}
+        .login-dialog .modal-dialog {
+            width: 1000px;
+            height: 1000px;
+
+    </style>
 
 </head>
 <body>
 <div id="top" style="height:300px;display:none;width:100%;overflow:hidden;"></div>
 <div id="zljsc"></div>
 <div id="tipSlider">
-    <div> <a class="closeme" href="#"></a> <a class="goreg" href="http://192.168.31.222:8888/qiantai/index.jsp"></a> </div>
+    <div> <a class="closeme" href="#"></a> <a class="goreg" href="<%=request.getContextPath()%>/qiantai/index.jsp"></a> </div>
 </div>
 <!--最头部广告-->
 <div style="margin:0 auto;width:990px;">
@@ -67,17 +86,17 @@
 <link href="//img00.zhaopin.cn/2012/css/headfoot/head_www-L.css?version=20151016" rel="stylesheet" type="text/css" />
 <div id="globalHeader">
     <div class="hd-wrapper">
-        <a href="http://192.168.31.222:8888/qiantai/shouye.jsp"class="site-logo"title="龙盾招聘首页"><img src="img/ld2.jpg" height="50px"width="150px"  alt="龙盾招聘首页"></a>
+        <a href="<%=request.getContextPath()%>/qiantai/shouye.jsp"class="site-logo"title="龙盾招聘首页"><img src="img/ld2.jpg" height="50px"width="150px"  alt="龙盾招聘首页"></a>
         <div class="topBan">
             <span class="hotline"><i class="headPhoneIcon"></i><b>888-888-8888</b></span>
         </div>
         <div class="nav-bar">
         <ul>
             <li class="nav-first"></li>
-            <li class="minwidth mycurrent"><a href="http://192.168.31.222:8888/qiantai/shouye.jsp">首页</a></li>
-            <li><a href="http://192.168.31.222:8888/UserIndex/index.jsp" >简历中心</a></li>
-            <li><a href="http://192.168.31.222:8888/qiantai/chaxun.jsp" >职位搜索</a></li>
-            <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
+            <li class="minwidth mycurrent"><a href="<%=request.getContextPath()%>/qiantai/shouye.jsp">首页</a></li>
+            <li><a href="<%=request.getContextPath()%>/UserIndex/index.jsp" >个人中心</a></li>
+            <li><a href="<%=request.getContextPath()%>/company-view/companyindex.jsp" >公司中心</a></li>
+            <li><a href="<%=request.getContextPath()%>/qiantai/chaxun.jsp" >职位搜索</a></li>
             <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
             <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
             <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
@@ -136,8 +155,6 @@
                 <dd >
                     <ul id="scroll1" >
 
-                        <li><a href='#'  class="linkss">1博为峰 名企高薪诚招大专本科生</a>
-                        </li>
 
 
                         <!--ZHAOPININDEX_HOTZHAOPIN Success end-->
@@ -197,18 +214,8 @@
                 <dd>
                     <ul  id="scroll3" >
 
-                        <li><a href='http://www.51code.com/htm/android10b/zhaopingdwz.htm' onmousedown="return AdsClick(913,6969)"  rel='nofollow'  target='_blank' class="linkss">1博为峰 名企高薪诚招大专本科生</a>
-                        </li>
-                        <li><a href='http://www.51code.com/htm/android10b/zhaopingdwz.htm' onmousedown="return AdsClick(913,6969)"  rel='nofollow'  target='_blank' class="linkss">2博为峰 名企高薪诚招大专本科生</a>
-                        </li>
-                        <li><a href='http://www.51code.com/htm/android10b/zhaopingdwz.htm' onmousedown="return AdsClick(913,6969)"  rel='nofollow'  target='_blank' class="linkss">3博为峰 名企高薪诚招大专本科生</a>
-                        </li>
-                        <li><a href='http://www.51code.com/htm/android10b/zhaopingdwz.htm' onmousedown="return AdsClick(913,6969)"  rel='nofollow'  target='_blank' class="linkss">4博为峰 名企高薪诚招大专本科生</a>
-                        </li>
-                        <li><a href='http://www.51code.com/htm/android10b/zhaopingdwz.htm' onmousedown="return AdsClick(913,6969)"  rel='nofollow'  target='_blank' class="linkss">5博为峰 名企高薪诚招大专本科生</a>
-                        </li>
 
-                        <!--ZHAOPININDEX_HOTZHAOPIN Success end-->
+
 
 
                     </ul>
@@ -222,9 +229,9 @@
     <div class="adsBox sliderBox">
         <div id="slider1"  name="yihaowei">
 
-                <div class="sliderItem"><img  onclick="selectxq('bb7693a64d7f43f59cf4a4ac6ded344b','13610641107')"  border="0" src="http://djh535212936.oss-cn-qingdao.aliyuncs.com/img/9742c708-3df3-4991-8491-4b8244c18855.jpg?Expires=1527663886&OSSAccessKeyId=LTAIIovLWtlvaZb1&Signature=EmgA6qi8mEALmvHbfUyXcuip%2Bi4%3D" width="322" height="173"  ></div>
-                <div class="sliderItem"><img  onclick="selectxq('d05ece2177474839a8a7a5043b9fd38d','1560002029')" border="0" src="http://djh535212936.oss-cn-qingdao.aliyuncs.com/img/4c8ffd3f-5adc-43c7-b089-2708af7ae424.jpg?Expires=1527664955&OSSAccessKeyId=LTAIIovLWtlvaZb1&Signature=0IzizGjOO76zet28bWDTiupZPAI%3D" width="322" height="173"  ></div>
-                <div class="sliderItem"><img  onclick="selectxq('b919f5d409e547aab0e49f9e47707978','13610641107')" border="0" src="http://djh535212936.oss-cn-qingdao.aliyuncs.com/img/3f390798-e926-4b2a-9532-e368c0300217.jpg?Expires=1527665139&OSSAccessKeyId=LTAIIovLWtlvaZb1&Signature=3Q0kQblqMggNmi8WmUlkotb5XJY%3D" width="322" height="173"  ></div>
+                <div class="sliderItem"><img  onclick="selectxq('13610641107')"  border="0" src="http://djh535212936.oss-cn-qingdao.aliyuncs.com/img/9742c708-3df3-4991-8491-4b8244c18855.jpg?Expires=1527663886&OSSAccessKeyId=LTAIIovLWtlvaZb1&Signature=EmgA6qi8mEALmvHbfUyXcuip%2Bi4%3D" width="322" height="173"  ></div>
+                <div class="sliderItem"><img  onclick="selectxq('1560002029')" border="0" src="http://djh535212936.oss-cn-qingdao.aliyuncs.com/img/4c8ffd3f-5adc-43c7-b089-2708af7ae424.jpg?Expires=1527664955&OSSAccessKeyId=LTAIIovLWtlvaZb1&Signature=0IzizGjOO76zet28bWDTiupZPAI%3D" width="322" height="173"  ></div>
+                <div class="sliderItem"><img  onclick="selectxq('13610641107')" border="0" src="http://djh535212936.oss-cn-qingdao.aliyuncs.com/img/3f390798-e926-4b2a-9532-e368c0300217.jpg?Expires=1527665139&OSSAccessKeyId=LTAIIovLWtlvaZb1&Signature=3Q0kQblqMggNmi8WmUlkotb5XJY%3D" width="322" height="173"  ></div>
 
       </div>
     </div>
@@ -444,7 +451,7 @@
 <!-- 这里包含广告筛选器include adfilter.html -->
 <div id="adFilter">
     <a href='http://39.105.68.118:8080/ssh-ebuy/qiantai/index.jsp'>
-        <img src="img/logo.png" width="59" height="379" >
+        <img src="img/youbian.jpg" width="59" height="379" >
     </a>
 
 </div>
@@ -458,10 +465,6 @@
 <div style="top: 115px; position: fixed; _position:absolute;_top:expression(eval(document.documentElement.scrollTop)+115+'px'); left: 50%; margin-left: -568px; width: auto; height: auto; display: block;"><a ref="nofollow" style="display:block;" href='https://xiaoyuan.zhaopin.com/' onmousedown="return AdsClick(9718,163622)"  target="_blank"><img style="border:1px solid #8c8481;" src="//img00.zhaopin.cn/img_button/201803/16/00_103646697519.gif" width="65" height="185"  alt="Zhaopin.com(beijing)招聘信息"></a>
     <a ref="nofollow" style="display:block;margin-top:3px;" href='http://www.jinkeit.cn/index/lists/catid/17.html' onmousedown="return AdsClick(9718,163620)"  target="_blank"><img style="border:1px solid #8c8481;" src="//img00.zhaopin.cn/img_button/201803/03/pc_174440318124.jpg" width="65" height="185"  alt="金科教育，万薪就业"></a>
 </div>
-
-
-
-
 <script type="text/javascript" src="js/jq.min.js"></script>
 <!-- 页面加载脚本-->
 <script>
@@ -478,7 +481,7 @@
                 var str="";
                 for(i=0;i<guanggao.length;i++){
 
-                    str +="<li><img class='am bm' border='0' onclick='selectxq("+guanggao[i].companyid+","+guanggao[i].id+")' src='"+guanggao[i].imageurl+"' width='655' height='53'/></li>"
+                    str +="<li><img class='am bm' border='0' onclick='selectxq(\""+guanggao[i].companyid+"\")' src='"+guanggao[i].imageurl+"' width='655' height='53'/></li>"
 
                 }
                 $("#sanhaowei").html(str);
@@ -496,7 +499,7 @@
                 var str="";
                 for(i=0;i<guanggao.length;i++){
 
-                    str +="<li><img class='bm' border='0' src='"+guanggao[i].imageurl+"' width='322' height='53' onclick='selectxq("+guanggao[i].companyid+","+guanggao[i].id+")'  ></li>"
+                    str +="<li><img class='bm' border='0' src='"+guanggao[i].imageurl+"' width='322' height='53' onclick='selectxq(\""+guanggao[i].companyid+"\")' ></li>"
 
                 }
                 $("#sihaowei").html(str);
@@ -514,7 +517,7 @@
                 var str="";
                 for(i=0;i<guanggao.length;i++){
 
-                    str +="<li><img src='"+guanggao[i].imageurl+"'  width='109' height='45'  onclick='selectxq("+guanggao[i].companyid+","+guanggao[i].id+")' ><br /><a  onclick='selectxq("+guanggao[i].companyid+","+guanggao[i].id+")' >"+guanggao[i].companyid+"</a></li>"
+                    str +="<li><img src='"+guanggao[i].imageurl+"'  width='109' height='45'  onclick='selectxq(\""+guanggao[i].companyid+"\")' ><br /><a  onclick='selectxq(\""+guanggao[i].companyid+"\")' >"+guanggao[i].companyid+"</a></li>"
 
                 }
                 $("#wuhaowei").html(str);
@@ -523,14 +526,70 @@
                 alert("呦呵呵，广告查询失败！！！");
             }
         })
+        $.ajax({
+            url:"<%=request.getContextPath()%>/companycltController/selectalljob.do",
+            type:"post",
+            dataType:"json",
+            success:function (job) {
+
+//            <li><span>龙盾科技</span></li>
+//            <li>业务员</li>
+//            <li>熟练操作电脑，熟悉网络</li>
+//            <li>200元/天</li>
+//            <li><img src="images/shenqing.jpg" /></li>
+
+                var str="";
+                for(i=0;i<job.length;i++){
+
+                    str +="  <li><a class='linkss'  target='true'   href='<%=request.getContextPath()%>/companycltController/selectalljobbyid.do?zpid="+job[i].id+"'>岗位："+job[i].workname+"&nbsp;&nbsp;&nbsp;应聘要求："+job[i].workinfo+"</a></li>"
+
+                }
+
+                $("#scroll3").html(str);
+            },
+            erro:function () {
+                alert("呦呵呵，招聘内容查询失败！！！");
+            }
+        })
+        $.ajax({
+            url:"<%=request.getContextPath()%>/notice/querynotices.do",
+            type:"post",
+            dataType:"json",
+            success:function (job) {
+
+//                <li><a href='#'  class="linkss">1博为峰 名企高薪诚招大专本科生</a>
+//                </li>
+
+                var str="";
+                for(i=0;i<job.length;i++){
+
+                    str +="<li><a target='true' href='<%=request.getContextPath()%>/notice/noticesids.do?noticeid="+job[i].noticeid+"' class='linkss'>"+job[i].noticename+"</a></li>"
+
+                }
+
+               $("#scroll1").html(str);
+            },
+            erro:function () {
+                alert("呦呵呵，公告内容查询失败！！！");
+            }
+        })
+
     })
+
+
 
     function sousuozhiwei() {
 
-        window.location.href="http://192.168.31.222:8888/qiantai/chaxun.jsp";
+        window.location.href="<%=request.getContextPath()%>/qiantai/chaxun.jsp";
         
     }
 
+    function selectxq(id) {
+
+        location.href="<%=request.getContextPath()%>/companycltController/selectgongsiandjob.do?id="+id
+
+
+    }
 
 
 </script>

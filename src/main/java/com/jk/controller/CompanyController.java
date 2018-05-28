@@ -78,11 +78,23 @@ public class CompanyController {
     @RequestMapping("querycompanylogin")
 @ResponseBody
 public String querycompanylogin(Company company,HttpSession session){
+
       /*  String phone= company.getId();
         session.setAttribute("id",phone);*/
     String companylist= companyService.querycompanylogin(company);
+    System.out.print(companylist);
         String[] split = companylist.split(",");
-       session.setAttribute("id",split[1]);
+
+        if(split[0].equals("1")){
+          return "1";
+
+        }else if(split[0].equals("4")){
+
+            return "4";
+        }
+
+        session.setAttribute("id",split[1]);
+        session.setAttribute("companyname",split[2]);
 
         return  split[0];
 
@@ -198,6 +210,19 @@ public void updateCompanyPassword(Company company){
         map.put("rows",list);
         return  map;
     }
+
+
+
+    @RequestMapping(value="deletecompany")
+    @ResponseBody
+    public  void deletecompany(String ids){
+        String[] idss = ids.split(",");
+        for (int i = 0; i < idss.length; i++) {
+            companyService.deletecompany(idss[i]);
+        }
+
+    }
+
 
 
 

@@ -12,6 +12,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -75,7 +76,20 @@ public class NoticeController {
         int n = noticeService.updateNotice(notice);
         return n;
     }
+    @RequestMapping("/querynotices")
+    @ResponseBody
+    public List<Notice> querynotices(Notice notice){
+        List<Notice> list=noticeService.querynotices(notice);
+        return  list;
+    }
+    @RequestMapping("/noticesids")
+    public String noticesids(Integer noticeid,HttpServletRequest request){
 
+        Notice gonggao=noticeService.noticesids(noticeid);
+        request.getSession().setAttribute("gonggao",gonggao);
+         return "qiantai/gonggaoxiangqing";
+
+    }
     //=================================================================================
     public Date getDate() {
         return date;

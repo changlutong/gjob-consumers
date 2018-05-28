@@ -25,7 +25,7 @@
 	
 	<div id="role_quanxian"></div><!--要展示的 权限页面  -->
 	
-	<div href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" onclick="addguanggao()">新增</div>
+
 	
 	<div href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" onclick="romaveguanggao()">删除</div>
 
@@ -175,7 +175,7 @@ function backShow(id){
                     for (var i = 0; i < id.length; i++) {
                         ids+=id[i].id+",";
                     }
-                    alert(ids)
+                    //alert(ids)
                     $.ajax({
                         url:"<%=request.getContextPath()%>/guanggaoController/deleteguanggao.do",
                         data:{"ids":ids},
