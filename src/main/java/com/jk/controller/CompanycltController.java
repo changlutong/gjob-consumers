@@ -18,6 +18,7 @@ package com.jk.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.jk.model.Company;
+import com.jk.model.Companyresume;
 import com.jk.model.Job;
 import com.jk.service.ICompanycltService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,7 +87,7 @@ public class CompanycltController {
     public String showjoblist(String  str, HttpServletRequest request){
         Map<String,Object> map= companycltService.selectjobbyid(str);
         request.setAttribute("map",map);
-        return "company-view/showaddzhiwei";
+        return "UserIndex/personalInfo";
     }
     @RequestMapping("updatejobstatus")
     @ResponseBody
@@ -163,5 +164,19 @@ public class CompanycltController {
     }
 
 }
+
+@ResponseBody
+@RequestMapping("addcompanyresume")
+   public  void  addcompanyresume(Companyresume companyresume){
+
+    companycltService.addcompanyresume(companyresume);
+
+   }
+
+
+
+
+
+
 
 }
