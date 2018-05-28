@@ -26,8 +26,13 @@
     <!-- jqeuy默认的css样式 -->
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/js/easyui/themes/default/easyui.css">
 
-
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <%--<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+--%>
 </head>
+
+
+
 <body>
 <!-- 上传图片 -->
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/uploadify/jquery.uploadify.min.js"></script>
@@ -131,43 +136,52 @@
                         <form id="grxx">
 
                         <input type="hidden" id="datumid"  name="datumid" value="${tpersonal[0].uuids}"/>
-                        修改个人信息（	<font color="ff0000"> *</font>为必填项）<br>
+                        修改个人信息（	<font color="ff0000"> *</font>为必填项）<br><br>
                         <table>
                             <tr>
                                 <td><font color="ff0000"> *</font>姓名  : </td>
-                                <td> <input class="easyui-validatebox" type="text" name="grxxname" id="grxxname" data-options="required:true" style="border:1px solid" /></td>
+                                <td> <input class="textbox" type="text" name="grxxname" id="grxxname" data-options="required:true"  /><br></td>
                             </tr>
 
                             <tr>
                                 <td><font color="ff0000"> *</font>性别 :   </td>
-                                <td>	<input type="radio" name="grxxXB" value="0"  checked="checked">男 &nbsp;&nbsp;<input type="radio"  name="grxxXB" value="1">女</td>
+                                <td>	<input type="radio" name="grxxXB" value="0"  checked="checked">男 &nbsp;&nbsp;<input type="radio"  name="grxxXB" value="1">女
+                                    <br>
+                                </td>
                             </tr>
                             <tr>
                                 <td>	<font color="ff0000"> *</font>出生日期 : </td>
                                 <td>
 
-                                    <input type="text" class="Wdate" id="grxxcsrq" name="grxxcsrq" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd'})" />
+                                    <input type="text" class="Wdate textbox" id="grxxcsrq" name="grxxcsrq" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd'})" />
+                                    <br>
                                 </td>
                             </tr>
                             <tr>
                                 <td><font color="ff0000"> *</font>参加工作年份 : </td>
                                 <td>
-                                    <select id="grxxgznf" name="grxxgznf" style="width:177px">
+                                    <select id="grxxgznf" name="grxxgznf" class="textbox" style="width:177px">
                                         <option value="1年工作经验"   selected="selected" >1年工作经验</option>
                                         <option value="2年工作经验">2年工作经验</option>
                                         <option value="3年工作经验">3年工作经验</option><br>
                                         <option value="4年到5工作经验">4年到5工作经验</option>
                                         <option value="6年工作经验已上">6年工作经验已上</option>
-                                    </select>
+                                    </select><br>
                                 </td>
                             </tr>
                             <tr>
                                 <td><font color="ff0000"> *</font>联系方式 :</td>
-                                <td><input class="easyui-validatebox" type="text" id="grxxlxfs" name="grxxlxfs" data-options="required:true" style="border:1px solid" /></td>
+                                <td>
+                                    <input class="textbox" type="text" id="grxxlxfs" name="grxxlxfs" data-options="required:true" />
+                                    <br>
+                                </td>
                             </tr>
                             <tr>
                                 <td>	<font color="ff0000"> *</font>电子邮箱 : </td>
-                                <td><input class="easyui-validatebox" type="text" id="grxxdzyj" name="grxxdzyj" data-options="required:true" style="border:1px solid" /></td>
+                                <td>
+                                    <input class="textbox"  type="text" id="grxxdzyj" name="grxxdzyj" data-options="required:true"/>
+                                    <br>
+                                </td>
                             </tr>
                             <tr>
                                 <td>	婚姻状况 : </td>
@@ -175,13 +189,13 @@
                                     <input type="radio" name="grxxhy" value="0"  >已婚
                                     <input type="radio" name="grxxhy" value="1">未婚
                                     <input type="radio" name="grxxhy" value="2">离异
-
+                                    <br>
                                 </td>
                             </tr>
                             <tr>
                                 <td>国籍 : </td>
                                 <td>
-                                    <select id="grxxgj" name="grxxgj">
+                                    <select id="grxxgj" name="grxxgj" class="textbox">
 
                                         <option value="中国"  selected="selected">中国</option>
                                         <option value="美国">美国</option>
@@ -194,7 +208,7 @@
                                         <option value="俄罗斯">俄罗斯</option>
                                         <option value="鹅螺丝">鹅螺丝</option>
                                         <option value="额螺蛳">额螺蛳</option>
-                                    </select>
+                                    </select><br>
                                 </td>
                             </tr>
                             <tr>
@@ -202,7 +216,7 @@
                                 <td>
                                     <input type="radio" name="grxxjl"value="1">有
                                     <input type="radio" name="grxxjl"value="0">无
-
+                                    <br>
                                 </td>
                             </tr>
                             <tr>
@@ -250,8 +264,8 @@
 
                         <div>
                             <center>
-                                <input type="button" value="提交" onclick="grxx()"  style="border:1px solid">	&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="button" value="返回" onclick="fhui()"  style="border:1px solid">
+                                <input type="button" value="提交" onclick="grxx()" style="height:30px;width:120px;background:#20a0ff">	&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="button" value="返回" onclick="fhui()" style="height:30px;width:120px;background:#20a0ff">
                             </center>
                         </div>
                     </div>
@@ -279,7 +293,7 @@
                             <tr>
                                 <td>主题:</td>
                                 <td>
-                                    <select name="zwpjzt" id="zwpjzt">
+                                    <select name="zwpjzt" id="zwpjzt"  class="textbox" >
                                         <option value="0" selected="selected">自我评价</option>
                                         <option value="1">职业目标</option>
                                     </select>
@@ -288,14 +302,15 @@
                             <tr>
                                 <td>内容</td>
                                 <td>
-										<textarea name="zwpjnr" id="zwpjnr" rows="10" cols="50">范例一：填写文字在100个字以上评定等级，少于不计算，内容越详细，等级越高  范例二：(限500个字)</textarea>
+										<textarea name="zwpjnr" id="zwpjnr" rows="10" cols="50"  class="textbox" >范例一：填写文字在100个字以上评定等级，少于不计算，内容越详细，等级越高  范例二：(限500个字)</textarea>
+
                                 </td>
                             </tr>
                         </table>
                         <br><br>
                         <center>
-                            <input type="button" value="提交" onclick="zwpj()" style="border:1px solid">	&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="button" value="返回" onclick="fhui()" style="border:1px solid">
+                            <input type="button" value="提交" onclick="zwpj()" style="height:30px;width:120px;background:#20a0ff">	&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="button" value="返回" onclick="fhui()" style="height:30px;width:120px;background:#20a0ff">
                         </center>
 
 
@@ -339,7 +354,7 @@
                             <tr>
                                 <td width="500px"><font color="ff0000"> *</font> 期望求职地点 :</td>
                                 <td>
-                                    <select name="qzyxdd" id="qzyxdd" >
+                                    <select name="qzyxdd" id="qzyxdd" class="textbox">
                                         <option value="北京"  selected="selected">北京</option>
                                         <option value="忻州">忻州</option>
                                         <option value="上海">上海</option><br>
@@ -376,7 +391,7 @@
                             <tr>
                                 <td><font color="ff0000"> *</font>期望从事职业:</td>
                                 <td>
-                                    <select name="qzyxcszy" id="qzyxcszy">
+                                    <select name="qzyxcszy" id="qzyxcszy" class="textbox">
                                         <option value="用户体验（UE/UX）设计"  selected="selected">用户体验（UE/UX）设计</option>
                                         <option value="网页设计/制作/美工">网页设计/制作/美工</option>
                                         <option value="游戏设计/开发">	游戏设计/开发</option><br>
@@ -400,7 +415,7 @@
                             <tr>
                                 <td><font color="ff0000"> *</font>期望月薪(税前):</td>
                                 <td>
-                                    <select name="qzyxyx" id="qzyxyx">
+                                    <select name="qzyxyx" id="qzyxyx" class="textbox">
                                         <option value="3000以下">  &nbsp;&nbsp; 3000以下</option>
                                         <option value="3000-5000">  &nbsp;&nbsp;  3000-5000</option>
                                         <option value="6000-8000" selected="selected">  &nbsp;&nbsp;  6000-8000</option>
@@ -420,7 +435,7 @@
                             <tr>
                                 <td><font color="ff0000"> *</font>工作状态:	</td>
                                 <td>
-                                    <select name="qzyxgzzt" id="qzyxgzzt" style="width:300px;">
+                                    <select name="qzyxgzzt" id="qzyxgzzt" style="width:300px;" class="textbox">
                                         <option value="1" selected="selected">我目前处于离职状态，可立即上岗</option>
                                         <option value="2">我目前在职，正考虑换个新环境（如有合适的工作机会，到岗时间一个月左右）</option>
                                         <option value="4">我对现有工作还算满意，如有更好的工作机会，我也可以考虑。（到岗时间另议）</option>
@@ -433,8 +448,8 @@
                         </form>
                         <br>
                         <center>
-                            <input type="button" value="提交" onclick="qzyx()"  style="border:1px solid">	&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="button" value="返回" onclick="fhui()" style="border:1px solid">
+                            <input type="button" value="提交" onclick="qzyx()" style="height:30px;width:120px;background:#20a0ff">	&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="button" value="返回" onclick="fhui()" style="height:30px;width:120px;background:#20a0ff">
                         </center>
 
                         <br><br><br>
@@ -463,12 +478,12 @@
 
                         <tr>
                             <td>企业名称:</td>
-                            <td> <input class="easyui-validatebox" type="text" name="gzjyqymc" id="gzjyqymc" data-options="required:true" style="border:1px solid" /></td>
+                            <td> <input  type="text" name="gzjyqymc" id="gzjyqymc" data-options="required:true" class="textbox" /></td>
                         </tr>
                         <tr>
                             <td>专业类别:</td>
                             <td>
-                                <select name="gzjyzylb" id="gzjyzylb" style="width:400px;">
+                                <select name="gzjyzylb" id="gzjyzylb" style="width:400px;" class="textbox">
                                     <option value="null">--专业类别--</option>
                                     <option value="销售|客服|市场"  selected="selected">销售|客服|市场</option>
                                     <option value="财务|人力资源|行政">财务|人力资源|行政</option>
@@ -488,16 +503,16 @@
                         <tr>
                             <td>工作时间:</td>
                             <td>
-                                <input type="text" class="Wdate" id="timeStarts" name="queryBugDateStart"value="" readonly="readonly"onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',maxDate:'#F{$dp.$D(\'timeEnds\')}'})">
+                                <input type="text" class="textbox" id="timeStarts" name="queryBugDateStart"value="" readonly="readonly"onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',maxDate:'#F{$dp.$D(\'timeEnds\')}'})">
                                 --->
-                                <input type="text" class="Wdate" id="timeEnds" name="queryBugDateEnd" value="" readonly="readonly" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',minDate:'#F{$dp.$D(\'timeStarts\')}'})">
+                                <input type="text" class="textbox" id="timeEnds" name="queryBugDateEnd" value="" readonly="readonly" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',minDate:'#F{$dp.$D(\'timeStarts\')}'})">
 
                             </td>
                         </tr>
                         <tr>
                             <td>职位月薪(税前):</td>
                             <td>
-                                <select name="gzjyzwyx" id="gzjyzwyx" style="width:400px;">
+                                <select name="gzjyzwyx" id="gzjyzwyx" style="width:400px;" class="textbox">
                                     <option value="1000元/月以下">1000元/月以下</option>
                                     <option value="1000-2000元/月">1000-2000元/月</option>
                                     <option value="2001-4000元/月">2001-4000元/月</option>
@@ -517,7 +532,7 @@
                         <tr>
                             <td>内容:</td>
                             <td>
-										<textarea name="gzjynr" id="gzjynr" rows="10" cols="50">填写文字在100个字以上评定等级，少于不计算，内容越详细，等级越高。(限3000字以内)
+										<textarea name="gzjynr" id="gzjynr" rows="10" cols="50" class="textbox">填写文字在100个字以上评定等级，少于不计算，内容越详细，等级越高。(限3000字以内)
 										</textarea>
                             </td>
                         </tr>
@@ -527,8 +542,8 @@
 
                     <br>
                     <center>
-                        <input type="button" value="提交" onclick="gzjy()" style="border:1px solid">	&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="button" value="返回" onclick="fhui()" style="border:1px solid">
+                        <input type="button" value="提交" onclick="gzjy()" style="height:30px;width:120px;background:#20a0ff">	&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="button" value="返回" onclick="fhui()" style="height:30px;width:120px;background:#20a0ff">
                     </center>
                     <div class="icon_top cl" style="padding-top:0px;"><i class="i_left1"></i><i class="i_right1"></i></div>
                 </div>
@@ -558,14 +573,14 @@
                             <tr>
                                 <td width="20px">&nbsp;时间:</td>
                                 <td>
-                                    <input type="text" class="Wdate" id="timeStartq" name="queryBugDateStart"value="" readonly="readonly"onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',maxDate:'#F{$dp.$D(\'timeEndq\')}'})">
+                                    <input type="text" class="textbox" id="timeStartq" name="queryBugDateStart"value="" readonly="readonly"onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',maxDate:'#F{$dp.$D(\'timeEndq\')}'})">
                                     --->
-                                    <input type="text" class="Wdate" id="timeEndq" name="queryBugDateEnd" value="" readonly="readonly" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',minDate:'#F{$dp.$D(\'timeStartq\')}'})">
+                                    <input type="text" class="textbox" id="timeEndq" name="queryBugDateEnd" value="" readonly="readonly" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',minDate:'#F{$dp.$D(\'timeStartq\')}'})">
                                 </td>
                             </tr>
                             <tr>
                                 <td>学校名称:</td>
-                                <td> <center><input class="easyui-validatebox" type="text" name="jybjname" data-options="required:true" style="border:1px solid" /></center></td>
+                                <td> <center><input class="textbox" type="text" name="jybjname" data-options="required:true"/></center></td>
                             </tr>
                             <tr>
                                 <td>是否统招:</td>
@@ -575,7 +590,7 @@
                                 <td>&nbsp;&nbsp;学历 :</td>
                                 <td>
                                     <center>
-                                    <select name="jybjxl" id="jybjxl" style="width:177px">
+                                    <select name="jybjxl" id="jybjxl" style="width:177px" class="textbox">
                                         <option value="大专">-----大专-----</option>
                                         <option value="本科">-----本科-----</option>
                                         <option value="硕士">-----硕士-----</option>
@@ -595,8 +610,8 @@
 
                       </form>
                         <br>
-                        <input type="button" value="提交" onclick="jybj()"  style="border:1px solid">	&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="button" value="返回" onclick="fhui()" style="border:1px solid">
+                        <input type="button" value="提交" onclick="jybj()" style="height:30px;width:120px;background:#20a0ff">	&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="button" value="返回" onclick="fhui()" style="height:30px;width:120px;background:#20a0ff">
 
                     </center>
 
@@ -630,18 +645,18 @@
                             <tr>
                                 <td width="50px">&nbsp;时间:</td>
                                 <td>
-                                    <input type="text" class="Wdate" id="timeStartw" name="queryBugDateStart"value="" readonly="readonly"onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',maxDate:'#F{$dp.$D(\'timeEndw\')}'})">
+                                    <input type="text" class="textbox" id="timeStartw" name="queryBugDateStart"value="" readonly="readonly"onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',maxDate:'#F{$dp.$D(\'timeEndw\')}'})">
                                     --->
-                                    <input type="text" class="Wdate" id="timeEndw" name="queryBugDateEnd" value="" readonly="readonly" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',minDate:'#F{$dp.$D(\'timeStartw\')}'})">
+                                    <input type="text" class="textbox" id="timeEndw" name="queryBugDateEnd" value="" readonly="readonly" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd',minDate:'#F{$dp.$D(\'timeStartw\')}'})">
                                 </td>
                             </tr>
                             <tr>
                                 <td>培训机构:</td>
-                                <td> <center><input class="easyui-validatebox" type="text" name="pxjljg" data-options="required:true" style="border:1px solid;width: 220px" /></center></td>
+                                <td> <center><input  class="textbox" type="text" name="pxjljg" data-options="required:true" style="width: 220px" /></center></td>
                             </tr>
                             <tr>
                                 <td>培训地点:</td>
-                                <td>  <center><input class="easyui-validatebox" type="text" name="pxjlddian" data-options="required:true" style="border:1px solid;width: 220px" /></center></td>
+                                <td>  <center><input class="textbox" type="text" name="pxjlddian" data-options="required:true" style="width: 220px" /></center></td>
                             </tr>
                             <tr>
                                 <td>是否统招:</td>
@@ -650,7 +665,7 @@
                             <tr>
                                 <td>详情介绍 :</td>
                                 <td>
-										<textarea name="pxjlxqjs" rows="9" cols="45">培训撰写技巧
+										<textarea name="pxjlxqjs" rows="9" cols="45" class="textbox">培训撰写技巧
 培训描述时应包含关键字，关键字将存入数据库以便查找。关键字须描述清楚，如：C++、UNIX、网络、工程等。
 列举与应聘职位相关的培训课程，避免涉及无关的课程。
 用简单的语句表明从该培训中得到的收获。
@@ -660,8 +675,8 @@
                         </table>
                         </form>
                         <br>
-                        <input type="button" value="提交" onclick="pxjl()"  style="border:1px solid">	&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="button" value="返回" onclick="fhui()" style="border:1px solid">
+                        <input type="button" value="提交" onclick="pxjl()" style="height:30px;width:120px;background:#20a0ff">	&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="button" value="返回" onclick="fhui()" style="height:30px;width:120px;background:#20a0ff">
                     </center>
                     <div class="icon_top cl" style="padding-top:0px;"><i class="i_left1"></i><i class="i_right1"></i></div>
                     <!--div class="study"><a class="know" href="">对员工档案不了解？>点击了解</a></div-->
@@ -691,7 +706,7 @@
                             <tr>
                                 <td>培训机构:</td>
                                 <td>
-                                        <select name="yynlpxjg">
+                                        <select name="yynlpxjg" class="textbox">
                                         <option value="">无</option>
                                         <option value="英语">英语</option>
                                         <option value="日语">日语</option>
@@ -706,14 +721,14 @@
                                         <option value="其他">其他</option>
                                     </select>
                                     &nbsp;&nbsp;&nbsp;&nbsp;读写能力
-                                    <select name="yynldxnl">
+                                    <select name="yynldxnl" class="textbox">
                                         <option value="一般">一般</option>
                                         <option value="良好">良好</option>
                                         <option value="熟练">熟练</option>
                                         <option value="精通">精通</option>
                                     </select>&nbsp;&nbsp;&nbsp;&nbsp;
                                     听说能力
-                                    <select name="yynltsnl">
+                                    <select name="yynltsnl" class="textbox">
                                         <option value="一般">一般</option>
                                         <option value="良好">良好</option>
                                         <option value="熟练">熟练</option>
@@ -725,8 +740,8 @@
 
                         </form>
                         <br>
-                        <input type="button" value="提交"  onclick="yynl()" style="border:1px solid">	&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="button" value="返回" onclick="fhui()" style="border:1px solid">
+                        <input type="button" value="提交"  onclick="yynl()" style="height:30px;width:120px;background:#20a0ff">	&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="button" value="返回" onclick="fhui()" style="height:30px;width:120px;background:#20a0ff">
                     </center>
                     <td>
                         <div class="icon_top cl" style="padding-top:0px;"><i class="i_left1"></i><i class="i_right1"></i></div>
@@ -751,6 +766,7 @@
                                 <tr>
                                     <td>证件照片:</td>
                                     <td>
+
                                         <input type="hidden" name="imageurl" id="imageurl"/>
                                         <input type="file" id="file" name="image"/>
                                         <div id="show"></div><br/>
@@ -759,13 +775,13 @@
                                 <tr>
                                     <td>相关介绍：</td>
                                     <td>
-                                        <textarea name="filejs" id="filejs" rows="5" cols="45"></textarea>
+                                        <textarea name="filejs" id="filejs" rows="5" cols="45" class="textbox"></textarea>
                                     </td>
                                 </tr>
                             </table>
                             <br>
-                        <input type="button" value="提交"  onclick="zjzp()" style="border:1px solid">	&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="button" value="返回" onclick="fhui()" style="border:1px solid">
+                        <input type="button" value="提交"  onclick="zjzp()" style="height:30px;width:120px;background:#20a0ff">	&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="button" value="返回" onclick="fhui()" style="height:30px;width:120px;background:#20a0ff">
                     </center>
 
                     <div class="icon_top cl" style="padding-top:0px;"><i class="i_left1"></i><i class="i_right1"></i></div>
@@ -789,7 +805,7 @@
                             <tr>
                                 <td>标题:</td>
                                 <td>
-                                    <select name="qitazhuti" style="width:366px">
+                                    <select name="qitazhuti" style="width:366px"class="textbox">
                                         <option value="兴趣爱好">兴趣爱好</option>
 
                                         <option value="获得荣誉">获得荣誉</option>
@@ -819,14 +835,14 @@
                             <tr>
                                 <td>描述:</td>
                                 <td>
-                                    <textarea name="qitams" rows="9" cols="45"></textarea>
+                                    <textarea name="qitams" rows="9" cols="45" class="textbox"></textarea>
                                 </td>
                             </tr>
                         </table>
                         </form>
                         <br>
-                        <input type="button" value="提交"  onclick="qita()" style="border:1px solid">	&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="button" value="返回" onclick="fhui()" style="border:1px solid">
+                        <input type="button" value="提交"  onclick="qita()" style="height:30px;width:120px;background:#20a0ff">	&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="button" value="返回" onclick="fhui()" style="height:30px;width:120px;background:#20a0ff">
                     </center>
 
                     <div class="icon_top cl" style="padding-top:0px;"><i class="i_left1"></i><i class="i_right1"></i></div>
