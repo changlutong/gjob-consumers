@@ -36,12 +36,12 @@ import java.util.List;
  */
 @Controller("solrController")
 public class SolrController {
-/*    @Autowired
+  @Autowired
     private ISolrService solrService;
     @RequestMapping("getsolrjoblist")
     public QueryJob getsolrjoblist(Integer page, Integer row,String queryname){
         QueryJob list= solrService.getsolrjoblist(page,row,queryname);
         return list;
-    }*/
+    }
 
 }
