@@ -21,7 +21,7 @@
     <div style="float: left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li class="layui-nav-item layui-this"><a href="">公司主页</a></li></div>
    <div style="margin-left:60%">
 
-    <li class="layui-nav-item "><a href="">我的智联</a></li>
+    <li class="layui-nav-item "><a href="<%=request.getContextPath()%>/qiantai/shouye.jsp">我的智联</a></li>
     <li class="layui-nav-item"><a href="">大数据</a></li>
     <li class="layui-nav-item">
         <a href="javascript:;">解决方案</a>
