@@ -107,7 +107,7 @@
                 <li>地点</li>
                 <li>技能要求</li>
                 <li>薪资</li>
-                <li>操作</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;操作</li>
             </ul>
         </div>
         <div id="neirongzhanshi"> </div>
@@ -161,7 +161,7 @@
 </div><!-- maskLayer end -->
 </div>
 <!-- alpha div end -->
-<script>
+<script type="text/javascript">
     $(function(){
 
            var userid = $("#qitaid").val();
@@ -177,7 +177,7 @@
 
                 for(var i =0; i<zhaopin.length; i++){
 
-                    tableDiv+="<div class='bft_f_2'><ul ><li><span>"+zhaopin[i].workname+"</span></li><li>"+zhaopin[i].workspace+"</li> <li>"+zhaopin[i].workinfo+"</li> <li>"+zhaopin[i].salary+"</li><li><img src='images/ckxqjpg.jpg' onclick='zweiid(\""+zhaopin[i].salary+"\")'/></li> </ul></div>"
+                    tableDiv+="<div class='bft_f_2'><ul ><li><span>"+zhaopin[i].workname+"</span></li><li>"+zhaopin[i].workspace+"</li> <li>"+zhaopin[i].workinfo+"</li> <li><span id='piaoz'>"+zhaopin[i].salary+"</span></li><li><img src='images/ckxqjpg.jpg' onclick='zweiid(\""+zhaopin[i].id+"\")'/></li> </ul></div>"
 
                 }
                 $("#neirongzhanshi").html(tableDiv)
@@ -187,8 +187,24 @@
             }
         })
     })
+    /**
+     * 点击查看详情 跳页面传职位id chakanxiangqing
+     * @param companyid
+     */
+    function zweiid(companyid){
 
-
+        var piaoz = $("#piaoz").val()
+      // location.href="<%=request.getContextPath()%>/qiantai/wodetd.jsp?companyid="+companyid;
+        $.ajax({
+            url:"<%=request.getContextPath()%>/userdatumController/tym.do",
+            type:"post",
+            data:{"companyid":companyid,"piaoz":piaoz},
+            dataType:"json",
+            success:function () {
+                location.href="<%=request.getContextPath()%>/qiantai/wodetd.jsp";
+            }
+        })
+    }
 </script>
 
 </body>

@@ -45,6 +45,7 @@
         <h1>
             <span>用户简历 查看!</span>
         </h1>
+        <button type="button" onclick="toInsuranceExcel()" class="button button-primary button-small">导出Word </button>
     </div>
     <div class="container">
         <div class="row clearfix">
@@ -95,10 +96,10 @@
 
                     var count = succen.length
                     if (count > 0){
-                        var divphoto = " <center><img src='"+succen[0].zpfjurl+"' style='width:200px;heighe:190px'/><br></center><br><div><center><img src='<%=request.getContextPath()%>/UserIndex/imgs/sx.jpg' onclick='sx()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/xg.jpg' onclick='xiugai()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/jltd.jpg' onclick='jltds()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/wdtd.jpg' onclick='wdtds()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/hdsy.jpg'onclick='hdzy()'/></center></div>"
+                        var divphoto = " <center><span id='tp'><img src='"+succen[0].zpfjurl+"' style='width:200px;heighe:190px'/></span><br></center><br><div><center><img src='<%=request.getContextPath()%>/UserIndex/imgs/sx.jpg' onclick='sx()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/xg.jpg' onclick='xiugai()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/jltd.jpg' onclick='jltds()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/wdtd.jpg' onclick='wdtds()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/hdsy.jpg'onclick='hdzy()'/></center></div>"
                         $("#divphoto").html(divphoto);
                     }else{
-                        var divphoto = " <center><img src='<%=request.getContextPath()%>/UserIndex/imgs/123.jpg'/><br></center><br><div><center><img src='<%=request.getContextPath()%>/UserIndex/imgs/sx.jpg'  onclick='sx()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/xg.jpg'  onclick='xiugai()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/jltd.jpg' onclick='jltds()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/wdtd.jpg'onclick='wdtds()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/hdsy.jpg'onclick='hdzy()'/></center></div>"
+                        var divphoto = " <center><span id='tp'><img src='<%=request.getContextPath()%>/UserIndex/imgs/123.jpg'/></span><br></center><br><div><center><img src='<%=request.getContextPath()%>/UserIndex/imgs/sx.jpg'  onclick='sx()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/xg.jpg'  onclick='xiugai()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/jltd.jpg' onclick='jltds()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/wdtd.jpg'onclick='wdtds()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/hdsy.jpg'onclick='hdzy()'/></center></div>"
                         $("#divphoto").html(divphoto);
                     }
                 },
@@ -223,7 +224,7 @@ $(function() {
                     if (succen[i].statust == 5) {
                         gzzt = "应届毕业生";
                     }
-                    qzyx += "<font size='4' color='#dc143c'>" + (i + 1) + "</font><font size='3'>*期望工作性质:<span >" + xinz + "</span></font><br> <font size='3'>* 期望求职地点 :<span >" + succen[i].site + "</span></font><br> <font size='3'>*期望从事职业:<span >" + succen[i].occupation + "</span></font><br> <font size='3'>*期望月薪(税前):<span >" + succen[i].salary + "</span></font><br><font size='3'>*工作状态:<span>" + gzzt + "</span></font><br><br>"
+                    qzyx += "<font size='4' color='#dc143c'>" + (i + 1) + "</font><font size='3' >*期望工作性质:<span id='qzyxxz'>" + xinz + "</span></font><br> <font size='3'>* 期望求职地点 :<span id='qzdd'>" + succen[i].site + "</span></font><br> <font size='3'>*期望从事职业:<span id='qzzy'>" + succen[i].occupation + "</span></font><br> <font size='3'>*期望月薪(税前):<span id='qzyx'>" + succen[i].salary + "</span></font><br><font size='3'>*工作状态:<span id='gzzt'>" + gzzt + "</span></font><br><br>"
                 }
 
                 $("#USerqzyx").html(qzyx);
@@ -254,7 +255,7 @@ $(function() {
 
                 var usergzjy = "<div style='width:150px;height:20px;background:#dcdcdc'>工作经验</div><br>";
                 for (var i = 0; i < succen.length; i++) {
-                    usergzjy += "<font size='4' color='#dc143c'>" + (i + 1) + "</font><font size='4'>*企业名称:<span >" + succen[i].qyname + "</span></font><br> <font size='4'>* 专业类别: <span >" + succen[i].zylb + "</span></font><br><font size='4'>*工作时间:<span >" + succen[i].kssj + "----->" + succen[i].jssj + "</span></font><br><font size='4'>*职位月薪(税前):<span>" + succen[i].zwyx + "</span></font><br><font size='4'>*内容:<span >" + succen[i].nr + "</span></font><br><br>";
+                    usergzjy += "<font size='4' color='#dc143c'>" + (i + 1) + "</font><font size='4'>*企业名称:<span id='gzjyname'>" + succen[i].qyname + "</span></font><br> <font size='4'>* 专业类别: <span id='gzjylb'>" + succen[i].zylb + "</span></font><br><font size='4'>*工作时间:<span id='gzjysj'>" + succen[i].kssj + "----->" + succen[i].jssj + "</span></font><br><font size='4'>*职位月薪(税前):<span id='gzjyyx'>" + succen[i].zwyx + "</span></font><br><font size='4'>*内容:<span >" + succen[i].nr + "</span></font><br><br>";
                 }
                 $("#USergzjy").html(usergzjy);
             }else{
@@ -435,8 +436,50 @@ $(function() {
 })
 
 
-        </script>
 
 
+
+/* 导出Word */
+function toInsuranceExcel() {
+    // var curpagenum = $('#contentGroupOrderTable').getGridParam('page');
+    //  $("#page").val(curpagenum);
+   //个人信息
+    var userid = $("#qitaid").val()
+     var parnname = $('#spanname').html();
+    var spansex = $('#spansex').html();
+    var spanmail = $('#spanmail').html();
+    var spanphone = $('#spanphone').html();
+    var spanvintage = $('#spanvintage').html();
+
+    //  求职意
+     var qzyxxz = $('#qzyxxz').html();//期望工作性质
+    var qzdd = $('#qzdd').html();// 期望求职地点
+    var qzzy = $('#qzzy').html();//期望从事职业
+    var qzyx = $('#qzyx').html();//期望月薪(税前)
+    var gzzt = $('#gzzt').html();//工作状态
+   // 工作经验
+    var gzjyname = $('#gzjyname').html();//企业名称
+    var gzjylb = $('#gzjylb').html();// 专业类别
+    var gzjysj = $('#gzjysj').html();//工作时间
+    var gzjyyx = $('#gzjyyx').html();//职位月薪
+
+  window.location= "<%=request.getContextPath()%>/poiDaochuController/poiDaochu.do?userid="+userid+"&parnname="+parnname+"&spansex="+spansex+"&spanphone="+spanphone+"&spanmail="+spanmail+"" +
+      "&gzjy="+spanvintage+"&qzyxxz="+qzyxxz+"&qzdd="+qzdd+"&qzzy="+qzzy+"&qzyx="+qzyx+"&gzzt="+gzzt+"";//&gzjyname="+gzjyname+"&gzjylb="+gzjylb+"&gzjyyx="+gzjyyx+"
+  /*$.ajax({
+      url: "/poiDaochuController/poiDaochu.do",
+        type: "post",
+        data: {"parnname": parnname,"spansex": spansex,"spanmail": spanmail,"spanphone": spanphone,"spanvintage": spanvintage,"tp": tp},
+         success: function () {
+        },
+        error: function () {
+            alert("出错！！！")
+        }
+    })*/
+}
+    </script>
+
+<%--      //
+        //dataType: "json",
+    --%>
 </body>
 </html>
