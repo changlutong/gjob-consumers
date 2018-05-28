@@ -1,6 +1,6 @@
 package com.jk.model;
 
-import org.springframework.data.annotation.Id;
+
 
 import java.io.Serializable;
 
@@ -8,7 +8,7 @@ public class Logs implements Serializable {
 
 
 	private static final long serialVersionUID = -5231465435415674007L;
-	@Id
+
 	private String logId;
 	private String clazzName;
 	private String methodName;

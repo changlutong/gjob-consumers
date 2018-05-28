@@ -10,7 +10,7 @@
 	<form id="brand-form">
 	    <input type="hidden" name="noticeid" value="${noticeid}"/>
 		内容名称<input name="noticename" value="${noticename}"/><br/>
-		发布时间<input  type="hidden" name="noticedate" value="${noticedate}"/><br/>
+			<input  type="hidden" name="noticedate" value="${noticedate}"/><br/>
 		公告内容<input name="noticebulletin" value="${noticebulletin}"/><br/>
 
 
