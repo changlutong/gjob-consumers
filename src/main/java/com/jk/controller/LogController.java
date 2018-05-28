@@ -1,6 +1,7 @@
 package com.jk.controller;
 
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.jk.model.Logs;
 import com.jk.service.LogService;
@@ -22,7 +23,7 @@ public class LogController {
 @Autowired
 private LogService logService;
 
-
+//查日志
 @RequestMapping("logsList")
 @ResponseBody
 public JSONObject  logsList(Logs logs, Integer page, Integer rows){
@@ -34,14 +35,19 @@ public JSONObject  logsList(Logs logs, Integer page, Integer rows){
     JSONObject object=new JSONObject();
     object.put("rows",list);
     object.put("total",total);
-
-
     return object;
 
+}
 
-
-
-
+    /**
+     * 日志报表
+     * @return
+     */
+    @ResponseBody
+@RequestMapping("selecttongji")
+public List selecttongji(){
+    List selecttongji = logService.selecttongji();
+    return selecttongji;
 }
 
 
