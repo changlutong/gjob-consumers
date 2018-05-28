@@ -37,6 +37,12 @@ public interface ICompanycltService {
 
 
 
+
     void addcompanyresume(Companyresume companyresume);
+
+    Map<String,String> shoudaojianlixiqngqing(String str);
+
+    void deletejobbyid(String  id);
+
 }
 
