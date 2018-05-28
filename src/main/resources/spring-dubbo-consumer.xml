@@ -32,8 +32,8 @@
 	<dubbo:reference id="NoticeService" interface="com.jk.service.NoticeService"  />
 	<dubbo:reference id="CompanyService" interface="com.jk.service.ICompanyService"  />
 	<dubbo:reference  id="guanggaoService" interface="com.jk.service.IGuanggaoService" />
-	<dubbo:reference  id="CompanycltService" interface="com.jk.service.ICompanycltService" />
 	<dubbo:reference  id="UserdatumService" interface="com.jk.service.IUserdatumService" />
+	<dubbo:reference  id="companycltService" interface="com.jk.service.ICompanycltService" />
 	<dubbo:reference id="bankTypeService" interface="com.jk.service.BankTypeService"  />
 	<dubbo:reference id="activityService" interface="com.jk.service.IActivityService"  />
 	<dubbo:reference id="logService" interface="com.jk.service.LogService"  />
