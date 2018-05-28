@@ -16,6 +16,7 @@
  */
 package com.jk.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.jk.model.Job;
 import com.jk.model.QueryJob;
 import com.jk.service.ISolrService;
@@ -23,8 +24,11 @@ import org.activiti.engine.impl.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 〈一句话功能简述〉<br> 
@@ -34,13 +38,17 @@ import java.util.List;
  * @create 2018/5/15
  * @since 1.0.0
  */
-@Controller("solrController")
+@Controller
+@RequestMapping("solrController")
 public class SolrController {
-  @Autowired
+    @Autowired
     private ISolrService solrService;
+
     @RequestMapping("getsolrjoblist")
+    @ResponseBody
     public QueryJob getsolrjoblist(Integer page, Integer row,String queryname){
         QueryJob list= solrService.getsolrjoblist(page,row,queryname);
+        System.out.println(list.getRows().get(0).getId());
         return list;
     }
 

@@ -34,10 +34,11 @@
 	<dubbo:reference  id="guanggaoService" interface="com.jk.service.IGuanggaoService" />
 	<dubbo:reference  id="UserdatumService" interface="com.jk.service.IUserdatumService" />
 	<dubbo:reference  id="companycltService" interface="com.jk.service.ICompanycltService" />
-	<dubbo:reference  id="iUserdatum" interface="com.jk.service.IUserdatumService" />
 	<dubbo:reference id="bankTypeService" interface="com.jk.service.BankTypeService"  />
 	<dubbo:reference id="activityService" interface="com.jk.service.IActivityService"  />
 	<dubbo:reference id="logService" interface="com.jk.service.LogService"  />
+
+
 
 
 </beans>
