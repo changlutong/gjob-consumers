@@ -39,14 +39,14 @@
 
 
 
-	<div class="layui-form-item" style="width:45%">
-		<label class="layui-form-label">选择框</label>
-		<div class="layui-input-block">
-			<select id="company" name="companyid" lay-verify="required">
+	<%--<div class="layui-form-item" style="width:45%">--%>
+		<%--<label class="layui-form-label">选择框</label>--%>
+		<%--<div class="layui-input-block">--%>
+			<%--<select id="company" name="companyid" lay-verify="required">--%>
 
-			</select>
-		</div>
-	</div>
+			<%--</select>--%>
+		<%--</div>--%>
+	<%--</div>--%>
 
 	<div class="layui-form-item" pane="" style="width:45%">
 		<label class="layui-form-label">广告位置：</label>

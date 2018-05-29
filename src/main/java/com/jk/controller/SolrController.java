@@ -48,7 +48,7 @@ public class SolrController {
     @ResponseBody
     public QueryJob getsolrjoblist(Integer page, Integer row,String queryname){
         QueryJob list= solrService.getsolrjoblist(page,row,queryname);
-        System.out.println(list.getRows().get(0).getId());
+
         return list;
     }
 
