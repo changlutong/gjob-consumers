@@ -152,7 +152,7 @@
             type:"post",
             success:function(){
 
-                alert("新增成功");
+                alert("提交成功，广告发布需后台审核过后才能进行展示!!");
                 $("#dialog_addguanggao").dialog("close");
                 $("#guanggaotables").datagrid("reload");
 
