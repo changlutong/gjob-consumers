@@ -224,11 +224,6 @@ $(function(){
         async:false,
         success:function (zhaopin) {
 
-//                        <li><span>龙盾科技</span></li>
-//            <li>业务员</li>
-//            <li>熟练操作电脑，熟悉网络</li>
-//            <li>200元/天</li>
-//            <li><img src="images/shenqing.jpg" /></li>
 
             var str="";
             for(i=0;i<zhaopin.length;i++){
@@ -251,14 +246,15 @@ $(function(){
 })
 
             function getsolrlistclt() {
-
+                var aa =$("#tags").val();
                 $.ajax({
                     url:"<%=request.getContextPath()%>/solrController/getsolrjoblist.do",
+                    data:{"queryname":aa},
                     type:"post",
                     dataType:"json",
                     async:false,
-                    success:function (zhaopin) {
-                        alert(zhaopin)
+                    success:function (xiangqing) {
+
 //            <li><span>龙盾科技</span></li>
 //            <li>业务员</li>
 //            <li>熟练操作电脑，熟悉网络</li>
@@ -266,13 +262,13 @@ $(function(){
 //            <li><img src="images/shenqing.jpg" /></li>
 
                         var str="";
-                        for(i=0;i<zhaopin.length;i++){
+                        for(i=0;i<xiangqing.rows.length;i++){
 
-                            str +="<div class='bft_f_2'> <ul ><li><span>"+zhaopin[i].companyphone+"</span></li>" +
-                                "<li>"+zhaopin[i].workname+"</li>" +
-                                "<li>"+zhaopin[i].workinfo+"</li>" +
-                                "<li>"+zhaopin[i].salary+"</li>" +
-                                "<li><img src='images/shenqing.jpg'  onclick='toudijianli(\""+zhaopin[i].id+"\")'  /></li></ul></div>"
+                            str +="<div class='bft_f_2'> <ul ><li><span>"+xiangqing.rows[i].companyphone+"</span></li>" +
+                                "<li>"+xiangqing.rows[i].workname+"</li>" +
+                                "<li>"+xiangqing.rows[i].workinfo+"</li>" +
+                                "<li>"+xiangqing.rows[i].salary+"</li>" +
+                                "<li><img src='images/shenqing.jpg'  onclick='toudijianli(\""+xiangqing.rows[i].id+"\")'  /></li></ul></div>"
 
                         }
 
