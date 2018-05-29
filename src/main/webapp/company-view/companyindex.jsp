@@ -46,6 +46,7 @@
     <li class="layui-nav-item"><a href="<%=request.getContextPath()%>/company-view/showjoblist.jsp" target="myFrame">寻找简历</a></li>
     <li class="layui-nav-item"><a href="<%=request.getContextPath()%>/guanggao/addguanggao.jsp" target="myFrame">发布广告</a></li>
     <li class="layui-nav-item"><a href="<%=request.getContextPath()%>/company-view/companymoney.jsp" target="myFrame">公司账户</a></li>
+    <li class="layui-nav-item"><a href="<%=request.getContextPath()%>/company-view/boughtresume.jsp" target="myFrame">已购买简历</a></li>
     <li class="layui-nav-item">&nbsp;</li>
     <li class="layui-nav-item">&nbsp;</li>
     <li class="layui-nav-item">&nbsp;</li>
