@@ -26,6 +26,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -114,7 +115,9 @@ public class GuanggaoController {
      */
     @RequestMapping(value = "saveguanggao")
     @ResponseBody
-    public void saveguanggao(Guanggao guanggao) {
+    public void saveguanggao(Guanggao guanggao, HttpSession httpSession) {
+        String comid= (String) httpSession.getAttribute("id");
+        guanggao.setCompanyid(comid);
         String url = guanggao.getImageurl();
         String uurl = url.replaceAll("\"","");
         guanggao.setImageurl(uurl);

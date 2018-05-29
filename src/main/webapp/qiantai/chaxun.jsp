@@ -61,6 +61,10 @@
 </style>
 
 <body class="bft_bg">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/js/easyui/jquery-ui.css">
+<script src="<%=request.getContextPath()%>/js/easyui/jquery-1.9.1.js"></script>
+<script src="<%=request.getContextPath()%>/js/easyui/jquery-ui.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/js/easyui/style.css">
 <!-- top内容开始 -->
 <div class="top">
     <div class="top_a">
@@ -85,12 +89,18 @@
 
 <div class="center_blank"></div>
 <div id="search_box" style="margin-left: 45%" >
-    <form id="search_form" method="post" >
-        <input type="text" name="workname" value="" class="swap_value" />
-    </form> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="image"  onclick="zhiweisousuo()" src="images/btn_search_box.gif" width="40" height="40" id="go" alt="Search" title="Search" />
 
+    <div class="ui-widget">
+        <label for="tags">标签：</label>
+        <input id="tags"><input type="button" value="查询" onclick="getsolrlistclt()">
+    </div>
 </div>
+<div class="center_blank"></div>
+<div class="center_blank"></div>
+<div class="center_blank"></div>
+<div class="center_blank"></div>
+<div class="center_blank"></div>
+
 <!-- 内容开始 -->
 <div class="nr">
     <div class="bft_f">
@@ -168,13 +178,53 @@
 <!-- alpha div end -->
 <script>
 $(function(){
+    var data01=null;
+    $.ajax({
+        url:"<%=request.getContextPath()%>/jobController/getjobname.do",
+        type:"post",
+        dataType:"json",
+        async:false,
+        success:function (zhaopin) {
+
+            //            <li><span>龙盾科技</span></li>
+//            <li>业务员</li>
+//            <li>熟练操作电脑，熟悉网络</li>
+//            <li>200元/天</li>
+//            <li><img src="images/shenqing.jpg" /></li>
+//
+//            var str="";
+//            for(i=0;i<zhaopin.length;i++){
+//
+//                str +="<div class='bft_f_2'> <ul ><li><span>"+zhaopin[i].companyphone+"</span></li>" +
+//                    "<li>"+zhaopin[i].workname+"</li>" +
+//                    "<li>"+zhaopin[i].workinfo+"</li>" +
+//                    "<li>"+zhaopin[i].salary+"</li>" +
+//                    "<li><img src='images/shenqing.jpg'  onclick='toudijianli(\""+zhaopin[i].id+"\")'  /></li></ul></div>"
+//
+//            }
+//            $("#neirongzhanshi").html(str);
+            data01=zhaopin;
+        },
+        error:function () {
+            alert("出问题啦")
+        }
+    })
+    var data1=data01;
+    var availableTags = data1;
+    $( "#tags" ).autocomplete({
+        source: availableTags
+    })
+
+
 
     $.ajax({
         url:"<%=request.getContextPath()%>/companycltController/selectalljob.do",
         type:"post",
         dataType:"json",
+        async:false,
         success:function (zhaopin) {
-//            <li><span>龙盾科技</span></li>
+
+//                        <li><span>龙盾科技</span></li>
 //            <li>业务员</li>
 //            <li>熟练操作电脑，熟悉网络</li>
 //            <li>200元/天</li>
@@ -191,43 +241,50 @@ $(function(){
 
             }
             $("#neirongzhanshi").html(str);
+
         },
-        erro:function () {
-            alert("呦呵呵，招聘内容查询失败！！！");
+        error:function () {
+            alert("出问题啦")
         }
     })
+
 })
-    function  zhiweisousuo(){
-    $.ajax({
-    url:"<%=request.getContextPath()%>/companycltController/selectalljob.do",
-        data:$("#search_form").serialize(),
-        type:"post",
-        dataType:"json",
-        success:function (zhaopin) {
+
+            function getsolrlistclt() {
+                var aa =$("#tags").val();
+                $.ajax({
+                    url:"<%=request.getContextPath()%>/solrController/getsolrjoblist.do",
+                    data:{"queryname":aa},
+                    type:"post",
+                    dataType:"json",
+                    async:false,
+                    success:function (xiangqing) {
+
 //            <li><span>龙盾科技</span></li>
 //            <li>业务员</li>
 //            <li>熟练操作电脑，熟悉网络</li>
 //            <li>200元/天</li>
 //            <li><img src="images/shenqing.jpg" /></li>
 
-        var str="";
-        for(i=0;i<zhaopin.length;i++){
+                        var str="";
+                        for(i=0;i<xiangqing.rows.length;i++){
 
-            str +="<div class='bft_f_2'> <ul ><li><span>"+zhaopin[i].companyphone+"</span></li>" +
-                "<li>"+zhaopin[i].workname+"</li>" +
-                "<li>"+zhaopin[i].workinfo+"</li>" +
-                "<li>"+zhaopin[i].salary+"</li>" +
-                "<li><img src='images/shenqing.jpg'  onclick='toudijianli(\""+zhaopin[i].id+"\")'  /></li></ul></div>"
+                            str +="<div class='bft_f_2'> <ul ><li><span>"+xiangqing.rows[i].companyphone+"</span></li>" +
+                                "<li>"+xiangqing.rows[i].workname+"</li>" +
+                                "<li>"+xiangqing.rows[i].workinfo+"</li>" +
+                                "<li>"+xiangqing.rows[i].salary+"</li>" +
+                                "<li><img src='images/shenqing.jpg'  onclick='toudijianli(\""+xiangqing.rows[i].id+"\")'  /></li></ul></div>"
 
-        }
+                        }
 
-        $("#neirongzhanshi").html(str);
-    },
-    erro:function () {
-        alert("呦呵呵，招聘内容查询失败！！！");
-    }
+                        $("#neirongzhanshi").html(str);
+                    },
+                    error:function () {
+                        alert("出问题啦")
+                    }
+                })
 
-    })
+
 
 }
     function toudijianli(jobid){
