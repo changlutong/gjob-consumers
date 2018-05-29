@@ -31,7 +31,9 @@
             <dd><a href="">电商平台</a></dd>
         </dl>
     </li>
-    <li class="layui-nav-item"><a href="">社区</a></li>
+    <li class="layui-nav-item"><a href="">社区</a></li> &nbsp;&nbsp;&nbsp;
+       <li class="layui-nav-item">欢迎<font color="red">&nbsp;${companyname}</font> 登陆!</li>
+       <li class="layui-nav-item"><a  onclick="tuichudenglu()">退出登陆</a></li>
    </div>
 </ul>
 </div>
@@ -66,6 +68,12 @@
 </div>
 
 <script>
+
+   function tuichudenglu () {
+
+    location.href="<%=request.getContextPath()%>/companyController/tuichudenglu.do";
+       
+   }
     layui.use('element', function(){
         var element = layui.element
             ,layer = layui.layer; //导航的hover效果、二级菜单等功能，需要依赖element模块

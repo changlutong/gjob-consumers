@@ -49,7 +49,7 @@
             ,url: '<%=request.getContextPath()%>/companycltController/selectjiobclt2.do?companyid=17338125780'
             ,cols: [[
                 {field:'grxxname', title: '求职者名称', width:'15%'}
-                ,{field:'sex', title: '性别', width:'15%', sort: true}
+                ,{field:'sex', title: '性别', width:'15%', sort: true,templet: '#titleTpl'}
                 ,{field:'hkadr', title: '居住城市', width:'15%'}
                 ,{field:'jybjxl', title: '学历',width:'15%'}
                 ,{field:'birthdate', title: '生日', sort: true, width:'20%'}
@@ -164,10 +164,13 @@
         });
     });
 
-
-
-
-
+</script>
+<script type="text/html" id="titleTpl">
+    {{# if(d.sex===1){ }}
+    男
+    {{# }else{ }}
+    女
+    {{# } }}
 </script>
 <script type="text/html" id="barDemo">
 

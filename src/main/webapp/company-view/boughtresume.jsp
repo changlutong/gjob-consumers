@@ -45,7 +45,7 @@
             ,url: '<%=request.getContextPath()%>/companycltController/selectjiobclt3.do?companyid='+companyid
             ,cols: [[
                 {field:'grxxname', title: '求职者名称', width:'15%'},
-               {field:'sex', title: '性别', width:'15%',sort:true }
+               {field:'sex', title: '性别', width:'15%',sort:true, templet: '#titleTpl' }
 
 
                 ,{field:'hkadr', title: '居住城市', width:'15%'}
@@ -101,7 +101,13 @@
 
 </script>
 
-
+<script type="text/html" id="titleTpl">
+    {{# if(d.sex===1){ }}
+    男
+    {{# }else{ }}
+    女
+    {{# } }}
+</script>
 
 <script type="text/html" id="barDemo">
 
