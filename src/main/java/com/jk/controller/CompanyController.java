@@ -78,6 +78,7 @@ public class CompanyController {
     @RequestMapping("querycompanylogin")
 @ResponseBody
 public String querycompanylogin(Company company,HttpSession session){
+
       /*  String phone= company.getId();
         session.setAttribute("id",phone);*/
     String companylist= companyService.querycompanylogin(company);
@@ -221,6 +222,19 @@ public void updateCompanyPassword(Company company){
         }
 
     }
+
+    /**
+     * 公司登陆
+     * @return
+     */
+    @RequestMapping("tuichudenglu")
+    public String tuichudenglu(HttpSession session){
+
+        session.invalidate();
+
+        return "/company/companyLogin";
+    }
+
 
 
 

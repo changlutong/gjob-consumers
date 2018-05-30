@@ -95,7 +95,7 @@
             <li class="nav-first"></li>
             <li class="minwidth mycurrent"><a href="<%=request.getContextPath()%>/qiantai/shouye.jsp">首页</a></li>
             <li><a href="<%=request.getContextPath()%>/UserIndex/index.jsp" >个人中心</a></li>
-            <li><a href="<%=request.getContextPath()%>/company/index.jsp" >公司中心</a></li>
+            <li><a href="<%=request.getContextPath()%>/company-view/companyindex.jsp" >公司中心</a></li>
             <li><a href="<%=request.getContextPath()%>/qiantai/chaxun.jsp" >职位搜索</a></li>
             <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>
             <li><a href="//sou.zhaopin.com/" >职位搜索</a></li>

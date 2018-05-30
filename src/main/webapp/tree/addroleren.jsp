@@ -14,7 +14,7 @@
 
 </head>
 <body>
-     <form id="wert">
+     <form id="werts">
       <input type="hidden" name="rid">
                用户名:<input class="easyui-validatebox" type="text" name="name"  readonly="readonly"/>
         <table> 

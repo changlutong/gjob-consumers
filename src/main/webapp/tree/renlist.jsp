@@ -11,11 +11,11 @@
 <table  border=1   class="easyui-datagrid"   id="aabcs">
     <thead>   
         <tr>   
-          <th data-options="field:'   ww ',checkbox:true"  align="center"    width="100"  height="100"></th> 
-              <th data-options="field:'rid'"   align="center"    width="100"  height="100">用户ID</th>
-              <th data-options="field:'name'"    align="center"  width="100"  height="100">用户名</th>
-              <th data-options="field:'password'"    align="center"  width="100"  height="100">用户密码</th>
-              <th data-options="field:'',formatter:ffbb"    align="center"  width="100" height="100">操作</th>   
+          <th data-options="field:'   ww ',checkbox:true"  align="center"    width="90"  height="100"></th>
+              <th data-options="field:'rid'"   align="center"    width="90"  height="100">用户ID</th>
+              <th data-options="field:'name'"    align="center"  width="90"  height="100">用户名</th>
+              <th data-options="field:'password'"    align="center"  width="90"  height="100">用户密码</th>
+              <th data-options="field:'',formatter:ffbb"     width="100" height="90">操作</th>
         </tr>   
     </thead>   
     <tbody>   
@@ -63,9 +63,9 @@ $("#aabcs").datagrid({
 	}
 });
  function  ffbb(val,row){
-	return   "<button  onclick='dell()'>分配角色</button>";
+	return   "<button  onclick='qqqqdellqqq()'>分配角色</button>";
 } 
-  function  dell   (){
+  function  qqqqdellqqq   (){
 	  $('#hjhjbcs').dialog({
 		    title: '分配角色',    
 		    width: 400,    
@@ -77,11 +77,11 @@ $("#aabcs").datagrid({
 		    buttons:[{
 				text:'新增',
 				handler:function(){
-					alert($("#wert").serialize())
+					/*alert($("#wert").serialize())*/
 					$.ajax({
 				   		 url:"<%=request.getContextPath()%>/userController/updaterolelist.do",
 				   			type:"post",
-				   		    data:$("#wert").serialize(),
+				   		    data:$("#werts").serialize(),
 				   		    success:function(result){
 				   		    	if (result) {
 				   		    		history.go(0)
@@ -101,7 +101,7 @@ $("#aabcs").datagrid({
     
 function addGoods(){
 	  $('#addbcs').dialog({
-		    title: '增加系列',    
+		    title: '增加用户',
 		    width: 400,    
 		    height: 200,    
 		    closed: false,    
@@ -133,7 +133,7 @@ function addGoods(){
 function   gai(regionid){
 	 var pp= $("#aabcs").datagrid("getSelected");
 	$('#qwwebcs').dialog({
-	    title: '修改系列',    
+	    title: '修改用户',
 	    width: 400,    
 	    height: 200,    
 	    closed: false,    
@@ -170,7 +170,7 @@ function   addshan(){
 			aaa += ","+sss[i].hid
 		}
 		 var str1=aaa.substring(1); 
-	       alert(str1)
+	   /*    alert(str1)*/
 		 $.ajax({
 			 url:'<%=request.getContextPath()%>/shop/deletelist.do',
 		     data:{'ids':str1},

@@ -18,6 +18,7 @@ package com.jk.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.jk.model.Company;
+import com.jk.model.Companyresume;
 import com.jk.model.Job;
 import com.jk.service.ICompanycltService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,13 +81,16 @@ public class CompanycltController {
         obj.put("count",list.size());
         obj.put("code", 0);
         obj.put("msg", "");
+
         return obj;
     }
     @RequestMapping("showjoblist")
     public String showjoblist(String  str, HttpServletRequest request){
+        request.setAttribute("usergrxxid",str);
         Map<String,Object> map= companycltService.selectjobbyid(str);
         request.setAttribute("map",map);
-        return "company-view/showaddzhiwei";
+
+        return "UserIndex/personalInfo";
     }
     @RequestMapping("updatejobstatus")
     @ResponseBody
@@ -120,6 +124,22 @@ public class CompanycltController {
         System.out.println(obj.toString());
         return obj;
     }
+    @RequestMapping("selectjiobclt3")
+    @ResponseBody
+    public JSONObject selectjiobclt3(String companyid,Job job,HttpSession session){
+
+        List<Map<String,Object>> list=companycltService.selectjiobclt3(companyid,job);
+        JSONObject obj=new JSONObject();
+        obj.put("data",list);
+        obj.put("count",list.size());
+        obj.put("code", 0);
+        obj.put("msg", "");
+        System.out.println(obj.toString());
+        return obj;
+    }
+
+
+
     @RequestMapping("selectalljob")
     @ResponseBody
     public List<Job> selectalljob(Job job){
@@ -176,5 +196,26 @@ public class CompanycltController {
         companycltService.deletejobbyid(id);
         return "1";
     }
+
+@ResponseBody
+@RequestMapping("addcompanyresume")
+   public  void  addcompanyresume(Companyresume companyresume){
+    companycltService.addcompanyresume(companyresume);
+
+
+   }
+
+
+@ResponseBody
+@RequestMapping("querycompanyresume")
+public String querycompanyresume(String companyid, String usergrxxid){
+
+   String status = companycltService.querycompanyresume(companyid,usergrxxid);
+
+  return status;
+}
+
+
+
 
 }

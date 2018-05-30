@@ -39,14 +39,14 @@
 
 
 
-	<div class="layui-form-item" style="width:45%">
-		<label class="layui-form-label">选择框</label>
-		<div class="layui-input-block">
-			<select id="company" name="companyid" lay-verify="required">
+	<%--<div class="layui-form-item" style="width:45%">--%>
+		<%--<label class="layui-form-label">选择框</label>--%>
+		<%--<div class="layui-input-block">--%>
+			<%--<select id="company" name="companyid" lay-verify="required">--%>
 
-			</select>
-		</div>
-	</div>
+			<%--</select>--%>
+		<%--</div>--%>
+	<%--</div>--%>
 
 	<div class="layui-form-item" pane="" style="width:45%">
 		<label class="layui-form-label">广告位置：</label>
@@ -152,7 +152,7 @@
             type:"post",
             success:function(){
 
-                alert("新增成功");
+                alert("提交成功，广告发布需后台审核过后才能进行展示!!");
                 $("#dialog_addguanggao").dialog("close");
                 $("#guanggaotables").datagrid("reload");
 
