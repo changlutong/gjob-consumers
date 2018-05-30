@@ -61,9 +61,9 @@ $("#aajbdg").datagrid({
 	}
 });
  function  ffbbs(val,row){
-	return   "<button  onclick='dell("+row.roid+")'>分配权限</button>";
+	return   "<button  onclick='dells("+row.roid+")'>分配权限</button>";
 } 
-  function  dell   (roid){
+  function  dells   (roid){
 	  $('#hjhjjbdg').dialog({
 		    title: '分配权限',    
 		    width: 400,    

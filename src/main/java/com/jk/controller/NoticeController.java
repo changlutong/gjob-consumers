@@ -83,11 +83,11 @@ public class NoticeController {
         return  list;
     }
     @RequestMapping("/noticesids")
-    public String noticesids(Integer noticeid,HttpServletRequest request){
-
-        Notice gonggao=noticeService.noticesids(noticeid);
-        request.getSession().setAttribute("gonggao",gonggao);
-         return "qiantai/gonggaoxiangqing";
+    @ResponseBody
+    public List<Notice> noticesids(Integer noticeid){
+         List<Notice> list=noticeService.noticesids(noticeid);
+        System.out.println(list);
+        return list;
 
     }
     //=================================================================================

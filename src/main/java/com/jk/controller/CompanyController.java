@@ -223,6 +223,18 @@ public void updateCompanyPassword(Company company){
 
     }
 
+    /**
+     * 公司登陆
+     * @return
+     */
+    @RequestMapping("tuichudenglu")
+    public String tuichudenglu(HttpSession session){
+
+        session.invalidate();
+
+        return "/company/companyLogin";
+    }
+
 
 
 

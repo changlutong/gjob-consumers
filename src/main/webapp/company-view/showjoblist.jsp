@@ -29,10 +29,17 @@
 
 <table class="layui-hide" id="LAY_table_user" lay-filter="user"></table>
 
-
+<input type="hidden" id="companyid" value="${id}" >
 
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<!-- 这是jquery的核心包  -->
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
+
 <script>
+
+
+
+
     layui.use('table', function(){
         var table = layui.table;
 
@@ -42,7 +49,7 @@
             ,url: '<%=request.getContextPath()%>/companycltController/selectjiobclt2.do?companyid=17338125780'
             ,cols: [[
                 {field:'grxxname', title: '求职者名称', width:'15%'}
-                ,{field:'sex', title: '性别', width:'15%', sort: true}
+                ,{field:'sex', title: '性别', width:'15%', sort: true,templet: '#titleTpl'}
                 ,{field:'hkadr', title: '居住城市', width:'15%'}
                 ,{field:'jybjxl', title: '学历',width:'15%'}
                 ,{field:'birthdate', title: '生日', sort: true, width:'20%'}
@@ -72,19 +79,52 @@
         };
         table.on('tool(user)', function(obj){
             var data = obj.data;
-            if(obj.event === 'detail'){
-                var ids=data.id
-                layer.open({
-                    type:2,//使content可以指向jsp
-                    area: ['700px', '400px'],
-                    title: '详情信息'
-                    ,content: "<%=request.getContextPath()%>/companycltController/showjoblist.do?str="+ids
-                });
-            } else if(obj.event === 'del'){
-                layer.confirm('查看需要扣除10积分', function(index){
-                    alert(data.phone)
-                    layer.close(index);
-                });
+            var usergrxxid=data.usergrxxid;
+          var companyid = $("#companyid").val();
+
+             if(obj.event === 'del'){
+
+                 layer.confirm('查看需要扣除10积分(若购买过系统不会扣除你的积分)', function(index){
+
+                     $.ajax({
+                         url:"<%=request.getContextPath()%>/companycltController/querycompanyresume.do",
+                         type:"post",
+                         data:{"companyid":companyid,"usergrxxid":usergrxxid},
+                         dataType:"json",
+                         success:function(result){
+                       if(result=="2"){
+
+                            alert("已经买过了不扣积分")
+                           location.href="/UserIndex/personalInfo.jsp?usergrxxid="+usergrxxid
+
+                       }else if(result=="1"){
+                           $.ajax({
+                               url:"<%=request.getContextPath()%>/companycltController/addcompanyresume.do",
+                               type:"post",
+                               data:{"usergrxxid":usergrxxid,"companyid":companyid},
+
+                               success:function(){
+
+                                   location.href="/UserIndex/personalInfo.jsp?usergrxxid="+usergrxxid
+
+                               },error:function(){
+                                   layer.msg("积分扣除失败,请重试")
+                               }
+                           })
+
+                       }
+
+
+                         },error:function(){
+                             layer.msg("积分扣除失败,请重试")
+                         }
+                     })
+
+
+
+                     layer.close(index);
+                 });
+
             } else if(obj.event === 'edit'){
                 if(data.showstatus==1){
                     if(confirm("确认发布这条信息么?")){
@@ -123,11 +163,19 @@
             active[type] ? active[type].call(this) : '';
         });
     });
+
+</script>
+<script type="text/html" id="titleTpl">
+    {{# if(d.sex===1){ }}
+    男
+    {{# }else{ }}
+    女
+    {{# } }}
 </script>
 <script type="text/html" id="barDemo">
-    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看详情</a>
 
-    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="del">查看联系方式</a>
+
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="del">查看详情信息</a>
 </script>
 </body>
 </html>

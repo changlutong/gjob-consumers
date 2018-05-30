@@ -302,7 +302,7 @@
 
         function chaxunshouji(){
             var shouji=$("#shoujiguishu").val()
-            alert(shouji)
+          /*  alert(shouji)*/
             location.href="http://guishu.showji.com/search.htm?m="+shouji;
         }
 	</script>
