@@ -464,7 +464,7 @@ function toInsuranceExcel() {
     var gzjyyx = $('#gzjyyx').html();//职位月薪
 
   window.location= "<%=request.getContextPath()%>/poiDaochuController/poiDaochu.do?userid="+userid+"&parnname="+parnname+"&spansex="+spansex+"&spanphone="+spanphone+"&spanmail="+spanmail+"" +
-      "&gzjy="+spanvintage+"&qzyxxz="+qzyxxz+"&qzdd="+qzdd+"&qzzy="+qzzy+"&qzyx="+qzyx+"&gzzt="+gzzt+"";//&gzjyname="+gzjyname+"&gzjylb="+gzjylb+"&gzjyyx="+gzjyyx+"
+      "&gzjy="+spanvintage+"";//&gzjyname="+gzjyname+"&gzjylb="+gzjylb+"&gzjyyx="+gzjyyx+"
   /*$.ajax({
       url: "/poiDaochuController/poiDaochu.do",
         type: "post",

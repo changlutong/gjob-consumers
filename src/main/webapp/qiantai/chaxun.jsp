@@ -224,11 +224,6 @@ $(function(){
         async:false,
         success:function (zhaopin) {
 
-//                        <li><span>龙盾科技</span></li>
-//            <li>业务员</li>
-//            <li>熟练操作电脑，熟悉网络</li>
-//            <li>200元/天</li>
-//            <li><img src="images/shenqing.jpg" /></li>
 
             var str="";
             for(i=0;i<zhaopin.length;i++){
