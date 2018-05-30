@@ -9,10 +9,12 @@
 <html>
 <head>
     <title>Title</title>
-    <script src="https://img.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
-    <script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
+    <%--<script src="https://img.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
     <script src="https://img.hcharts.cn/highcharts/modules/exporting.js"></script>
-    <script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+    <script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
+    <script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>--%>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
 </head>
 <body>
 
@@ -36,7 +38,7 @@
                            /* var oo = "'"+aa[i].dates+"'"*/
                             ioiru[i] = aa[i].dates
                             iou[i] = aa[i].financetotal
-                   /*         alert(iou)*/
+                    /*      alert(iou)*/
                            /* alert(aa)
                             alert(ioiru)*/
 
@@ -88,6 +90,7 @@
                         borderWidth: 0
                     }
                 };
+
                 var credits = {
                     enabled: false
                 };
