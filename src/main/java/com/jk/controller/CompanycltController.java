@@ -61,11 +61,12 @@ public class CompanycltController {
     @ResponseBody
     public void addzhiwei(Job job,HttpSession session){
         Object string=  session.getAttribute("id");
-        if(string==null){
+        Object string1= session.getAttribute("companyname");
+        if(string==null||string1==null){
             throw new RuntimeException();
         }else{
             job.setCompanyphone((String) string);
-            job.setCompanyname((String)session.getAttribute("companyname"));
+            job.setCompanyname((String)string1);
             companycltService.addzhiwei(job);
         }
 
