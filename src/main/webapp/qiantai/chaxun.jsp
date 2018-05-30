@@ -117,16 +117,16 @@
 
         </div>
 
-        <%--<div class="bft_f_3">--%>
-            <%--<ul>--%>
-                <%--<li>第<span>3</span>页</li>--%>
-                <%--<li><a href="#">首页</a></li>--%>
-                <%--<li><a href="#">上一页</a> </li>--%>
-                <%--<li><a href="#">下一页</a> </li>--%>
-                <%--<li><a href="#">尾页</a></li>--%>
-                <%--<li><a href="#">共5页</a></li>--%>
-            <%--</ul>--%>
-        <%--</div>--%>
+        <div class="bft_f_3">
+            <ul>
+                <li>第<span  id="dangqianye">1</span>页</li>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">上一页</a> </li>
+                <li><a href="#">下一页</a> </li>
+                <li><a href="#">尾页</a></li>
+                <li>共<span   id="zongyeshu">1</span>页</li>
+            </ul>
+        </div>
     </div>
     <!--   -->
     <!-- 友情链接开始 -->
@@ -218,7 +218,7 @@ $(function(){
 
 
     $.ajax({
-        url:"<%=request.getContextPath()%>/companycltController/selectalljob.do",
+        url:"<%=request.getContextPath()%>/solrController/getsolrjoblist.do",
         type:"post",
         dataType:"json",
         async:false,
