@@ -30,6 +30,7 @@
         <h1>
             <span>用户简历 查看!</span>
         </h1>
+        <button type="button" onclick="toInsuranceExcel()" class="button button-primary button-small">导出Word </button>
     </div>
     <div class="container">
         <div class="row clearfix">
@@ -426,7 +427,19 @@
         })
     })
 
+    /* 导出Word */
+    function toInsuranceExcel() {
+        //个人信息
+        var userid = $("#qitaid").val();
+        var parnname = $('#spanname').html();
+        var spansex = $('#spansex').html();
+        var spanmail = $('#spanmail').html();
+        var spanphone = $('#spanphone').html();
+        var spanvintage = $('#spanvintage').html();
 
+        window.location = "<%=request.getContextPath()%>/poiDaochuController/poiDaochu.do?userid=" + userid + "&parnname=" + parnname + "&spansex=" + spansex + "&spanphone=" + spanphone + "&spanmail=" + spanmail + "" +
+            "&gzjy=" + spanvintage + "";
+    }
 </script>
 
 

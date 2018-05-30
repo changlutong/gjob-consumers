@@ -451,18 +451,6 @@ function toInsuranceExcel() {
     var spanphone = $('#spanphone').html();
     var spanvintage = $('#spanvintage').html();
 
-    //  求职意
-     var qzyxxz = $('#qzyxxz').html();//期望工作性质
-    var qzdd = $('#qzdd').html();// 期望求职地点
-    var qzzy = $('#qzzy').html();//期望从事职业
-    var qzyx = $('#qzyx').html();//期望月薪(税前)
-    var gzzt = $('#gzzt').html();//工作状态
-   // 工作经验
-    var gzjyname = $('#gzjyname').html();//企业名称
-    var gzjylb = $('#gzjylb').html();// 专业类别
-    var gzjysj = $('#gzjysj').html();//工作时间
-    var gzjyyx = $('#gzjyyx').html();//职位月薪
-
   window.location= "<%=request.getContextPath()%>/poiDaochuController/poiDaochu.do?userid="+userid+"&parnname="+parnname+"&spansex="+spansex+"&spanphone="+spanphone+"&spanmail="+spanmail+"" +
       "&gzjy="+spanvintage+"";//&gzjyname="+gzjyname+"&gzjylb="+gzjylb+"&gzjyyx="+gzjyyx+"
   /*$.ajax({
