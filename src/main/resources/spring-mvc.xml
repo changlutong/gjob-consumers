@@ -8,7 +8,16 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
 	<!-- 自动扫描controller包下的所有类，使其认为spring mvc的控制器 -->
 	<context:component-scan base-package="com.jk.controller" />
-
+	<!-- 整合Freemarker -->
+	<!-- 放在InternalResourceViewResolver的前面，优先找freemarker -->
+	<bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPath" value="/qiantai/templates"/>
+	</bean>
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+		<property name="prefix" value=""/>
+		<property name="suffix" value=".ftl"/>
+		<property name="contentType" value="text/html; charset=UTF-8"/>
+	</bean>
 
 	<!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/" p:suffix=".jsp" />

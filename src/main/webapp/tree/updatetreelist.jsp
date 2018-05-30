@@ -22,7 +22,7 @@
  </form> 
  <script type="text/javascript">
 var pp= $("#treelist").tree("getSelected");
-alert()
+/*alert()*/
 $("[name='id']").val(pp.id);
 $("[name='url']").val(pp.href);
 $("[name='text']").val(pp.text);
