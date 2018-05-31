@@ -183,22 +183,22 @@
                 $("#neirongzhanshi").html(tableDiv)
             },
             erro:function () {
-                alert("呦呵呵，招聘内容查询失败！！！");
+                alert("呦呵呵，投递查询失败！！！");
             }
         })
     })
     /**
-     * 点击查看详情 跳页面传职位id chakanxiangqing
+     * 点击查看详情 跳页面传职位id chakanxiangqing  ,"piaoz":piaoz
      * @param companyid
      */
     function zweiid(companyid){
 
-        var piaoz = $("#piaoz").val()
-      // location.href="<%=request.getContextPath()%>/qiantai/wodetd.jsp?companyid="+companyid;
+     //   var piaoz = $("#piaoz").val()
+      // location.href="<%=request.getContextPath()%>/qiantai/wodetd.jsp?companyid="+companyid;    tym 跳页面
         $.ajax({
             url:"<%=request.getContextPath()%>/userdatumController/tym.do",
             type:"post",
-            data:{"companyid":companyid,"piaoz":piaoz},
+            data:{"companyid":companyid},
             dataType:"json",
             success:function () {
                 location.href="<%=request.getContextPath()%>/qiantai/wodetd.jsp";
