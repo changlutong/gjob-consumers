@@ -62,13 +62,13 @@ public interface IUserdatumService {
 
         String saveuserinfo(String phone, String password1);
 
-        List<Map<String,Object>> selectallwdtdxq(String companyid,String userid);
-
         List<Map<String,Object>> selectzls(String zwei, String xingz, String ddian);
 
         List<Map<String,Object>> selectxgzp(String companyid);
 
-        /**
+         List<Map<String,Object>> selectJobDetails(String companyid, String userid);
+
+    /**
          * oss
          */
       //  void addossFile(UserFile up);
