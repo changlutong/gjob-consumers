@@ -63,7 +63,7 @@
 	<div class="layui-form-item" style="width:45%">
 		<label class="layui-form-label">价格</label>
 		<div class="layui-input-block">
-			<input type="text" name="title" required  lay-verify="required" placeholder="请输入内容" autocomplete="off" class="layui-input">
+			<input type="text" name="price" required  lay-verify="required" placeholder="请输入内容" autocomplete="off" class="layui-input">
 		</div>
 	</div>
 
@@ -150,11 +150,16 @@
             url:"<%=request.getContextPath()%>/guanggaoController/saveguanggao.do",
             data:$("#addguanggao").serialize(),
             type:"post",
-            success:function(){
+			dataType:"json",
+            success:function(result){
+				if(result.money=="fail"){
+                    alert("提交成功，广告发布需后台审核过后才能进行展示!!");
+                    $("#dialog_addguanggao").dialog("close");
+                    $("#guanggaotables").datagrid("reload");
+				}else if(result.money=="success"){
+				    alert("您的余额不足，请充值后再进行发布！！")
+				}
 
-                alert("提交成功，广告发布需后台审核过后才能进行展示!!");
-                $("#dialog_addguanggao").dialog("close");
-                $("#guanggaotables").datagrid("reload");
 
             },error:function(){
                 $.messager.alert('警告','报错');
