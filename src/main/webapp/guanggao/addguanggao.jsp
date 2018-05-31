@@ -72,7 +72,7 @@
 	<div class="layui-form-item layui-form-text" style="width:45%">
 		<label class="layui-form-label">简介：</label>
 		<div class="layui-input-block">
-			<textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+			<textarea name="info" placeholder="请输入内容" class="layui-textarea"></textarea>
 		</div>
 	</div>
 

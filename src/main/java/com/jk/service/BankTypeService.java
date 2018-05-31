@@ -45,7 +45,7 @@ public interface BankTypeService {
 
     void savebankcard(CompanyCard companyCard);
 
-    List<CompanyCard> querybankcard();
+    List<CompanyCard> querybankcard(String comid);
 
     CompanyCard queryBankCardById(Integer cid);
 

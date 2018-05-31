@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.net.ssl.HttpsURLConnection;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -132,8 +133,9 @@ public class BankTypeController {
      */
     @RequestMapping(value = "querybankcard")
     @ResponseBody
-    public List<CompanyCard> querybankcard(){
-        List<CompanyCard> clist = bankTypeService.querybankcard();
+    public List<CompanyCard> querybankcard(HttpSession session){
+        String comid = (String) session.getAttribute("id");
+        List<CompanyCard> clist = bankTypeService.querybankcard(comid);
         return clist;
     }
 
