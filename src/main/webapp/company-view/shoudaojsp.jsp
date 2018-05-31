@@ -10,6 +10,7 @@
 <head>
     <title>Title</title>
 </head>
+
 <link rel="shortcut icon" type="image/ico" href="//img00.zhaopin.cn/new2011/images/ie9.ico" />
 <body>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.8.3.min.js"></script>
@@ -36,6 +37,7 @@
     <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
     <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    <a class="layui-btn layui-btn-black layui-btn-xs" lay-event="yaoqinglz" >发送邀请</a>
 </script>
 
 
@@ -60,6 +62,28 @@
                 layer.confirm('真的删除行么', function(index){
                     obj.del();
                     layer.close(index);
+                });
+            }else if(obj.event === 'yaoqinglz'){
+                layer.confirm('真的要给当前用户发送邀请函么？', function(){
+
+                    var email = data.email;
+                    var grxxname = data.grxxname;
+                   $.ajax({
+                        url:"<%=request.getContextPath()%>/companycltController/ompanyemaliz.do",
+                        type:"post",
+                        data:{"email":email,"grxxname":grxxname},
+
+                        success:function (){
+                            alert("成功!!")
+                            location.reload();
+                        },
+                        error:function(){
+                            alert("出错！！！")
+                        }
+                    })
+
+
+
                 });
             } else if(obj.event === 'edit'){
                 layer.alert('编辑行：<br>'+ JSON.stringify(data))
@@ -96,6 +120,13 @@
     女
     {{# } }}
 </script>
+
+<script type="text/javascript">
+
+
+
+</script>
+
 </body>
 </html>
 

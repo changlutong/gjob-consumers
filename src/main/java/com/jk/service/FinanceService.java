@@ -11,4 +11,10 @@ public interface FinanceService {
 
 //==================
     List<Finance> queryfinance(Finance finance);
+
+    int qianjifenfinance(Finance finance);
+
+    Finance upfinance(String dates);
+
+/*    List<Finance> qianjifenfinance(Finance finance);*/
 }

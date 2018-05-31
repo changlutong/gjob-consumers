@@ -19,15 +19,14 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 
 import javax.servlet.http.HttpSession;
-
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-
-
 
 /**
  * Created by yuankang on 2018/5/15.
@@ -231,18 +230,16 @@ public void updateCompanyPassword(Company company){
      * @return
      */
     @RequestMapping("tuichudenglu")
-    @ResponseBody
     public String tuichudenglu(HttpSession session){
-
 
         session.invalidate();
 
-        return "1";
+        return "/company/companyLogin";
     }
 
 
 
 
 
-}
 
+}
