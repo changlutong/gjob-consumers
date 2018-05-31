@@ -218,5 +218,12 @@ public class CompanycltController {
 
 
 
+    @ResponseBody
+    @RequestMapping("ompanyemaliz")
+    public  void  companyemaliz(String email,String grxxname){
+     companycltService.companyemaliz(email,grxxname);
+
+    }
+
 
 }

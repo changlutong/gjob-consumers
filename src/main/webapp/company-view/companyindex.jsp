@@ -70,10 +70,11 @@
            url:"<%=request.getContextPath()%>/companyController/tuichudenglu.do",
            type:"post",
            dataType:"json",
-           async:false,
+          // async:false,
            success:function(result){
+
                if(result=="1"){
-                   location.href="<%=request.getContextPath()%>/company/companyLogin.jsp";
+                  top.location.href="<%=request.getContextPath()%>/company/companyLogin.jsp";
                }
 
            },error:function(){

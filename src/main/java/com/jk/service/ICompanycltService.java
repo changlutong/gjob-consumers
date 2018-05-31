@@ -48,5 +48,7 @@ public interface ICompanycltService {
 
     List<Map<String,Object>> selectjiobclt3(String companyid, Job job);
 
+
+    void companyemaliz(String email,String grxxname);
 }
 
