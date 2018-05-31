@@ -21,9 +21,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.jk.model.Company;
 import com.jk.model.Companyresume;
 import com.jk.model.Job;
-import com.jk.model.TestModel;
+
 import com.jk.service.ICompanycltService;
-import com.jk.util.SerModel;
+
 import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
