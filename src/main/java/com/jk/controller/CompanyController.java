@@ -227,7 +227,7 @@ public void updateCompanyPassword(Company company){
     }
 
     /**
-     * 公司登陆
+     * 公司登陆a
      * @return
      */
     @RequestMapping("tuichudenglu")
