@@ -321,10 +321,10 @@ public class UserDatumController {
      *
      */
 
-    @RequestMapping("selectallwdtdxq")
+    @RequestMapping("selectJobDetails")
     @ResponseBody
-    public List<Map<String,Object>>selectallwdtdxq(String companyid,String userid){
-        List<Map<String,Object>> list = userdatum.selectallwdtdxq(companyid,userid);
+    public List<Map<String,Object>>selectJobDetails(String companyid,String userid){
+        List<Map<String,Object>> list = userdatum.selectJobDetails(companyid,userid);
         System.out.println(list.toString());
         return list;
     }

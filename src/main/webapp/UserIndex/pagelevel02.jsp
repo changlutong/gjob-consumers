@@ -153,8 +153,8 @@
 
                     $("#spanname").html(succen[0].grxxname);
                     var sexs = "男";
-                    if(succen[0].grxxname == 1 ){
-                        sexs == "女";
+                    if(succen[0].sex == 1 ){
+                        sexs = "女";
                     }
                     $("#spansex").html(sexs);
                     $("#spanmail").html(succen[0].email);

@@ -82,7 +82,7 @@ public class NoticeController {
     @RequestMapping("/noticesids")
     @ResponseBody
     public List<Notice> noticesids(Integer noticeid){
-        Notice notice=noticeService.noticesids(noticeid);
+        Notice notice= (List<Notice>) noticeService.noticesids(noticeid);
         List<Notice>  list =new ArrayList<Notice>();
         list.add(notice);
         System.out.println(list);
