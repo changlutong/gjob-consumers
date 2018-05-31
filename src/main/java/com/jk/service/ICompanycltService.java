@@ -42,7 +42,7 @@ public interface ICompanycltService {
 
     Map<String,String> shoudaojianlixiqngqing(String str);
 
-    void deletejobbyid(String  id);
+    void deletejobbyid(String  id,String companyid);
 
     String querycompanyresume(String companyid,String usergrxxid);
 

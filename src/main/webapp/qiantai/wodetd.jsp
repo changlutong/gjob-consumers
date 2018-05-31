@@ -145,8 +145,8 @@
   function zlsAndcsh(companyid){
 
       var userid = $("#userid").val()
-      $.ajax({
-          url:"<%=request.getContextPath()%>/userdatumController/selectallwdtdxq.do",
+      $.ajax({//selectallwdtdxq
+          url:"<%=request.getContextPath()%>/userdatumController/selectJobDetails.do",
           type:"post",
           data:{"companyid":companyid,"userid":userid},
           dataType:"json",
@@ -172,7 +172,7 @@
                 var xingz =  $("#xingz").html()
                 var ddian =  $("#ddian").html()
                 var zwei = zweis.substring(0,zweis.length-2)
-
+            alert(zwei)
                 $.ajax({
                     url:"<%=request.getContextPath()%>/userdatumController/selectzls.do",
                     type:"post",

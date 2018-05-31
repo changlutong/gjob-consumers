@@ -16,23 +16,28 @@
  */
 package com.jk.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.jk.model.Company;
 import com.jk.model.Companyresume;
 import com.jk.model.Job;
+import com.jk.model.TestModel;
 import com.jk.service.ICompanycltService;
+import com.jk.util.SerModel;
+import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
 /**
- * 〈一句话功能简述〉<br>
+ * 〈一句话功能简述〉<br> 
  * 〈公司控制层〉
  *
  * @author chang
@@ -161,7 +166,7 @@ public class CompanycltController {
         request.getSession().setAttribute("company",company);
         request.getSession().setAttribute("job",job);
 
-        return "qiantai/jobxiangqing";
+    return "qiantai/jobxiangqing";
     }
     @RequestMapping("selectgongsiandjob")
     public String selectgongsiandjob(String id,HttpServletRequest request){
@@ -193,8 +198,9 @@ public class CompanycltController {
     }
     @RequestMapping("deletejobbyid")
     @ResponseBody
-    public String deletejobbyid(String id){
-        companycltService.deletejobbyid(id);
+    public String deletejobbyid(String id,HttpSession session){
+      String  companyid= (String) session.getAttribute("id");
+        companycltService.deletejobbyid(id,companyid);
         return "1";
     }
 
@@ -215,6 +221,24 @@ public class CompanycltController {
 
         return status;
     }
+/*@ResponseBody
+@ResponseBody
+@RequestMapping("testcookie2")
+public String testcookie2(HttpServletRequest request) throws IOException, ClassNotFoundException {
+    Cookie cookies[]=request.getCookies();
+    String str="";
+    for (Cookie cookie:cookies
+         ) {
+       if("Sender".equals(cookie.getName())){
+           System.out.println(cookie.getValue());
+           str=cookie.getValue();
+       }
+
+    }
+    str=str.replaceAll("'","\"");
+    str=str.replaceAll("=",",");
+    return str;
+}*/
 
 
 
