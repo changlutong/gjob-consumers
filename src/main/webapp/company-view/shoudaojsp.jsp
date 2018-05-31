@@ -51,8 +51,11 @@
         //监听工具条
         table.on('tool(demo)', function(obj){
             var data = obj.data;
+            var usergrxxid =data.usergrxxid;
             if(obj.event === 'detail'){
-                layer.msg('ID：'+ data.usergrxxid + ' 的查看操作');
+
+                location.href="/UserIndex/personalInfo.jsp?usergrxxid="+usergrxxid
+
             } else if(obj.event === 'del'){
                 layer.confirm('真的删除行么', function(index){
                     obj.del();

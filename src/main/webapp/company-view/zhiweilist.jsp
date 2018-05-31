@@ -33,7 +33,7 @@
 </table>
 
 <script type="text/html" id="barDemo">
-    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看详情</a>
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail1">查看详情</a>
 
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
@@ -51,7 +51,7 @@
         //监听工具条
         table.on('tool(demo)', function(obj){
             var data = obj.data;
-            if(obj.event === 'detail'){
+            if(obj.event === 'detail1'){
                var ids=data.id
                 layer.open({
                     type:2,//使content可以指向jsp

@@ -66,14 +66,31 @@
     </iframe>
     </div>
 </div>
+<!-- 这是jquery的核心包  -->
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 
 <script>
 
    function tuichudenglu () {
 
-    location.href="<%=request.getContextPath()%>/companyController/tuichudenglu.do";
-       
+       $.ajax({
+           url:"<%=request.getContextPath()%>/companyController/tuichudenglu.do",
+           type:"post",
+           dataType:"json",
+           async:false,
+           success:function(result){
+               if(result=="1"){
+                   location.href="<%=request.getContextPath()%>/company/companyLogin.jsp";
+               }
+
+           },error:function(){
+               alert("有点小问题")
+           }
+       })
+
+
    }
+
     layui.use('element', function(){
         var element = layui.element
             ,layer = layui.layer; //导航的hover效果、二级菜单等功能，需要依赖element模块
