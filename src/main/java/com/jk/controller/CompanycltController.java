@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 〈一句话功能简述〉<br> 
+ * 〈一句话功能简述〉<br>
  * 〈公司控制层〉
  *
  * @author chang
@@ -161,7 +161,7 @@ public class CompanycltController {
         request.getSession().setAttribute("company",company);
         request.getSession().setAttribute("job",job);
 
-    return "qiantai/jobxiangqing";
+        return "qiantai/jobxiangqing";
     }
     @RequestMapping("selectgongsiandjob")
     public String selectgongsiandjob(String id,HttpServletRequest request){
@@ -198,25 +198,32 @@ public class CompanycltController {
         return "1";
     }
 
-@ResponseBody
-@RequestMapping("addcompanyresume")
-   public  void  addcompanyresume(Companyresume companyresume){
-    companycltService.addcompanyresume(companyresume);
+    @ResponseBody
+    @RequestMapping("addcompanyresume")
+    public  void  addcompanyresume(Companyresume companyresume){
+        companycltService.addcompanyresume(companyresume);
 
 
-   }
+    }
 
 
-@ResponseBody
-@RequestMapping("querycompanyresume")
-public String querycompanyresume(String companyid, String usergrxxid){
+    @ResponseBody
+    @RequestMapping("querycompanyresume")
+    public String querycompanyresume(String companyid, String usergrxxid){
 
-   String status = companycltService.querycompanyresume(companyid,usergrxxid);
+        String status = companycltService.querycompanyresume(companyid,usergrxxid);
 
-  return status;
-}
+        return status;
+    }
 
 
+
+    @ResponseBody
+    @RequestMapping("ompanyemaliz")
+    public  void  companyemaliz(String email,String grxxname){
+     companycltService.companyemaliz(email,grxxname);
+
+    }
 
 
 }

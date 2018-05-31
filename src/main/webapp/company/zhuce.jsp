@@ -5,6 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>公司注册</title>
 
 <!-- CSS -->
@@ -149,22 +150,22 @@
 							<div class="form-bottom">
 								<div class="form-group">
 									<label  for="username">用户名</label>
-									<input type="text" name="username" placeholder="输入用户名..." class="form-first-name form-control"  >
+									<input type="text" id="username" name="username" placeholder="输入用户名..." class="form-first-name form-control"  >
 								</div>
 								<div class="form-group">
 									<label  for="password">密码</label>
-									<input type="password" name="password" placeholder="密码..." class="form-last-name form-control" >
+									<input type="password" name="password" id="password1" placeholder="密码..." class="form-last-name form-control" >
 								</div>
 								  <div class="form-group">
 									<label for="password_again">确认密码</label>
-									<input type="password" name="password_again" placeholder="确认密码..." class="form-last-name form-control" >
+									<input type="password" name="password_again" id="password_again" placeholder="确认密码..." class="form-last-name form-control" >
 								</div>
 								<div class="form-group">
 									<label  for="email">电子邮箱</label>
 
-								   <input type="text" name="email" placeholder="电子邮箱..."  class="form-last-name form-control" >
+								   <input type="text" name="email" id="email" placeholder="电子邮箱..."  class="form-last-name form-control" >
 								</div>
-								<button type="button" class="btn btn-next">下一步</button>
+								<button type="button" onclick="xiayibua()" class="btn btn-next">下一步</button>
 							</div>
 						</fieldset>
 
@@ -181,19 +182,19 @@
 							<div class="form-bottom">
 								<div class="form-group">
 									<label  for="form-facebook">公司名称</label>
-									<input type="text" name="companyname" placeholder="公司名称..." class="form-facebook form-control" >
+									<input type="text" id="companyname" name="companyname" id="companyname" placeholder="公司名称..." class="form-facebook form-control" >
 								</div>
 								 <div class="form-group">
 									<label for="companycity">公司地址</label>
-									<input type="text" name="companycity" placeholder="地址..." class="form-twitter form-control" >
+									<input type="text" id="companycity" name="companycity" placeholder="地址..." class="form-twitter form-control" >
 								</div>
 								<div class="form-group">
 									<label for="contacts">公司联系人</label>
-									<input type="text" name="contacts" placeholder="联系人..." class="form-twitter form-control" >
+									<input type="text" id="contacts" name="contacts" placeholder="联系人..." class="form-twitter form-control" >
 								</div>
                                 <div class="form-group">
 									<label for="companyfixedphone">固定电话</label>
-									<input type="text" name="companyfixedphone" placeholder="固定电话..." class="form-twitter form-control" >
+									<input type="text" id="companyfixedphone" name="companyfixedphone" placeholder="固定电话..." class="form-twitter form-control" >
 								</div>
 
 								        <div class="form-group">
@@ -207,7 +208,7 @@
 
 								</div>
 								<button type="button" class="btn btn-previous">上一步</button>
-								<button type="button" class="btn btn-next">下一步</button>
+								<button type="button" onclick="xiayibua2()" class="btn btn-next">下一步</button>
 							</div>
 						</fieldset>
 
@@ -224,11 +225,11 @@
 							<div class="form-bottom">
 								<div class="form-group">
 									<label  for="legalpersonname">法人名称</label>
-									<input type="text" name="legalpersonname" placeholder="法人名称..." class="legalpersonname form-control" >
+									<input type="text" id="legalpersonname" name="legalpersonname" placeholder="法人名称..." class="legalpersonname form-control" >
 								</div>
 								<div class="form-group">
 									<label for="legalpersionidcardnum">法人身份证号</label>
-									<input type="text" name="legalpersionidcardnum" placeholder="身份证号..." class="legalpersionidcardnum form-control" >
+									<input type="text" id="legalpersionidcardnum" name="legalpersionidcardnum" placeholder="身份证号..." class="legalpersionidcardnum form-control" >
 								</div>
 								<div class="form-group">
 									<label for="tradinglicense">上传营业执照和身份证正反面</label>
@@ -240,7 +241,7 @@
 
 								<input type="hidden" name="checkstatus" value="1" />
 								<button type="button" class="btn btn-previous">上一步</button>
-								 <button type="button" class="btn btn-next">下一步</button>
+								 <button type="button" onclick="xiayibua3()" class="btn btn-next">下一步</button>
 
 							</div>
 						</fieldset>
@@ -291,6 +292,8 @@
 	<script src="assets/js/placeholder.js"></script>
 <![endif]-->
 <script type="text/javascript">
+
+
     var aa="";
     $('#file-0a').fileinput({
         language: 'zh',
@@ -310,7 +313,112 @@
     })
 
 
+        function xiayibua() {
+
+
+            $.ajax({
+                url:"<%=request.getContextPath()%>/companycltController/testcookie.do",
+                data:$("#companyform").serialize(),
+                type:"post",
+                dataType:"json",
+                success:function(result){
+
+
+                },error:function(){
+                    alert("失败")
+                }
+
+
+            })
+
+        }
+
+        function xiayibua2() {
+
+
+            $.ajax({
+                url: "<%=request.getContextPath()%>/companycltController/testcookie.do",
+                data: $("#companyform").serialize(),
+                type: "post",
+                dataType: "json",
+                success: function (result) {
+
+
+                }, error: function () {
+                    alert("失败")
+                }
+
+
+            })
+
+        }
+
+function xiayibua3() {
+
+
+            $.ajax({
+                url: "<%=request.getContextPath()%>/companycltController/testcookie.do",
+                data: $("#companyform").serialize(),
+                type: "post",
+                dataType: "json",
+                success: function (result) {
+
+
+                }, error: function () {
+                    alert("失败")
+                }
+
+
+            })
+
+        }
+
+
+
+
+
+
     $(function () {
+
+        $.ajax({
+            url:"<%=request.getContextPath()%>/companycltController/testcookie2.do",
+            type:"post",
+            dataType:"json",
+            success:function(result){
+                var aa=eval("("+result+")")
+                $("#username").val(aa.username)
+                $("#password1").val(aa.password)
+                $("#password_again").val(aa.password_again)
+                $("#email").val(aa.email)
+                $("#companyname").val(aa.companyname)
+                $("#companycity").val(aa.companycity)
+                $("#contacts").val(aa.contacts)
+                $("#companyfixedphone").val(aa.companyfixedphone)
+                $("#category").val(aa.category)
+                $("#legalpersonname").val(aa.legalpersonname)
+                $("#legalpersionidcardnum").val(aa.legalpersionidcardnum)
+                $("#tradinglicense").val(aa.tradinglicense)
+
+
+            },error:function(){
+                alert("失败")
+            }
+
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
         $("#companyform").bootstrapValidator({
             message: 'This value is not valid',
             feedbackIcons: {
@@ -575,51 +683,53 @@
                 }
             })
         }}
-    function tijiao(){
+    function tijiao() {
+     var tradinglicense= $("#tradinglicense").val();
+        if (tradinglicense == "" && tradinglicense=="") {
+            alert("必须上传相关证件")
+        } else {
 
-        if( aa==""){
-          alert("必须上传相关证件")
-		}else{
+            $("#tradinglicense").val(aa);
 
-        $("#tradinglicense").val(aa);
+            if (!$('#companyform').data('bootstrapValidator').isValid()) {//判断校检是否通过
+                alert("验证不通过");
+                return false;
+            } else {
 
-        if (!$('#companyform').data('bootstrapValidator').isValid()) {//判断校检是否通过
-            alert("验证不通过");
-            return false;
-        }else {
+                $.ajax({
+                    url: "<%=request.getContextPath()%>/companyController/tosavecompany.do",
+                    type: "post",
+                    data: $("#companyform").serialize(),
+                    dataType: "json",
+                    async: false,
+                    success: function (result) {
 
-            $.ajax({
-                url:"<%=request.getContextPath()%>/companyController/tosavecompany.do",
-                type:"post",
-                data:$("#companyform").serialize(),
-                dataType:"json",
-                async:false,
-                success:function (result){
+                        if (result == "1") {
+                            alert("恭喜您,注册成功")
 
-                    if(result=="1"){
-                        alert("恭喜您,注册成功")
+                            location.href = "companyLogin.jsp";
+                        }
+                        if (result == "3") {
+                            alert("手机号不符合规则")
+                        }
+                        if (result == "4") {
+                            alert("手机号已存在")
+                        }
+                        if (result == "5") {
+                            alert("验证码超时或输错了")
+                        }
+                        if (result == "6") {
+                            alert("用户名已存在")
+                        }
+                    },
 
-                        location.href="companyLogin.jsp";
+                    error: function () {
+                        alert("出错了,亲,原因不详！！！")
                     }
-                    if(result=="3"){
-                        alert("手机号不符合规则")
-                    }
-                    if(result=="4"){
-                        alert("手机号已存在")
-                    }
-                    if(result=="5"){
-                        alert("验证码超时或输错了")
-                    } if(result=="6"){
-                        alert("用户名已存在")
-                    }
-                },
+                })
 
-                error:function(){
-                    alert("出错了,亲,原因不详！！！")
-                }
-            })
+            }
 
-        }
         }
     }
 

@@ -14,6 +14,6 @@ public interface LogService {
 
     Map<String, Object> logsList(Logs logs, Integer page, Integer rows);
 
-    List selecttongji();
+    List<Logs> selecttongji();
 
 }

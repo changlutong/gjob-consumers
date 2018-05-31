@@ -115,13 +115,13 @@ public class GuanggaoController {
      */
     @RequestMapping(value = "saveguanggao")
     @ResponseBody
-    public void saveguanggao(Guanggao guanggao, HttpSession httpSession) {
+    public Map<String ,Object> saveguanggao(Guanggao guanggao, HttpSession httpSession) {
         String comid= (String) httpSession.getAttribute("id");
         guanggao.setCompanyid(comid);
         String url = guanggao.getImageurl();
         String uurl = url.replaceAll("\"","");
         guanggao.setImageurl(uurl);
-        guanggaoService.saveguanggao(guanggao);
+        return guanggaoService.saveguanggao(guanggao);
 
 
     }
