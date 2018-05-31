@@ -216,6 +216,13 @@ public String querycompanyresume(String companyid, String usergrxxid){
 }
 
 
+    @ResponseBody
+    @RequestMapping("ompanyemaliz")
+    public  void  companyemaliz(String email,String grxxname){
+     companycltService.companyemaliz(email,grxxname);
+
+    }
+
 
 
 }
