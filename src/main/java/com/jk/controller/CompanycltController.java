@@ -16,6 +16,7 @@
  */
 package com.jk.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.jk.model.Company;
 import com.jk.model.Companyresume;
@@ -26,8 +27,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.net.InetAddress;
 import java.util.List;
 import java.util.Map;
 
@@ -87,12 +92,14 @@ public class CompanycltController {
     }
     @RequestMapping("showjoblist")
     public String showjoblist(String  str, HttpServletRequest request){
-        request.setAttribute("usergrxxid",str);
+
         Map<String,Object> map= companycltService.selectjobbyid(str);
         request.setAttribute("map",map);
 
-        return "UserIndex/personalInfo";
+        return "/company-view/showaddzhiwei";
     }
+
+
     @RequestMapping("updatejobstatus")
     @ResponseBody
     public void updatejobstatus(Integer showstatus,String  ids){
@@ -215,6 +222,77 @@ public String querycompanyresume(String companyid, String usergrxxid){
 
   return status;
 }
+
+    @ResponseBody
+    @RequestMapping("testcookie")
+    public String testcookie(Company str, HttpServletResponse response) throws IOException, ClassNotFoundException {
+
+        String s= JSON.toJSONString(str);
+        s=  s.replaceAll(",","=");
+        s= "\""+s.replaceAll("\"","'")+"\"";
+        System.out.println(s);
+        //获取ip
+        String hostAddress = InetAddress.getLocalHost().getHostAddress();
+
+        System.out.println(hostAddress);
+
+        Cookie cookie=new Cookie(hostAddress+1,s);
+        Cookie cookie1=new Cookie(hostAddress+2,s);
+        Cookie cookie2=new Cookie(hostAddress+3,s);
+//
+        cookie.setMaxAge(1*24*60*60);
+        response.addCookie(cookie);
+        response.addCookie(cookie1);
+        response.addCookie(cookie2);
+        return "1";
+
+
+    }
+
+    @ResponseBody
+    @RequestMapping("testcookie2")
+    public String testcookie2(HttpServletRequest request) throws IOException, ClassNotFoundException {
+        Cookie cookies[]=request.getCookies();
+        Cookie cookies1[]=request.getCookies();
+        Cookie cookies2[]=request.getCookies();
+
+
+        String str="";
+        //获取ip
+        String hostAddress = InetAddress.getLocalHost().getHostAddress();
+        for (Cookie cookie:cookies
+                ) {
+            if((hostAddress+1).equals(cookie.getName())){
+                System.out.println(cookie.getValue());
+                str=cookie.getValue();
+            }
+
+        }
+        for (Cookie cookie:cookies1
+                ) {
+            if((hostAddress+2).equals(cookie.getName())){
+                System.out.println(cookie.getValue());
+                str=cookie.getValue();
+            }
+
+        }   for (Cookie cookie:cookies2
+                ) {
+            if((hostAddress+3).equals(cookie.getName())){
+                System.out.println(cookie.getValue());
+                str=cookie.getValue();
+            }
+
+        }
+
+
+
+
+
+        str=str.replaceAll("'","\"");
+        str=str.replaceAll("=",",");
+        return str;
+    }
+
 
 
 
