@@ -16,7 +16,6 @@
  */
 package com.jk.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.jk.model.Company;
 import com.jk.model.Companyresume;
@@ -27,17 +26,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.net.InetAddress;
 import java.util.List;
 import java.util.Map;
 
 /**
- * 〈一句话功能简述〉<br> 
+ * 〈一句话功能简述〉<br>
  * 〈公司控制层〉
  *
  * @author chang
@@ -92,14 +87,12 @@ public class CompanycltController {
     }
     @RequestMapping("showjoblist")
     public String showjoblist(String  str, HttpServletRequest request){
-
+        request.setAttribute("usergrxxid",str);
         Map<String,Object> map= companycltService.selectjobbyid(str);
         request.setAttribute("map",map);
 
-        return "/company-view/showaddzhiwei";
+        return "UserIndex/personalInfo";
     }
-
-
     @RequestMapping("updatejobstatus")
     @ResponseBody
     public void updatejobstatus(Integer showstatus,String  ids){
@@ -168,7 +161,7 @@ public class CompanycltController {
         request.getSession().setAttribute("company",company);
         request.getSession().setAttribute("job",job);
 
-    return "qiantai/jobxiangqing";
+        return "qiantai/jobxiangqing";
     }
     @RequestMapping("selectgongsiandjob")
     public String selectgongsiandjob(String id,HttpServletRequest request){
@@ -205,94 +198,23 @@ public class CompanycltController {
         return "1";
     }
 
-@ResponseBody
-@RequestMapping("addcompanyresume")
-   public  void  addcompanyresume(Companyresume companyresume){
-    companycltService.addcompanyresume(companyresume);
-
-
-   }
-
-
-@ResponseBody
-@RequestMapping("querycompanyresume")
-public String querycompanyresume(String companyid, String usergrxxid){
-
-   String status = companycltService.querycompanyresume(companyid,usergrxxid);
-
-  return status;
-}
-
     @ResponseBody
-    @RequestMapping("testcookie")
-    public String testcookie(Company str, HttpServletResponse response) throws IOException, ClassNotFoundException {
-
-        String s= JSON.toJSONString(str);
-        s=  s.replaceAll(",","=");
-        s= "\""+s.replaceAll("\"","'")+"\"";
-        System.out.println(s);
-        //获取ip
-        String hostAddress = InetAddress.getLocalHost().getHostAddress();
-
-        System.out.println(hostAddress);
-
-        Cookie cookie=new Cookie(hostAddress+1,s);
-        Cookie cookie1=new Cookie(hostAddress+2,s);
-        Cookie cookie2=new Cookie(hostAddress+3,s);
-//
-        cookie.setMaxAge(1*24*60*60);
-        response.addCookie(cookie);
-        response.addCookie(cookie1);
-        response.addCookie(cookie2);
-        return "1";
+    @RequestMapping("addcompanyresume")
+    public  void  addcompanyresume(Companyresume companyresume){
+        companycltService.addcompanyresume(companyresume);
 
 
     }
 
+
     @ResponseBody
-    @RequestMapping("testcookie2")
-    public String testcookie2(HttpServletRequest request) throws IOException, ClassNotFoundException {
-        Cookie cookies[]=request.getCookies();
-        Cookie cookies1[]=request.getCookies();
-        Cookie cookies2[]=request.getCookies();
+    @RequestMapping("querycompanyresume")
+    public String querycompanyresume(String companyid, String usergrxxid){
 
+        String status = companycltService.querycompanyresume(companyid,usergrxxid);
 
-        String str="";
-        //获取ip
-        String hostAddress = InetAddress.getLocalHost().getHostAddress();
-        for (Cookie cookie:cookies
-                ) {
-            if((hostAddress+1).equals(cookie.getName())){
-                System.out.println(cookie.getValue());
-                str=cookie.getValue();
-            }
-
-        }
-        for (Cookie cookie:cookies1
-                ) {
-            if((hostAddress+2).equals(cookie.getName())){
-                System.out.println(cookie.getValue());
-                str=cookie.getValue();
-            }
-
-        }   for (Cookie cookie:cookies2
-                ) {
-            if((hostAddress+3).equals(cookie.getName())){
-                System.out.println(cookie.getValue());
-                str=cookie.getValue();
-            }
-
-        }
-
-
-
-
-
-        str=str.replaceAll("'","\"");
-        str=str.replaceAll("=",",");
-        return str;
+        return status;
     }
-
 
 
 
