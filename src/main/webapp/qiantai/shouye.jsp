@@ -556,14 +556,14 @@
             type:"post",
             dataType:"json",
             success:function (job) {
-
 //                <li><a href='#'  class="linkss">1博为峰 名企高薪诚招大专本科生</a>
 //                </li>
 
                 var str="";
                 for(i=0;i<job.length;i++){
 
-                    str +="<li><a target='true' href='<%=request.getContextPath()%>/notice/noticesids.do?noticeid="+job[i].noticeid+"' class='linkss'>"+job[i].noticename+"</a></li>"
+                 //   str +="<li><a target='true' href='<%=request.getContextPath()%>/freemarkera/freemarkerb.do?noticeid="+job[i].noticeid+"' class='linkss'>"+job[i].noticename+"</a></li>"
+                    str +="<li><a target='true' onclick=' ckgonggaoxq("+job[i].noticeid+") ' class='linkss'>"+job[i].noticename+"</a></li>"
 
                 }
 
@@ -590,7 +590,21 @@
 
 
     }
+    function ckgonggaoxq(noticeid){
+        $.ajax({
+            url:"<%=request.getContextPath()%>/freemarkera/freemarkerb.do",
+            data:{"noticeid":noticeid},
+            type:"post",
+            dataType:"json",
+            success:function (job) {
+                location.href="../qiantai/templates/Freemarker.html"
+            },
+            erro:function () {
+                alert("呦呵呵，公告详情查询失败！！！");
+            }
+        })
 
+    }
 
 </script>
 

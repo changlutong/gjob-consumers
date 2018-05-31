@@ -23,6 +23,7 @@ public class Company implements Serializable{
     private String username;
 
     private String password;
+    private String password_again;
     private String ycode;
 
 
@@ -41,6 +42,14 @@ public class Company implements Serializable{
 
     private Integer category;
     private String idcardpicture;
+
+    public String getPassword_again() {
+        return password_again;
+    }
+
+    public void setPassword_again(String password_again) {
+        this.password_again = password_again;
+    }
 
     public String getIdcardpicturefan() {
         return idcardpicturefan;
@@ -208,6 +217,7 @@ public class Company implements Serializable{
                 ", companyfixedphone='" + companyfixedphone + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", password_again='" + password_again + '\'' +
                 ", ycode='" + ycode + '\'' +
                 ", email='" + email + '\'' +
                 ", tradinglicense='" + tradinglicense + '\'' +

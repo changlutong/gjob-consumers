@@ -2,11 +2,12 @@ package com.jk.controller;
 
 import com.aliyun.oss.OSSClient;
 import com.jk.model.Company;
-import com.jk.model.Mail;
+
 import com.jk.service.ICompanyService;
-import com.jk.util.EmailUtil;
+
 import com.jk.util.HttpClient;
 import org.apache.commons.fileupload.disk.DiskFileItem;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,19 +16,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
-import javax.mail.MessagingException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import java.io.*;
+
+import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-
-import static org.apache.poi.hslf.record.RecordTypes.List;
 
 /**
  * Created by yuankang on 2018/5/15.
@@ -59,6 +58,9 @@ public class CompanyController {
     public String tosavecompany(Company company ,HttpSession session){
 
         Long fasongtime=(Long) session.getAttribute("fasongtime");
+        if(fasongtime==null){
+            return "5";
+        }
         Long shijiancha=(new Date().getTime()-fasongtime)/1000;
         String code=(String) session.getAttribute("ccode");
         if(shijiancha>60){
@@ -224,16 +226,19 @@ public void updateCompanyPassword(Company company){
     }
 
     /**
-     * 公司登陆
+     * 公司登陆a
      * @return
      */
-    @RequestMapping("tuichudenglu")
+    @RequestMapping("tuichudengluyk")
+    @ResponseBody
     public String tuichudenglu(HttpSession session){
 
         session.invalidate();
 
-        return "/company/companyLogin";
+        return "1";
     }
+
+
 
 
 

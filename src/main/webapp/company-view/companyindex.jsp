@@ -23,17 +23,10 @@
 
     <li class="layui-nav-item "><a href="<%=request.getContextPath()%>/qiantai/shouye.jsp">我的智联</a></li>
     <li class="layui-nav-item"><a href="">大数据</a></li>
-    <li class="layui-nav-item">
-        <a href="javascript:;">解决方案</a>
-        <dl class="layui-nav-child">
-            <dd><a href="">移动模块</a></dd>
-            <dd><a href="">后台模版</a></dd>
-            <dd><a href="">电商平台</a></dd>
-        </dl>
-    </li>
+
     <li class="layui-nav-item"><a href="">社区</a></li> &nbsp;&nbsp;&nbsp;
        <li class="layui-nav-item">欢迎<font color="red">&nbsp;${companyname}</font> 登陆!</li>
-       <li class="layui-nav-item"><a  onclick="tuichudenglu()">退出登陆</a></li>
+       <li class="layui-nav-item"><a href="" onclick="tuichudenglu()">退出登陆</a></li>
    </div>
 </ul>
 </div>
@@ -66,14 +59,37 @@
     </iframe>
     </div>
 </div>
+<!-- 这是jquery的核心包  -->
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 
 <script>
+    function tuichudenglu() {
 
-   function tuichudenglu () {
+        $.ajax({
+            url:"<%=request.getContextPath()%>/companyController/tuichudengluyk.do",
+            type:"post",
+            dataType:"json",
+            // async:false,
+            success:function(result){
 
-    location.href="<%=request.getContextPath()%>/companyController/tuichudenglu.do";
-       
-   }
+                if(result=="1"){
+                    top.location.href="<%=request.getContextPath()%>/company/companyLogin.jsp";
+                }
+
+            },error:function(){
+                alert("有点小问题")
+            }
+        })
+
+
+    }
+
+
+
+
+</script>
+<script>
+
     layui.use('element', function(){
         var element = layui.element
             ,layer = layui.layer; //导航的hover效果、二级菜单等功能，需要依赖element模块

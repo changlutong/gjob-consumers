@@ -11,7 +11,6 @@
 package com.jk.controller;
 
 import com.jk.model.Activity;
-import com.jk.model.BankType;
 import com.jk.service.IActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

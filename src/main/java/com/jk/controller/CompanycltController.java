@@ -204,23 +204,23 @@ public class CompanycltController {
         return "1";
     }
 
-@ResponseBody
-@RequestMapping("addcompanyresume")
-   public  void  addcompanyresume(Companyresume companyresume){
-    companycltService.addcompanyresume(companyresume);
+    @ResponseBody
+    @RequestMapping("addcompanyresume")
+    public  void  addcompanyresume(Companyresume companyresume){
+        companycltService.addcompanyresume(companyresume);
 
 
-   }
+    }
 
 
-@ResponseBody
-@RequestMapping("querycompanyresume")
-public String querycompanyresume(String companyid, String usergrxxid){
+    @ResponseBody
+    @RequestMapping("querycompanyresume")
+    public String querycompanyresume(String companyid, String usergrxxid){
 
-   String status = companycltService.querycompanyresume(companyid,usergrxxid);
+        String status = companycltService.querycompanyresume(companyid,usergrxxid);
 
-  return status;
-}
+        return status;
+    }
 /*@ResponseBody
 @ResponseBody
 @RequestMapping("testcookie2")
@@ -241,6 +241,13 @@ public String testcookie2(HttpServletRequest request) throws IOException, ClassN
 }*/
 
 
+
+    @ResponseBody
+    @RequestMapping("ompanyemaliz")
+    public  void  companyemaliz(String email,String grxxname){
+     companycltService.companyemaliz(email,grxxname);
+
+    }
 
 
 }

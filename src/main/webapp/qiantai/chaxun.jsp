@@ -117,16 +117,16 @@
 
         </div>
 
-        <%--<div class="bft_f_3">--%>
-            <%--<ul>--%>
-                <%--<li>第<span>3</span>页</li>--%>
-                <%--<li><a href="#">首页</a></li>--%>
-                <%--<li><a href="#">上一页</a> </li>--%>
-                <%--<li><a href="#">下一页</a> </li>--%>
-                <%--<li><a href="#">尾页</a></li>--%>
-                <%--<li><a href="#">共5页</a></li>--%>
-            <%--</ul>--%>
-        <%--</div>--%>
+        <div class="bft_f_3">
+            <ul>
+                <li>第<span  id="dangqianye">1</span>页</li>
+                <li><a href="java:script" onclick="tiaoshouye()">首页</a></li>
+                <li><a href="java:script" onclick="shangyiye()">上一页</a> </li>
+                <li><a href="java:script" onclick="xiayiye()">下一页</a> </li>
+                <li><a href="java:script" onclick="tiaoweiye()">尾页</a></li>
+                <li>共<span   id="zongyeshu"></span>页</li>
+            </ul>
+        </div>
     </div>
     <!--   -->
     <!-- 友情链接开始 -->
@@ -218,7 +218,8 @@ $(function(){
 
 
     $.ajax({
-        url:"<%=request.getContextPath()%>/companycltController/selectalljob.do",
+        url:"<%=request.getContextPath()%>/solrController/getsolrjoblist.do",
+        data:{"page":1},
         type:"post",
         dataType:"json",
         async:false,
@@ -226,16 +227,18 @@ $(function(){
 
 
             var str="";
-            for(i=0;i<zhaopin.length;i++){
+            for(i=0;i<zhaopin.rows.length;i++){
 
-                str +="<div class='bft_f_2'> <ul ><li><span>"+zhaopin[i].companyphone+"</span></li>" +
-                    "<li>"+zhaopin[i].workname+"</li>" +
-                    "<li>"+zhaopin[i].workinfo+"</li>" +
-                    "<li>"+zhaopin[i].salary+"</li>" +
-                    "<li><img src='images/shenqing.jpg'  onclick='toudijianli(\""+zhaopin[i].id+"\")'  /></li></ul></div>"
+                str +="<div class='bft_f_2'> <ul ><li><span>"+zhaopin.rows[i].companyphone+"</span></li>" +
+                    "<li>"+zhaopin.rows[i].workname+"</li>" +
+                    "<li>"+zhaopin.rows[i].workinfo+"</li>" +
+                    "<li>"+zhaopin.rows[i].salary+"</li>" +
+                    "<li><img src='images/shenqing.jpg'  onclick='toudijianli(\""+zhaopin.rows[i].id+"\")'  /></li></ul></div>"
 
             }
+            var zongyetiaoshu= zhaopin.total
             $("#neirongzhanshi").html(str);
+            $("#zongyeshu").html(Math.ceil(zongyetiaoshu/10));
 
         },
         error:function () {
@@ -245,7 +248,7 @@ $(function(){
 
 })
 
-            function getsolrlistclt() {
+    function getsolrlistclt() {
                 var aa =$("#tags").val();
                 $.ajax({
                     url:"<%=request.getContextPath()%>/solrController/getsolrjoblist.do",
@@ -273,6 +276,7 @@ $(function(){
                         }
 
                         $("#neirongzhanshi").html(str);
+                        $("#zongyeshu").html(Math.ceil(xiangqing.total/10));
                     },
                     error:function () {
                         alert("出问题啦")
@@ -298,8 +302,168 @@ $(function(){
         })
 
     }
+    function tiaoweiye(){
+        var pages =document.getElementById("zongyeshu").innerText;
+
+        var dangqianye=document.getElementById("dangqianye").innerText;
+
+        if(pages==dangqianye){
+
+            alert("已经是尾页")
+        }else{
+
+        $.ajax({
+            url:"<%=request.getContextPath()%>/solrController/getsolrjoblist.do",
+            data:{"page":pages},
+            type:"post",
+            dataType:"json",
+            async:false,
+            success:function (zhaopin) {
 
 
+                var str="";
+                for(i=0;i<zhaopin.rows.length;i++){
+
+                    str +="<div class='bft_f_2'> <ul ><li><span>"+zhaopin.rows[i].companyphone+"</span></li>" +
+                        "<li>"+zhaopin.rows[i].workname+"</li>" +
+                        "<li>"+zhaopin.rows[i].workinfo+"</li>" +
+                        "<li>"+zhaopin.rows[i].salary+"</li>" +
+                        "<li><img src='images/shenqing.jpg'  onclick='toudijianli(\""+zhaopin.rows[i].id+"\")'  /></li></ul></div>"
+
+                }
+
+                $("#neirongzhanshi").html(str);
+                $("#dangqianye").html((zhaopin.page/10)+1);
+
+            },
+            error:function () {
+                alert("出问题啦")
+            }
+        })
+        }
+    }
+    function tiaoshouye(){
+        var pages=1;
+
+        var dangqianye=document.getElementById("dangqianye").innerText;
+        if(dangqianye==1){
+
+        alert("已经是首页")
+
+        }else{
+        $.ajax({
+            url:"<%=request.getContextPath()%>/solrController/getsolrjoblist.do",
+            data:{"page":pages},
+            type:"post",
+            dataType:"json",
+            async:false,
+            success:function (zhaopin) {
+
+
+                var str="";
+                for(i=0;i<zhaopin.rows.length;i++){
+
+                    str +="<div class='bft_f_2'> <ul ><li><span>"+zhaopin.rows[i].companyphone+"</span></li>" +
+                        "<li>"+zhaopin.rows[i].workname+"</li>" +
+                        "<li>"+zhaopin.rows[i].workinfo+"</li>" +
+                        "<li>"+zhaopin.rows[i].salary+"</li>" +
+                        "<li><img src='images/shenqing.jpg'  onclick='toudijianli(\""+zhaopin.rows[i].id+"\")'  /></li></ul></div>"
+
+                }
+
+                $("#neirongzhanshi").html(str);
+                $("#dangqianye").html(zhaopin.page+1);
+
+            },
+            error:function () {
+                alert("出问题啦")
+            }
+        })
+        }
+    }
+    function xiayiye(){
+
+        var dangqianye=document.getElementById("dangqianye").innerText;
+        var zongyeshu=document.getElementById("zongyeshu").innerText;
+
+        if(dangqianye==zongyeshu){
+
+            alert("已经是尾页了")
+        }else{
+
+        var dangqianyes= parseInt(dangqianye)+1;
+
+        $.ajax({
+            url:"<%=request.getContextPath()%>/solrController/getsolrjoblist.do",
+            data:{"page":dangqianyes},
+            type:"post",
+            dataType:"json",
+            async:false,
+            success:function (zhaopin) {
+
+
+                var str="";
+                for(i=0;i<zhaopin.rows.length;i++){
+
+                    str +="<div class='bft_f_2'> <ul ><li><span>"+zhaopin.rows[i].companyphone+"</span></li>" +
+                        "<li>"+zhaopin.rows[i].workname+"</li>" +
+                        "<li>"+zhaopin.rows[i].workinfo+"</li>" +
+                        "<li>"+zhaopin.rows[i].salary+"</li>" +
+                        "<li><img src='images/shenqing.jpg'  onclick='toudijianli(\""+zhaopin.rows[i].id+"\")'  /></li></ul></div>"
+
+                }
+
+                $("#neirongzhanshi").html(str);
+                $("#dangqianye").html((zhaopin.page/10)+1);
+
+            },
+            error:function () {
+                alert("出问题啦")
+            }
+        })
+        }
+    }
+    function shangyiye(){
+        var dangqianye=document.getElementById("dangqianye").innerText;
+
+
+        if(dangqianye==1){
+
+            alert("已经是首页了")
+        }else{
+
+            var dangqianyes= parseInt(dangqianye)-1;
+
+            $.ajax({
+                url:"<%=request.getContextPath()%>/solrController/getsolrjoblist.do",
+                data:{"page":dangqianyes},
+                type:"post",
+                dataType:"json",
+                async:false,
+                success:function (zhaopin) {
+
+
+                    var str="";
+                    for(i=0;i<zhaopin.rows.length;i++){
+
+                        str +="<div class='bft_f_2'> <ul ><li><span>"+zhaopin.rows[i].companyphone+"</span></li>" +
+                            "<li>"+zhaopin.rows[i].workname+"</li>" +
+                            "<li>"+zhaopin.rows[i].workinfo+"</li>" +
+                            "<li>"+zhaopin.rows[i].salary+"</li>" +
+                            "<li><img src='images/shenqing.jpg'  onclick='toudijianli(\""+zhaopin.rows[i].id+"\")'  /></li></ul></div>"
+
+                    }
+
+                    $("#neirongzhanshi").html(str);
+                    $("#dangqianye").html((zhaopin.page/10)+1);
+
+                },
+                error:function () {
+                    alert("出问题啦")
+                }
+            })
+        }
+    }
 
 
 

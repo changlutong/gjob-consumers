@@ -57,11 +57,12 @@
             </div>
         </label>
 
+
         <div class="login-btn">
             <div class="user-btn-link">
-                <a href="zhuce.jsp">注册企业版</a>
+                <a href="<%=request.getContextPath()%>/company/zhuce.jsp">注册企业版</a>
             </div> <div class="user-btn-link">
-                <a href="resetPassword.jsp">找回密码？</a>
+                <a href="<%=request.getContextPath()%>/company/resetPassword.jsp">找回密码？</a>
             </div>
             <button onclick="denglua()" type="button">登录</button>
 <%--  <input type="button" onclick="denglua()">--%>
@@ -75,6 +76,10 @@
 </body>
 
 <script>
+
+
+
+
 $(function () {
 
 var code = $("#code").val("jsaidaisd656");
