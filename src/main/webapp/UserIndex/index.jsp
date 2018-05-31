@@ -96,7 +96,7 @@
 
                     var count = succen.length
                     if (count > 0){
-                        var divphoto = " <center><span id='tp'><img src='"+succen[0].zpfjurl+"' style='width:200px;heighe:190px'/></span><br></center><br><div><center><img src='<%=request.getContextPath()%>/UserIndex/imgs/sx.jpg' onclick='sx()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/xg.jpg' onclick='xiugai()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/jltd.jpg' onclick='jltds()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/wdtd.jpg' onclick='wdtds()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/hdsy.jpg'onclick='hdzy()'/></center></div>"
+                        var divphoto = " <center><span id='tp'><img src='"+succen[0].zpfjurl+"' style='width:120px;heighe:80px'/></span><br></center><br><div><center><img src='<%=request.getContextPath()%>/UserIndex/imgs/sx.jpg' onclick='sx()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/xg.jpg' onclick='xiugai()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/jltd.jpg' onclick='jltds()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/wdtd.jpg' onclick='wdtds()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/hdsy.jpg'onclick='hdzy()'/></center></div>"
                         $("#divphoto").html(divphoto);
                     }else{
                         var divphoto = " <center><span id='tp'><img src='<%=request.getContextPath()%>/UserIndex/imgs/123.jpg'/></span><br></center><br><div><center><img src='<%=request.getContextPath()%>/UserIndex/imgs/sx.jpg'  onclick='sx()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/xg.jpg'  onclick='xiugai()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/jltd.jpg' onclick='jltds()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/wdtd.jpg'onclick='wdtds()'/><img src='<%=request.getContextPath()%>/UserIndex/imgs/hdsy.jpg'onclick='hdzy()'/></center></div>"
@@ -159,8 +159,8 @@ $(function(){
 
                 $("#spanname").html(succen[0].grxxname);
                 var sexs = "男";
-                if(succen[0].grxxname == 1 ){
-                    sexs == "女";
+                if(succen[0].sex == 1 ){
+                    sexs = "女";
                 }
                 $("#spansex").html(sexs);
                 $("#spanmail").html(succen[0].email);

@@ -35,8 +35,8 @@
 
 <body class="bft_bg">
 <!-- top内容开始 -->
-<input type="hidden" id="companyid" value="${userid}"/><%----%>
-
+<input type="hidden" id="companyid" value="${companyid}"/>
+<input type="hidden" id="userid" value="${tpersonal[0].uuids}"/>
 <div class="top">
     <div class="top_a">
         <div class="top_a1">
@@ -140,22 +140,20 @@
         zlsAndcsh(companyid)
     })
   /**
-   * 找找类似 and 初始化方法
+   * 初始化方法
    */
   function zlsAndcsh(companyid){
-      $.ajax({
-          url:"<%=request.getContextPath()%>/userdatumController/selectallwdtdxq.do",
+
+      var userid = $("#userid").val()
+      $.ajax({//selectallwdtdxq
+          url:"<%=request.getContextPath()%>/userdatumController/selectJobDetails.do",
           type:"post",
-          data:{"companyid":companyid},
+          data:{"companyid":companyid,"userid":userid},
           dataType:"json",
           success:function (company) {
 
-              var tableDiv = "";
-
-              for(var i =0; i<company.length; i++){
-
-                  tableDiv+=" <table width='600' border='1' cellspacing='1' cellpadding='1'><tr><td>职位名称：<span id='zwei'>"+company[0].workname+"</span></td><td>月薪：<span>"+company[0].salary+"</span></td></tr><tr><td>招聘人数:"+company[0].worknum+"</td><td>最低学历:"+company[0].eduback+"</td></tr><tr><td>工作经验:"+company[0].workexp+"</td><td>工作性质：<span id='xingz'>"+company[0].workpro+"</span></td> </tr><tr> <td>工作地点：<span id='ddian'>"+company[0].workspace+"</span></td></tr><tr><td>联系电话：<i>"+company[0].companyphone+"</i></td> </tr><tr><td>ID:<i>"+company[0].id+"</i></td></tr></table>"
-              }
+            //应该查回一条数据来
+              var  tableDiv = " <table width='600' border='1' cellspacing='1' cellpadding='1'><tr><td>职位名称：<span id='zwei'>"+company[0].workname+"</span></td><td>月薪：<span>"+company[0].salary+"</span></td></tr><tr><td>招聘人数:"+company[0].worknum+"</td><td>最低学历:"+company[0].eduback+"</td></tr><tr><td>工作经验:"+company[0].workexp+"</td><td>工作性质：<span id='xingz'>"+company[0].workpro+"</span></td> </tr><tr> <td>工作地点：<span id='ddian'>"+company[0].workspace+"</span></td></tr><tr><td>联系电话：<i>"+company[0].companyphone+"</i></td> </tr><tr><td>ID:<i>"+company[0].id+"</i></td></tr></table>"
               $("#neirongzhanshi").html(tableDiv)
               $("#spangsjs").html(company[0].workinfo)
               zhaoxs();
@@ -166,19 +164,22 @@
       })
   }
 
-
+/**
+ * 找类似
+ **/
             function zhaoxs(){
-                var zwei =  $("#zwei").html()
+                var zweis =  $("#zwei").html()
                 var xingz =  $("#xingz").html()
                 var ddian =  $("#ddian").html()
-
+                var zwei = zweis.substring(0,zweis.length-2)
+            alert(zwei)
                 $.ajax({
                     url:"<%=request.getContextPath()%>/userdatumController/selectzls.do",
                     type:"post",
                     data:{"zwei":zwei,"xingz":xingz,"ddian":ddian},
                     dataType:"json",
                     success:function (zxs) {
-                        alert(zxs)
+
                         var tableDiv = "";
                         for(var i =0; i<zxs.length; i++){
                             tableDiv+=" <li> <a onclick='zlsAndcshtt(\""+zxs[i].id+"\")'><p><span>"+zxs[i].workname+"</span></p><p>薪资："+zxs[i].salary+"</p> </a></li>"

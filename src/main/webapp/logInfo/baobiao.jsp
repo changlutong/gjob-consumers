@@ -43,7 +43,7 @@
             type:'post',
 
             success:function(result){
-                alert(result)
+
                 var dom = document.getElementById("container");
                 var myChart = echarts.init(dom);
                 var app = {};

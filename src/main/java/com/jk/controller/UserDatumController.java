@@ -248,7 +248,8 @@ public class UserDatumController {
     }
 
     /**
-     * queryuserpxjl
+     *
+     * 培训经历
      */
     @RequestMapping("queryuserpxjl")
     @ResponseBody
@@ -310,6 +311,34 @@ public class UserDatumController {
         return list;
     }
 
+    @RequestMapping("tym")
+    @ResponseBody
+    public String tym(String companyid,HttpServletRequest request){
+            request.getSession().setAttribute("companyid", companyid);
+        return "1";
+    }
+    /**
+     *
+     */
+
+    @RequestMapping("selectJobDetails")
+    @ResponseBody
+    public List<Map<String,Object>>selectJobDetails(String companyid,String userid){
+        List<Map<String,Object>> list = userdatum.selectJobDetails(companyid,userid);
+        System.out.println(list.toString());
+        return list;
+    }
+    /**
+     * 找类似 先关职位
+     */
+    @RequestMapping("selectzls")
+    @ResponseBody
+    public List<Map<String,Object>>selectzls(String zwei,String xingz,String ddian){
+        List<Map<String,Object>> list = userdatum.selectzls(zwei,xingz,ddian);
+        System.out.println(list.toString());
+        return list;
+    }
+
     /**
      *   发验证码
      */
@@ -354,6 +383,17 @@ public class UserDatumController {
             }
         }
         return "4";
+    }
+
+    /**
+     *   查询相关招聘
+     */
+    @RequestMapping("selectxgzp")
+    @ResponseBody
+    public List<Map<String,Object>>selectxgzp(String companyid){
+        List<Map<String,Object>> list = userdatum.selectxgzp(companyid);
+        System.out.println(list.toString());
+        return list;
     }
 
 

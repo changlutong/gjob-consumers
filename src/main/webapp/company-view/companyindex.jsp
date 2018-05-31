@@ -63,27 +63,32 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 
 <script>
+    function tuichudenglu() {
 
-   function tuichudenglu () {
+        $.ajax({
+            url:"<%=request.getContextPath()%>/companyController/tuichudengluyk.do",
+            type:"post",
+            dataType:"json",
+            // async:false,
+            success:function(result){
 
-       $.ajax({
-           url:"<%=request.getContextPath()%>/companyController/tuichudenglu.do",
-           type:"post",
-           dataType:"json",
-          // async:false,
-           success:function(result){
+                if(result=="1"){
+                    top.location.href="<%=request.getContextPath()%>/company/companyLogin.jsp";
+                }
 
-               if(result=="1"){
-                  top.location.href="<%=request.getContextPath()%>/company/companyLogin.jsp";
-               }
-
-           },error:function(){
-               alert("有点小问题")
-           }
-       })
+            },error:function(){
+                alert("有点小问题")
+            }
+        })
 
 
-   }
+    }
+
+
+
+
+</script>
+<script>
 
     layui.use('element', function(){
         var element = layui.element
