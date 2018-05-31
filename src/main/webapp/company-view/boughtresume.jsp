@@ -102,7 +102,7 @@
 </script>
 
 <script type="text/html" id="titleTpl">
-    {{# if(d.sex===1){ }}
+    {{# if(d.sex===0){ }}
     男
     {{# }else{ }}
     女
