@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Administrator on 2018/05/17.
@@ -85,7 +82,9 @@ public class NoticeController {
     @RequestMapping("/noticesids")
     @ResponseBody
     public List<Notice> noticesids(Integer noticeid){
-         List<Notice> list=noticeService.noticesids(noticeid);
+        Notice notice=noticeService.noticesids(noticeid);
+        List<Notice>  list =new ArrayList<Notice>();
+        list.add(notice);
         System.out.println(list);
         return list;
 
