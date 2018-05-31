@@ -16,6 +16,7 @@ import com.jk.model.Guanggao;
 
 import java.io.File;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 〈一句话功能简述〉<br> 
@@ -35,7 +36,7 @@ public interface IGuanggaoService {
     /**
      * 新增广告    孙国锦
      */
-    void saveguanggao(Guanggao guanggao);
+    Map<String ,Object> saveguanggao(Guanggao guanggao);
 
     /**
      * 广告审核   孙国锦
