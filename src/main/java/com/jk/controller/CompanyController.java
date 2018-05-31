@@ -234,7 +234,7 @@ public void updateCompanyPassword(Company company){
 
         session.invalidate();
 
-        return "/company/companyLogin";
+        return "1";
     }
 
 
